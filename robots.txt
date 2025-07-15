@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://brbousnguar.github.io/sitemap.xml
+
+# Allow search engines to crawl all content
+Crawl-delay: 1
+
+# Disallow crawling of certain file types that aren't necessary for SEO
+Disallow: /*.pdf$
+Disallow: /create_favicon.html

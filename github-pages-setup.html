@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Setup Guide - Publish to Root Domain</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 { color: #4c51bf; margin-bottom: 30px; }
+        h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; }
+        .step { 
+            background: #f8f9fa; 
+            border-left: 4px solid #667eea; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 5px;
+        }
+        .important { 
+            background: #fff3cd; 
+            border: 1px solid #ffeaa7; 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin: 15px 0;
+        }
+        .success { 
+            background: #d4edda; 
+            border: 1px solid #c3e6cb; 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin: 15px 0;
+        }
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .url {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+        .option {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .recommended {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .vs {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #667eea;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        ul li { margin: 8px 0; }
+        .highlight { background: #fef3c7; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 GitHub Pages Setup: Get Your Root Domain Working</h1>
+        
+        <div class="important">
+            <strong>Current Issue:</strong> You're getting a 404 because your repository name doesn't match the special GitHub Pages naming convention for root domains.
+        </div>
+
+        <h2>📍 Two Publishing Options</h2>
+
+        <div class="option recommended">
+            <h3>✅ Option 1: Root Domain (RECOMMENDED)</h3>
+            <div class="url">https://brbousnguar.github.io/</div>
+            <p><strong>Clean, professional URL without any path</strong></p>
+            <ul>
+                <li>✅ Better for SEO and professional sharing</li>
+                <li>✅ Easier to remember and share</li>
+                <li>✅ More professional appearance</li>
+                <li>⚠️ Requires specific repository name</li>
+            </ul>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="option">
+            <h3>Option 2: Project Repository</h3>
+            <div class="url">https://brbousnguar.github.io/my-portfolio/</div>
+            <p><strong>Uses your current repository name as path</strong></p>
+            <ul>
+                <li>✅ Works with any repository name</li>
+                <li>✅ Can have multiple project sites</li>
+                <li>❌ Longer URL with path</li>
+                <li>❌ Less professional appearance</li>
+            </ul>
+        </div>
+
+        <h2>🛠️ How to Set Up Root Domain (Option 1)</h2>
+
+        <div class="step">
+            <h3>Step 1: Create Special Repository</h3>
+            <p>Go to GitHub and create a new repository with this <span class="highlight">EXACT</span> name:</p>
+            <div class="code">brbousnguar.github.io</div>
+            <p><strong>Important:</strong> The repository name MUST be exactly <code>yourusername.github.io</code></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Upload Your Files</h3>
+            <p>Upload all these files to the new repository:</p>
+            <ul>
+                <li>📄 <code>index.html</code> (your main portfolio page)</li>
+                <li>📄 <code>about.html</code> (your about page)</li>
+                <li>🖼️ <code>favicon.png</code> (your favicon)</li>
+                <li>📄 <code>Brahim_Bousnguar_CV.pdf</code> (your CV)</li>
+                <li>🤖 <code>robots.txt</code> (SEO file)</li>
+                <li>🗺️ <code>sitemap.xml</code> (SEO sitemap)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Enable GitHub Pages</h3>
+            <ol>
+                <li>Go to your repository settings</li>
+                <li>Scroll down to "Pages" section</li>
+                <li>Under "Source", select "Deploy from a branch"</li>
+                <li>Choose "main" branch and "/ (root)" folder</li>
+                <li>Click "Save"</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Wait for Deployment</h3>
+            <p>GitHub Pages typically takes 1-10 minutes to deploy. You'll see a green checkmark when it's ready.</p>
+        </div>
+
+        <div class="success">
+            <strong>✅ After setup, your portfolio will be live at:</strong><br>
+            <code>https://brbousnguar.github.io/</code>
+        </div>
+
+        <h2>🔧 Alternative: Keep Current Setup (Option 2)</h2>
+
+        <div class="step">
+            <p>If you prefer to keep your current repository name, I can update the SEO configuration to use:</p>
+            <div class="code">https://brbousnguar.github.io/my-portfolio/</div>
+            <p>This will work immediately with your current setup, just let me know!</p>
+        </div>
+
+        <h2>📋 Quick Commands for Setup</h2>
+
+        <div class="step">
+            <h3>If you have Git installed:</h3>
+            <div class="code">
+# Clone your current files
+cd "C:\Users\brbou\OneDrive\Work\SQLI France\CV sqli\my-portfolio"
+
+# Initialize git repository
+git init
+git add .
+git commit -m "Initial portfolio commit"
+
+# Add remote (replace with your new repo URL)
+git remote add origin https://github.com/brbousnguar/brbousnguar.github.io.git
+git branch -M main
+git push -u origin main
+            </div>
+        </div>
+
+        <h2>🎯 Recommendation</h2>
+
+        <div class="important">
+            <strong>I recommend Option 1 (Root Domain)</strong> because:
+            <ul>
+                <li>🌟 More professional: <code>https://brbousnguar.github.io/</code></li>
+                <li>📈 Better for SEO rankings</li>
+                <li>💼 Easier to share with clients and employers</li>
+                <li>🔗 Cleaner for business cards and LinkedIn</li>
+            </ul>
+        </div>
+
+        <h2>❓ Need Help?</h2>
+        <p>Let me know which option you choose, and I can:</p>
+        <ul>
+            <li>✅ Help you create the repository</li>
+            <li>✅ Update SEO configuration accordingly</li>
+            <li>✅ Guide you through the deployment process</li>
+            <li>✅ Test that everything works correctly</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 10px;">
+            <p><strong>Your portfolio is ready to go live!</strong><br>
+            Just choose your preferred URL structure and follow the steps above.</p>
+        </div>
+    </div>
+</body>
+</html>
