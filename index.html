@@ -40,7 +40,7 @@
   
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-  <meta name="theme-color" content="#667eea">
+  <meta name="theme-color" content="#0066ff">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- JSON-LD Structured Data -->
@@ -92,59 +92,183 @@
   }
   </script>
   <style>
+    :root {
+      /* Light mode variables */
+      --primary-dark: #ffffff;
+      --secondary-dark: #f8f9fa;
+      --accent-blue: #0066ff;
+      --accent-cyan: #00d4ff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #6a6a6a;
+      --surface-dark: #ffffff;
+      --surface-light: #f5f5f5;
+      --border-subtle: rgba(0, 0, 0, 0.1);
+      --gradient-primary: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+      --gradient-surface: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      --shadow-elevation: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --glow-blue: 0 0 20px rgba(0, 102, 255, 0.3);
+    }
+    
+    [data-theme="dark"] {
+      /* Dark mode variables */
+      --primary-dark: #1a1a1a;
+      --secondary-dark: #2d2d2d;
+      --text-primary: #ffffff;
+      --text-secondary: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --surface-dark: #1e1e1e;
+      --surface-light: #2a2a2a;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --shadow-elevation: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #2d3748;
-      line-height: 1.7;
+      background: var(--primary-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
       font-weight: 400;
+      min-height: 100vh;
+      transition: all 0.3s ease;
     }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.95);
+    
+    [data-theme="light"] body {
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+    }
+    
+    [data-theme="dark"] body {
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: var(--surface-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50px;
+      padding: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       backdrop-filter: blur(10px);
-      padding: 3rem;
-      border-radius: 2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.2);
+      box-shadow: var(--shadow-elevation);
+    }
+    
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+    }
+    
+    .theme-toggle-option {
+      padding: 6px 10px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    
+    .theme-toggle-option.active {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: var(--glow-blue);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 1rem auto;
+      background: var(--surface-dark);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: var(--shadow-elevation);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 24px 24px 0 0;
     }
     h1 {
       font-family: 'Poppins', sans-serif;
-      color: #1a202c;
-      font-size: 2.5rem;
-      font-weight: 700;
+      color: var(--text-primary);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
       margin-bottom: 0.5rem;
       text-align: center;
+      letter-spacing: -0.02em;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     h2 {
       font-family: 'Poppins', sans-serif;
-      color: #2d3748;
-      font-size: 1.8rem;
-      font-weight: 600;
+      color: var(--text-primary);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
       margin-bottom: 1.5rem;
       margin-top: 2rem;
+      position: relative;
+      letter-spacing: -0.01em;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
     }
     h3 {
       font-family: 'Poppins', sans-serif;
-      color: #2d3748;
-      font-size: 1.3rem;
+      color: var(--accent-cyan);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
       font-weight: 600;
       margin-bottom: 1rem;
+      letter-spacing: -0.01em;
     }
     ul {
       padding-left: 1.5rem;
     }
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
     .section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border-radius: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--surface-light);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
       position: relative;
       overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border-color: rgba(0, 102, 255, 0.3);
     }
     .section::before {
       content: '';
@@ -152,97 +276,153 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
+      height: 2px;
+      background: var(--gradient-primary);
+      opacity: 0.8;
     }
     .tag {
       display: inline-block;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 0.4rem 1rem;
-      margin: 0.3rem;
-      border-radius: 2rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+      background: rgba(0, 102, 255, 0.1);
+      color: var(--accent-cyan);
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      border-radius: 12px;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-weight: 600;
+      border: 1px solid rgba(0, 212, 255, 0.3);
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
     .tag:hover {
+      background: rgba(0, 102, 255, 0.2);
       transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: var(--glow-blue);
+      border-color: var(--accent-cyan);
     }
     .lang-toggle {
       text-align: right;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .lang-toggle button {
       margin: 0.2rem;
-      padding: 0.5rem 1rem;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      border: none;
-      border-radius: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--surface-light);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: clamp(0.8rem, 2vw, 1rem);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      backdrop-filter: blur(10px);
     }
     .lang-toggle button.active {
-      background: linear-gradient(135deg, #4c51bf, #553c9a);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      background: var(--gradient-primary);
+      color: var(--text-primary);
+      border-color: var(--accent-blue);
+      box-shadow: var(--glow-blue);
     }
     .lang-toggle button:hover {
+      background: rgba(0, 102, 255, 0.1);
+      border-color: var(--accent-blue);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     }
     .lang-content { display: none; }
     .lang-content.active { display: block; }
     .social {
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .social a {
-      margin-right: 1rem;
-      color: #4c51bf;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      background: rgba(99, 102, 241, 0.1);
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
+      background: var(--surface-light);
       transition: all 0.3s ease;
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(10px);
+      font-size: clamp(0.8rem, 2vw, 1rem);
     }
     .social a:hover {
-      background: rgba(99, 102, 241, 0.2);
+      background: var(--gradient-primary);
       transform: translateY(-1px);
+      box-shadow: var(--glow-blue);
       text-decoration: none;
+      border-color: var(--accent-blue);
     }
     .nav-links a:hover {
-      background: rgba(99, 102, 241, 0.2) !important;
-      transform: translateY(-1px);
+      background: var(--gradient-primary) !important;
+      transform: translateY(-2px);
+      box-shadow: var(--glow-blue);
     }
-    @media (max-width: 600px) {
+    
+    /* Mobile-first responsive design */
+    @media (max-width: 768px) {
       .container { 
         padding: 1.5rem;
-        margin: 1rem;
-        border-radius: 1.5rem;
+        margin: 0.5rem;
+        border-radius: 20px;
       }
       .section {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
       }
-      h1 { 
-        font-size: 2rem; 
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 4px;
+        gap: 4px;
       }
-      h2 { 
-        font-size: 1.5rem; 
+      .theme-toggle-option {
+        padding: 4px 8px;
+        font-size: 10px;
       }
-      h3 {
-        font-size: 1.2rem;
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .lang-toggle button {
+        padding: 0.5rem 1rem;
+        margin: 0.1rem;
+      }
+      .social {
+        justify-content: center;
+        margin-bottom: 1rem;
       }
       .social a {
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
-        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      h2 {
+        margin-top: 1.5rem;
+      }
+      .tag {
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+        margin: 0.25rem;
+      }
+      .section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .theme-toggle-option {
+        font-size: 9px;
+        padding: 3px 6px;
+      }
+      .social a, .lang-toggle button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
       }
     }
   </style>
@@ -255,16 +435,74 @@
       const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
       if (btn) btn.classList.add('active');
     }
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update toggle button
+      const lightOption = document.getElementById('light-option');
+      const darkOption = document.getElementById('dark-option');
+      
+      if (newTheme === 'light') {
+        lightOption.classList.add('active');
+        darkOption.classList.remove('active');
+      } else {
+        darkOption.classList.add('active');
+        lightOption.classList.remove('active');
+      }
+    }
+    
     window.onload = function () {
       switchLang('en');
+      
+      // Detect system theme preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      
+      // Use saved theme if available, otherwise use system preference (default to light)
+      const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      
+      document.documentElement.setAttribute('data-theme', defaultTheme);
+      
+      // Update toggle button based on theme
+      const lightOption = document.getElementById('light-option');
+      const darkOption = document.getElementById('dark-option');
+      
+      if (defaultTheme === 'light') {
+        lightOption.classList.add('active');
+        darkOption.classList.remove('active');
+      } else {
+        darkOption.classList.add('active');
+        lightOption.classList.remove('active');
+      }
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) { // Only auto-switch if user hasn't set a preference
+          const newTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          
+          if (newTheme === 'light') {
+            lightOption.classList.add('active');
+            darkOption.classList.remove('active');
+          } else {
+            darkOption.classList.add('active');
+            lightOption.classList.remove('active');
+          }
+        }
+      });
     };
   </script>
 </head>
 <body>
   <div class="container">
-    <div style="text-align:right; margin-bottom:2rem;">
-      <a href="Brahim_Bousnguar_CV.pdf" target="_blank" style="color:#4c51bf; font-weight:600; padding: 0.5rem 1rem; border-radius: 2rem; background: rgba(99, 102, 241, 0.1); text-decoration: none; transition: all 0.3s ease;">Download CV (PDF)</a>
-      <a href="about.html" style="color:#4c51bf; font-weight:600; padding: 0.5rem 1rem; border-radius: 2rem; background: rgba(99, 102, 241, 0.1); text-decoration: none; transition: all 0.3s ease; margin-left: 1rem;">About Me</a>
+    <div style="text-align:right; margin-bottom:1.5rem; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem;">
+      <a href="Brahim_Bousnguar_CV.pdf" target="_blank" style="color: var(--text-primary); font-weight:600; padding: 0.6rem 1.2rem; border-radius: 12px; background: var(--surface-light); text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px); font-size: clamp(0.8rem, 2vw, 1rem);">Download CV (PDF)</a>
+      <a href="about.html" style="color: var(--text-primary); font-weight:600; padding: 0.6rem 1.2rem; border-radius: 12px; background: var(--surface-light); text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px); font-size: clamp(0.8rem, 2vw, 1rem);">About Me</a>
     </div>
     <div class="lang-toggle">
       <button onclick="switchLang('en')" aria-label="Switch to English">EN</button>
@@ -279,7 +517,7 @@
     <div id="en" class="lang-content">
       <header>
         <h1>Brahim BOUSNGUAR</h1>
-        <p style="font-size: 1.3rem; color: #4c51bf; font-weight: 600; text-align: center; margin-bottom: 3rem; font-family: 'Poppins', sans-serif;">Consultant SAP Commerce Cloud | Mulesoft Integrator</p>
+        <p style="font-size: clamp(1rem, 3vw, 1.4rem); color: var(--text-secondary); font-weight: 500; text-align: center; margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Consultant SAP Commerce Cloud | Mulesoft Integrator</p>
       </header>
 
       <section class="section" id="summary">
@@ -371,14 +609,14 @@
 
       <section class="section" id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a></p>
+        <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
       </section>
     </div>
 
     <div id="fr" class="lang-content">
       <header>
         <h1>Brahim BOUSNGUAR</h1>
-        <p style="font-size: 1.3rem; color: #4c51bf; font-weight: 600; text-align: center; margin-bottom: 3rem; font-family: 'Poppins', sans-serif;">Consultant SAP Commerce Cloud | Intégrateur Mulesoft</p>
+        <p style="font-size: clamp(1rem, 3vw, 1.4rem); color: var(--text-secondary); font-weight: 500; text-align: center; margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Consultant SAP Commerce Cloud | Intégrateur Mulesoft</p>
       </header>
 
       <div class="section">
@@ -469,9 +707,15 @@
 
       <div class="section">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a></p>
+        <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
       </div>
     </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <div class="theme-toggle-option" id="light-option">☀️ Light</div>
+    <div class="theme-toggle-option active" id="dark-option">🌙 Dark</div>
   </div>
 </body>
 </html>
