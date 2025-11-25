@@ -165,68 +165,112 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <div style="text-align:right; margin-bottom:1.5rem; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem;">
-      <a href="Brahim_Bousnguar_CV.pdf" target="_blank" style="color: var(--text-primary); font-weight:600; padding: 0.6rem 1.2rem; border-radius: 12px; background: var(--surface-light); text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px); font-size: clamp(0.8rem, 2vw, 1rem);">Download CV (PDF)</a>
-      <a href="about.html" style="color: var(--text-primary); font-weight:600; padding: 0.6rem 1.2rem; border-radius: 12px; background: var(--surface-light); text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px); font-size: clamp(0.8rem, 2vw, 1rem);">About Me</a>
+  <!-- Top Header -->
+  <header class="top-header">
+    <a href="index.html" class="logo">
+      <span>🚀</span> Brahim BOUSNGUAR
+    </a>
+    <div class="header-actions">
+      <div class="theme-toggle" onclick="toggleTheme()">
+        <button class="theme-toggle-option" id="light-option" aria-label="Light mode">☀️</button>
+        <button class="theme-toggle-option" id="dark-option" aria-label="Dark mode">🌙</button>
+      </div>
     </div>
-    <div class="lang-toggle">
-      <button onclick="switchLang('en')" aria-label="Switch to English">EN</button>
-      <button onclick="switchLang('fr')" aria-label="Switch to French">FR</button>
-    </div>
+  </header>
 
-    <div class="social">
-      <a href="https://github.com/brbousnguar" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank">LinkedIn</a>
-    </div>
+  <!-- Main Layout -->
+  <div class="page-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#summary" class="active">Summary</a></li>
+        <li><a href="#value-proposition">Value Proposition</a></li>
+        <li><a href="#professional-experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </aside>
 
-    <div id="en" class="lang-content">
-      <header>
-        <h1>Brahim BOUSNGUAR</h1>
-        <p style="font-size: clamp(1rem, 3vw, 1.4rem); color: var(--text-secondary); font-weight: 500; text-align: center; margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Senior E-Commerce Integration Consultant | 8+ Years SAP Commerce Cloud & MuleSoft</p>
-      </header>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator">›</span>
+          <span>CV</span>
+        </nav>
 
-      <section class="section" id="summary">
-        <h2>Summary</h2>
-        <p>Senior E-Commerce Integration Consultant with 8+ years of expertise bridging traditional e-commerce platforms with modern API-led integration architectures. Specialized in SAP Commerce Cloud (formerly Hybris) and MuleSoft Anypoint Platform, delivering end-to-end solutions for complex enterprise systems. Strong technical background in Java, microservices, cloud-native architectures, and system integration.</p>
-      </section>
-
-      <section class="section" id="value-proposition">
-        <h2>Unique Value Proposition</h2>
-        <p>I bridge the gap between e-commerce platforms and modern integration architectures. My unique combination of deep SAP Commerce Cloud expertise (8+ years) and emerging MuleSoft Anypoint proficiency enables me to design and deliver comprehensive integration solutions that connect legacy systems with cutting-edge technologies.</p>
-        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-          <strong style="color: var(--accent-blue); font-size: 1.1rem;">Why This Matters:</strong>
-          <ul style="margin-top: 0.75rem; color: var(--text-secondary);">
-            <li>End-to-end solution capability: from e-commerce domain expertise to API integration implementation</li>
-            <li>Rare skill set: Few professionals combine SAP Commerce mastery with MuleSoft integration skills</li>
-            <li>Future-ready approach: Experience in cloud-native migrations, microservices, and API-led connectivity</li>
-          </ul>
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+          <button onclick="switchLang('en')" aria-label="Switch to English">English</button>
+          <button onclick="switchLang('fr')" aria-label="Switch to French">Français</button>
         </div>
-      </section>
 
-      <section class="section" id="technical-skills">
-        <h2>Technical Skills</h2>
-        <ul>
-          <li><strong>E-Commerce Platforms:</strong> SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</li>
-          <li><strong>Integration & APIs:</strong> MuleSoft Anypoint Platform, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</li>
-          <li><strong>Languages:</strong> Java 17, JavaScript, HTML, CSS, Shell, Velocity, DataWeave</li>
-          <li><strong>Frameworks:</strong> Spring Boot, Spring Security, Spring Integration, Microservices Architecture</li>
-          <li><strong>DevOps & Cloud:</strong> Jenkins, Docker, Kubernetes, CI/CD Pipelines, SAP BTP, CCv2</li>
+        <!-- Quick Links -->
+        <div class="nav-links">
+          <a href="Brahim_Bousnguar_CV.pdf" target="_blank">📄 Download CV</a>
+          <a href="https://github.com/brbousnguar" target="_blank">🔗 GitHub</a>
+          <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank">🔗 LinkedIn</a>
+        </div>
+
+        <div id="en" class="lang-content">
+          <header>
+            <h1>Brahim BOUSNGUAR</h1>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 2rem;">Senior E-Commerce Integration Consultant | 8+ Years SAP Commerce Cloud & MuleSoft</p>
+          </header>
+
+          <section class="section" id="summary">
+            <div class="section-content">
+              <h2>Summary</h2>
+              <p>Senior E-Commerce Integration Consultant with 8+ years of expertise bridging traditional e-commerce platforms with modern API-led integration architectures. Specialized in SAP Commerce Cloud (formerly Hybris) and MuleSoft Anypoint Platform, delivering end-to-end solutions for complex enterprise systems. Strong technical background in Java, microservices, cloud-native architectures, and system integration.</p>
+            </div>
+          </section>
+
+          <section class="section" id="value-proposition">
+            <div class="section-content">
+              <h2>Unique Value Proposition</h2>
+              <p>I bridge the gap between e-commerce platforms and modern integration architectures. My unique combination of deep SAP Commerce Cloud expertise (8+ years) and emerging MuleSoft Anypoint proficiency enables me to design and deliver comprehensive integration solutions that connect legacy systems with cutting-edge technologies.</p>
+              <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--secondary-bg); border-radius: 6px; border-left: 3px solid var(--accent-blue);">
+                <strong style="color: var(--accent-blue);">Why This Matters:</strong>
+                <ul style="margin-top: 0.75rem; margin-bottom: 0; color: var(--text-secondary);">
+                  <li>End-to-end solution capability: from e-commerce domain expertise to API integration implementation</li>
+                  <li>Rare skill set: Few professionals combine SAP Commerce mastery with MuleSoft integration skills</li>
+                  <li>Future-ready approach: Experience in cloud-native migrations, microservices, and API-led connectivity</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="skills">
+            <div class="section-content">
+              <h2>Technical Skills</h2>
+              <ul>
+                <li><strong>E-Commerce Platforms:</strong> SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</li>
+                <li><strong>Integration & APIs:</strong> MuleSoft Anypoint Platform, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</li>
+                <li><strong>Languages:</strong> Java 17, JavaScript, HTML, CSS, Shell, Velocity, DataWeave</li>
+                <li><strong>Frameworks:</strong> Spring Boot, Spring Security, Spring Integration, Microservices Architecture</li>
+                <li><strong>DevOps & Cloud:</strong> Jenkins, Docker, Kubernetes, CI/CD Pipelines, SAP BTP, CCv2</li>
           <li><strong>Databases:</strong> MySQL, SAP Hana, PostgreSQL</li>
           <li><strong>Tools:</strong> Anypoint Studio, IntelliJ, VS Code, Postman, Kibana, Git</li>
         </ul>
       </section>
 
-      <section class="section" id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-          <li>SAP Certified Development Professional - SAP Commerce Cloud Developer (2023)</li>
-          <li>SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3 (2018)</li>
-        </ul>
-      </section>
+          <section class="section" id="certifications">
+            <div class="section-content">
+              <h2>Certifications</h2>
+              <ul>
+                <li>SAP Certified Development Professional - SAP Commerce Cloud Developer (2023)</li>
+                <li>SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3 (2018)</li>
+              </ul>
+            </div>
+          </section>
 
-      <section class="section" id="professional-experience">
-        <h2>Professional Experience</h2>
+          <section class="section" id="professional-experience">
+            <div class="section-content">
+              <h2>Professional Experience</h2>
         
         <h3>Roch Bobois (01/2025 – Present)</h3>
         <p><strong>MuleSoft Integration Specialist</strong> - API design and integration using MuleSoft Anypoint Platform for luxury furniture retailer.</p>
@@ -268,11 +312,13 @@
           <li>Developed custom integration adapters and data transformation layers for brand-specific requirements</li>
           <li>Established integration patterns and reusable components for future brand onboarding</li>
         </ul>
-      </section>
+            </div>
+          </section>
 
-      <section class="section" id="projects">
-        <h2>Featured Integration Projects</h2>
-        <div style="margin-top: 1rem;">
+          <section class="section" id="projects">
+            <div class="section-content">
+              <h2>Featured Integration Projects</h2>
+              <div style="margin-top: 1rem;">
           <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
             <strong style="color: var(--accent-blue); font-size: 1.15rem;">Roch Bobois - API-Led Integration Architecture</strong>
             <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>MuleSoft Anypoint Platform | E-Commerce Integration</em></p>
@@ -293,11 +339,13 @@
             <p style="margin-top: 1rem;">Architected and led technical implementation of enterprise B2B e-commerce platform serving multiple countries. Designed complex integration architecture connecting SAP Commerce Cloud with SAP ERP for real-time pricing, inventory, and order management. Implemented custom APIs for B2B-specific workflows including quote management and contract pricing.</p>
             <p style="margin-top: 0.75rem;"><strong>Key Achievements:</strong> Successfully migrated 15+ country sites; Integrated with SAP ERP for real-time data; Delivered headless B2B commerce capabilities.</p>
           </div>
-        </div>
-      </section>
+              </div>
+            </div>
+          </section>
 
-      <section class="section" id="skills-tags">
-        <h2>Expertise Tags</h2>
+          <section class="section" id="skills-tags">
+            <div class="section-content">
+              <h2>Expertise Tags</h2>
         <span class="tag">#SAP_COMMERCE_CLOUD</span>
         <span class="tag">#MULESOFT_ANYPOINT</span>
         <span class="tag">#ECOMMERCE_INTEGRATION</span>
@@ -313,32 +361,40 @@
         <span class="tag">#CLOUD_NATIVE</span>
         <span class="tag">#DEVOPS</span>
         <span class="tag">#AGILE</span>
-      </section>
+            </div>
+          </section>
 
-      <section class="section" id="education">
-        <h2>Education</h2>
-        <p>2015 - State Engineer in Computer Science & BI, INSEA Rabat</p>
-      </section>
+          <section class="section" id="education">
+            <div class="section-content">
+              <h2>Education</h2>
+              <p>2015 - State Engineer in Computer Science & BI, INSEA Rabat</p>
+            </div>
+          </section>
 
-      <section class="section" id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
-      </section>
-    </div>
+          <section class="section" id="contact">
+            <div class="section-content">
+              <h2>Contact</h2>
+              <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
+            </div>
+          </section>
+        </div>
 
-    <div id="fr" class="lang-content">
-      <header>
-        <h1>Brahim BOUSNGUAR</h1>
-        <p style="font-size: clamp(1rem, 3vw, 1.4rem); color: var(--text-secondary); font-weight: 500; text-align: center; margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Consultant Senior en Intégration E-Commerce | 8+ Ans SAP Commerce Cloud & MuleSoft</p>
-      </header>
+        <div id="fr" class="lang-content">
+          <header>
+            <h1>Brahim BOUSNGUAR</h1>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 2rem;">Consultant Senior en Intégration E-Commerce | 8+ Ans SAP Commerce Cloud & MuleSoft</p>
+          </header>
 
-      <div class="section">
-        <h2>Résumé</h2>
-        <p>Consultant Senior en Intégration E-Commerce avec plus de 8 ans d'expertise en conception de solutions reliant les plateformes e-commerce traditionnelles aux architectures d'intégration modernes basées sur les APIs. Spécialisé en SAP Commerce Cloud (anciennement Hybris) et MuleSoft Anypoint Platform, je livre des solutions end-to-end pour systèmes d'entreprise complexes. Solide bagage technique en Java, microservices, architectures cloud-native et intégration de systèmes.</p>
-      </div>
+          <section class="section">
+            <div class="section-content">
+              <h2>Résumé</h2>
+              <p>Consultant Senior en Intégration E-Commerce avec plus de 8 ans d'expertise en conception de solutions reliant les plateformes e-commerce traditionnelles aux architectures d'intégration modernes basées sur les APIs. Spécialisé en SAP Commerce Cloud (anciennement Hybris) et MuleSoft Anypoint Platform, je livre des solutions end-to-end pour systèmes d'entreprise complexes. Solide bagage technique en Java, microservices, architectures cloud-native et intégration de systèmes.</p>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Proposition de Valeur Unique</h2>
+          <section class="section">
+            <div class="section-content">
+              <h2>Proposition de Valeur Unique</h2>
         <p>Je fais le pont entre les plateformes e-commerce et les architectures d'intégration modernes. Ma combinaison unique d'expertise approfondie en SAP Commerce Cloud (8+ ans) et de compétences émergentes en MuleSoft Anypoint me permet de concevoir et livrer des solutions d'intégration complètes qui connectent les systèmes legacy aux technologies de pointe.</p>
         <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
           <strong style="color: var(--accent-blue); font-size: 1.1rem;">Pourquoi C'est Important :</strong>
@@ -347,11 +403,13 @@
             <li>Compétences rares : Peu de professionnels combinent la maîtrise de SAP Commerce avec les compétences d'intégration MuleSoft</li>
             <li>Approche orientée futur : Expérience en migrations cloud-native, microservices et API-led connectivity</li>
           </ul>
-        </div>
-      </div>
+              </div>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Compétences Techniques</h2>
+          <section class="section">
+            <div class="section-content">
+              <h2>Compétences Techniques</h2>
         <ul>
           <li><strong>Plateformes E-Commerce :</strong> SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</li>
           <li><strong>Intégration & APIs :</strong> MuleSoft Anypoint Platform, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</li>
@@ -361,18 +419,22 @@
           <li><strong>Bases de données :</strong> MySQL, SAP Hana, PostgreSQL</li>
           <li><strong>Outils :</strong> Anypoint Studio, IntelliJ, VS Code, Postman, Kibana, Git</li>
         </ul>
-      </div>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Certifications</h2>
+          <section class="section">
+            <div class="section-content">
+              <h2>Certifications</h2>
         <ul>
           <li>Certifié SAP Commerce Cloud Developer (2023)</li>
           <li>Certifié SAP Hybris Business Analyst 6.3 (2018)</li>
         </ul>
-      </div>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Expériences Professionnelles</h2>
+          <section class="section">
+            <div class="section-content">
+              <h2>Expériences Professionnelles</h2>
 
         <h3>Roch Bobois (01/2025 – Aujourd'hui)</h3>
         <p><strong>Spécialiste Intégration MuleSoft</strong> - Conception et intégration d'APIs avec MuleSoft Anypoint Platform pour enseigne de mobilier de luxe.</p>
@@ -413,9 +475,11 @@
           <li>Développement d'adaptateurs d'intégration personnalisés et couches de transformation de données pour exigences spécifiques aux marques</li>
           <li>Établissement de patterns d'intégration et composants réutilisables pour futurs onboardings de marques</li>
         </ul>
-      </div>
+            </div>
+          </section>
 
-      <div class="section">
+          <section class="section">
+            <div class="section-content">
         <h2>Projets d'Intégration Phares</h2>
         <div style="margin-top: 1rem;">
           <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
@@ -439,10 +503,12 @@
             <p style="margin-top: 0.75rem;"><strong>Réalisations Clés :</strong> Migration réussie de 15+ sites pays ; Intégration avec SAP ERP pour données temps réel ; Livraison de capacités commerce B2B headless.</p>
           </div>
         </div>
-      </div>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Tags d'Expertise</h2>
+          <section class="section">
+            <div class="section-content">
+              <h2>Tags d'Expertise</h2>
         <span class="tag">#SAP_COMMERCE_CLOUD</span>
         <span class="tag">#MULESOFT_ANYPOINT</span>
         <span class="tag">#INTEGRATION_ECOMMERCE</span>
@@ -458,24 +524,26 @@
         <span class="tag">#CLOUD_NATIVE</span>
         <span class="tag">#DEVOPS</span>
         <span class="tag">#AGILE</span>
-      </div>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Formation</h2>
-        <p>2015 - Ingénieur d'État en Informatique & BI, INSEA Rabat</p>
-      </div>
+          <section class="section">
+            <div class="section-content">
+              <h2>Formation</h2>
+              <p>2015 - Ingénieur d'État en Informatique & BI, INSEA Rabat</p>
+            </div>
+          </section>
 
-      <div class="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
+          <section class="section">
+            <div class="section-content">
+          <div class="section-content">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Theme Toggle -->
-  <div class="theme-toggle" onclick="toggleTheme()">
-    <div class="theme-toggle-option" id="light-option">☀️ Light</div>
-    <div class="theme-toggle-option active" id="dark-option">🌙 Dark</div>
-  </div>
+      </main>
+    </div>
 </body>
 </html>

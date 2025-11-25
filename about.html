@@ -108,21 +108,55 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <div class="nav-back">
-      <a href="/">← Back to Portfolio</a>
+  <!-- Top Header -->
+  <header class="top-header">
+    <a href="index.html" class="logo">
+      <span>🚀</span> Brahim BOUSNGUAR
+    </a>
+    <div class="header-actions">
+      <div class="theme-toggle" onclick="toggleTheme()">
+        <button class="theme-toggle-option" id="light-option" aria-label="Light mode">☀️</button>
+        <button class="theme-toggle-option" id="dark-option" aria-label="Dark mode">🌙</button>
+      </div>
     </div>
+  </header>
 
-    <div class="lang-toggle">
-      <button onclick="switchLang('en')" aria-label="Switch to English">EN</button>
-      <button onclick="switchLang('fr')" aria-label="Switch to French">FR</button>
-    </div>
+  <!-- Main Layout -->
+  <div class="page-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="index.html#summary">Summary</a></li>
+        <li><a href="index.html#value-proposition">Value Proposition</a></li>
+        <li><a href="index.html#professional-experience">Experience</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+      </ul>
+    </aside>
 
-    <div id="en" class="lang-content">
-      <h1>About Me</h1>
-      <p style="font-size: clamp(1rem, 3vw, 1.2rem); color: var(--text-muted); margin-bottom: 2rem; text-align: center; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
-        My journey from a fresh engineering graduate to a Senior E-Commerce Integration Consultant bridging traditional platforms with modern API-led architectures.
-      </p>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator">›</span>
+          <span>About Me</span>
+        </nav>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+          <button onclick="switchLang('en')" aria-label="Switch to English">English</button>
+          <button onclick="switchLang('fr')" aria-label="Switch to French">Français</button>
+        </div>
+
+        <div id="en" class="lang-content">
+          <h1>About Me</h1>
+          <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 400;">
+            My journey from a fresh engineering graduate to a Senior E-Commerce Integration Consultant bridging traditional platforms with modern API-led architectures.
+          </p>
 
       <div class="about-grid">
         <div class="about-card">
@@ -471,20 +505,16 @@
         </div>
       </div>
 
-      <div class="cta-section">
-        <h3>Prêt à travailler ensemble ?</h3>
-        <p>
-          Discutons de la façon dont ma combinaison unique d'expertise SAP Commerce Cloud et de compétences d'intégration MuleSoft peut aider à mener votre prochain projet de transformation e-commerce ou d'intégration vers le succès.
-        </p>
-        <a href="mailto:b.bousnguar@gmail.com" class="cta-button">Contactez-moi</a>
+          <div class="cta-section">
+            <h3>Prêt à travailler ensemble ?</h3>
+            <p>
+              Discutons de la façon dont ma combinaison unique d'expertise SAP Commerce Cloud et de compétences d'intégration MuleSoft peut aider à mener votre prochain projet de transformation e-commerce ou d'intégration vers le succès.
+            </p>
+            <a href="mailto:b.bousnguar@gmail.com" class="cta-button">Contactez-moi</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Theme Toggle -->
-  <div class="theme-toggle" onclick="toggleTheme()">
-    <div class="theme-toggle-option" id="light-option">☀️ Light</div>
-    <div class="theme-toggle-option active" id="dark-option">🌙 Dark</div>
+    </main>
   </div>
 </body>
 </html>

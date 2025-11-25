@@ -49,13 +49,12 @@ h3 {
 }
 
 .about-card {
-  background: var(--surface-light);
+  background: var(--surface-dark);
   padding: 2rem;
-  border-radius: 0;
+  border-radius: 6px;
   border: 1px solid var(--border-subtle);
-  border-left: 2px solid var(--accent-blue);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   position: relative;
   height: 100%;
   display: flex;
@@ -64,7 +63,7 @@ h3 {
 
 .about-card:hover {
   box-shadow: var(--shadow-md);
-  border-left-color: var(--accent-hover);
+  border-color: var(--border-medium);
 }
 
 .about-card h3 {
@@ -179,19 +178,18 @@ h3 {
 }
 
 .skills-table {
-  background: var(--surface-light);
-  border-radius: 0;
+  background: var(--surface-dark);
+  border-radius: 6px;
   padding: 2rem;
   border: 1px solid var(--border-subtle);
-  border-left: 2px solid var(--accent-blue);
   box-shadow: var(--shadow-sm);
   position: relative;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .skills-table:hover {
   box-shadow: var(--shadow-md);
-  border-left-color: var(--accent-hover);
+  border-color: var(--border-medium);
 }
 
 .skills-table h3 {
@@ -231,19 +229,19 @@ h3 {
 }
 
 .skill-item {
-  background: var(--accent-light);
-  color: var(--accent-blue);
-  padding: 0.5rem 0.875rem;
+  background: var(--secondary-bg);
+  color: var(--text-secondary);
+  padding: 0.375rem 0.75rem;
   border-radius: 4px;
-  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  font-size: 13px;
   font-weight: 500;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.15s ease;
 }
 
 .skill-item:hover {
-  background: var(--accent-blue);
-  color: white;
+  background: var(--accent-light);
+  color: var(--accent-blue);
   border-color: var(--accent-blue);
 }
 
