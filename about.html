@@ -114,6 +114,26 @@
       <span>🚀</span> Brahim BOUSNGUAR
     </a>
     <div class="header-actions">
+      <div class="lang-toggle">
+        <button onclick="switchLang('en')" aria-label="Switch to English" title="English">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="16">
+            <clipPath id="s2"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <clipPath id="t2"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v15 z v-15 h30 z"/></clipPath>
+            <g clip-path="url(#s2)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t2)" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g>
+          </svg>
+        </button>
+        <button onclick="switchLang('fr')" aria-label="Switch to French" title="Français">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="24" height="16">
+            <rect width="900" height="600" fill="#ED2939"/>
+            <rect width="600" height="600" fill="#fff"/>
+            <rect width="300" height="600" fill="#002395"/>
+          </svg>
+        </button>
+      </div>
       <div class="theme-toggle" onclick="toggleTheme()">
         <button class="theme-toggle-option" id="light-option" aria-label="Light mode">☀️</button>
         <button class="theme-toggle-option" id="dark-option" aria-label="Dark mode">🌙</button>
@@ -145,15 +165,6 @@
           <span class="separator">›</span>
           <span>About Me</span>
         </nav>
-
-        <!-- Language Toggle -->
-        <div class="lang-toggle">
-          <button onclick="switchLang('en')" aria-label="Switch to English">English</button>
-          <button onclick="switchLang('fr')" aria-label="Switch to French">Français</button>
-        </div>
-
-        <div id="en" class="lang-content">
-          <h1>About Me</h1>
           <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 400;">
             My journey from a fresh engineering graduate to a Senior E-Commerce Integration Consultant bridging traditional platforms with modern API-led architectures.
           </p>
