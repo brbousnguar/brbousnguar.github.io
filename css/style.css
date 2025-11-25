@@ -48,6 +48,54 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Sophisticated Background with Gradient Mesh and Noise Texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="light"] body::before {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 90% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+}
+
+[data-theme="dark"] body::before {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 90% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%);
+}
+
+/* Subtle Noise Texture for Depth */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] body::after {
+  opacity: 0.05;
 }
 
 .theme-toggle {
@@ -60,7 +108,7 @@ body {
   padding: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 1000;
+  z-index: 1001;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -98,6 +146,7 @@ body {
   border: 1px solid var(--border-subtle);
   border-left: 3px solid var(--accent-blue);
   position: relative;
+  z-index: 1;
   transition: background-color 0.3s ease;
 }
 
