@@ -1,37 +1,37 @@
 :root {
-  /* Clean Light Theme - OpenRewrite Style */
-  --primary-bg: #ffffff;
-  --secondary-bg: #f9fafb;
-  --sidebar-bg: #fafbfc;
-  --accent-blue: #0066ff;
-  --accent-hover: #0052cc;
-  --accent-light: #e6f0ff;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --text-muted: #999999;
+  /* Warm Sepia/Yellow/Gold Theme */
+  --primary-bg: #faf8f3;
+  --secondary-bg: #f5f1e8;
+  --sidebar-bg: #f8f5ed;
+  --accent-blue: #d4a04f;
+  --accent-hover: #b8894a;
+  --accent-light: #f9f0de;
+  --text-primary: #2d2416;
+  --text-secondary: #5a4a34;
+  --text-muted: #8b7a5e;
   --surface-dark: #ffffff;
-  --surface-light: #f9fafb;
-  --border-subtle: #e5e7eb;
-  --border-medium: #d1d5db;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --surface-light: #f9f6ed;
+  --border-subtle: #e8dfc8;
+  --border-medium: #d4c9b0;
+  --shadow-sm: 0 1px 2px 0 rgba(45, 36, 22, 0.05);
+  --shadow-md: 0 2px 4px 0 rgba(45, 36, 22, 0.08);
+  --shadow-lg: 0 4px 6px -1px rgba(45, 36, 22, 0.1);
+  --shadow-xl: 0 10px 15px -3px rgba(45, 36, 22, 0.12);
 }
 
 [data-theme="dark"] {
-  /* Clean Dark Theme - OpenRewrite Style */
-  --primary-bg: #1a1a1a;
-  --secondary-bg: #2a2a2a;
-  --sidebar-bg: #232323;
-  --text-primary: #e5e5e5;
-  --text-secondary: #b3b3b3;
-  --text-muted: #808080;
-  --surface-dark: #2a2a2a;
-  --surface-light: #333333;
-  --border-subtle: #3a3a3a;
-  --border-medium: #4a4a4a;
-  --accent-light: #1a3d7a;
+  /* Dark Sepia Theme */
+  --primary-bg: #1a1510;
+  --secondary-bg: #2a2318;
+  --sidebar-bg: #221c14;
+  --text-primary: #e8dfc8;
+  --text-secondary: #c4b89e;
+  --text-muted: #8b7a5e;
+  --surface-dark: #2a2318;
+  --surface-light: #3a2f20;
+  --border-subtle: #3a2f20;
+  --border-medium: #4a3d28;
+  --accent-light: #3d2f1a;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
