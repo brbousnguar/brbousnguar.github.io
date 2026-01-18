@@ -12,14 +12,19 @@
   <meta property="og:url" content="https://brbousnguar.github.io/">
   <meta property="og:title" content="Brahim Bousnguar | Senior E-Commerce Integration Consultant">
   <meta property="og:description" content="Senior E-Commerce Integration Consultant with 8+ years specializing in SAP Commerce Cloud & MuleSoft Anypoint Platform.">
-  <meta property="og:image" content="https://brbousnguar.github.io/img/favicon.png">
+  <meta property="og:image" content="https://brbousnguar.github.io/img/profile.jpeg">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://brbousnguar.github.io/">
   <meta property="twitter:title" content="Brahim Bousnguar | Senior E-Commerce Integration Consultant">
   <meta property="twitter:description" content="Senior E-Commerce Integration Consultant with 8+ years specializing in SAP Commerce Cloud & MuleSoft Anypoint Platform.">
-  <meta property="twitter:image" content="https://brbousnguar.github.io/img/favicon.png">
+  <meta property="twitter:image" content="https://brbousnguar.github.io/img/profile.jpeg">
+  
+  <!-- Enhanced AI Crawler Meta Tags -->
+  <meta name="classification" content="Professional Portfolio, E-commerce Consultant, Integration Specialist">
+  <meta name="target-audience" content="Recruiters, Hiring Managers, Enterprise Clients, IT Directors">
+  <meta name="expertise" content="SAP Commerce Cloud, MuleSoft Anypoint Platform, API Integration, E-commerce Architecture, Microservices, Cloud Migration">
   
   <!-- Additional SEO Meta Tags -->
   <meta name="author" content="Brahim Bousnguar">
@@ -89,7 +94,49 @@
       "@type": "WebPage",
       "@id": "https://brbousnguar.github.io/"
     },
-    "image": "https://brbousnguar.github.io/img/favicon.png"
+    "image": "https://brbousnguar.github.io/img/profile.jpeg"
+  }
+  </script>
+  
+  <!-- FAQ Schema for AI SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does a Senior E-Commerce Integration Consultant do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Senior E-Commerce Integration Consultant bridges traditional e-commerce platforms with modern API-led integration architectures. They design and implement solutions connecting SAP Commerce Cloud, MuleSoft Anypoint Platform, and enterprise systems like ERP, CRM, and payment gateways."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Brahim Bousnguar's experience with SAP Commerce Cloud?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brahim has 8+ years of hands-on experience with SAP Commerce Cloud (formerly Hybris), including cloud migrations to CCv2, OCC API optimization, microservices architecture on SAP BTP Kyma, and multi-country B2B/B2C platform implementations for companies like Miele, BYK, and SEB Group."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What MuleSoft Anypoint Platform skills does Brahim have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brahim specializes in API-led connectivity architecture, DataWeave transformations, RAML/OAS API specifications, workflow orchestration, and enterprise integration patterns. Currently working at Roche Bobois on complex integration flows connecting e-commerce with ERP and back-office systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What certifications does Brahim Bousnguar hold?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SAP Certified Development Professional - SAP Commerce Cloud Developer (2023) and SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3 (2018)."
+        }
+      }
+    ]
   }
   </script>
   <script>
@@ -100,6 +147,17 @@
       if (selected) selected.classList.add('active');
       const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
       if (btn) btn.classList.add('active');
+      
+      // Save language preference to localStorage
+      localStorage.setItem('language', lang);
+      
+      // Re-initialize navigation and smooth scroll for the new language content
+      if (window.initNavigationHighlight) {
+        initNavigationHighlight();
+      }
+      if (window.initSmoothScroll) {
+        initSmoothScroll();
+      }
     }
     
     function toggleTheme() {
@@ -123,7 +181,9 @@
     }
     
     window.onload = function () {
-      switchLang('en');
+      // Load saved language preference or default to English
+      const savedLang = localStorage.getItem('language') || 'en';
+      switchLang(savedLang);
       
       // Detect system theme preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -161,7 +221,160 @@
           }
         }
       });
+      
+      // Back to top button functionality
+      initBackToTop();
+      
+      // Navigation active state on scroll
+      initNavigationHighlight();
+      
+      // Smooth scroll for anchor links
+      initSmoothScroll();
     };
+    
+    function initNavigationHighlight() {
+      // Get only sections from the currently active language content
+      const activeContent = document.querySelector('.lang-content.active');
+      if (!activeContent) return;
+      
+      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+      
+      // Track if user just clicked a link
+      window.navigationClickTime = 0;
+      
+      window.updateActiveNavLink = function(targetId) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === targetId) {
+            link.classList.add('active');
+          }
+        });
+      };
+      
+      // Remove old scroll listener if exists
+      if (window.scrollHighlightHandler) {
+        window.removeEventListener('scroll', window.scrollHighlightHandler);
+      }
+      
+      // Create new scroll handler that always checks current active content
+      window.scrollHighlightHandler = function() {
+        // Don't update highlighting for 800ms after a click
+        if (Date.now() - window.navigationClickTime < 800) {
+          return;
+        }
+        
+        const currentActiveContent = document.querySelector('.lang-content.active');
+        if (!currentActiveContent) return;
+        
+        const currentSections = currentActiveContent.querySelectorAll('.section[id]');
+        const scrollPosition = window.scrollY + 200; // Check what's near top of viewport
+        
+        let currentSection = '';
+        
+        currentSections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = rect.top + window.scrollY;
+          const sectionBottom = sectionTop + rect.height;
+          
+          // Check if the scroll position is within this section
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+            currentSection = '#' + section.id;
+          }
+        });
+        
+        if (currentSection && window.updateActiveNavLink) {
+          updateActiveNavLink(currentSection);
+        }
+      };
+      
+      // Add the new scroll listener with throttling
+      let isScrolling = false;
+      window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+          window.requestAnimationFrame(() => {
+            if (window.scrollHighlightHandler) {
+              window.scrollHighlightHandler();
+            }
+            isScrolling = false;
+          });
+        }
+        isScrolling = true;
+      });
+      
+      // Trigger initial highlight check
+      if (window.scrollHighlightHandler) {
+        setTimeout(() => window.scrollHighlightHandler(), 100);
+      }
+    }
+    
+    function initBackToTop() {
+      // Create back to top button
+      const backToTop = document.createElement('button');
+      backToTop.className = 'back-to-top';
+      backToTop.innerHTML = '↑';
+      backToTop.setAttribute('aria-label', 'Back to top');
+      backToTop.title = 'Back to top';
+      document.body.appendChild(backToTop);
+      
+      // Show/hide on scroll
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      // Scroll to top on click
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    function initSmoothScroll() {
+      // Remove old listeners by cloning and replacing navigation links
+      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+      navLinks.forEach(link => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+      });
+      
+      // Add fresh event listeners
+      document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          
+          // Update click timestamp to prevent scroll handler from overriding
+          window.navigationClickTime = Date.now();
+          
+          // Find target in active language content
+          const activeContent = document.querySelector('.lang-content.active');
+          if (!activeContent) return;
+          
+          const target = activeContent.querySelector(targetId);
+          if (target) {
+            // Calculate offset for sticky header (approx 60px) + extra spacing
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update active state immediately on click
+            if (window.updateActiveNavLink) {
+              updateActiveNavLink(targetId);
+            }
+          }
+        });
+      });
+    }
   </script>
 </head>
 <body>
@@ -203,12 +416,14 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <ul class="sidebar-nav">
-        <li><a href="#summary" class="active">Summary</a></li>
-        <li><a href="#value-proposition">Value Proposition</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#value-proposition">Value</a></li>
         <li><a href="#professional-experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="about.html">About Me</a></li>
       </ul>
     </aside>
@@ -231,10 +446,17 @@
         </div>
 
         <div id="en" class="lang-content">
-          <header>
-            <h1>Brahim BOUSNGUAR</h1>
-            <p style="font-size: 1.125rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 2rem;">Senior E-Commerce Integration Consultant | 8+ Years SAP Commerce Cloud & MuleSoft</p>
-          </header>
+          <!-- Professional Header -->
+          <section class="professional-header">
+            <div class="header-left">
+              <img src="img/profile.jpeg" alt="Brahim Bousnguar" class="profile-img">
+            </div>
+            <div class="header-content">
+              <h1>Brahim BOUSNGUAR</h1>
+              <p class="title-line">Senior E-Commerce Integration Consultant</p>
+              <p class="experience-line">8+ years specializing in SAP Commerce Cloud & MuleSoft Anypoint Platform</p>
+            </div>
+          </section>
 
           <section class="section" id="summary">
             <div class="section-content">
@@ -247,13 +469,16 @@
             <div class="section-content">
               <h2>Unique Value Proposition</h2>
               <p>I bridge the gap between e-commerce platforms and modern integration architectures. My unique combination of deep SAP Commerce Cloud expertise (8+ years) and emerging MuleSoft Anypoint proficiency enables me to design and deliver comprehensive integration solutions that connect legacy systems with cutting-edge technologies.</p>
-              <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--secondary-bg); border-radius: 6px; border-left: 3px solid var(--accent-blue);">
-                <strong style="color: var(--accent-blue);">Why This Matters:</strong>
-                <ul style="margin-top: 0.75rem; margin-bottom: 0; color: var(--text-secondary);">
-                  <li>End-to-end solution capability: from e-commerce domain expertise to API integration implementation</li>
-                  <li>Rare skill set: Few professionals combine SAP Commerce mastery with MuleSoft integration skills</li>
-                  <li>Future-ready approach: Experience in cloud-native migrations, microservices, and API-led connectivity</li>
-                </ul>
+              <div class="value-points">
+                <div class="value-point">
+                  <strong>End-to-end solution capability:</strong> from e-commerce domain expertise to API integration implementation
+                </div>
+                <div class="value-point">
+                  <strong>Rare skill set:</strong> Few professionals combine SAP Commerce mastery with MuleSoft integration skills
+                </div>
+                <div class="value-point">
+                  <strong>Future-ready approach:</strong> Experience in cloud-native migrations, microservices, and API-led connectivity
+                </div>
               </div>
             </div>
           </section>
@@ -279,6 +504,7 @@
                 <li>SAP Certified Development Professional - SAP Commerce Cloud Developer (2023)</li>
                 <li>SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3 (2018)</li>
               </ul>
+              <p style="margin-top: 1rem; color: var(--text-muted); font-style: italic;">Currently pursuing MuleSoft Anypoint Platform certifications</p>
             </div>
           </section>
 
@@ -335,27 +561,50 @@
           <section class="section" id="projects">
             <div class="section-content">
               <h2>Featured Integration Projects</h2>
-              <div style="margin-top: 1rem;">
-          <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">Roche Bobois - API-Led Integration Architecture (Ongoing)</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>MuleSoft Anypoint Platform | E-Commerce Integration | Workflow Orchestration</em></p>
-            <p style="margin-top: 1rem;">Designed and delivering comprehensive API-led integration solution connecting luxury furniture retailer's e-commerce platform with back-office systems. Built reusable APIs following System/Process/Experience layer architecture, enabling seamless data flow between e-commerce, ERP, inventory management, and customer service systems. Currently focusing on workflow optimization, implementing sophisticated orchestration patterns, and establishing enterprise-grade error handling and monitoring capabilities.</p>
-            <p style="margin-top: 0.75rem;"><strong>Key Achievements:</strong> Reduced integration development time by 40% through reusable API specifications; Implemented real-time inventory synchronization; Established integration governance framework; Optimizing critical workflows for enhanced business efficiency.</p>
-          </div>
-          
-          <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">Miele - Cloud-Native Commerce Platform Migration</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>SAP Commerce Cloud CCv2 | Microservices | Kubernetes</em></p>
-            <p style="margin-top: 1rem;">Led end-to-end migration of global B2C e-commerce platform from on-premise SAP Hybris to cloud-native Commerce Cloud (CCv2). Architected microservices-based integration layer on SAP BTP Kyma, implementing API-first approach for system connectivity. Optimized OCC APIs for mobile and headless commerce experiences.</p>
-            <p style="margin-top: 0.75rem;"><strong>Key Achievements:</strong> Zero-downtime migration; 50% improvement in API response times; Established automated CI/CD pipeline reducing deployment time by 70%.</p>
-          </div>
-          
-          <div style="padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">BYK - Multi-Country B2B Platform Integration</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>SAP Commerce Cloud | ERP Integration | Multi-Site Architecture</em></p>
-            <p style="margin-top: 1rem;">Architected and led technical implementation of enterprise B2B e-commerce platform serving multiple countries. Designed complex integration architecture connecting SAP Commerce Cloud with SAP ERP for real-time pricing, inventory, and order management. Implemented custom APIs for B2B-specific workflows including quote management and contract pricing.</p>
-            <p style="margin-top: 0.75rem;"><strong>Key Achievements:</strong> Successfully migrated 15+ country sites; Integrated with SAP ERP for real-time data; Delivered headless B2B commerce capabilities.</p>
-          </div>
+              <div class="projects-list">
+                
+                <div class="project-entry">
+                  <div class="project-header">
+                    <h3 class="project-title">Roche Bobois - API-Led Integration Architecture</h3>
+                    <span class="project-status">Ongoing</span>
+                  </div>
+                  <div class="project-meta">
+                    <span class="tech-tag">MuleSoft Anypoint Platform</span>
+                    <span class="tech-tag">E-Commerce Integration</span>
+                    <span class="tech-tag">Workflow Orchestration</span>
+                  </div>
+                  <p class="project-description">Designed and delivering comprehensive API-led integration solution connecting luxury furniture retailer's e-commerce platform with back-office systems. Built reusable APIs following System/Process/Experience layer architecture, enabling seamless data flow between e-commerce, ERP, inventory management, and customer service systems. Currently focusing on workflow optimization, implementing sophisticated orchestration patterns, and establishing enterprise-grade error handling and monitoring capabilities.</p>
+                  <p class="project-achievements"><strong>Key Achievements:</strong> Reduced integration development time by 40% through reusable API specifications; Implemented real-time inventory synchronization; Established integration governance framework; Optimizing critical workflows for enhanced business efficiency.</p>
+                </div>
+                
+                <div class="project-entry">
+                  <div class="project-header">
+                    <h3 class="project-title">Miele - Cloud-Native Commerce Platform Migration</h3>
+                    <span class="project-status">Completed</span>
+                  </div>
+                  <div class="project-meta">
+                    <span class="tech-tag">SAP Commerce Cloud CCv2</span>
+                    <span class="tech-tag">Microservices</span>
+                    <span class="tech-tag">Kubernetes</span>
+                  </div>
+                  <p class="project-description">Led end-to-end migration of global B2C e-commerce platform from on-premise SAP Hybris to cloud-native Commerce Cloud (CCv2). Architected microservices-based integration layer on SAP BTP Kyma, implementing API-first approach for system connectivity. Optimized OCC APIs for mobile and headless commerce experiences.</p>
+                  <p class="project-achievements"><strong>Key Achievements:</strong> Zero-downtime migration; 50% improvement in API response times; Established automated CI/CD pipeline reducing deployment time by 70%.</p>
+                </div>
+                
+                <div class="project-entry">
+                  <div class="project-header">
+                    <h3 class="project-title">BYK - Multi-Country B2B Platform Integration</h3>
+                    <span class="project-status">Completed</span>
+                  </div>
+                  <div class="project-meta">
+                    <span class="tech-tag">SAP Commerce Cloud</span>
+                    <span class="tech-tag">ERP Integration</span>
+                    <span class="tech-tag">Multi-Site Architecture</span>
+                  </div>
+                  <p class="project-description">Architected and led technical implementation of enterprise B2B e-commerce platform serving multiple countries. Designed complex integration architecture connecting SAP Commerce Cloud with SAP ERP for real-time pricing, inventory, and order management. Implemented custom APIs for B2B-specific workflows including quote management and contract pricing.</p>
+                  <p class="project-achievements"><strong>Key Achievements:</strong> Successfully migrated 15+ country sites; Integrated with SAP ERP for real-time data; Delivered headless B2B commerce capabilities.</p>
+                </div>
+                
               </div>
             </div>
           </section>
@@ -387,6 +636,31 @@
               <p>2015 - State Engineer in Computer Science & BI, INSEA Rabat</p>
             </div>
           </section>
+          
+          <!-- FAQ Section for AI SEO -->
+          <section class="section" id="faq">
+            <div class="section-content">
+              <h2>Frequently Asked Questions</h2>
+              <div class="faq-grid">
+                <div class="faq-item">
+                  <h3 class="faq-question">What makes you different from other SAP Commerce consultants?</h3>
+                  <p class="faq-answer">I combine deep SAP Commerce Cloud expertise (8+ years) with modern MuleSoft Anypoint integration skills. This rare combination allows me to deliver end-to-end solutions connecting legacy e-commerce platforms with cutting-edge API-led architectures.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">What types of projects do you specialize in?</h3>
+                  <p class="faq-answer">I specialize in cloud-native e-commerce migrations (CCv2), API-led integration architecture, microservices implementation on Kubernetes, multi-country B2B/B2C platform development, and complex ERP/CRM integrations using MuleSoft Anypoint Platform.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">Do you work with remote teams?</h3>
+                  <p class="faq-answer">Yes, I have extensive experience working with distributed teams across Europe. I'm proficient in agile methodologies, remote collaboration tools, and can effectively lead or contribute to international projects.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">What is your approach to integration architecture?</h3>
+                  <p class="faq-answer">I follow API-led connectivity principles with clear separation of System, Process, and Experience layers. I prioritize reusable APIs, proper error handling, comprehensive monitoring, and governance frameworks that scale with business growth.</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <section class="section" id="contact">
             <div class="section-content">
@@ -397,34 +671,44 @@
         </div>
 
         <div id="fr" class="lang-content">
-          <header>
-            <h1>Brahim BOUSNGUAR</h1>
-            <p style="font-size: 1.125rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 2rem;">Consultant Senior en Intégration E-Commerce | 8+ Ans SAP Commerce Cloud & MuleSoft</p>
-          </header>
+          <!-- Professional Header -->
+          <section class="professional-header">
+            <div class="header-left">
+              <img src="img/profile.jpeg" alt="Brahim Bousnguar" class="profile-img">
+            </div>
+            <div class="header-content">
+              <h1>Brahim BOUSNGUAR</h1>
+              <p class="title-line">Consultant Senior en Intégration E-Commerce</p>
+              <p class="experience-line">8+ ans d'expertise en SAP Commerce Cloud & MuleSoft Anypoint Platform</p>
+            </div>
+          </section>
 
-          <section class="section">
+          <section class="section" id="summary">
             <div class="section-content">
               <h2>Résumé</h2>
               <p>Consultant Senior en Intégration E-Commerce avec plus de 8 ans d'expertise en conception de solutions reliant les plateformes e-commerce traditionnelles aux architectures d'intégration modernes basées sur les APIs. Spécialisé en SAP Commerce Cloud (anciennement Hybris) et MuleSoft Anypoint Platform, je livre des solutions end-to-end pour systèmes d'entreprise complexes. Solide bagage technique en Java, microservices, architectures cloud-native et intégration de systèmes.</p>
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="value">
             <div class="section-content">
               <h2>Proposition de Valeur Unique</h2>
         <p>Je fais le pont entre les plateformes e-commerce et les architectures d'intégration modernes. Ma combinaison unique d'expertise approfondie en SAP Commerce Cloud (8+ ans) et de compétences émergentes en MuleSoft Anypoint me permet de concevoir et livrer des solutions d'intégration complètes qui connectent les systèmes legacy aux technologies de pointe.</p>
-        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-          <strong style="color: var(--accent-blue); font-size: 1.1rem;">Pourquoi C'est Important :</strong>
-          <ul style="margin-top: 0.75rem; color: var(--text-secondary);">
-            <li>Capacité de solution end-to-end : de l'expertise métier e-commerce à l'implémentation d'intégration API</li>
-            <li>Compétences rares : Peu de professionnels combinent la maîtrise de SAP Commerce avec les compétences d'intégration MuleSoft</li>
-            <li>Approche orientée futur : Expérience en migrations cloud-native, microservices et API-led connectivity</li>
-          </ul>
-              </div>
+        <div class="value-points">
+          <div class="value-point">
+            <strong>Capacité de solution end-to-end :</strong> de l'expertise métier e-commerce à l'implémentation d'intégration API
+          </div>
+          <div class="value-point">
+            <strong>Compétences rares :</strong> Peu de professionnels combinent la maîtrise de SAP Commerce avec les compétences d'intégration MuleSoft
+          </div>
+          <div class="value-point">
+            <strong>Approche orientée futur :</strong> Expérience en migrations cloud-native, microservices et API-led connectivity
+          </div>
+        </div>
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="skills">
             <div class="section-content">
               <h2>Compétences Techniques</h2>
         <ul>
@@ -439,17 +723,18 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="certifications">
             <div class="section-content">
               <h2>Certifications</h2>
         <ul>
           <li>Certifié SAP Commerce Cloud Developer (2023)</li>
           <li>Certifié SAP Hybris Business Analyst 6.3 (2018)</li>
         </ul>
+        <p style="margin-top: 1rem; color: var(--text-muted); font-style: italic;">Actuellement en cours de certification MuleSoft Anypoint Platform</p>
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="experience">
             <div class="section-content">
               <h2>Expériences Professionnelles</h2>
 
@@ -498,30 +783,53 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="projects">
             <div class="section-content">
         <h2>Projets d'Intégration Phares</h2>
-        <div style="margin-top: 1rem;">
-          <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">Roche Bobois - Architecture d'Intégration API-Led (En cours)</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>MuleSoft Anypoint Platform | Intégration E-Commerce | Orchestration de Workflows</em></p>
-            <p style="margin-top: 1rem;">Conception et livraison d'une solution d'intégration API-led complète connectant la plateforme e-commerce du distributeur de mobilier de luxe avec les systèmes back-office. Construction d'APIs réutilisables suivant l'architecture en couches System/Process/Experience, permettant un flux de données transparent entre e-commerce, ERP, gestion d'inventaire et systèmes de service client. Actuellement focus sur l'optimisation de workflows, implémentation de patterns d'orchestration sophistiqués, et établissement de capacités enterprise de gestion d'erreurs et monitoring.</p>
-            <p style="margin-top: 0.75rem;"><strong>Réalisations Clés :</strong> Réduction de 40% du temps de développement d'intégrations grâce aux spécifications API réutilisables ; Implémentation de synchronisation d'inventaire en temps réel ; Établissement d'un framework de gouvernance d'intégration ; Optimisation de workflows critiques pour efficacité business améliorée.</p>
+        <div class="projects-list">
+          
+          <div class="project-entry">
+            <div class="project-header">
+              <h3 class="project-title">Roche Bobois - Architecture d'Intégration API-Led</h3>
+              <span class="project-status">En cours</span>
+            </div>
+            <div class="project-meta">
+              <span class="tech-tag">MuleSoft Anypoint Platform</span>
+              <span class="tech-tag">Intégration E-Commerce</span>
+              <span class="tech-tag">Orchestration de Workflows</span>
+            </div>
+            <p class="project-description">Conception et livraison d'une solution d'intégration API-led complète connectant la plateforme e-commerce du distributeur de mobilier de luxe avec les systèmes back-office. Construction d'APIs réutilisables suivant l'architecture en couches System/Process/Experience, permettant un flux de données transparent entre e-commerce, ERP, gestion d'inventaire et systèmes de service client. Actuellement focus sur l'optimisation de workflows, implémentation de patterns d'orchestration sophistiqués, et établissement de capacités enterprise de gestion d'erreurs et monitoring.</p>
+            <p class="project-achievements"><strong>Réalisations Clés :</strong> Réduction de 40% du temps de développement d'intégrations grâce aux spécifications API réutilisables ; Implémentation de synchronisation d'inventaire en temps réel ; Établissement d'un framework de gouvernance d'intégration ; Optimisation de workflows critiques pour efficacité business améliorée.</p>
           </div>
           
-          <div style="margin-bottom: 2rem; padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">Miele - Migration Plateforme Commerce Cloud-Native</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>SAP Commerce Cloud CCv2 | Microservices | Kubernetes</em></p>
-            <p style="margin-top: 1rem;">Direction de la migration end-to-end de la plateforme e-commerce B2C mondiale de SAP Hybris on-premise vers Commerce Cloud cloud-native (CCv2). Architecture de couche d'intégration basée microservices sur SAP BTP Kyma, implémentation d'approche API-first pour connectivité système. Optimisation des APIs OCC pour expériences commerce mobile et headless.</p>
-            <p style="margin-top: 0.75rem;"><strong>Réalisations Clés :</strong> Migration zero-downtime ; Amélioration de 50% des temps de réponse API ; Établissement de pipeline CI/CD automatisé réduisant le temps de déploiement de 70%.</p>
+          <div class="project-entry">
+            <div class="project-header">
+              <h3 class="project-title">Miele - Migration Plateforme Commerce Cloud-Native</h3>
+              <span class="project-status">Terminé</span>
+            </div>
+            <div class="project-meta">
+              <span class="tech-tag">SAP Commerce Cloud CCv2</span>
+              <span class="tech-tag">Microservices</span>
+              <span class="tech-tag">Kubernetes</span>
+            </div>
+            <p class="project-description">Direction de la migration end-to-end de la plateforme e-commerce B2C mondiale de SAP Hybris on-premise vers Commerce Cloud cloud-native (CCv2). Architecture de couche d'intégration basée microservices sur SAP BTP Kyma, implémentation d'approche API-first pour connectivité système. Optimisation des APIs OCC pour expériences commerce mobile et headless.</p>
+            <p class="project-achievements"><strong>Réalisations Clés :</strong> Migration zero-downtime ; Amélioration de 50% des temps de réponse API ; Établissement de pipeline CI/CD automatisé réduisant le temps de déploiement de 70%.</p>
           </div>
           
-          <div style="padding: 1.5rem; background: var(--surface-light); border-radius: 12px; border-left: 4px solid var(--accent-blue);">
-            <strong style="color: var(--accent-blue); font-size: 1.15rem;">BYK - Intégration Plateforme B2B Multi-Pays</strong>
-            <p style="margin-top: 0.5rem; color: var(--text-secondary);"><em>SAP Commerce Cloud | Intégration ERP | Architecture Multi-Sites</em></p>
-            <p style="margin-top: 1rem;">Architecture et direction de l'implémentation technique d'une plateforme e-commerce B2B d'entreprise desservant plusieurs pays. Conception d'architecture d'intégration complexe connectant SAP Commerce Cloud avec SAP ERP pour tarification, inventaire et gestion de commandes en temps réel. Implémentation d'APIs personnalisées pour workflows spécifiques B2B incluant gestion de devis et tarification contractuelle.</p>
-            <p style="margin-top: 0.75rem;"><strong>Réalisations Clés :</strong> Migration réussie de 15+ sites pays ; Intégration avec SAP ERP pour données temps réel ; Livraison de capacités commerce B2B headless.</p>
+          <div class="project-entry">
+            <div class="project-header">
+              <h3 class="project-title">BYK - Intégration Plateforme B2B Multi-Pays</h3>
+              <span class="project-status">Terminé</span>
+            </div>
+            <div class="project-meta">
+              <span class="tech-tag">SAP Commerce Cloud</span>
+              <span class="tech-tag">Intégration ERP</span>
+              <span class="tech-tag">Architecture Multi-Sites</span>
+            </div>
+            <p class="project-description">Architecture et direction de l'implémentation technique d'une plateforme e-commerce B2B d'entreprise desservant plusieurs pays. Conception d'architecture d'intégration complexe connectant SAP Commerce Cloud avec SAP ERP pour tarification, inventaire et gestion de commandes en temps réel. Implémentation d'APIs personnalisées pour workflows spécifiques B2B incluant gestion de devis et tarification contractuelle.</p>
+            <p class="project-achievements"><strong>Réalisations Clés :</strong> Migration réussie de 15+ sites pays ; Intégration avec SAP ERP pour données temps réel ; Livraison de capacités commerce B2B headless.</p>
           </div>
+          
         </div>
             </div>
           </section>
@@ -547,14 +855,39 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" id="education">
             <div class="section-content">
               <h2>Formation</h2>
               <p>2015 - Ingénieur d'État en Informatique & BI, INSEA Rabat</p>
             </div>
           </section>
+          
+          <!-- FAQ Section for AI SEO -->
+          <section class="section" id="faq">
+            <div class="section-content">
+              <h2>Questions Fréquentes</h2>
+              <div class="faq-grid">
+                <div class="faq-item">
+                  <h3 class="faq-question">Qu'est-ce qui vous différencie des autres consultants SAP Commerce ?</h3>
+                  <p class="faq-answer">Je combine une expertise approfondie en SAP Commerce Cloud (8+ ans) avec des compétences modernes en intégration MuleSoft Anypoint. Cette combinaison rare me permet de livrer des solutions end-to-end connectant les plateformes e-commerce legacy aux architectures API-led de pointe.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">Dans quels types de projets vous spécialisez-vous ?</h3>
+                  <p class="faq-answer">Je me spécialise dans les migrations e-commerce cloud-native (CCv2), l'architecture d'intégration API-led, l'implémentation de microservices sur Kubernetes, le développement de plateformes B2B/B2C multi-pays, et les intégrations complexes ERP/CRM avec MuleSoft Anypoint Platform.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">Travaillez-vous avec des équipes distantes ?</h3>
+                  <p class="faq-answer">Oui, j'ai une vaste expérience de travail avec des équipes distribuées à travers l'Europe. Je maîtrise les méthodologies agiles, les outils de collaboration à distance, et peux efficacement diriger ou contribuer à des projets internationaux.</p>
+                </div>
+                <div class="faq-item">
+                  <h3 class="faq-question">Quelle est votre approche de l'architecture d'intégration ?</h3>
+                  <p class="faq-answer">Je suis les principes d'API-led connectivity avec une séparation claire des couches System, Process et Experience. Je privilégie les APIs réutilisables, une gestion d'erreurs appropriée, un monitoring complet, et des frameworks de gouvernance qui évoluent avec la croissance business.</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-          <section class="section">
+          <section class="section" id="about">
             <div class="section-content">
           <div class="section-content">
             <h2>Contact</h2>
