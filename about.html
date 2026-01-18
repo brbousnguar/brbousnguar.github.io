@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,12 +29,43 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://brbousnguar.github.io/about.html">
   
+  <!-- Hreflang tags for multilingual SEO -->
+  <link rel="alternate" hreflang="en" href="https://brbousnguar.github.io/about.html">
+  <link rel="alternate" hreflang="fr" href="https://brbousnguar.github.io/about.html">
+  <link rel="alternate" hreflang="x-default" href="https://brbousnguar.github.io/about.html">
+  
+  <!-- Performance optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
   <meta name="theme-color" content="#0066ff">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/about.css">
+  
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://brbousnguar.github.io/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://brbousnguar.github.io/about.html"
+    }]
+  }
+  </script>
+  
   <script>
     function switchLang(lang) {
       document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
@@ -43,6 +74,10 @@
       if (selected) selected.classList.add('active');
       const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
       if (btn) btn.classList.add('active');
+      
+      // Update HTML lang attribute for SEO and accessibility
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
     }
     
     function toggleTheme() {
@@ -66,7 +101,12 @@
     }
     
     window.onload = function () {
-      switchLang('en');
+      // Load saved language preference or default to English
+      const savedLang = localStorage.getItem('language') || 'en';
+      switchLang(savedLang);
+      
+      // Ensure HTML lang attribute is set on initial load
+      document.documentElement.setAttribute('lang', savedLang);
       
       // Detect system theme preference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -108,6 +148,9 @@
   </script>
 </head>
 <body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <!-- Top Header -->
   <header class="top-header">
     <a href="index.html" class="logo">
@@ -159,12 +202,12 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       <div class="container">
         <!-- Breadcrumb -->
-        <nav class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <span class="separator">›</span>
+          <span class="separator" aria-hidden="true">›</span>
           <span>About Me</span>
         </nav>
           <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 400;">
