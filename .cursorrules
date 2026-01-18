@@ -1,0 +1,360 @@
+# Cursor AI Configuration - Profile Site Project
+
+## Project Overview
+Personal professional portfolio website for Brahim Bousnguar - Senior E-Commerce Integration Consultant.
+- Platform: Static HTML/CSS/JavaScript site hosted on GitHub Pages
+- URL: https://brbousnguar.github.io/
+- Primary focus: Professional presentation, SEO optimization, accessibility
+
+## Design System & Visual Identity
+
+### Color Palette (CSS Variables)
+**Light Theme (Default):**
+- Primary Background: `#faf8f3` (warm sepia/cream)
+- Secondary Background: `#f5f1e8`
+- Sidebar Background: `#f8f5ed`
+- Accent Color: `#d4a04f` (warm gold/amber)
+- Accent Hover: `#b8894a`
+- Text Primary: `#2d2416` (dark brown)
+- Text Secondary: `#5a4a34`
+- Text Muted: `#8b7a5e`
+- Surface Dark: `#ffffff` (white cards)
+- Surface Light: `#f9f6ed`
+- Border Subtle: `#e8dfc8`
+- Border Medium: `#d4c9b0`
+
+**Dark Theme:**
+- Primary Background: `#1a1510` (dark sepia)
+- Secondary Background: `#2a2318`
+- Text Primary: `#e8dfc8` (light cream)
+- Use CSS variable pattern: `var(--variable-name)`
+
+**Design Philosophy:**
+- Warm, professional sepia/gold palette (NOT blue/cold colors)
+- Elegant, minimalist aesthetic
+- Professional business consultant feel
+- Avoid bright/neon colors or childish elements
+
+### Typography
+- Primary Font: `Inter` (system fonts fallback)
+- Heading Font: `Inter` (same family for consistency)
+- Base Font Size: `15px`
+- Line Height: `1.6` (body), `1.2-1.4` (headings)
+- Font weights: 300, 400, 500, 600, 700 available
+- Use system fonts as fallback: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif`
+
+### Spacing & Layout
+- Base spacing unit: `1rem` (15px base)
+- Section spacing: `2rem - 3rem`
+- Card padding: `2rem`
+- Border radius: `4px - 8px` (subtle, not rounded)
+- Shadow levels: `--shadow-sm`, `--shadow-md`, `--shadow-lg`, `--shadow-xl`
+- Max content width: `900px` (container), `1200px` (main-content)
+- Sidebar width: `240px` (desktop), full width on mobile
+
+### Responsive Breakpoints
+- Mobile: `max-width: 480px`
+- Tablet: `max-width: 768px`
+- Desktop: `max-width: 1024px`
+- Large Desktop: `> 1024px`
+
+## Layout Structure Standards
+
+### HTML Structure Pattern
+```html
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <!-- Meta tags, CSS, structured data -->
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="top-header">...</header>
+  <div class="page-wrapper">
+    <aside class="sidebar">...</aside>
+    <main class="main-content" id="main-content">...</main>
+  </div>
+</body>
+</html>
+```
+
+### Page Components Required
+1. **Top Header**: Sticky, contains logo, language toggle, theme toggle
+2. **Sidebar Navigation**: Left side (desktop), horizontal scroll (mobile)
+3. **Main Content**: Max-width container, breadcrumbs, content sections
+4. **Skip Link**: Accessibility-first link (hidden until focused)
+
+### Section Pattern
+```html
+<section class="section" id="section-id">
+  <div class="section-content">
+    <h2>Section Title</h2>
+    <!-- Content -->
+  </div>
+</section>
+```
+
+## SEO Standards & Requirements
+
+### Required Meta Tags (Every Page)
+1. **Title Tag**: Max 60 chars, include keywords and name
+   - Format: `Name | Title/Role | Key Expertise`
+   - Example: `Brahim Bousnguar | Senior E-Commerce Integration Consultant | 8+ Years SAP Commerce Cloud & MuleSoft`
+
+2. **Meta Description**: 155-160 chars optimal (max 220 acceptable)
+   - Include value proposition, years of experience, key technologies
+   - Compelling call-to-action implied
+
+3. **Meta Keywords**: Comma-separated, relevant to expertise
+   - Include: technologies, job titles, specializations
+
+4. **Open Graph Tags** (All pages):
+   - `og:type`, `og:url`, `og:title`, `og:description`, `og:image`
+
+5. **Twitter Card Tags** (All pages):
+   - `twitter:card`, `twitter:url`, `twitter:title`, `twitter:description`, `twitter:image`
+
+6. **Canonical URL**: Every page must have canonical link
+
+7. **Hreflang Tags**: For multilingual pages
+   - `rel="alternate" hreflang="en"`
+   - `rel="alternate" hreflang="fr"`
+   - `rel="alternate" hreflang="x-default"`
+
+### Structured Data (Schema.org) - REQUIRED
+Every page must include appropriate structured data:
+
+1. **BreadcrumbList** (All pages)
+2. **Person** (Main pages)
+3. **FAQPage** (FAQ sections)
+4. **WebPage** (as mainEntityOfPage where applicable)
+
+Format: JSON-LD in `<script type="application/ld+json">` blocks
+
+### Technical SEO Requirements
+- ✅ Semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<article>`)
+- ✅ Proper heading hierarchy (H1 → H2 → H3, no skipping levels)
+- ✅ Descriptive alt text for all images
+- ✅ Clean URL structure (no query parameters)
+- ✅ XML Sitemap present and updated
+- ✅ robots.txt configured properly
+- ✅ Mobile-responsive (critical for SEO)
+
+### Performance SEO
+- Preconnect to external resources (fonts, APIs)
+- DNS prefetch for external domains
+- Image optimization (width/height attributes, lazy loading where appropriate)
+- Minimize render-blocking resources
+
+## Accessibility Standards (WCAG 2.1 AA Compliance)
+
+### Required Accessibility Features
+1. **Skip Links**: Every page must have skip-to-main-content link
+2. **ARIA Labels**: 
+   - Navigation: `aria-label="Breadcrumb"`
+   - Buttons: `aria-label` for icon-only buttons
+   - Decorative separators: `aria-hidden="true"`
+3. **Focus States**: All interactive elements must have visible focus indicators
+4. **Semantic HTML**: Use proper HTML5 semantic elements
+5. **Alt Text**: All images must have descriptive alt text
+6. **Language Attributes**: HTML `lang` attribute must match content language and update dynamically
+
+### Keyboard Navigation
+- All interactive elements must be keyboard accessible
+- Tab order should be logical
+- Focus indicators must be visible (2px outline minimum)
+
+### Color Contrast
+- Text must meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
+- Ensure contrast works in both light and dark themes
+
+## Multilingual Support Standards
+
+### Language Switching
+- Must support English (`en`) and French (`fr`)
+- Use `.lang-content` divs with `id="en"` and `id="fr"`
+- Language switching must update:
+  - HTML `lang` attribute
+  - `data-lang` attribute
+  - Active language content visibility
+  - localStorage persistence
+
+### Language Toggle UI
+- Flags/icons for visual language selection
+- Active language button must be clearly indicated
+- Both languages should have identical content structure
+
+## Code Style & Best Practices
+
+### HTML
+- Use semantic HTML5 elements
+- Indentation: 2 spaces (check existing files)
+- Quotes: Double quotes for attributes
+- Self-closing tags: No trailing slash (`<img>` not `<img />`)
+- Comments: Use `<!-- Comment -->` for HTML comments
+
+### CSS
+- Use CSS custom properties (variables) for colors and spacing
+- Follow BEM-like naming: `.component-element--modifier`
+- Mobile-first responsive design approach
+- Use `var(--variable-name)` for theme-aware properties
+- Group related styles together
+- Use `clamp()` for fluid typography where appropriate
+
+### JavaScript
+- Vanilla JavaScript (no frameworks required)
+- Use descriptive function names
+- Store user preferences in localStorage (language, theme)
+- Ensure graceful degradation (works without JS)
+- Use event delegation where appropriate
+
+### File Organization
+```
+/
+├── index.html (main page)
+├── about.html (about page)
+├── css/
+│   ├── style.css (main styles)
+│   └── about.css (page-specific styles)
+├── img/
+│   ├── profile.jpeg
+│   └── favicon.png
+├── icons/ (social media icons)
+├── sitemap.xml
+├── robots.txt
+└── .cursorrules (this file)
+```
+
+## Image Standards
+
+### Image Requirements
+- Profile images: Always include `width` and `height` attributes
+- Above-fold images: `loading="eager"`
+- Below-fold images: Can use `loading="lazy"`
+- Alt text: Descriptive, include context (not just "image")
+- Format: JPEG for photos, PNG for icons/logos
+- Optimization: Compress images, consider WebP in future
+
+### Favicon
+- Multiple sizes: `favicon.png`, `favicon.ico`
+- Apple touch icon: `180x180` PNG
+- Theme color: `#0066ff` (or adjust to match brand)
+
+## Link Standards
+
+### External Links
+- Always include `rel="noopener noreferrer"` for `target="_blank"` links
+- Example: `<a href="https://..." target="_blank" rel="noopener noreferrer">`
+
+### Internal Links
+- Use relative paths for same-domain links
+- Use absolute URLs in structured data
+
+### Email Links
+- Format: `<a href="mailto:email@domain.com" aria-label="Descriptive label">`
+- Include ARIA labels for context
+
+## Content Standards
+
+### Professional Tone
+- Professional, confident, but not boastful
+- Focus on value delivered, not just tasks completed
+- Use metrics and achievements where possible
+- Clear value proposition in summary sections
+
+### Content Structure
+- Summary/Introduction: Clear value proposition
+- Experience: Chronological, focus on achievements
+- Skills: Organized by category (technical, soft skills)
+- Projects: Include context, technologies, achievements
+- Contact: Clear call-to-action
+
+## Theme Toggle Standards
+
+### Dark/Light Theme
+- Must support both light and dark themes
+- Use `data-theme="dark"` attribute on `<html>` element
+- Persist theme preference in localStorage
+- Respect system preference on first visit
+- Toggle button in header (sun/moon icons)
+
+## Validation & Quality Checklist
+
+Before marking any task complete, ensure:
+- [ ] All pages have proper meta tags (title, description, OG, Twitter)
+- [ ] Structured data is valid JSON-LD
+- [ ] Images have width/height attributes and descriptive alt text
+- [ ] All external links have `rel="noopener noreferrer"`
+- [ ] Skip link is present and functional
+- [ ] Focus states are visible for all interactive elements
+- [ ] Language switching updates HTML lang attribute
+- [ ] Mobile responsive (test at 480px, 768px breakpoints)
+- [ ] No console errors in browser
+- [ ] Semantic HTML structure maintained
+- [ ] CSS variables used (not hardcoded colors)
+- [ ] Dark/light theme works correctly
+
+## Performance Targets
+
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+- Time to Interactive: < 3.5s
+- Lighthouse Performance Score: > 90
+
+## Common Patterns to Follow
+
+### Adding a New Section
+1. Add semantic HTML structure
+2. Use `.section` and `.section-content` classes
+3. Include proper heading hierarchy
+4. Add section ID for navigation
+5. Update sidebar navigation if needed
+6. Ensure responsive design
+7. Add structured data if appropriate
+
+### Adding a New Page
+1. Copy structure from existing page (index.html or about.html)
+2. Update meta tags (title, description, canonical)
+3. Add hreflang tags
+4. Add breadcrumb structured data
+5. Update sitemap.xml
+6. Ensure consistent navigation
+7. Test language switching
+
+### Modifying Styles
+1. Use CSS variables when possible
+2. Check both light and dark themes
+3. Test responsive breakpoints
+4. Maintain consistent spacing (use rem units)
+5. Use existing shadow/border utilities
+
+## AI Assistant Guidelines
+
+When working on this project:
+1. **Always maintain** the warm sepia/gold color scheme - never use blue/cold colors
+2. **Preserve** the professional, minimalist aesthetic
+3. **Follow** existing code patterns and structure
+4. **Check** both light and dark themes after changes
+5. **Test** responsive behavior at breakpoints
+6. **Validate** SEO requirements are met
+7. **Ensure** accessibility standards are maintained
+8. **Update** structured data when content changes
+9. **Use** CSS variables for all colors/spacing
+10. **Maintain** bilingual support if adding content
+
+## Notes for Future Development
+
+- Consider adding blog section (future)
+- Potential PWA features (manifest, service worker)
+- Image optimization: WebP format support
+- Consider adding RSS feed for blog (future)
+- Analytics integration ready (Google Analytics, GTM)
+- Search Console setup recommended
+
+---
+
+**Last Updated**: 2025-01-22
+**Project Type**: Professional Portfolio Website
+**Primary Technologies**: HTML5, CSS3, Vanilla JavaScript
+
