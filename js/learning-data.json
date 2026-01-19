@@ -1,0 +1,5914 @@
+{
+  "metadata": {
+    "total": 411,
+    "domains": 11,
+    "years": [
+      "2026",
+      "2025",
+      "2024",
+      "2023"
+    ],
+    "last_updated": "2026-01-19T13:47:36.811578"
+  },
+  "certificates": [
+    {
+      "id": 238,
+      "title": "Understanding the Impact of Deepfake Videos",
+      "path": "archived/2026/CertificateOfCompletion_Understanding the Impact of Deepfake Videos.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-18",
+      "duration": "48m",
+      "skills": [
+        "Media Literacy",
+        "Media Psychology"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 84,
+      "title": "Programming Foundations: Software Testing/QA",
+      "path": "archived/2026/CertificateOfCompletion_Programming Foundations Software TestingQA.pdf",
+      "domain": "programming",
+      "year": "2026",
+      "date": "2026-01-11",
+      "duration": "1h 55m",
+      "skills": [
+        "Software Testing",
+        "Programming Foundations",
+        "Software Quality Assurance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 70,
+      "title": "Nano Tips to Foster a Growth Mindset and Mental Agility with Shadé Zahrai",
+      "path": "archived/2026/CertificateOfCompletion_Nano Tips to Foster a Growth Mindset and Mental Agility with Shade Zahrai.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-16",
+      "duration": "7m",
+      "skills": [
+        "Personal Development",
+        "Critical Thinking"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 334,
+      "title": "Nano Tips to Enhance Your Communication with Shadé Zahrai",
+      "path": "archived/2026/CertificateOfCompletion_Nano Tips to Enhance Your Communication with Shade Zahrai.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-16",
+      "duration": "8m",
+      "skills": [
+        "Interpersonal Communication"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 231,
+      "title": "Nano Tips for Moving to the Cloud for Business Leaders with Rashim Mogha",
+      "path": "archived/2026/CertificateOfCompletion_Nano Tips for Moving to the Cloud for Business Leaders with Rashim Mogha.pdf",
+      "domain": "programming",
+      "year": "2026",
+      "date": "2026-01-13",
+      "duration": "7m",
+      "skills": [
+        "Digital Transformation",
+        "Cloud Computing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 296,
+      "title": "Microsoft Security Copilot: Working with Preinstalled and Custom Plugins",
+      "path": "archived/2026/CertificateOfCompletion_Microsoft Security Copilot Working with Preinstalled and Custom Plugins.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-11",
+      "duration": "56m",
+      "skills": [
+        "Microsoft Copilot",
+        "Security Operations",
+        "Generative AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 267,
+      "title": "Microsoft Security Copilot: Prompts and Promptbooks",
+      "path": "archived/2026/CertificateOfCompletion_Microsoft Security Copilot Prompts and Promptbooks.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-12",
+      "duration": "59m",
+      "skills": [
+        "Security Operations",
+        "Artificial Intelligence",
+        "Generative AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 157,
+      "title": "Microsoft Security Copilot",
+      "path": "archived/2026/CertificateOfCompletion_Microsoft Security Copilot.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-10",
+      "duration": "40m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 41,
+      "title": "Microsoft Copilot for Azure SQL Database",
+      "path": "archived/2026/CertificateOfCompletion_Microsoft Copilot for Azure SQL Database.pdf",
+      "domain": "cloud",
+      "year": "2026",
+      "date": "2026-01-14",
+      "duration": "22m",
+      "skills": [
+        "Microsoft Copilot",
+        "SQL Database",
+        "Artificial Intelligence",
+        "Design AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 158,
+      "title": "Generative AI Skills for Creative Content: Opportunities, Issues, and Ethics",
+      "path": "archived/2026/CertificateOfCompletion_Generative AI Skills for Creative Content Opportunities Issues and Ethics.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-17",
+      "duration": "1h 2m",
+      "skills": [
+        "Artificial Intelligence",
+        "Design AI",
+        "Media Ethics"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 294,
+      "title": "Extend Microsoft 365 Copilot with AI Agents",
+      "path": "archived/2026/CertificateOfCompletion_Extend Microsoft 365 Copilot with AI Agents.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-10",
+      "duration": "50m",
+      "skills": [
+        "Microsoft Copilot",
+        "AI Agents",
+        "Studio"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 104,
+      "title": "Découvrir Microsoft Copilot Studio",
+      "path": "archived/2026/CertificateOfCompletion_Decouvrir Microsoft Copilot Studio.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-03",
+      "duration": "1h 56m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Generative AI",
+        "Studio AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 288,
+      "title": "DALL-E: the Creative Process and the Art of Prompting",
+      "path": "archived/2026/CertificateOfCompletion_DALLE the Creative Process and the Art of Prompting.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": "56m",
+      "skills": [
+        "Artificial Intelligence",
+        "Design AI",
+        "AI Prompting",
+        "Solutions"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 299,
+      "title": "Creating Agents and Custom Copilots in SharePoint (No Code Required)",
+      "path": "archived/2026/CertificateOfCompletion_Creating Agents and Custom Copilots in SharePoint No Code Required.pdf",
+      "domain": "programming",
+      "year": "2026",
+      "date": "2026-01-13",
+      "duration": "59m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "AI Agents"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 15,
+      "title": "Copilot in Teams: Power User Tips to Unlock Productivity",
+      "path": "archived/2026/CertificateOfCompletion_Copilot in Teams Power User Tips to Unlock Productivity.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": "1h 22m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft Teams",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 361,
+      "title": "Copilot in Teams: Power User Tips to Unlock Productivity",
+      "path": "archived/2026/CertificateOfCompletion_Copilot in Teams Power User Tips to Unlock Productivity-1.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": null,
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft Teams",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 44,
+      "title": "Copilot in Teams: AI-Powered Collaboration",
+      "path": "archived/2026/CertificateOfCompletion_Copilot in Teams AIPowered Collaboration.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-09",
+      "duration": "21m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Microsoft Teams"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 330,
+      "title": "Copilot in Teams: AI-Powered Collaboration",
+      "path": "archived/2026/CertificateOfCompletion_Copilot in Teams AIPowered Collaboration-1.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-09",
+      "duration": null,
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Microsoft Teams"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 153,
+      "title": "Copilot in PowerPoint: From Prompt to Presentation",
+      "path": "archived/2026/CertificateOfCompletion_Copilot in PowerPoint From Prompt to Presentation.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-09",
+      "duration": "45m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Artificial Intelligence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 362,
+      "title": "Copilot for Microsoft 365: Boosting Productivity in Excel, Word, PowerPoint, Outlook, and Teams",
+      "path": "archived/2026/CertificateOfCompletion_Copilot for Microsoft 365 Boosting Productivity in Excel Word PowerPoint Outlook and Teams.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-07",
+      "duration": "3h 5m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft Office",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 26,
+      "title": "Copilot dans Word : Créer et améliorer des documents grâce à l'IA",
+      "path": "archived/2026/CertificateOfCompletion_Copilot dans Word Creer et ameliorer des documents grace a lIA.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-08",
+      "duration": "28m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft Word",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 16,
+      "title": "Copilot dans Excel : l'analyse de données avec l'IA",
+      "path": "archived/2026/CertificateOfCompletion_Copilot dans Excel lanalyse de donnees avec lIA.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-07",
+      "duration": "43m",
+      "skills": [
+        "Data Analysis",
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 306,
+      "title": "Cloud Storage Concepts: Services, Cost Control, and Security",
+      "path": "archived/2026/CertificateOfCompletion_Cloud Storage Concepts Services Cost Control and Security.pdf",
+      "domain": "cloud",
+      "year": "2026",
+      "date": "2026-01-13",
+      "duration": "58m",
+      "skills": [
+        "Storage Management",
+        "Cloud Storage"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 335,
+      "title": "Cloud Architecture: Core Concepts (2022)",
+      "path": "archived/2026/CertificateOfCompletion_Cloud Architecture Core Concepts 2022-1.pdf",
+      "domain": "cloud",
+      "year": "2026",
+      "date": "2026-01-14",
+      "duration": null,
+      "skills": [
+        "Cloud-Native Architecture",
+        "Instructional Delivery",
+        "Method QAS",
+        "Self Study",
+        "In Accordance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 218,
+      "title": "Cloud Architecture: Core Concepts",
+      "path": "archived/2026/CertificateOfCompletion_Cloud Architecture Core Concepts 2022.pdf",
+      "domain": "cloud",
+      "year": "2026",
+      "date": "2026-01-14",
+      "duration": "59m",
+      "skills": [
+        "Cloud-Native Architecture"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 380,
+      "title": "Building in Microsoft Copilot Studio (July 2024)",
+      "path": "archived/2026/CertificateOfCompletion_Building in Microsoft Copilot Studio July 2024.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-14",
+      "duration": "1h 3m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Generative AI",
+        "Studio AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 21,
+      "title": "Building in Microsoft Copilot Studio",
+      "path": "archived/2026/CertificateOfCompletion_Building in Microsoft Copilot Studio.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-13",
+      "duration": "1h 1m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Studio AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 91,
+      "title": "Agile Software Development: Creating an Agile Culture",
+      "path": "archived/2026/CertificateOfCompletion_Agile Software Development Creating an Agile Culture.pdf",
+      "domain": "agile",
+      "year": "2026",
+      "date": "2026-01-03",
+      "duration": "1h 37m",
+      "skills": [
+        "Agile Software",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 307,
+      "title": "Agile Development in the New World of Work",
+      "path": "archived/2026/CertificateOfCompletion_Agile Development in the New World of Work.pdf",
+      "domain": "agile",
+      "year": "2026",
+      "date": "2026-01-19",
+      "duration": "30m",
+      "skills": [
+        "Agile Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 392,
+      "title": "Agile Development in the New World of Work",
+      "path": "archived/2026/CertificateOfCompletion_Agile Development in the New World of Work-1.pdf",
+      "domain": "agile",
+      "year": "2026",
+      "date": "2026-01-19",
+      "duration": null,
+      "skills": [
+        "Agile Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 193,
+      "title": "A Beginner's Guide to Writing User Stories",
+      "path": "archived/2026/CertificateOfCompletion_A Beginners Guide to Writing User Stories.pdf",
+      "domain": "other",
+      "year": "2026",
+      "date": "2026-01-04",
+      "duration": "43m",
+      "skills": [
+        "User Story",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 344,
+      "title": "10 minutes, un livre : Trouver sa voie grâce à l’ikigaï",
+      "path": "archived/2026/CertificateOfCompletion_10 minutes un livre Trouver sa voie grace a likigai.pdf",
+      "domain": "other",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": "10m",
+      "skills": [
+        "Personal Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 47,
+      "title": "10 minutes, un livre : Antifragilité, transformer les crises en opportunité",
+      "path": "archived/2026/CertificateOfCompletion_10 minutes un livre Antifragilite transformer les crises en opportunite.pdf",
+      "domain": "other",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": "10m",
+      "skills": [
+        "Personal Development",
+        "Self Help"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 221,
+      "title": "10 minutes, 1 livre : 3 compétences pour être un bon manager",
+      "path": "archived/2026/CertificateOfCompletion_10 minutes 1 livre 3 competences pour etre un bon manager.pdf",
+      "domain": "other",
+      "year": "2026",
+      "date": "2026-01-15",
+      "duration": "10m",
+      "skills": [
+        "Workplace Relations",
+        "People Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 405,
+      "title": "10 astuces nano pour Copilot dans Excel",
+      "path": "archived/2026/CertificateOfCompletion_10 astuces nano pour Copilot dans Excel.pdf",
+      "domain": "ai",
+      "year": "2026",
+      "date": "2026-01-03",
+      "duration": "10m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "AI Microsoft",
+        "Excel"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 40,
+      "title": "macOS Sequoia Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_macOS Sequoia Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-02",
+      "duration": "4h 27m",
+      "skills": [
+        "Macos Mac"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 264,
+      "title": "macOS Quick Tips",
+      "path": "archived/2025/CertificateOfCompletion_macOS Quick Tips.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-11-11",
+      "duration": "35m",
+      "skills": [
+        "Mac"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 356,
+      "title": "Your Top AI Questions Answered: AI Literacy for Everyone",
+      "path": "archived/2025/CertificateOfCompletion_Your Top AI Questions Answered AI Literacy for Everyone.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-16",
+      "duration": "49m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Literacy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 136,
+      "title": "Working with Computers and Devices",
+      "path": "archived/2025/CertificateOfCompletion_Working with Computers and Devices.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-09-10",
+      "duration": "1h 43m",
+      "skills": [
+        "Computer Literacy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 211,
+      "title": "Working Across Mac, PC, and Mobile Devices",
+      "path": "archived/2025/CertificateOfCompletion_Working Across Mac PC and Mobile Devices.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-09",
+      "duration": "59m",
+      "skills": [
+        "Computer Literacy",
+        "Multi-platform Productivity",
+        "Improvement"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 341,
+      "title": "Windsurf for Privacy-Conscious Development",
+      "path": "archived/2025/CertificateOfCompletion_Windsurf for PrivacyConscious Development.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-10",
+      "duration": "1h 25m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Software",
+        "Development Data",
+        "Privacy AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 34,
+      "title": "Windows 11 for IT Support: Troubleshooting Basics",
+      "path": "archived/2025/CertificateOfCompletion_Windows 11 for IT Support Troubleshooting Basics.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-09-18",
+      "duration": "1h 5m",
+      "skills": [
+        "Software Troubleshooting",
+        "Help Desk",
+        "Support Windows",
+        "11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 46,
+      "title": "Windows 11 Quick Tips",
+      "path": "archived/2025/CertificateOfCompletion_Windows 11 Quick Tips.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-08-01",
+      "duration": "26m",
+      "skills": [
+        "Windows Windows",
+        "Desktop Administration",
+        "Windows 11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 174,
+      "title": "Windows 11 Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Windows 11 Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-30",
+      "duration": "4h 1m",
+      "skills": [
+        "Windows Server",
+        "Windows Windows",
+        "11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 29,
+      "title": "Windows 11 AI: Leveraging the Bundled Apps",
+      "path": "archived/2025/CertificateOfCompletion_Windows 11 AI Leveraging the Bundled Apps.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-31",
+      "duration": "17m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Windows 11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 61,
+      "title": "Windows 10: Networking",
+      "path": "archived/2025/CertificateOfCompletion_Windows 10 Networking.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-09-15",
+      "duration": "1h 14m",
+      "skills": [
+        "Windows Networking",
+        "Windows 10"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 226,
+      "title": "Windows 10: Administration",
+      "path": "archived/2025/CertificateOfCompletion_Windows 10 Administration.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-07-24",
+      "duration": "1h 34m",
+      "skills": [
+        "Windows 10"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 119,
+      "title": "Windows 10 Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Windows 10 Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-08",
+      "duration": "3h 25m",
+      "skills": [
+        "Windows 10"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 258,
+      "title": "What Is Microsoft Copilot? An Overview of Microsoft’s AI Tools",
+      "path": "archived/2025/CertificateOfCompletion_What Is Microsoft Copilot An Overview of Microsofts AI Tools.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-19",
+      "duration": "27m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Microsoft Copilot"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 10,
+      "title": "What Is Generative AI?",
+      "path": "archived/2025/CertificateOfCompletion_What Is Generative AI-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-19",
+      "duration": null,
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Tools AI",
+        "Instructional Delivery",
+        "Method QAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 27,
+      "title": "What Is Generative AI?",
+      "path": "archived/2025/CertificateOfCompletion_What Is Generative AI.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-19",
+      "duration": "1h 3m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 205,
+      "title": "Web Security: OAuth and OpenID Connect",
+      "path": "archived/2025/CertificateOfCompletion_Web Security OAuth and OpenID Connect.pdf",
+      "domain": "frontend",
+      "year": "2025",
+      "date": "2025-03-27",
+      "duration": "1h 37m",
+      "skills": [
+        "OpenID Connect",
+        "OAuth"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 39,
+      "title": "Visual Studio Code for Web Developers",
+      "path": "archived/2025/CertificateOfCompletion_Visual Studio Code for Web Developers.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-23",
+      "duration": "1h 21m",
+      "skills": [
+        "Visual Studio"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 326,
+      "title": "Visual Studio Code for Python Developers",
+      "path": "archived/2025/CertificateOfCompletion_Visual Studio Code for Python Developers.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-29",
+      "duration": "59m",
+      "skills": [
+        "Visual Studio Code",
+        "Microsoft Python",
+        "Programming Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 25,
+      "title": "Visual Studio Code Productivity Tips",
+      "path": "archived/2025/CertificateOfCompletion_Visual Studio Code Productivity Tips.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-18",
+      "duration": "50m",
+      "skills": [
+        "Visual Studio Code",
+        "Microsoft"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 20,
+      "title": "Video Without Cameras: Text-to- Video Tools and Trends",
+      "path": "archived/2025/CertificateOfCompletion_Video Without Cameras TexttoVideo Tools and Trends.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-15",
+      "duration": "30m",
+      "skills": [
+        "Artificial Intelligence",
+        "Video Generation",
+        "Design AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 8,
+      "title": "Vector, Graph, and DynamoDB",
+      "path": "archived/2025/CertificateOfCompletion_Vector Graph and DynamoDB.pdf",
+      "domain": "data",
+      "year": "2025",
+      "date": "2025-11-19",
+      "duration": "1h 12m",
+      "skills": [
+        "Vector Amazon",
+        "Dynamodb"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 147,
+      "title": "Using Git with Visual Studio Code",
+      "path": "archived/2025/CertificateOfCompletion_Using Git with Visual Studio Code.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-17",
+      "duration": "1h 27m",
+      "skills": [
+        "Visual Studio Code",
+        "Microsoft Git"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 327,
+      "title": "Unleashing the Power of DALL-E 3: A Conversation with Creative Director Chad Nelson",
+      "path": "archived/2025/CertificateOfCompletion_Unleashing the Power of DALLE 3 A Conversation with Creative Director Chad Nelson.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-31",
+      "duration": "32m",
+      "skills": [
+        "Artificial Intelligence",
+        "Design AI",
+        "Dall-e"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 183,
+      "title": "Unboxing AI: Build a Remote MCP Server from Zero to Deployed with OAuth",
+      "path": "archived/2025/CertificateOfCompletion_Unboxing AI Build a Remote MCP Server from Zero to Deployed with OAuth.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-25",
+      "duration": "2h 54m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Software",
+        "Development AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 399,
+      "title": "Ubuntu Linux: Essential Commands",
+      "path": "archived/2025/CertificateOfCompletion_Ubuntu Linux Essential Commands.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-07-26",
+      "duration": "2h 7m",
+      "skills": [
+        "Linux CLI",
+        "Ubuntu"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 360,
+      "title": "Trending Tools",
+      "path": "archived/2025/CertificateOfCompletion_Trending Tools.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-06-21",
+      "duration": "1h 40m",
+      "skills": [
+        "Productivity Software"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 287,
+      "title": "Top Features of Java 21",
+      "path": "archived/2025/CertificateOfCompletion_Top Features of Java 21.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-01-16",
+      "duration": "50m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 266,
+      "title": "The State of Generative AI: Images, Prompting, and Language Models",
+      "path": "archived/2025/CertificateOfCompletion_The State of Generative AI Images Prompting and Language Models.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-08",
+      "duration": "14m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Prompting"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 207,
+      "title": "The Power of Accurate Prompting with Anthropic’s Claude",
+      "path": "archived/2025/CertificateOfCompletion_The Power of Accurate Prompting with Anthropics Claude.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-13",
+      "duration": "21m",
+      "skills": [
+        "Generative AI",
+        "Anthropic Claude",
+        "AI Prompting"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 388,
+      "title": "The New AI Tech Stack: AI Literacy for Tech Leaders",
+      "path": "archived/2025/CertificateOfCompletion_The New AI Tech Stack AI Literacy for Tech Leaders.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-04-11",
+      "duration": "4h 26m",
+      "skills": [
+        "Artificial Intelligence",
+        "Digital Literacy",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 145,
+      "title": "The AI-Driven Content Creator",
+      "path": "archived/2025/CertificateOfCompletion_The AIDriven Content Creator.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-03",
+      "duration": "40m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Content",
+        "Creation"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 215,
+      "title": "Tech Trends",
+      "path": "archived/2025/CertificateOfCompletion_Tech Trends.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-06-23",
+      "duration": "1h 57m",
+      "skills": [
+        "Technology Trends",
+        "Tech Career",
+        "Skills"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 378,
+      "title": "Tech Trends",
+      "path": "archived/2025/CertificateOfCompletion_Tech Trends-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-06-23",
+      "duration": null,
+      "skills": [
+        "Technology Trends",
+        "Tech Career",
+        "Skills",
+        "Instructional Delivery",
+        "Method QAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 277,
+      "title": "Tech Sense",
+      "path": "archived/2025/CertificateOfCompletion_Tech Sense.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-07-17",
+      "duration": "36m",
+      "skills": [
+        "Software Development",
+        "Tech Career",
+        "Skills"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 367,
+      "title": "Supercharge the Development Process with GitHub Extensions for Copilot Chat",
+      "path": "archived/2025/CertificateOfCompletion_Supercharge the Development Process with GitHub Extensions for Copilot Chat.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-14",
+      "duration": "14m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 19,
+      "title": "Streamlining Your Work with Microsoft Copilot (Nov 2024)",
+      "path": "archived/2025/CertificateOfCompletion_Streamlining Your Work with Microsoft Copilot Nov 2024-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-24",
+      "duration": null,
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 214,
+      "title": "Streamlining Your Work with Microsoft Copilot (Nov 2024)",
+      "path": "archived/2025/CertificateOfCompletion_Streamlining Your Work with Microsoft Copilot Nov 2024.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-24",
+      "duration": "36m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 312,
+      "title": "Streamlining Your Work with Microsoft Copilot",
+      "path": "archived/2025/CertificateOfCompletion_Streamlining Your Work with Microsoft Copilot.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-28",
+      "duration": "51m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 160,
+      "title": "Spec-Driven Development with GitHub Spec Kit",
+      "path": "archived/2025/CertificateOfCompletion_SpecDriven Development with GitHub Spec Kit.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-22",
+      "duration": "47m",
+      "skills": [
+        "Generative AI",
+        "Spec-Driven Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 251,
+      "title": "Speak with AI: Get the Most from ChatGPT Advanced Voice Mode",
+      "path": "archived/2025/CertificateOfCompletion_Speak with AI Get the Most from ChatGPT Advanced Voice Mode.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-15",
+      "duration": "27m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 74,
+      "title": "Software Testing Assistance with GitHub Copilot AI",
+      "path": "archived/2025/CertificateOfCompletion_Software Testing Assistance with GitHub Copilot AI.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-18",
+      "duration": "1h 16m",
+      "skills": [
+        "Software Testing",
+        "Artificial Intelligence",
+        "GitHub Copilot",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 274,
+      "title": "Software Architecture Foundations",
+      "path": "archived/2025/CertificateOfCompletion_Software Architecture Foundations.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-17",
+      "duration": "1h 36m",
+      "skills": [
+        "Software Architecture"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 139,
+      "title": "Smarter Note-Taking with Microsoft",
+      "path": "archived/2025/CertificateOfCompletion_Smarter NoteTaking with Microsoft 365.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-04-12",
+      "duration": "1h 27m",
+      "skills": [
+        "Microsoft 365",
+        "Note Taking"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 96,
+      "title": "SharePoint Online Essential Training: The Basics",
+      "path": "archived/2025/CertificateOfCompletion_SharePoint Online Essential Training The Basics.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-03-23",
+      "duration": "2h 1m",
+      "skills": [
+        "SharePoint"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 45,
+      "title": "Salesforce Tips",
+      "path": "archived/2025/CertificateOfCompletion_Salesforce Tips.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-02-24",
+      "duration": "34m",
+      "skills": [
+        "Salesforce.com"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 167,
+      "title": "Salesforce Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Salesforce Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-02-24",
+      "duration": "1h 57m",
+      "skills": [
+        "Salesforce.com Customer",
+        "Relationship Management",
+        "CRM"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 54,
+      "title": "Salesforce Associate Cert Prep",
+      "path": "archived/2025/CertificateOfCompletion_Salesforce Associate Cert Prep.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-02-26",
+      "duration": "4h 35m",
+      "skills": [
+        "Salesforce.com"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 1,
+      "title": "SAP S/4HANA Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_SAP S4HANA Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-03-30",
+      "duration": "1h 34m",
+      "skills": [
+        "SAP Products",
+        "SAP S/4hana"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 82,
+      "title": "Refactoring with GitHub Copilot",
+      "path": "archived/2025/CertificateOfCompletion_Refactoring with GitHub Copilot.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-17",
+      "duration": "1h 1m",
+      "skills": [
+        "GitHub Copilot",
+        "PHP Code",
+        "Refactoring"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 248,
+      "title": "Python Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Python Essential Training.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-28",
+      "duration": "4h 22m",
+      "skills": [
+        "Python Programming",
+        "Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 233,
+      "title": "Python Data Structures: Dictionaries",
+      "path": "archived/2025/CertificateOfCompletion_Python Data Structures Dictionaries.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-11",
+      "duration": "57m",
+      "skills": [
+        "Data Structures",
+        "Python Programming",
+        "Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 134,
+      "title": "Prompting ChatGPT with Multimodal Techniques",
+      "path": "archived/2025/CertificateOfCompletion_Prompting ChatGPT with Multimodal Techniques.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-31",
+      "duration": "23m",
+      "skills": [
+        "AI Prompting",
+        "ChatGPT Prompt",
+        "Engineering"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 359,
+      "title": "Prompt Engineering with Gemini",
+      "path": "archived/2025/CertificateOfCompletion_Prompt Engineering with Gemini 2024.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-06",
+      "duration": "1h 2m",
+      "skills": [
+        "Artificial Intelligence",
+        "Google Gemini",
+        "AI Gemini"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 155,
+      "title": "Prompt Engineering with ChatGPT",
+      "path": "archived/2025/CertificateOfCompletion_Prompt Engineering with ChatGPT.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-01",
+      "duration": "54m",
+      "skills": [
+        "ChatGPT Prompt",
+        "Engineering"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 184,
+      "title": "Prompt Engineering and AI Agents with ChatGPT",
+      "path": "archived/2025/CertificateOfCompletion_Prompt Engineering and AI Agents with ChatGPT.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-18",
+      "duration": "27m",
+      "skills": [
+        "Artificial Intelligence",
+        "ChatGPT Prompt",
+        "Engineering AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 177,
+      "title": "Programming with the Gemini Flash API",
+      "path": "archived/2025/CertificateOfCompletion_Programming with the Gemini Flash API.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-21",
+      "duration": "19m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "API Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 194,
+      "title": "Programming in Windsurf and MCP",
+      "path": "archived/2025/CertificateOfCompletion_Programming in Windsurf and MCP.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-26",
+      "duration": "43m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 165,
+      "title": "Programming No-Code Integrations with Zapier",
+      "path": "archived/2025/CertificateOfCompletion_Programming NoCode Integrations with Zapier.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-27",
+      "duration": "2h 5m",
+      "skills": [
+        "No-Code Development",
+        "Zapier"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 363,
+      "title": "Programming Foundations: Object- Oriented Design",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations ObjectOriented Design.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-28",
+      "duration": "3h 41m",
+      "skills": [
+        "Software Design",
+        "Patterns Object-Oriented",
+        "Programming OOP"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 249,
+      "title": "Programming Foundations: Fundamentals",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Fundamentals.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-06",
+      "duration": "3h 10m",
+      "skills": [
+        "Programming"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 178,
+      "title": "Programming Foundations: Data Structures (2023)",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Data Structures 2023.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-10-25",
+      "duration": "2h 49m",
+      "skills": [
+        "Programming Data",
+        "Structures Python",
+        "Programming Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 150,
+      "title": "Programming Foundations: Beyond the Fundamentals",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Beyond the Fundamentals.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-14",
+      "duration": "3h 6m",
+      "skills": [
+        "Programming"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 303,
+      "title": "Programming Foundations: Artificial Intelligence",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Artificial Intelligence.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-20",
+      "duration": "1h 15m",
+      "skills": [
+        "Artificial Intelligence",
+        "Programming AI",
+        "Software Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 235,
+      "title": "Programming Foundations: Application Architecture",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Application Architecture.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-04-09",
+      "duration": "1h 20m",
+      "skills": [
+        "Programming Application",
+        "Architecture"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 138,
+      "title": "Programming Foundations: Algorithms",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations Algorithms.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-02",
+      "duration": "2h 45m",
+      "skills": [
+        "Algorithm Design",
+        "Data Structures"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 224,
+      "title": "Programming Foundations: APIs and Web Services",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations APIs and Web Services.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-02-27",
+      "duration": "2h 15m",
+      "skills": [
+        "API Development",
+        "Web Services"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 273,
+      "title": "Programming Foundations: APIs and Web Services",
+      "path": "archived/2025/CertificateOfCompletion_Programming Foundations APIs and Web Services_1.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-26",
+      "duration": "1h 55m",
+      "skills": [
+        "Programming Foundations",
+        "REST APIs",
+        "GraphQL"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 143,
+      "title": "Practice Exam 4 for AWS Cloud Practitioner (CLF-C02)",
+      "path": "archived/2025/CertificateOfCompletion_Practice Exam 4 for AWS Cloud Practitioner CLFC02.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-19",
+      "duration": "4m",
+      "skills": [
+        "Cloud Computing",
+        "AWS Security",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 232,
+      "title": "Practice Exam 3 for AWS Cloud Practitioner (CLF-C02)",
+      "path": "archived/2025/CertificateOfCompletion_Practice Exam 3 for AWS Cloud Practitioner CLFC02.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-18",
+      "duration": "4m",
+      "skills": [
+        "Cloud Computing",
+        "AWS Security",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 329,
+      "title": "Practice Exam 2 for AWS Cloud Practitioner (CLF-C02)",
+      "path": "archived/2025/CertificateOfCompletion_Practice Exam 2 for AWS Cloud Practitioner CLFC02.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-11",
+      "duration": "4m",
+      "skills": [
+        "Cloud Computing",
+        "AWS Security",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 201,
+      "title": "Practice Exam 1 for AWS Cloud Practitioner (CLF-C02)",
+      "path": "archived/2025/CertificateOfCompletion_Practice Exam 1 for AWS Cloud Practitioner CLFC02.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-11",
+      "duration": "4m",
+      "skills": [
+        "Cloud Computing",
+        "AWS Security",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 14,
+      "title": "Postman Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Postman Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-03-30",
+      "duration": "1h 45m",
+      "skills": [
+        "Test Automation",
+        "API Testing",
+        "Postman API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 256,
+      "title": "Planning a Versioned RESTful API with GitHub Copilot",
+      "path": "archived/2025/CertificateOfCompletion_Planning a Versioned RESTful API with GitHub Copilot.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-20",
+      "duration": "1h 52m",
+      "skills": [
+        "GitHub Copilot",
+        "REST APIs"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 245,
+      "title": "Planning a Versioned RESTful API with Claude",
+      "path": "archived/2025/CertificateOfCompletion_Planning a Versioned RESTful API with Claude.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-15",
+      "duration": "1h 23m",
+      "skills": [
+        "Anthropic Claude",
+        "REST APIs",
+        "RESTful Architecture"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 159,
+      "title": "Photos for macOS Ventura and iPhone Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Photos for macOS Ventura and iPhone Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-29",
+      "duration": "1h 37m",
+      "skills": [
+        "Apple Photos"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 230,
+      "title": "Outlook Quick Tips",
+      "path": "archived/2025/CertificateOfCompletion_Outlook Quick Tips.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-05-08",
+      "duration": "27m",
+      "skills": [
+        "Microsoft Outlook"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 295,
+      "title": "Outlook Essential Training (Microsoft",
+      "path": "archived/2025/CertificateOfCompletion_Outlook Essential Training Microsoft 365 2023.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-03",
+      "duration": "1h 48m",
+      "skills": [
+        "Microsoft Outlook"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 377,
+      "title": "OpenAI's ChatGPT: New Features for Developers",
+      "path": "archived/2025/CertificateOfCompletion_OpenAIs ChatGPT New Features for Developers.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-13",
+      "duration": "32m",
+      "skills": [
+        "Generative AI",
+        "OpenAI Products"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 308,
+      "title": "OpenAI ChatGPT: Creating Custom GPTs",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI ChatGPT Creating Custom GPTs.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-10",
+      "duration": "35m",
+      "skills": [
+        "OpenAI Products",
+        "Custom GPTs",
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 112,
+      "title": "OpenAI API: Working with Files",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Working with Files.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-23",
+      "duration": "36m",
+      "skills": [
+        "OpenAI Products",
+        "API Development",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 152,
+      "title": "OpenAI API: Vision",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Vision.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-17",
+      "duration": "30m",
+      "skills": [
+        "OpenAI Products",
+        "Computer Vision",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 144,
+      "title": "OpenAI API: Speech",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Speech.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-15",
+      "duration": "29m",
+      "skills": [
+        "Speech Recognition",
+        "OpenAI Products",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 100,
+      "title": "OpenAI API: Realtime API on the Server",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Realtime API on the Server.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-22",
+      "duration": "39m",
+      "skills": [
+        "Generative AI",
+        "OpenAI Products",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 382,
+      "title": "OpenAI API: Multimodal Development with GPT-4o",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Multimodal Development with GPT4o.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-23",
+      "duration": "45m",
+      "skills": [
+        "Artificial Intelligence",
+        "Software Development",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 337,
+      "title": "OpenAI API: Introduction",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Introduction.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-16",
+      "duration": "5m",
+      "skills": [
+        "OpenAI Products",
+        "API Development",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 199,
+      "title": "OpenAI API: Image Generation with DALL-E",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Image Generation with DALLE.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-17",
+      "duration": "24m",
+      "skills": [
+        "OpenAI Products",
+        "OpenAI API",
+        "Dall-e"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 271,
+      "title": "OpenAI API: Function Calling",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Function Calling.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-13",
+      "duration": "17m",
+      "skills": [
+        "Artificial Intelligence",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 407,
+      "title": "OpenAI API: Fine-Tuning",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API FineTuning.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-23",
+      "duration": "47m",
+      "skills": [
+        "OpenAI Products",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 394,
+      "title": "OpenAI API: Embeddings",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Embeddings.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-19",
+      "duration": "27m",
+      "skills": [
+        "OpenAI Products",
+        "OpenAI API",
+        "Embedded Software"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 141,
+      "title": "OpenAI API: Code Interpreter and Advanced Data Analysis",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Code Interpreter and Advanced Data Analysis.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-24",
+      "duration": "42m",
+      "skills": [
+        "Data Analysis",
+        "OpenAI Products",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 284,
+      "title": "OpenAI API: Building Front-End Voice Apps with the Realtime API and WebRTC",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Building FrontEnd Voice Apps with the Realtime API and WebRTC.pdf",
+      "domain": "frontend",
+      "year": "2025",
+      "date": "2025-10-21",
+      "duration": "48m",
+      "skills": [
+        "Generative AI",
+        "OpenAI API",
+        "Front-End Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 52,
+      "title": "OpenAI API: Building Assistants",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Building Assistants.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-13",
+      "duration": "34m",
+      "skills": [
+        "OpenAI Products",
+        "Chatbot Development",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 129,
+      "title": "OpenAI API: Agents",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API Agents.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-21",
+      "duration": "1h 4m",
+      "skills": [
+        "Generative AI",
+        "AI Agents",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 190,
+      "title": "OpenAI API for Python Developers",
+      "path": "archived/2025/CertificateOfCompletion_OpenAI API for Python Developers.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-06",
+      "duration": "2h 18m",
+      "skills": [
+        "Generative AI",
+        "OpenAI API",
+        "Python Programming",
+        "Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 173,
+      "title": "Open Source Development with the Stable Diffusion 3 API",
+      "path": "archived/2025/CertificateOfCompletion_Open Source Development with the Stable Diffusion 3 API.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-29",
+      "duration": "17m",
+      "skills": [
+        "Artificial Intelligence",
+        "Stable Diffusion",
+        "Open-Source Development",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 154,
+      "title": "OneNote Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_OneNote Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-03-13",
+      "duration": "2h 33m",
+      "skills": [
+        "OneNote"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 123,
+      "title": "NotebookLM: First Look",
+      "path": "archived/2025/CertificateOfCompletion_NotebookLM First Look.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-18",
+      "duration": "33m",
+      "skills": [
+        "AI for Business",
+        "Artificial Intelligence",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 137,
+      "title": "No-Code Solutions for Web Sites And Apps",
+      "path": "archived/2025/CertificateOfCompletion_NoCode Solutions for Web Sites And Apps.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-28",
+      "duration": "3h 10m",
+      "skills": [
+        "Web Application",
+        "Development Web"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 319,
+      "title": "No-Code Data Analysis and Visualization with ChatGPT",
+      "path": "archived/2025/CertificateOfCompletion_NoCode Data Analysis and Visualization with ChatGPT.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-09",
+      "duration": "36m",
+      "skills": [
+        "Data Analysis",
+        "AI for Business Analysis",
+        "No-Code Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 186,
+      "title": "Next-Level AI Capabilities in Anthropic's Claude 3.5",
+      "path": "archived/2025/CertificateOfCompletion_NextLevel AI Capabilities in Anthropics Claude 3.5.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-11",
+      "duration": "16m",
+      "skills": [
+        "Generative AI",
+        "Anthropic Claude"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 268,
+      "title": "Networking Foundations: Networking Basics",
+      "path": "archived/2025/CertificateOfCompletion_Networking Foundations Networking Basics.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-03",
+      "duration": "1h 49m",
+      "skills": [
+        "Network Administration"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 203,
+      "title": "Networking Foundations: IP Addressing",
+      "path": "archived/2025/CertificateOfCompletion_Networking Foundations IP Addressing.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-23",
+      "duration": "1h 32m",
+      "skills": [
+        "IP Addressing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 50,
+      "title": "Nano Tips with Piers Linney on How AI Will Affect Your Role",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips with Piers Linney on How AI Will Affect Your Role.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-15",
+      "duration": "11m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Generative AI",
+        "Tools"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 391,
+      "title": "Nano Tips to Jump Start Your Coding in Python with Ronnie Sheer",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips to Jump Start Your Coding in Python with Ronnie Sheer.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-02",
+      "duration": "18m",
+      "skills": [
+        "Python Programming",
+        "Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 376,
+      "title": "Nano Tips for Using ChatGPT for Business with Rachel Woods",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Using ChatGPT for Business with Rachel Woods.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-27",
+      "duration": "11m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Business Strategy",
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 115,
+      "title": "Nano Tips for Using Chat GPT to 10x Your Productivity at Work with Gianluca Mauro",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Using Chat GPT to 10x Your Productivity at Work with Gianluca Mauro.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-12",
+      "duration": "13m",
+      "skills": [
+        "ChatGPT Productivity",
+        "Improvement"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 298,
+      "title": "Nano Tips for Using AI to Boost Productivity for Any Role with Rachel Woods",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Using AI to Boost Productivity for Any Role with Rachel Woods.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-15",
+      "duration": "15m",
+      "skills": [
+        "ChatGPT AI",
+        "Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 353,
+      "title": "Nano Tips for Resilient Communication with Lorraine K. Lee",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Resilient Communication with Lorraine K. Lee.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-31",
+      "duration": "9m",
+      "skills": [
+        "Professional Communication",
+        "Resiliency"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 285,
+      "title": "Nano Tips for Powerful Leadership Storytelling with Christina Blacken",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Powerful Leadership Storytelling with Christina Blacken.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-12-07",
+      "duration": "14m",
+      "skills": [
+        "Storytelling Leadership",
+        "Communication"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 403,
+      "title": "Nano Tips for Navigating Bias and Stereotypes as an Asian American Professional with Diana YK Chan",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Navigating Bias and Stereotypes as an Asian American Professional with Diana YK Chan.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-31",
+      "duration": "9m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 385,
+      "title": "Nano Tips for Navigating Advanced Data Analysis, Vision, and Voice in ChatGPT with Lachezar Arabadzhiev",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Navigating Advanced Data Analysis Vision and Voice in ChatGPT with Lachezar Arabadzhiev.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-09",
+      "duration": "9m",
+      "skills": [
+        "Data Analysis",
+        "Artificial Intelligence for Business",
+        "AI for Business Analysis"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 89,
+      "title": "Nano Tips for Leveraging Technical Prompts Using ChatGPT with Lachezar Arabadzhiev",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Leveraging Technical Prompts Using ChatGPT with Lachezar Arabadzhiev.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-10",
+      "duration": "13m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "ChatGPT Prompt",
+        "Engineering"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 276,
+      "title": "Nano Tips for Leading with Positivity with Lorraine K. Lee",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Leading with Positivity with Lorraine K. Lee.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-07",
+      "duration": "9m",
+      "skills": [
+        "Leadership"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 373,
+      "title": "Nano Tips for Leading with Influence with Kim Kaupe",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Leading with Influence with Kim Kaupe.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-07",
+      "duration": "8m",
+      "skills": [
+        "Organizational Leadership",
+        "Influencing Others"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 220,
+      "title": "Nano Tips for Leading Change as a New Manager with Chris Williams",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Leading Change as a New Manager with Chris Williams.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-07",
+      "duration": "13m",
+      "skills": [
+        "Lead Change",
+        "Change Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 90,
+      "title": "Nano Tips for Identifying and Overcoming Unconscious Bias in the Workplace with Desiree Coleman-Fry",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Identifying and Overcoming Unconscious Bias in the Workplace with Desiree ColemanFry.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-31",
+      "duration": "6m",
+      "skills": [
+        "Emotional Intelligence",
+        "Unconscious Bias",
+        "Awareness Training",
+        "Allyship"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 103,
+      "title": "Nano Tips for Future-Proofing Your Career with AI with Piers Linney",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for FutureProofing Your Career with AI with Piers Linney.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-15",
+      "duration": "11m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Career Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 35,
+      "title": "Nano Tips for Creating Equitable Workplaces for Working Mothers with Desiree Coleman-Fry",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Creating Equitable Workplaces for Working Mothers with Desiree ColemanFry.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-31",
+      "duration": "7m",
+      "skills": [
+        "Allyship Workplace",
+        "Design"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 59,
+      "title": "Nano Tips for Creating Custom GPTs and Actions with ChatGPT with Lachezar Arabadzhiev",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Creating Custom GPTs and Actions with ChatGPT with Lachezar Arabadzhiev.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-29",
+      "duration": "12m",
+      "skills": [
+        "Custom GPTs",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 163,
+      "title": "Nano Tips for Creating AI Powered Video Creation with Lachezar Arabadzhiev",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Creating AI Powered Video Creation with Lachezar Arabadzhiev.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-05",
+      "duration": "10m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Video Generation",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 397,
+      "title": "Nano Tips for Building AI Actions for GPTs with Zapier and ChatGPT with Lachezar Arabadzhiev",
+      "path": "archived/2025/CertificateOfCompletion_Nano Tips for Building AI Actions for GPTs with Zapier and ChatGPT with Lachezar Arabadzhiev.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-28",
+      "duration": "11m",
+      "skills": [
+        "Custom GPTs",
+        "Zapier AI",
+        "Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 331,
+      "title": "Multimodal Prompting with Google's Project Gemini",
+      "path": "archived/2025/CertificateOfCompletion_Multimodal Prompting with Googles Project Gemini.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-28",
+      "duration": "15m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Prompting",
+        "Multimodal Prompting"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 281,
+      "title": "Model Context Protocol (MCP): Hands-On with Agentic AI",
+      "path": "archived/2025/CertificateOfCompletion_Model Context Protocol MCP HandsOn with Agentic AI.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-08-04",
+      "duration": "55m",
+      "skills": [
+        "Anthropic Claude",
+        "AI Agents",
+        "Application Programming",
+        "Interfaces API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 365,
+      "title": "Mitigating Prompt Injection and Prompt Hacking",
+      "path": "archived/2025/CertificateOfCompletion_Mitigating Prompt Injection and Prompt Hacking.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-07-31",
+      "duration": "6m",
+      "skills": [
+        "Prompt Engineering",
+        "Cyber Risk",
+        "Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 81,
+      "title": "Midjourney: Quick Start",
+      "path": "archived/2025/CertificateOfCompletion_Midjourney Quick Start.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-12",
+      "duration": "1h 20m",
+      "skills": [
+        "Artificial Intelligence",
+        "Design AI",
+        "Midjourney"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 86,
+      "title": "Microsoft Mesh and New Meeting Features in Microsoft Teams",
+      "path": "archived/2025/CertificateOfCompletion_Microsoft Mesh and New Meeting Features in Microsoft Teams.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-05-09",
+      "duration": "24m",
+      "skills": [
+        "Microsoft Teams",
+        "Mixed Reality"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 36,
+      "title": "Microsoft 365: Choose the Right Tool for the Job",
+      "path": "archived/2025/CertificateOfCompletion_Microsoft 365 Choose the Right Tool for the Job.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-04-06",
+      "duration": "36m",
+      "skills": [
+        "Microsoft 365"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 75,
+      "title": "Microsoft 365 Copilot Quick Tips",
+      "path": "archived/2025/CertificateOfCompletion_Microsoft 365 Copilot Quick Tips 2024.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-27",
+      "duration": "1h 4m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft 365",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 325,
+      "title": "Mastering Model Context Protocol (MCP)",
+      "path": "archived/2025/CertificateOfCompletion_Mastering Model Context Protocol MCP.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-28",
+      "duration": "1h 3m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Agents",
+        "AI Software",
+        "Development AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 181,
+      "title": "Marketing with Anthropic Claude: Turning LinkedIn Comments Into Content Strategies",
+      "path": "archived/2025/CertificateOfCompletion_Marketing with Anthropic Claude Turning LinkedIn Comments Into Content Strategies.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-13",
+      "duration": "28m",
+      "skills": [
+        "Anthropic Claude"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 219,
+      "title": "Marketing Strategy for Designers",
+      "path": "archived/2025/CertificateOfCompletion_Marketing Strategy for Designers.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-12-07",
+      "duration": "2h",
+      "skills": [
+        "Marketing Graphic",
+        "Design Marketing",
+        "Strategy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 127,
+      "title": "Make AI Work for You: Break Creative Block",
+      "path": "archived/2025/CertificateOfCompletion_Make AI Work for You Break Creative Block.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-10",
+      "duration": "44m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "AI Productivity",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 200,
+      "title": "Linux: Overview and Installation",
+      "path": "archived/2025/CertificateOfCompletion_Linux Overview and Installation.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-07-06",
+      "duration": "1h 51m",
+      "skills": [
+        "Linux"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 278,
+      "title": "LinkedIn Premium Quick Tips (2023)",
+      "path": "archived/2025/CertificateOfCompletion_LinkedIn Premium Quick Tips 2023.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-03-24",
+      "duration": "27m",
+      "skills": [
+        "Job Search",
+        "Strategies Career",
+        "Management LinkedIn"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 92,
+      "title": "Leonardo AI: Tips and Techniques for Generating Images",
+      "path": "archived/2025/CertificateOfCompletion_Leonardo AI Tips and Techniques for Generating Images.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-02",
+      "duration": "1h 54m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Image Generation",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 93,
+      "title": "Learning Visual Studio Code",
+      "path": "archived/2025/CertificateOfCompletion_Learning Visual Studio Code.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-11",
+      "duration": "2h 10m",
+      "skills": [
+        "Visual Studio Code",
+        "Microsoft"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 222,
+      "title": "Learning Salesforce CPQ",
+      "path": "archived/2025/CertificateOfCompletion_Learning Salesforce CPQ.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-02-24",
+      "duration": "27m",
+      "skills": [
+        "Salesforce.com"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 395,
+      "title": "Learning REST APIs",
+      "path": "archived/2025/CertificateOfCompletion_Learning REST APIs.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-02-28",
+      "duration": "1h 6m",
+      "skills": [
+        "REST APIs"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 65,
+      "title": "Learning PC Maintenance and Performance: Windows 11",
+      "path": "archived/2025/CertificateOfCompletion_Learning PC Maintenance and Performance Windows 11.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-03",
+      "duration": "1h",
+      "skills": [
+        "Computer Maintenance",
+        "Computer Repair",
+        "Windows 11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 255,
+      "title": "Learning PC Maintenance and Performance",
+      "path": "archived/2025/CertificateOfCompletion_Learning PC Maintenance and Performance.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-23",
+      "duration": "1h",
+      "skills": [
+        "Computer Performance",
+        "Computer Maintenance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 297,
+      "title": "Learning OneDrive",
+      "path": "archived/2025/CertificateOfCompletion_Learning OneDrive.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-03-30",
+      "duration": "54m",
+      "skills": [
+        "Microsoft OneDrive"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 208,
+      "title": "Learning NotebookLM",
+      "path": "archived/2025/CertificateOfCompletion_Learning NotebookLM.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-19",
+      "duration": "39m",
+      "skills": [
+        "AI for Business",
+        "Artificial Intelligence",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 387,
+      "title": "Learning Microsoft 365 Copilot for Work",
+      "path": "archived/2025/CertificateOfCompletion_Learning Microsoft 365 Copilot for Work.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-21",
+      "duration": "29m",
+      "skills": [
+        "Microsoft Copilot",
+        "Office 365"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 316,
+      "title": "Learning Microsoft 365",
+      "path": "archived/2025/CertificateOfCompletion_Learning Microsoft 365.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-03-26",
+      "duration": "1h 21m",
+      "skills": [
+        "Microsoft 365"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 72,
+      "title": "Learning Jira (Cloud Edition)",
+      "path": "archived/2025/CertificateOfCompletion_Learning Jira Cloud Edition.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-03-22",
+      "duration": "1h 35m",
+      "skills": [
+        "Jira"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 66,
+      "title": "Learning GitHub Packages",
+      "path": "archived/2025/CertificateOfCompletion_Learning GitHub Packages.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-01",
+      "duration": "1h 6m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 357,
+      "title": "Learning GitHub Codespaces for Enterprise",
+      "path": "archived/2025/CertificateOfCompletion_Learning GitHub Codespaces for Enterprise.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-19",
+      "duration": "1h 28m",
+      "skills": [
+        "GitHub Codespaces"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 171,
+      "title": "Learning Git and GitHub",
+      "path": "archived/2025/CertificateOfCompletion_Learning Git and GitHub.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-04-19",
+      "duration": "3h 42m",
+      "skills": [
+        "GitHub Git"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 87,
+      "title": "Learning Eclipse",
+      "path": "archived/2025/CertificateOfCompletion_Learning Eclipse.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-04-26",
+      "duration": "1h 23m",
+      "skills": [
+        "Eclipse"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 131,
+      "title": "Learning Confluence",
+      "path": "archived/2025/CertificateOfCompletion_Learning Confluence.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-01-20",
+      "duration": "4101h",
+      "skills": [
+        "Confluence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 234,
+      "title": "Learning Confluence",
+      "path": "archived/2025/CertificateOfCompletion_Learning Confluence-1.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-01-20",
+      "duration": "1h 37m",
+      "skills": [
+        "Confluence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 17,
+      "title": "Learning Amazon Web Services (AWS) for Developers",
+      "path": "archived/2025/CertificateOfCompletion_Learning Amazon Web Services AWS for Developers.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-10-18",
+      "duration": "1h 25m",
+      "skills": [
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 62,
+      "title": "Learn API Documentation with JSON and XML",
+      "path": "archived/2025/CertificateOfCompletion_Learn API Documentation with JSON and XML.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-04-07",
+      "duration": "1h 18m",
+      "skills": [
+        "XML API",
+        "Documentation JSON"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 370,
+      "title": "La minute de formation : Garder le plaisir au travail",
+      "path": "archived/2025/CertificateOfCompletion_La minute de formation Garder le plaisir au travail.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-08",
+      "duration": "13m",
+      "skills": [
+        "Work-Life Balance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 169,
+      "title": "Java SE 11 Developer (1Z0-819) Cert Prep",
+      "path": "archived/2025/CertificateOfCompletion_Java SE 11 Developer 1Z0819 Cert Prep.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-01-14",
+      "duration": "18h 5m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 151,
+      "title": "Introduction to Web APIs",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Web APIs.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-02-27",
+      "duration": "1h 20m",
+      "skills": [
+        "API Development",
+        "Application Programming",
+        "Interfaces API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 172,
+      "title": "Introduction to Web APIs",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Web APIs-1.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-02-27",
+      "duration": null,
+      "skills": [
+        "API Development",
+        "Application Programming",
+        "Interfaces API",
+        "Instructional Delivery",
+        "Method QAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 71,
+      "title": "Introduction to Google Drive",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Google Drive.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-01-18",
+      "duration": "40m",
+      "skills": [
+        "Google Drive"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 305,
+      "title": "Introduction to Google Calendar",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Google Calendar.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-25",
+      "duration": "39m",
+      "skills": [
+        "Google Calendar"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 189,
+      "title": "Introduction to Generative AI with GPT",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Generative AI with GPT-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-04",
+      "duration": null,
+      "skills": [
+        "Artificial Intelligence for Business",
+        "GPT-4 AI",
+        "Instructional Delivery",
+        "Method QAS",
+        "Self Study"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 212,
+      "title": "Introduction to Generative AI with GPT",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Generative AI with GPT.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-04",
+      "duration": "1h 5m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "GPT-4 AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 43,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development-4.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": null,
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 64,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development-3.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": null,
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills",
+        "Instructional Delivery"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 142,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": null,
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills",
+        "Credits Towards"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 175,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development-2.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": "2h 2m",
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 328,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": null,
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills",
+        "This Course"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 401,
+      "title": "Introduction to Career Skills in Software Development",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Career Skills in Software Development-5.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": null,
+      "skills": [
+        "Software Development",
+        "Career Management",
+        "Tech Career",
+        "Skills",
+        "SCP® Professional"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 346,
+      "title": "Introduction to Artificial Intelligence",
+      "path": "archived/2025/CertificateOfCompletion_Introduction to Artificial Intelligence.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-18",
+      "duration": "2h 26m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Literacy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 80,
+      "title": "Intro to Building Java Applications with Cursor",
+      "path": "archived/2025/CertificateOfCompletion_Intro to Building Java Applications with Cursor.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-06",
+      "duration": "1h 39m",
+      "skills": [
+        "Artificial Intelligence",
+        "Java AI",
+        "Software Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 23,
+      "title": "Insights on Cloud Computing with Lynn Langit",
+      "path": "archived/2025/CertificateOfCompletion_Insights on Cloud Computing with Lynn Langit.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-28",
+      "duration": "24m",
+      "skills": [
+        "Cloud Computing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 301,
+      "title": "Improving Insights with OpenAI's Advanced Data Analysis",
+      "path": "archived/2025/CertificateOfCompletion_Improving Insights with OpenAIs Advanced Data Analysis.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-02",
+      "duration": "15m",
+      "skills": [
+        "Data Analysis",
+        "Artificial Intelligence for Business",
+        "AI for Business Analysis"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 202,
+      "title": "How to Use AI Reasoning Models: Practical Applications with Hands-On Exercises",
+      "path": "archived/2025/CertificateOfCompletion_How to Use AI Reasoning Models Practical Applications with HandsOn Exercises.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-08-13",
+      "duration": "2h",
+      "skills": [
+        "Large Language",
+        "Models LLM",
+        "Azure AI",
+        "Studio OpenAI",
+        "API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 320,
+      "title": "How to Motivate Yourself to Do What’ s Most Important",
+      "path": "archived/2025/CertificateOfCompletion_How to Motivate Yourself to Do Whats Most Important.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-09-23",
+      "duration": "32m",
+      "skills": [
+        "Persistence Self-Motivation",
+        "Priority Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 243,
+      "title": "How to Build Visual Content Marketing Strategies",
+      "path": "archived/2025/CertificateOfCompletion_How to Build Visual Content Marketing Strategies-1.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-12-08",
+      "duration": null,
+      "skills": [
+        "Content Marketing",
+        "Marketing Strategy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 254,
+      "title": "How to Build Visual Content Marketing Strategies",
+      "path": "archived/2025/CertificateOfCompletion_How to Build Visual Content Marketing Strategies.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-12-08",
+      "duration": "1h 19m",
+      "skills": [
+        "Content Marketing",
+        "Marketing Strategy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 188,
+      "title": "How to Boost Your Productivity with AI Tools",
+      "path": "archived/2025/CertificateOfCompletion_How to Boost Your Productivity with AI Tools.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-01-18",
+      "duration": "4101h",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Productivity Improvement"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 286,
+      "title": "How to Boost Your Productivity with AI Tools",
+      "path": "archived/2025/CertificateOfCompletion_How to Boost Your Productivity with AI Tools-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-01-18",
+      "duration": "1h",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Productivity Improvement"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 210,
+      "title": "Hands-on AI: Next-Gen Security and GRC Automation with MCP",
+      "path": "archived/2025/CertificateOfCompletion_Handson AI NextGen Security and GRC Automation with MCP.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-26",
+      "duration": "54m",
+      "skills": [
+        "AI Security",
+        "Governance Risk",
+        "Management and",
+        "Compliance GRC"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 37,
+      "title": "Hands-On with OpenAI Reasoning Models",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn with OpenAI Reasoning Models.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-25",
+      "duration": "1h 6m",
+      "skills": [
+        "Artificial Intelligence",
+        "OpenAI Products",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 185,
+      "title": "Hands-On MCP: Extend Agent Mode with VS Code",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn MCP Extend Agent Mode with VS Code.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-27",
+      "duration": "45m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 372,
+      "title": "Hands-On AI: OpenAI Realtime API for Voice Conversations",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn AI OpenAI Realtime API for Voice Conversations.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-19",
+      "duration": "54m",
+      "skills": [
+        "Artificial Intelligence",
+        "ChatGPT OpenAI",
+        "API AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 120,
+      "title": "Hands-On AI: Building AI Agents with Model Context Protocol (MCP) and Agent2Agent (A2A)",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn AI Building AI Agents with Model Context Protocol MCP and Agent2Agent A2A.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-19",
+      "duration": "1h 40m",
+      "skills": [
+        "Generative AI",
+        "AI Agents"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 53,
+      "title": "Hands-On AI: Build Your Own GPTs",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn AI Build Your Own GPTs.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-30",
+      "duration": "51m",
+      "skills": [
+        "AI Software",
+        "Development ChatGPT",
+        "Chatbot Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 105,
+      "title": "Hands-On AI: Build Your Own GPTs",
+      "path": "archived/2025/CertificateOfCompletion_HandsOn AI Build Your Own GPTs-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-30",
+      "duration": null,
+      "skills": [
+        "AI Software",
+        "Development ChatGPT",
+        "Chatbot Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 146,
+      "title": "HTTP Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_HTTP Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-02-28",
+      "duration": "50m",
+      "skills": [
+        "Hypertext Transfer",
+        "Protocol HTTP"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 49,
+      "title": "HTML: Metadata in the Head",
+      "path": "archived/2025/CertificateOfCompletion_HTML Metadata in the Head.pdf",
+      "domain": "frontend",
+      "year": "2025",
+      "date": "2025-11-25",
+      "duration": "1h 24m",
+      "skills": [
+        "HTML Metadata"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 261,
+      "title": "Google Gemini for Developers (2024)",
+      "path": "archived/2025/CertificateOfCompletion_Google Gemini for Developers 2024.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-02",
+      "duration": "2h 12m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "Google Gemini"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 350,
+      "title": "Google Gemini for Developers",
+      "path": "archived/2025/CertificateOfCompletion_Google Gemini for Developers.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-20",
+      "duration": "1h 7m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "Large Language",
+        "Models LLM"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 67,
+      "title": "Gmail Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Gmail Essential Training.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-21",
+      "duration": "1h 51m",
+      "skills": [
+        "Gmail"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 272,
+      "title": "Gmail Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Gmail Essential Training-2.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-21",
+      "duration": null,
+      "skills": [
+        "Gmail"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 111,
+      "title": "GitHub for Data Science Job Seekers",
+      "path": "archived/2025/CertificateOfCompletion_GitHub for Data Science Job Seekers.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-09",
+      "duration": "59m",
+      "skills": [
+        "Job Search",
+        "Strategies GitHub",
+        "Data Science"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 76,
+      "title": "GitHub Foundations: Privacy, Security, and Administration",
+      "path": "archived/2025/CertificateOfCompletion_GitHub Foundations Privacy Security and Administration.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-08",
+      "duration": "49m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 107,
+      "title": "GitHub Dependabot: Dependency Updates",
+      "path": "archived/2025/CertificateOfCompletion_GitHub Dependabot Dependency Updates.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-17",
+      "duration": "51m",
+      "skills": [
+        "GitHub Dependency",
+        "Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 78,
+      "title": "GitHub Copilot Cert Prep by Microsoft Press",
+      "path": "archived/2025/CertificateOfCompletion_GitHub Copilot Cert Prep by Microsoft Press.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-28",
+      "duration": "6h",
+      "skills": [
+        "GitHub GitHub",
+        "Copilot"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 149,
+      "title": "GitHub Codespaces for Students",
+      "path": "archived/2025/CertificateOfCompletion_GitHub Codespaces for Students.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-12",
+      "duration": "35m",
+      "skills": [
+        "GitHub Codespaces"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 98,
+      "title": "GitHub Advanced Security (GHAS)",
+      "path": "archived/2025/CertificateOfCompletion_GitHub Advanced Security GHAS.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-10-25",
+      "duration": "1h 20m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 33,
+      "title": "Getting Things Done",
+      "path": "archived/2025/CertificateOfCompletion_Getting Things Done.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-03",
+      "duration": "30m",
+      "skills": [
+        "Time Management",
+        "Productivity Improvement",
+        "Getting Things",
+        "Done GTD",
+        "Method"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 30,
+      "title": "Getting Started with the Google Gemini API",
+      "path": "archived/2025/CertificateOfCompletion_Getting Started with the Google Gemini API.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-23",
+      "duration": "1h 8m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "API Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 263,
+      "title": "Getting Started with Claude 3",
+      "path": "archived/2025/CertificateOfCompletion_Getting Started with Claude 3.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-11",
+      "duration": "17m",
+      "skills": [
+        "Generative AI",
+        "Anthropic Claude"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 291,
+      "title": "Getting Started with Autonomous Agents in Copilot Studio (No Code Required)",
+      "path": "archived/2025/CertificateOfCompletion_Getting Started with Autonomous Agents in Copilot Studio No Code Required.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-22",
+      "duration": "34m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Microsoft Copilot",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 332,
+      "title": "Getting Hands-On with GPT-4: Tips and Tricks",
+      "path": "archived/2025/CertificateOfCompletion_Getting HandsOn with GPT4 Tips and Tricks.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-14",
+      "duration": "35m",
+      "skills": [
+        "Generative AI",
+        "GPT-4"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 38,
+      "title": "Generative Voice AI: Text-to-Speech and Voice Cloning Tools",
+      "path": "archived/2025/CertificateOfCompletion_Generative Voice AI TexttoSpeech and Voice Cloning Tools.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-04",
+      "duration": "41m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Text-to-Speech Synthesis",
+        "Tools AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 410,
+      "title": "Generative AI Imaging: What Creative Pros Need to Know",
+      "path": "archived/2025/CertificateOfCompletion_Generative AI Imaging What Creative Pros Need to Know.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-28",
+      "duration": "48m",
+      "skills": [
+        "Artificial Intelligence",
+        "Conditional Image",
+        "Generation for Design",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 304,
+      "title": "Gemini for Google Cloud",
+      "path": "archived/2025/CertificateOfCompletion_Gemini for Google Cloud.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-29",
+      "duration": "1h 3m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Gemini"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 13,
+      "title": "GPT-4 Turbo: OpenAI's GPT Model and What You Need to Know",
+      "path": "archived/2025/CertificateOfCompletion_GPT4 Turbo OpenAIs GPT Model and What You Need to Know.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-19",
+      "duration": "1h 6m",
+      "skills": [
+        "Artificial Intelligence",
+        "GPT-4 AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 6,
+      "title": "GPT-4 Foundations: Building AI- Powered Apps",
+      "path": "archived/2025/CertificateOfCompletion_GPT4 Foundations Building AIPowered Apps.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-11",
+      "duration": "1h 2m",
+      "skills": [
+        "Generative AI",
+        "AI Software",
+        "Development GPT-4"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 259,
+      "title": "Exploring Million-Token Models with Google Gemini Pro 1.5",
+      "path": "archived/2025/CertificateOfCompletion_Exploring MillionToken Models with Google Gemini Pro 1.5.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-26",
+      "duration": "18m",
+      "skills": [
+        "Artificial Intelligence",
+        "Large Language",
+        "Models LLM",
+        "Chatbot Development",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 148,
+      "title": "Excel and ChatGPT: Data Analysis Power Tips",
+      "path": "archived/2025/CertificateOfCompletion_Excel and ChatGPT Data Analysis Power Tips.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-02",
+      "duration": "2h 6m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "AI for Business Analysis",
+        "Microsoft Excel"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 132,
+      "title": "Enterprise Architecture Foundations",
+      "path": "archived/2025/CertificateOfCompletion_Enterprise Architecture Foundations.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-17",
+      "duration": "58m",
+      "skills": [
+        "Enterprise Architecture"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 314,
+      "title": "Enhance Custom GPTs with Zapier Actions (No Code Required)",
+      "path": "archived/2025/CertificateOfCompletion_Enhance Custom GPTs with Zapier Actions No Code Required.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-27",
+      "duration": "20m",
+      "skills": [
+        "Workflow Automation",
+        "Custom GPTs",
+        "Zapier"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 340,
+      "title": "Enhance Custom GPTs with Zapier Actions (No Code Required)",
+      "path": "archived/2025/CertificateOfCompletion_Enhance Custom GPTs with Zapier Actions No Code Required (1).pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-27",
+      "duration": null,
+      "skills": [
+        "Workflow Automation",
+        "Custom GPTs",
+        "Zapier"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 369,
+      "title": "Empower Your Productivity with Google Gemini",
+      "path": "archived/2025/CertificateOfCompletion_Empower Your Productivity with Google Gemini.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-05",
+      "duration": "1h 51m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 156,
+      "title": "Eclipse Essential Training (2021)",
+      "path": "archived/2025/CertificateOfCompletion_Eclipse Essential Training 2021.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-04",
+      "duration": "2h 7m",
+      "skills": [
+        "Eclipse"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 48,
+      "title": "Eclipse Essential Training",
+      "path": "archived/2025/CertificateOfCompletion_Eclipse Essential Training.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-02",
+      "duration": "1h 59m",
+      "skills": [
+        "Java Eclipse"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 164,
+      "title": "Digital Technologies Case Studies: AI, IOT, Robotics, Blockchain",
+      "path": "archived/2025/CertificateOfCompletion_Digital Technologies Case Studies AI IOT Robotics Blockchain-1.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-10-04",
+      "duration": "43m",
+      "skills": [
+        "Business Strategy",
+        "Digital Strategy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 290,
+      "title": "Digital Technologies Case Studies: AI, IOT, Robotics, Blockchain",
+      "path": "archived/2025/CertificateOfCompletion_Digital Technologies Case Studies AI IOT Robotics Blockchain.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-10-04",
+      "duration": "0m",
+      "skills": [
+        "Business Strategy",
+        "Digital Strategy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 300,
+      "title": "DevOps Foundations: Infrastructure as Code",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations Infrastructure as Code.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-15",
+      "duration": "2h 12m",
+      "skills": [
+        "DevOps Infrastructure",
+        "As Code",
+        "IaC"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 57,
+      "title": "DevOps Foundations: Continuous Delivery/Continuous Integration",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations Continuous DeliveryContinuous Integration-1.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-10-27",
+      "duration": "1h 54m",
+      "skills": [
+        "Continuous Integration",
+        "And Continuous",
+        "Delivery CI/CD",
+        "DevOps"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 311,
+      "title": "DevOps Foundations: Continuous Delivery /Continuous Integration",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations Continuous DeliveryContinuous Integration.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-10-27",
+      "duration": null,
+      "skills": [
+        "Continuous Integration",
+        "And Continuous",
+        "Delivery CI/CD",
+        "DevOps",
+        "This Course"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 31,
+      "title": "DevOps Foundations: Containers",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations Containers.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-11-29",
+      "duration": "1h 6m",
+      "skills": [
+        "Containerization DevOps"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 116,
+      "title": "DevOps Foundations",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-10-01",
+      "duration": null,
+      "skills": [
+        "DevOps",
+        "This Course",
+        "Is Valid",
+        "Continuing Education",
+        "Units Toward"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 244,
+      "title": "DevOps Foundations",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations-2.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-10-01",
+      "duration": null,
+      "skills": [
+        "DevOps"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 318,
+      "title": "DevOps Foundations",
+      "path": "archived/2025/CertificateOfCompletion_DevOps Foundations-1.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-10-01",
+      "duration": "3h 9m",
+      "skills": [
+        "DevOps"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 250,
+      "title": "Designing RESTful APIs",
+      "path": "archived/2025/CertificateOfCompletion_Designing RESTful APIs.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-03-02",
+      "duration": "1h 20m",
+      "skills": [
+        "REST APIs"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 117,
+      "title": "Demystifying ChatGPT and Generative AI: What Every Professional Needs to Know",
+      "path": "archived/2025/CertificateOfCompletion_Demystifying ChatGPT and Generative AI What Every Professional Needs to Know.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-07",
+      "duration": "1h 11m",
+      "skills": [
+        "Generative AI",
+        "ChatGPT Tools"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 195,
+      "title": "Demystifying Agentic AI with ChatGPT: Elevate Your Skills and Unlock New Potential",
+      "path": "archived/2025/CertificateOfCompletion_Demystifying Agentic AI with ChatGPT Elevate Your Skills and Unlock New Potential.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-08",
+      "duration": "1h 18m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Agents",
+        "ChatGPT AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 338,
+      "title": "Delivering Results Effectively",
+      "path": "archived/2025/CertificateOfCompletion_Delivering Results Effectively-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-31",
+      "duration": null,
+      "skills": [
+        "Accountability"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 411,
+      "title": "Delivering Results Effectively",
+      "path": "archived/2025/CertificateOfCompletion_Delivering Results Effectively.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-31",
+      "duration": "54m",
+      "skills": [
+        "Accountability"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 292,
+      "title": "Critical Thinking",
+      "path": "archived/2025/CertificateOfCompletion_Critical Thinking.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-17",
+      "duration": "1h 9m",
+      "skills": [
+        "Critical Thinking",
+        "Decision-Making"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 364,
+      "title": "Critical Thinking",
+      "path": "archived/2025/CertificateOfCompletion_Critical Thinking-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-17",
+      "duration": null,
+      "skills": [
+        "Critical Thinking",
+        "Decision-Making"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 236,
+      "title": "Creating a Book Search Engine from Scratch Using Java and GitHub Copilot",
+      "path": "archived/2025/CertificateOfCompletion_Creating a Book Search Engine from Scratch Using Java and GitHub Copilot.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-22",
+      "duration": "2h 11m",
+      "skills": [
+        "GitHub GitHub",
+        "Copilot Spring",
+        "Boot"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 7,
+      "title": "Creating GitHub Portfolios",
+      "path": "archived/2025/CertificateOfCompletion_Creating GitHub Portfolios.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-16",
+      "duration": "1h 9m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 110,
+      "title": "Creating GPTs with Actions",
+      "path": "archived/2025/CertificateOfCompletion_Creating GPTs with Actions.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-07",
+      "duration": "1h 26m",
+      "skills": [
+        "ChatGPT Chatbot",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 99,
+      "title": "Creating API Documentation",
+      "path": "archived/2025/CertificateOfCompletion_Creating API Documentation.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-04-05",
+      "duration": "30m",
+      "skills": [
+        "API Documentation"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 135,
+      "title": "Create Engaging Video with Google Vids",
+      "path": "archived/2025/CertificateOfCompletion_Create Engaging Video with Google Vids.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-24",
+      "duration": "18m",
+      "skills": [
+        "Artificial Intelligence",
+        "Google Gemini",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 197,
+      "title": "Copilot in Word: Create and Refine Documents with AI",
+      "path": "archived/2025/CertificateOfCompletion_Copilot in Word Create and Refine Documents with AI.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-25",
+      "duration": "27m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 237,
+      "title": "Copilot in Outlook: Maximize Your Workday Efficiency",
+      "path": "archived/2025/CertificateOfCompletion_Copilot in Outlook Maximize Your Workday Efficiency.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-25",
+      "duration": "21m",
+      "skills": [
+        "AI for Business",
+        "Artificial Intelligence",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 280,
+      "title": "Copilot in OneNote: Smarter Note- Taking with AI",
+      "path": "archived/2025/CertificateOfCompletion_Copilot in OneNote Smarter NoteTaking with AI.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-23",
+      "duration": "12m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Microsoft OneNote",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 4,
+      "title": "Copilot in Excel: Supercharge Your Productivity (2023)",
+      "path": "archived/2025/CertificateOfCompletion_Copilot in Excel Supercharge Your Productivity 2023.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-24",
+      "duration": "13m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Artificial Intelligence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 265,
+      "title": "Copilot for Service: Helpful Tips for Customer Service Agents",
+      "path": "archived/2025/CertificateOfCompletion_Copilot for Service Helpful Tips for Customer Service Agents.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-28",
+      "duration": "11m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Artificial Intelligence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 252,
+      "title": "Copilot dans Teams : La collaboration assistée par l'IA",
+      "path": "archived/2025/CertificateOfCompletion_Copilot dans Teams La collaboration assistee par lIA-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-26",
+      "duration": null,
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Microsoft Teams"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 393,
+      "title": "Copilot dans Teams : La collaboration assistée par l'IA",
+      "path": "archived/2025/CertificateOfCompletion_Copilot dans Teams La collaboration assistee par lIA.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-26",
+      "duration": "35m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Microsoft Teams"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 366,
+      "title": "Copilot Agents: Leveraging Customized AI Assistants in Copilot and Teams (No Code Required)",
+      "path": "archived/2025/CertificateOfCompletion_Copilot Agents Leveraging Customized AI Assistants in Copilot and Teams No Code Required.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-18",
+      "duration": "34m",
+      "skills": [
+        "Microsoft Copilot",
+        "AI Agents",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 289,
+      "title": "Copilot : L'IA de manière sécurisée avec les données de votre organisation",
+      "path": "archived/2025/CertificateOfCompletion_Copilot LIA de maniere securisee avec les donnees de votre organisation.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-26",
+      "duration": "28m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Cybersecurity AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 124,
+      "title": "Controlling ChatGPT with Custom Instructions or API System Messages",
+      "path": "archived/2025/CertificateOfCompletion_Controlling ChatGPT with Custom Instructions or API System Messages_1.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-11",
+      "duration": "14m",
+      "skills": [
+        "ChatGPT Application",
+        "Programming Interfaces",
+        "API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 225,
+      "title": "Controlling ChatGPT with Custom Instructions or API System Messages",
+      "path": "archived/2025/CertificateOfCompletion_Controlling ChatGPT with Custom Instructions or API System Messages.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-07-11",
+      "duration": "14m",
+      "skills": [
+        "ChatGPT Application",
+        "Programming Interfaces",
+        "API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 253,
+      "title": "Content Strategy in the Age of AI",
+      "path": "archived/2025/CertificateOfCompletion_Content Strategy in the Age of AI.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-10",
+      "duration": "2h 19m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 196,
+      "title": "Content Creation: Strategy and Tools",
+      "path": "archived/2025/CertificateOfCompletion_Content Creation Strategy and Tools 2022.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-01-17",
+      "duration": "36m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 310,
+      "title": "Computer Science Principles: The Internet",
+      "path": "archived/2025/CertificateOfCompletion_Computer Science Principles The Internet.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-08-09",
+      "duration": "59m",
+      "skills": [
+        "Computer Science"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 323,
+      "title": "Computer Science Principles: Programming",
+      "path": "archived/2025/CertificateOfCompletion_Computer Science Principles Programming.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-08-10",
+      "duration": "1h 25m",
+      "skills": [
+        "Programming Computer",
+        "Science"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 383,
+      "title": "Computer Science Principles: Digital Information",
+      "path": "archived/2025/CertificateOfCompletion_Computer Science Principles Digital Information.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-08-08",
+      "duration": "1h 10m",
+      "skills": [
+        "Computer Science"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 133,
+      "title": "Computer Literacy for Windows 10",
+      "path": "archived/2025/CertificateOfCompletion_Computer Literacy for Windows 10.pdf",
+      "domain": "tools",
+      "year": "2025",
+      "date": "2025-08-12",
+      "duration": "1h 48m",
+      "skills": [
+        "Computer Literacy",
+        "Windows 10"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 12,
+      "title": "Computer Literacy for Mac",
+      "path": "archived/2025/CertificateOfCompletion_Computer Literacy for Mac.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-19",
+      "duration": "2h 17m",
+      "skills": [
+        "Computer Literacy",
+        "Mac"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 130,
+      "title": "Complete Guide to GitHub Copilot for Developers by Microsoft Press",
+      "path": "archived/2025/CertificateOfCompletion_Complete Guide to GitHub Copilot for Developers by Microsoft Press.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-01-17",
+      "duration": "4h 57m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 79,
+      "title": "Comparing AI Research Tools: ChatGPT, Claude, Gemini, and Perplexity",
+      "path": "archived/2025/CertificateOfCompletion_Comparing AI Research Tools ChatGPT Claude Gemini and Perplexity.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-22",
+      "duration": "42m",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 18,
+      "title": "CompTIA A+ Core 1 (220-1101) Cert Prep",
+      "path": "archived/2025/CertificateOfCompletion_CompTIA A Core 1 2201101 Cert Prep-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-14",
+      "duration": "15h 30m",
+      "skills": [
+        "CompTIA Help",
+        "Desk Support"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 113,
+      "title": "CompTIA A+ Core 1 (220-1101) Cert Prep",
+      "path": "archived/2025/CertificateOfCompletion_CompTIA A Core 1 2201101 Cert Prep.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-14",
+      "duration": null,
+      "skills": [
+        "CompTIA Help",
+        "Desk Support",
+        "This Course",
+        "Is Valid",
+        "Continuing Education"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 77,
+      "title": "Collaborating with SharePoint and Teams",
+      "path": "archived/2025/CertificateOfCompletion_Collaborating with SharePoint and Teams.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-05-19",
+      "duration": "1h 21m",
+      "skills": [
+        "Microsoft Teams",
+        "Cross-team Collaboration",
+        "SharePoint"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 109,
+      "title": "Coding Smarter with JetBrains AI Assistant",
+      "path": "archived/2025/CertificateOfCompletion_Coding Smarter with JetBrains AI Assistant.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-09",
+      "duration": "1h 20m",
+      "skills": [
+        "Generative AI",
+        "Artificial Intelligence",
+        "Java Tools"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 342,
+      "title": "Coding Exercises: GitHub",
+      "path": "archived/2025/CertificateOfCompletion_Coding Exercises GitHub.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-18",
+      "duration": "52m",
+      "skills": [
+        "GitHub Coding",
+        "Practices"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 102,
+      "title": "Cloud Native Projects: AWS Serverless",
+      "path": "archived/2025/CertificateOfCompletion_Cloud Native Projects AWS Serverless.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-10-04",
+      "duration": "1h 16m",
+      "skills": [
+        "Serverless Computing",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 283,
+      "title": "Cloud Computing: Understanding Networking",
+      "path": "archived/2025/CertificateOfCompletion_Cloud Computing Understanding Networking.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-12-29",
+      "duration": "49m",
+      "skills": [
+        "Cloud Computing",
+        "Network Administration",
+        "Computer Networking"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 22,
+      "title": "Cloud Computing: Understanding Core Concepts",
+      "path": "archived/2025/CertificateOfCompletion_Cloud Computing Understanding Core Concepts.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-12-06",
+      "duration": "1h 23m",
+      "skills": [
+        "Cloud Computing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 162,
+      "title": "Claude Code 4: Agentic Coding for Professional Developers",
+      "path": "archived/2025/CertificateOfCompletion_Claude Code 4 Agentic Coding for Professional Developers.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-12",
+      "duration": "21m",
+      "skills": [
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 204,
+      "title": "Choosing a Linux Distribution",
+      "path": "archived/2025/CertificateOfCompletion_Choosing a Linux Distribution.pdf",
+      "domain": "devops",
+      "year": "2025",
+      "date": "2025-01-07",
+      "duration": "2h 46m",
+      "skills": [
+        "Linux Distributions"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 56,
+      "title": "ChatGPT: Tailoring AI to Your Writing Style",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Tailoring AI to Your Writing Style.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-06",
+      "duration": "1h 3m",
+      "skills": [
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 368,
+      "title": "ChatGPT: Perfecting Your Output with Templates in Prompts",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Perfecting Your Output with Templates in Prompts.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-05",
+      "duration": "34m",
+      "skills": [
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 97,
+      "title": "ChatGPT: Crafting Exceptional GPTs for Enhanced Productivity and Innovation",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Crafting Exceptional GPTs for Enhanced Productivity and Innovation.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-05",
+      "duration": "2h 48m",
+      "skills": [
+        "Artificial Intelligence",
+        "ChatGPT Productivity",
+        "Improvement AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 408,
+      "title": "ChatGPT: Crafting Exceptional GPTs for Enhanced Productivity and Innovation",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Crafting Exceptional GPTs for Enhanced Productivity and Innovation-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-05",
+      "duration": "4101m",
+      "skills": [
+        "Artificial Intelligence",
+        "ChatGPT Productivity",
+        "Improvement AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 406,
+      "title": "ChatGPT's Operator: Automating Everyday Tasks with AI Agents",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPTs Operator Automating Everyday Tasks with AI Agents.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-23",
+      "duration": "18m",
+      "skills": [
+        "Generative AI",
+        "AI Agents",
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 216,
+      "title": "ChatGPT for Email: AI-Enhanced Email Mastery",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT for Email AIEnhanced Email Mastery.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-30",
+      "duration": "3h 8m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "ChatGPT Email",
+        "Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 240,
+      "title": "ChatGPT Search: Conversational, Real-Time Research",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Search Conversational RealTime Research.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-05-15",
+      "duration": "25m",
+      "skills": [
+        "ChatGPT AI",
+        "Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 333,
+      "title": "ChatGPT Prompts for Small Businesses",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Prompts for Small Businesses.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-30",
+      "duration": "1h 8m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Small Business",
+        "ChatGPT"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 404,
+      "title": "ChatGPT Prompts for Small Businesses",
+      "path": "archived/2025/CertificateOfCompletion_ChatGPT Prompts for Small Businesses-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-30",
+      "duration": null,
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Small Business",
+        "ChatGPT",
+        "Instructional Delivery",
+        "Method QAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 345,
+      "title": "Building a Video Transcriber with Node.js and OpenAI API",
+      "path": "archived/2025/CertificateOfCompletion_Building a Video Transcriber with Node.js and OpenAI API.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-29",
+      "duration": "1h 2m",
+      "skills": [
+        "OpenAI Products",
+        "Node.js OpenAI",
+        "API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 309,
+      "title": "Building a Project with the ChatGPT API",
+      "path": "archived/2025/CertificateOfCompletion_Building a Project with the ChatGPT API.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-11",
+      "duration": "1h 56m",
+      "skills": [
+        "OpenAI Products",
+        "Application Development",
+        "Chatbot Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 313,
+      "title": "Building Serverless Applications in AWS",
+      "path": "archived/2025/CertificateOfCompletion_Building Serverless Applications in AWS.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-11-01",
+      "duration": "27m",
+      "skills": [
+        "Serverless Computing",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 69,
+      "title": "Building GitHub Bots",
+      "path": "archived/2025/CertificateOfCompletion_Building GitHub Bots.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-12-03",
+      "duration": "2h 27m",
+      "skills": [
+        "GitHub Python",
+        "Programming Language"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 324,
+      "title": "Building APIs with Swagger and the OpenAPI Specification",
+      "path": "archived/2025/CertificateOfCompletion_Building APIs with Swagger and the OpenAPI Specification.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-03-07",
+      "duration": "3h 4m",
+      "skills": [
+        "API Development",
+        "OpenAPI Specification",
+        "OAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 354,
+      "title": "Building APIs with Swagger and the OpenAPI Specification",
+      "path": "archived/2025/CertificateOfCompletion_Building APIs with Swagger and the OpenAPI Specification_1.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-03-07",
+      "duration": "3h 4m",
+      "skills": [
+        "API Development",
+        "OpenAPI Specification",
+        "OAS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 217,
+      "title": "Building AI Skills with Microsoft Copilot Lab",
+      "path": "archived/2025/CertificateOfCompletion_Building AI Skills with Microsoft Copilot Lab.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-24",
+      "duration": "19m",
+      "skills": [
+        "Microsoft Copilot",
+        "Artificial Intelligence",
+        "Studio AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 95,
+      "title": "Build with AI: Create Deterministic MCP Agents",
+      "path": "archived/2025/CertificateOfCompletion_Build with AI Create Deterministic MCP Agents.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-27",
+      "duration": "1h",
+      "skills": [
+        "Artificial Intelligence",
+        "AI Agents",
+        "AI Software",
+        "Development AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 3,
+      "title": "Build an Image Captioning Tool for Visually Impaired Users with Gemini",
+      "path": "archived/2025/CertificateOfCompletion_Build an Image Captioning Tool for Visually Impaired Users with Gemini.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-21",
+      "duration": "1h 7m",
+      "skills": [
+        "Artificial Intelligence",
+        "Computer Vision",
+        "Digital Accessibility",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 386,
+      "title": "Build a JavaScript AI App with React and the OpenAI API",
+      "path": "archived/2025/CertificateOfCompletion_Build a JavaScript AI App with React and the OpenAI API.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-10",
+      "duration": "1h 59m",
+      "skills": [
+        "React.js JavaScript",
+        "OpenAI API"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 83,
+      "title": "Build AI Agents and Chatbots with LangGraph",
+      "path": "archived/2025/CertificateOfCompletion_Build AI Agents and Chatbots with LangGraph.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-18",
+      "duration": "1h 14m",
+      "skills": [
+        "Chatbots AI",
+        "Agents"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 384,
+      "title": "Build AI Agents and Automate Workflows with n8n",
+      "path": "archived/2025/CertificateOfCompletion_Build AI Agents and Automate Workflows with n8n.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-08-02",
+      "duration": "50m",
+      "skills": [
+        "Generative AI",
+        "AI Agents",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 55,
+      "title": "Brainstorming Tools",
+      "path": "archived/2025/CertificateOfCompletion_Brainstorming Tools-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-28",
+      "duration": null,
+      "skills": [
+        "Project Management",
+        "Brainstorm Facilitation"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 58,
+      "title": "Brainstorming Tools",
+      "path": "archived/2025/CertificateOfCompletion_Brainstorming Tools.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-06-28",
+      "duration": "1h 10m",
+      "skills": [
+        "Project Management",
+        "Brainstorm Facilitation"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 121,
+      "title": "Benefits of GitHub Community",
+      "path": "archived/2025/CertificateOfCompletion_Benefits of GitHub Community.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-28",
+      "duration": "14m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 28,
+      "title": "Becoming Indistractable",
+      "path": "archived/2025/CertificateOfCompletion_Becoming Indistractable-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-16",
+      "duration": null,
+      "skills": [
+        "Productivity Improvement",
+        "Instructional Delivery",
+        "Method QAS",
+        "Self Study",
+        "In Accordance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 336,
+      "title": "Becoming Indistractable",
+      "path": "archived/2025/CertificateOfCompletion_Becoming Indistractable.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-16",
+      "duration": "32m",
+      "skills": [
+        "Productivity Improvement"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 118,
+      "title": "Automating Your Work with Custom GPTs (No Code Required)",
+      "path": "archived/2025/CertificateOfCompletion_Automating Your Work with Custom GPTs No Code Required.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-05-15",
+      "duration": "31m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 348,
+      "title": "Automate and Innovate with Chat GPT AI Agents and Zapier",
+      "path": "archived/2025/CertificateOfCompletion_Automate and Innovate with Chat GPT AI Agents and Zapier.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-07-29",
+      "duration": "1h 12m",
+      "skills": [
+        "AI Agents",
+        "ChatGPT Zapier"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 198,
+      "title": "Automate Your Workflows with Generative AI",
+      "path": "archived/2025/CertificateOfCompletion_Automate Your Workflows with Generative AI-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-21",
+      "duration": null,
+      "skills": [
+        "Generative AI",
+        "Workflow Automation",
+        "Tools"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 241,
+      "title": "Automate Your Workflows with Generative AI",
+      "path": "archived/2025/CertificateOfCompletion_Automate Your Workflows with Generative AI.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-21",
+      "duration": "20m",
+      "skills": [
+        "Generative AI",
+        "Workflow Automation",
+        "Tools"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 322,
+      "title": "Automate Your Workflow with Custom GPTs",
+      "path": "archived/2025/CertificateOfCompletion_Automate Your Workflow with Custom GPTs.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-04-11",
+      "duration": "12m",
+      "skills": [
+        "Custom GPTs"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 209,
+      "title": "Astuces nano pour communiquer comme un leader",
+      "path": "archived/2025/CertificateOfCompletion_Astuces nano pour communiquer comme un leader.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-09-22",
+      "duration": "8m",
+      "skills": [
+        "Leadership Communication"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 400,
+      "title": "Artificial Intelligence Foundations: Thinking Machines",
+      "path": "archived/2025/CertificateOfCompletion_Artificial Intelligence Foundations Thinking Machines.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-12",
+      "duration": "1h 36m",
+      "skills": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 168,
+      "title": "Artificial Intelligence Foundations: Neural Networks",
+      "path": "archived/2025/CertificateOfCompletion_Artificial Intelligence Foundations Neural Networks.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-14",
+      "duration": "1h 45m",
+      "skills": [
+        "Artificial Intelligence",
+        "Neural Networks",
+        "Machine Learning",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 9,
+      "title": "Artificial Intelligence Foundations: Machine Learning",
+      "path": "archived/2025/CertificateOfCompletion_Artificial Intelligence Foundations Machine Learning.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-16",
+      "duration": "1h 50m",
+      "skills": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 247,
+      "title": "Apple Watch Tips and Tricks",
+      "path": "archived/2025/CertificateOfCompletion_Apple Watch Tips and Tricks.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-23",
+      "duration": "50m",
+      "skills": [
+        "Apple Watch"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 182,
+      "title": "Agile Software Development: Code Quality",
+      "path": "archived/2025/CertificateOfCompletion_Agile Software Development Code Quality.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-11-27",
+      "duration": "1h 40m",
+      "skills": [
+        "Agile Software",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 229,
+      "title": "Agentic AI for Developers: Concepts and Application for Enterprises",
+      "path": "archived/2025/CertificateOfCompletion_Agentic AI for Developers Concepts and Application for Enterprises.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-09-17",
+      "duration": "1h 31m",
+      "skills": [
+        "Generative AI",
+        "AI Agents",
+        "AI Software",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 179,
+      "title": "Advanced Gemini for Developers",
+      "path": "archived/2025/CertificateOfCompletion_Advanced Gemini for Developers 2024.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-28",
+      "duration": "1h 27m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Gemini"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 242,
+      "title": "Advanced Gemini for Developers",
+      "path": "archived/2025/CertificateOfCompletion_Advanced Gemini for Developers.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-11-27",
+      "duration": "1h 11m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "Large Language",
+        "Models LLM"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 343,
+      "title": "Adobe Firefly's AI-Driven Business Solutions: A Conversation with Bart Van de Wiele",
+      "path": "archived/2025/CertificateOfCompletion_Adobe Fireflys AIDriven Business Solutions A Conversation with Bart Van de Wiele.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-15",
+      "duration": "37m",
+      "skills": [
+        "Artificial Intelligence",
+        "Adobe Firefly",
+        "Design AI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 161,
+      "title": "AWS: Monitoring, Logging, and Remediation (2021)",
+      "path": "archived/2025/CertificateOfCompletion_AWS Monitoring Logging and Remediation 2021.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-11-18",
+      "duration": "1h 40m",
+      "skills": [
+        "System Monitoring",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 374,
+      "title": "AWS Essential Training for Developers",
+      "path": "archived/2025/CertificateOfCompletion_AWS Essential Training for Developers.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-07-08",
+      "duration": "4h 8m",
+      "skills": [
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 85,
+      "title": "AWS Certified Cloud Practitioner (CLF-C02) Cert Prep: 4 Billing, Pricing, And Support",
+      "path": "archived/2025/CertificateOfCompletion_AWS Certified Cloud Practitioner CLFC02 Cert Prep 4 Billing Pricing And Support.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-11",
+      "duration": "41m",
+      "skills": [
+        "Cloud Administration",
+        "Cloud Governance",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 192,
+      "title": "AWS Certified Cloud Practitioner (CLF-C02) Cert Prep: 3 Cloud Technology and Services",
+      "path": "archived/2025/CertificateOfCompletion_AWS Certified Cloud Practitioner CLFC02 Cert Prep 3 Cloud Technology and Services.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-09-10",
+      "duration": "1h 51m",
+      "skills": [
+        "Cloud Administration",
+        "Cloud Services",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 351,
+      "title": "AWS Certified Cloud Practitioner (CLF-C02) Cert Prep: 2 Security and Compliance",
+      "path": "archived/2025/CertificateOfCompletion_AWS Certified Cloud Practitioner CLFC02 Cert Prep 2 Security and Compliance.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-07-18",
+      "duration": "51m",
+      "skills": [
+        "Cloud Administration",
+        "Security Compliance",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 106,
+      "title": "AWS Certified Cloud Practitioner (CLF-C02) Cert Prep: 1 Cloud Concepts",
+      "path": "archived/2025/CertificateOfCompletion_AWS Certified Cloud Practitioner CLFC02 Cert Prep 1 Cloud Concepts.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-07-09",
+      "duration": "55m",
+      "skills": [
+        "Cloud Computing",
+        "Amazon Web",
+        "Services AWS"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 396,
+      "title": "API Testing and Validation",
+      "path": "archived/2025/CertificateOfCompletion_API Testing and Validation.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-04-05",
+      "duration": "1h 34m",
+      "skills": [
+        "API Testing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 213,
+      "title": "API Testing Foundations",
+      "path": "archived/2025/CertificateOfCompletion_API Testing Foundations.pdf",
+      "domain": "api",
+      "year": "2025",
+      "date": "2025-04-03",
+      "duration": "1h 33m",
+      "skills": [
+        "API Testing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 257,
+      "title": "AI on the Go: Use Microsoft Copilot on Mobile Devices",
+      "path": "archived/2025/CertificateOfCompletion_AI on the Go Use Microsoft Copilot on Mobile Devices.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-28",
+      "duration": "37m",
+      "skills": [
+        "AI for Business",
+        "Microsoft Copilot",
+        "Artificial Intelligence"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 409,
+      "title": "AI Toolkit Essentials for Visual Studio Code",
+      "path": "archived/2025/CertificateOfCompletion_AI Toolkit Essentials for Visual Studio Code.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-10-15",
+      "duration": "2h 58m",
+      "skills": [
+        "Visual Studio Code",
+        "Artificial Intelligence",
+        "Microsoft AI",
+        "Software Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 187,
+      "title": "AI Pair Programming with GitHub Copilot X",
+      "path": "archived/2025/CertificateOfCompletion_AI Pair Programming with GitHub Copilot X.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-29",
+      "duration": "1h 23m",
+      "skills": [
+        "Artificial Intelligence",
+        "GitHub Copilot",
+        "Pair Programming"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 176,
+      "title": "AI Pair Programming with GitHub Copilot",
+      "path": "archived/2025/CertificateOfCompletion_AI Pair Programming with GitHub Copilot.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-06-14",
+      "duration": "1h 32m",
+      "skills": [
+        "GitHub Copilot"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 11,
+      "title": "A Beginner's Guide to Public Cloud Options",
+      "path": "archived/2025/CertificateOfCompletion_A Beginners Guide to Public Cloud Options.pdf",
+      "domain": "cloud",
+      "year": "2025",
+      "date": "2025-12-28",
+      "duration": "47m",
+      "skills": [
+        "Cloud Computing"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 32,
+      "title": "9 astuces nano pour réussir ses prises de parole en réunion",
+      "path": "archived/2025/CertificateOfCompletion_9 astuces nano pour reussir ses prises de parole en reunion(1).pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-09-22",
+      "duration": "11m",
+      "skills": [
+        "Public Speaking"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 260,
+      "title": "9 astuces nano pour réussir ses prises de parole en réunion",
+      "path": "archived/2025/CertificateOfCompletion_9 astuces nano pour reussir ses prises de parole en reunion.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-09-22",
+      "duration": "11m",
+      "skills": [
+        "Public Speaking"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 125,
+      "title": "8 astuces nano pour améliorer sa communication",
+      "path": "archived/2025/CertificateOfCompletion_8 astuces nano pour ameliorer sa communication.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-09-22",
+      "duration": "10m",
+      "skills": [
+        "Communication"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 317,
+      "title": "30 Practical AI Tips",
+      "path": "archived/2025/CertificateOfCompletion_30 Practical AI Tips.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-09",
+      "duration": "4h 53m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 358,
+      "title": "25 GitHub Configuration Files You Should Be Using",
+      "path": "archived/2025/CertificateOfCompletion_25 GitHub Configuration Files You Should Be Using.pdf",
+      "domain": "programming",
+      "year": "2025",
+      "date": "2025-09-28",
+      "duration": "1h 57m",
+      "skills": [
+        "GitHub"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 126,
+      "title": "15 minutes pour savoir prendre des décisions",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour savoir prendre des decisions.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-08",
+      "duration": "15m",
+      "skills": [
+        "Decision-Making"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 352,
+      "title": "15 minutes pour savoir gérer son temps",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour savoir gerer son temps.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-30",
+      "duration": "15m",
+      "skills": [
+        "Time Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 389,
+      "title": "15 minutes pour réussir ses premiers pas de manager",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour reussir ses premiers pas de manager.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-02",
+      "duration": "15m",
+      "skills": [
+        "Management Management",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 166,
+      "title": "15 minutes pour devenir un manager leader",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour devenir un manager leader.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-02",
+      "duration": "15m",
+      "skills": [
+        "Management Leadership",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 114,
+      "title": "15 minutes pour apprendre à se concentrer",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour apprendre a se concentrer.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-15",
+      "duration": "15m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 371,
+      "title": "15 minutes pour apprendre à mieux communiquer",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour apprendre a mieux communiquer.pdf",
+      "domain": "communication",
+      "year": "2025",
+      "date": "2025-10-30",
+      "duration": "15m",
+      "skills": [
+        "Communication"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 262,
+      "title": "15 minutes pour apprendre à développer ses compétences",
+      "path": "archived/2025/CertificateOfCompletion_15 minutes pour apprendre a developper ses competences .pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-16",
+      "duration": "15m",
+      "skills": [
+        "Self-Directed Learning",
+        "Career Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 5,
+      "title": "10-in-10 AI Challenge",
+      "path": "archived/2025/CertificateOfCompletion_10in10 AI Challenge.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-18",
+      "duration": "1h 3m",
+      "skills": [
+        "Artificial Intelligence",
+        "Generative AI",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 60,
+      "title": "10 minutes, un livre : Se libérer de la dopamine",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Se liberer de la dopamine-1.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-15",
+      "duration": "10m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 68,
+      "title": "10 minutes, un livre : Se libérer de la dopamine",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Se liberer de la dopamine.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-10-15",
+      "duration": "10m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 321,
+      "title": "10 minutes, un livre : Réussir sans stress par la méthode Zen to Done",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Reussir sans stress par la methode Zen to Done.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-12-08",
+      "duration": "10m",
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 2,
+      "title": "10 minutes, un livre : Respiration et breathwork au travail",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Respiration et breathwork au travail-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-30",
+      "duration": "10m",
+      "skills": [
+        "Health Wellness"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 24,
+      "title": "10 minutes, un livre : Respiration et breathwork au travail",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Respiration et breathwork au travail.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-12-30",
+      "duration": "10m",
+      "skills": [
+        "Health Wellness"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 63,
+      "title": "10 minutes, un livre : Allier vie saine et performance professionnelle",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Allier vie saine et performance professionnelle-1.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-02",
+      "duration": "10m",
+      "skills": [
+        "Performance Improvement",
+        "Health Wellness"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 279,
+      "title": "10 minutes, un livre : Allier vie saine et performance professionnelle",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes un livre Allier vie saine et performance professionnelle.pdf",
+      "domain": "ai",
+      "year": "2025",
+      "date": "2025-10-02",
+      "duration": "10m",
+      "skills": [
+        "Performance Improvement",
+        "Health Wellness"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 379,
+      "title": "10 minutes, 1 livre : Les clés physiologiques contre la fatigue et l’ épuisement",
+      "path": "archived/2025/CertificateOfCompletion_10 minutes 1 livre Les cles physiologiques contre la fatigue et lepuisement.pdf",
+      "domain": "other",
+      "year": "2025",
+      "date": "2025-11-16",
+      "duration": "10m",
+      "skills": [
+        "Self-care Stress",
+        "Management"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 349,
+      "title": "installation troubleshooting",
+      "path": "archived/2024/installation_troubleshooting.pdf",
+      "domain": "other",
+      "year": "2024",
+      "date": null,
+      "duration": null,
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 206,
+      "title": "favorite python resources",
+      "path": "archived/2024/favorite_python_resources.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": null,
+      "duration": null,
+      "skills": [],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 355,
+      "title": "Windows 11 Essential Training (2023)",
+      "path": "archived/2024/CertificateOfCompletion_Windows 11 Essential Training 2023.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-11-01",
+      "duration": "4h 2m",
+      "skills": [
+        "Windows Administration",
+        "Windows 11"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 282,
+      "title": "Spring 6 and Spring Boot 3 First Look",
+      "path": "archived/2024/CertificateOfCompletion_Spring 6 and Spring Boot 3 First Look.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-28",
+      "duration": "24m",
+      "skills": [
+        "Spring Boot",
+        "Spring Framework"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 375,
+      "title": "Practical GitHub Copilot",
+      "path": "archived/2024/CertificateOfCompletion_Practical GitHub Copilot.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-11",
+      "duration": "1h",
+      "skills": [
+        "GitHub GitHub",
+        "Copilot"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 170,
+      "title": "Oracle Java Foundations",
+      "path": "archived/2024/CertificateOfCompletion_Oracle Java Foundations.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-03",
+      "duration": "7h 17m",
+      "skills": [
+        "Programming Languages",
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 228,
+      "title": "Learning Windows Subsystem for Linux",
+      "path": "archived/2024/CertificateOfCompletion_Learning Windows Subsystem for Linux.pdf",
+      "domain": "devops",
+      "year": "2024",
+      "date": "2024-11-22",
+      "duration": "1h 30m",
+      "skills": [
+        "Linux"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 108,
+      "title": "Learning Ubuntu Desktop",
+      "path": "archived/2024/CertificateOfCompletion_Learning Ubuntu Desktop.pdf",
+      "domain": "devops",
+      "year": "2024",
+      "date": "2024-11-02",
+      "duration": "2h 15m",
+      "skills": [
+        "Ubuntu"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 128,
+      "title": "Learning Spring 6 with Spring Boot 3",
+      "path": "archived/2024/CertificateOfCompletion_Learning Spring 6 with Spring Boot 3.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-28",
+      "duration": "1h 49m",
+      "skills": [
+        "Spring Boot",
+        "Spring Framework"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 140,
+      "title": "Learning Linux Command Line",
+      "path": "archived/2024/CertificateOfCompletion_Learning Linux Command Line.pdf",
+      "domain": "devops",
+      "year": "2024",
+      "date": "2024-11-16",
+      "duration": "2h 57m",
+      "skills": [
+        "Linux System",
+        "Administration CLI"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 180,
+      "title": "Learning Java 11",
+      "path": "archived/2024/CertificateOfCompletion_Learning Java 11.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-23",
+      "duration": "2h 36m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 246,
+      "title": "Learning Groovy",
+      "path": "archived/2024/CertificateOfCompletion_Learning Groovy.pdf",
+      "domain": "other",
+      "year": "2024",
+      "date": "2024-12-07",
+      "duration": "1h 10m",
+      "skills": [
+        "Groovy"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 269,
+      "title": "Learning Gradle",
+      "path": "archived/2024/CertificateOfCompletion_Learning Gradle.pdf",
+      "domain": "other",
+      "year": "2024",
+      "date": "2024-12-07",
+      "duration": "51m",
+      "skills": [
+        "Gradle"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 73,
+      "title": "Learning Bitcoin and Other Cryptocurrencies",
+      "path": "archived/2024/CertificateOfCompletion_Learning Bitcoin and Other Cryptocurrencies.pdf",
+      "domain": "other",
+      "year": "2024",
+      "date": "2024-11-23",
+      "duration": "1h 12m",
+      "skills": [
+        "Bitcoin Cryptocurrency"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 390,
+      "title": "Learning Bitcoin and Other Cryptocurrencies",
+      "path": "archived/2024/CertificateOfCompletion_Learning Bitcoin and Other Cryptocurrencies-1.pdf",
+      "domain": "other",
+      "year": "2024",
+      "date": "2024-11-23",
+      "duration": null,
+      "skills": [
+        "Bitcoin Cryptocurrency",
+        "Instructional Delivery",
+        "Method QAS",
+        "Self Study",
+        "In Accordance"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 94,
+      "title": "Java: IDE Overview",
+      "path": "archived/2024/CertificateOfCompletion_Java IDE Overview.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-05",
+      "duration": "1h 28m",
+      "skills": [
+        "Java Integrated",
+        "Development Environments"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 88,
+      "title": "Java for All Platforms: Desktop, Web, and Mobile Development",
+      "path": "archived/2024/CertificateOfCompletion_Java for All Platforms Desktop Web and Mobile Development.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-18",
+      "duration": "2h 6m",
+      "skills": [
+        "Java Java",
+        "Application Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 293,
+      "title": "Java Practice: Collections",
+      "path": "archived/2024/CertificateOfCompletion_Java Practice Collections.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-13",
+      "duration": "22m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 315,
+      "title": "Java Object-Oriented Programming",
+      "path": "archived/2024/CertificateOfCompletion_Java ObjectOriented Programming.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-05",
+      "duration": "2h 2m",
+      "skills": [
+        "Java Object-Oriented",
+        "Programming OOP"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 402,
+      "title": "Java 8+ Essential Training: Syntax and Structure",
+      "path": "archived/2024/CertificateOfCompletion_Java 8 Essential Training Syntax and Structure.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-09",
+      "duration": "3h 12m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 275,
+      "title": "Java 8+ Essential Training: Objects and APIs",
+      "path": "archived/2024/CertificateOfCompletion_Java 8 Essential Training Objects and APIs.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-12",
+      "duration": "2h 49m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 101,
+      "title": "Java 8 for Professionals",
+      "path": "archived/2024/CertificateOfCompletion_Java 8 for Professionals.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-16",
+      "duration": "2h 45m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 42,
+      "title": "Java 8 Essential Training",
+      "path": "archived/2024/CertificateOfCompletion_Java 8 Essential Training.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-15",
+      "duration": "6h 25m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 51,
+      "title": "Java 11+ Essential Training",
+      "path": "archived/2024/CertificateOfCompletion_Java 11 Essential Training.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-21",
+      "duration": "4h 9m",
+      "skills": [
+        "Java"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 191,
+      "title": "Introduction to Linux",
+      "path": "archived/2024/CertificateOfCompletion_Introduction to Linux.pdf",
+      "domain": "devops",
+      "year": "2024",
+      "date": "2024-11-01",
+      "duration": "56m",
+      "skills": [
+        "Linux"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 339,
+      "title": "IntelliJ IDEA Community Edition Essential Training",
+      "path": "archived/2024/CertificateOfCompletion_IntelliJ IDEA Community Edition Essential Training.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-06",
+      "duration": "2h 10m",
+      "skills": [
+        "Java IntelliJ",
+        "IDEA"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 381,
+      "title": "Gradle for Java-Based Applications and Libraries",
+      "path": "archived/2024/CertificateOfCompletion_Gradle for JavaBased Applications and Libraries.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-12-10",
+      "duration": "57m",
+      "skills": [
+        "Java Gradle"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 270,
+      "title": "Get Ready for Generative AI",
+      "path": "archived/2024/CertificateOfCompletion_Get Ready for Generative AI.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-12-01",
+      "duration": "5m",
+      "skills": [
+        "Artificial Intelligence for Business",
+        "Generative AI",
+        "Design"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 122,
+      "title": "GenAI Foundations in Java Development",
+      "path": "archived/2024/CertificateOfCompletion_GenAI Foundations in Java Development.pdf",
+      "domain": "programming",
+      "year": "2024",
+      "date": "2024-11-04",
+      "duration": "53m",
+      "skills": [
+        "Generative AI",
+        "Java Software",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 302,
+      "title": "GPT-4: The New GPT Release and What You Need to Know",
+      "path": "archived/2024/CertificateOfCompletion_GPT4 The New GPT Release and What You Need to Know-1.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-12-06",
+      "duration": null,
+      "skills": [
+        "Generative AI",
+        "GPT-4",
+        "Instructional Delivery",
+        "Method QAS",
+        "Self Study"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 347,
+      "title": "GPT-4: The New GPT Release and What You Need to Know",
+      "path": "archived/2024/CertificateOfCompletion_GPT4 The New GPT Release and What You Need to Know.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-12-06",
+      "duration": "31m",
+      "skills": [
+        "Generative AI",
+        "GPT-4"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 227,
+      "title": "Enhance Teaching and Learning with Microsoft Copilot",
+      "path": "archived/2024/CertificateOfCompletion_Enhance Teaching and Learning with Microsoft Copilot.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-12-25",
+      "duration": "50m",
+      "skills": [
+        "Microsoft Copilot",
+        "Generative AI",
+        "Educational Technology"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 398,
+      "title": "ChatGPT: Publishing GPTs on the GPT Store",
+      "path": "archived/2024/CertificateOfCompletion_ChatGPT Publishing GPTs on the GPT Store.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-12-02",
+      "duration": "20m",
+      "skills": [
+        "ChatGPT Chatbot",
+        "Development"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 223,
+      "title": "AI-Driven Software Development with OpenAI’s Canvas",
+      "path": "archived/2024/CertificateOfCompletion_AIDriven Software Development with OpenAIs Canvas.pdf",
+      "domain": "ai",
+      "year": "2024",
+      "date": "2024-11-22",
+      "duration": "15m",
+      "skills": [
+        "Generative AI",
+        "OpenAI Products",
+        "AI Productivity"
+      ],
+      "provider": "LinkedIn Learning"
+    },
+    {
+      "id": 239,
+      "title": "Introducing Postman",
+      "path": "archived/2023/CertificateOfCompletion_Introducing Postman.pdf",
+      "domain": "tools",
+      "year": "2023",
+      "date": "2023-01-30",
+      "duration": "1h 37m",
+      "skills": [
+        "Test Automation",
+        "API Testing",
+        "Postman API"
+      ],
+      "provider": "LinkedIn Learning"
+    }
+  ]
+}
