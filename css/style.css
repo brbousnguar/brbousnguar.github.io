@@ -287,13 +287,16 @@ body {
 
 .main-content {
   flex: 1;
-  max-width: 1200px;
   padding: 3rem;
   background: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   background: transparent;
   transition: background-color 0.2s ease;
@@ -1212,6 +1215,387 @@ strong {
   .project-status {
     font-size: 0.75rem;
     padding: 0.2rem 0.625rem;
+  }
+}
+
+/* ============================================
+   CONTINUOUS LEARNING SECTION
+   ============================================ */
+.learning-intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+/* Learning Journey Card - Compact Design */
+.learning-journey-card {
+  background: var(--surface-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.learning-journey-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.learning-journey-header {
+  margin-bottom: 1.5rem;
+}
+
+.learning-journey-header h2 {
+  margin-bottom: 0.75rem;
+}
+
+.learning-intro {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.learning-journey-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.learning-stats-compact {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number-compact {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  line-height: 1.2;
+}
+
+.stat-label-compact {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-medium);
+  opacity: 0.5;
+}
+
+.learning-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.learning-cta-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.learning-cta-button svg {
+  transition: transform 0.2s ease;
+}
+
+.learning-cta-button:hover svg {
+  transform: translateX(2px);
+}
+
+/* Legacy styles for backward compatibility */
+.learning-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  justify-items: start;
+}
+
+.stat-card {
+  background: var(--surface-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.learning-domains {
+  margin-top: 3rem;
+}
+
+.learning-domains h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.domain-group {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: var(--surface-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.domain-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.domain-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.certificate-card {
+  background: var(--surface-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.certificate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-blue);
+}
+
+.certificate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.certificate-header h5 {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 200px;
+}
+
+.certificate-badge {
+  background: var(--accent-light);
+  color: var(--accent-blue);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.certificate-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.cert-date,
+.cert-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.certificate-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-badge {
+  background: var(--surface-light);
+  color: var(--text-secondary);
+  padding: 0.375rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+}
+
+.certificate-link {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.certificate-link:hover {
+  color: var(--accent-hover);
+  gap: 0.75rem;
+}
+
+.domain-placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem;
+  text-align: center;
+  background: var(--surface-light);
+  border-radius: 6px;
+  border: 1px dashed var(--border-medium);
+}
+
+.learning-philosophy {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--surface-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.learning-philosophy h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.learning-philosophy p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsive adjustments for learning section */
+@media (max-width: 768px) {
+  .learning-journey-card {
+    padding: 1.5rem;
+  }
+
+  .learning-journey-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .learning-stats-compact {
+    justify-content: space-around;
+  }
+
+  .stat-number-compact {
+    font-size: 1.75rem;
+  }
+
+  .learning-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .learning-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .domain-group {
+    padding: 1rem;
+  }
+
+  .certificate-card {
+    padding: 1.25rem;
+  }
+
+  .learning-philosophy {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning-intro {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .domain-title {
+    font-size: 1.125rem;
+  }
+
+  .certificate-header h5 {
+    font-size: 1rem;
   }
 }
 

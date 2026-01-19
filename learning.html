@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Continuous Learning & Certifications | Brahim Bousnguar | 400+ LinkedIn Learning Certificates</title>
+  <meta name="description" content="Explore Brahim Bousnguar's extensive learning journey: 400+ LinkedIn Learning certificates across Programming, Cloud, AI, DevOps, E-Commerce, and more. Building a tech culture immune to domain changes.">
+  <meta name="keywords" content="LinkedIn Learning certificates, continuous learning, professional development, Java, Python, AI, Machine Learning, Cloud Computing, DevOps, Agile, E-Commerce, API development, technical skills">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brbousnguar.github.io/learning.html">
+  <meta property="og:title" content="Continuous Learning & Certifications | Brahim Bousnguar">
+  <meta property="og:description" content="400+ LinkedIn Learning certificates across multiple technology domains. Building a comprehensive tech culture through systematic learning.">
+  <meta property="og:image" content="https://brbousnguar.github.io/img/profile.jpeg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://brbousnguar.github.io/learning.html">
+  <meta property="twitter:title" content="Continuous Learning & Certifications | Brahim Bousnguar">
+  <meta property="twitter:description" content="400+ LinkedIn Learning certificates across multiple technology domains.">
+  <meta property="twitter:image" content="https://brbousnguar.github.io/img/profile.jpeg">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://brbousnguar.github.io/learning.html">
+  
+  <!-- Hreflang tags for multilingual SEO -->
+  <link rel="alternate" hreflang="en" href="https://brbousnguar.github.io/learning.html">
+  <link rel="alternate" hreflang="fr" href="https://brbousnguar.github.io/learning.html">
+  <link rel="alternate" hreflang="x-default" href="https://brbousnguar.github.io/learning.html">
+  
+  <!-- Performance optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
+  <meta name="theme-color" content="#0066ff">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/learning.css">
+  
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://brbousnguar.github.io/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Learning",
+      "item": "https://brbousnguar.github.io/learning.html"
+    }]
+  }
+  </script>
+  
+  <!-- Course Collection Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Continuous Learning & Certifications - Brahim Bousnguar",
+    "description": "400+ LinkedIn Learning certificates across Programming, Cloud, AI, DevOps, E-Commerce, and more",
+    "url": "https://brbousnguar.github.io/learning.html",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 409,
+      "itemListElement": []
+    },
+    "about": {
+      "@type": "Person",
+      "name": "Brahim Bousnguar",
+      "jobTitle": "Senior E-Commerce Integration Consultant"
+    }
+  }
+  </script>
+  
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
+      const selected = document.getElementById(lang);
+      if (selected) selected.classList.add('active');
+      const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
+      if (btn) btn.classList.add('active');
+      
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      localStorage.setItem('language', lang);
+      
+      // Re-initialize learning page for new language
+      if (window.initLearningPage) {
+        setTimeout(() => {
+          setupEventListeners();
+          if (window.renderSkillsFilter) {
+            renderSkillsFilter(); // Re-render skills filter for new language
+          }
+          const suffix = lang === 'fr' ? '-fr' : '';
+          if (window.filteredCertificates) {
+            renderCertificates(suffix);
+            updateResultsCount(suffix);
+          }
+        }, 100);
+      }
+    }
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      const lightOption = document.getElementById('light-option');
+      const darkOption = document.getElementById('dark-option');
+      
+      if (newTheme === 'light') {
+        lightOption.classList.add('active');
+        darkOption.classList.remove('active');
+      } else {
+        darkOption.classList.add('active');
+        lightOption.classList.remove('active');
+      }
+    }
+    
+    window.onload = function () {
+      const savedLang = localStorage.getItem('language') || 'en';
+      switchLang(savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+      
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      
+      document.documentElement.setAttribute('data-theme', defaultTheme);
+      
+      const lightOption = document.getElementById('light-option');
+      const darkOption = document.getElementById('dark-option');
+      
+      if (defaultTheme === 'light') {
+        lightOption.classList.add('active');
+        darkOption.classList.remove('active');
+      } else {
+        darkOption.classList.add('active');
+        lightOption.classList.remove('active');
+      }
+      
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          const newTheme = e.matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          
+          if (newTheme === 'light') {
+            lightOption.classList.add('active');
+            darkOption.classList.remove('active');
+          } else {
+            darkOption.classList.add('active');
+            lightOption.classList.remove('active');
+          }
+        }
+      });
+      
+      // Initialize learning page
+      if (window.initLearningPage) {
+        initLearningPage();
+      }
+    };
+  </script>
+</head>
+<body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Top Header -->
+  <header class="top-header">
+    <a href="index.html" class="logo">
+      <span class="logo-initials">BB</span>
+      <span class="logo-name">Brahim BOUSNGUAR</span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <button onclick="switchLang('en')" aria-label="Switch to English" title="English">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="16">
+            <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <clipPath id="t"><path d="M30,15 h30 v15 z v-15 h-30 z h-30 v15 z v-15 h30 z"/></clipPath>
+            <g clip-path="url(#s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g>
+          </svg>
+        </button>
+        <button onclick="switchLang('fr')" aria-label="Switch to French" title="Français">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="24" height="16">
+            <rect width="900" height="600" fill="#ED2939"/>
+            <rect width="600" height="600" fill="#fff"/>
+            <rect width="300" height="600" fill="#002395"/>
+          </svg>
+        </button>
+      </div>
+      <div class="theme-toggle" onclick="toggleTheme()">
+        <button class="theme-toggle-option" id="light-option" aria-label="Light mode">☀️</button>
+        <button class="theme-toggle-option" id="dark-option" aria-label="Dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="page-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="index.html#summary">Summary</a></li>
+        <li><a href="index.html#value-proposition">Value</a></li>
+        <li><a href="index.html#professional-experience">Experience</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#continuous-learning">Learning</a></li>
+        <li><a href="learning.html" class="active">All Certificates</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator" aria-hidden="true">›</span>
+          <span>Learning & Certifications</span>
+        </nav>
+
+        <div id="en" class="lang-content active">
+          <!-- Page Header -->
+          <section class="learning-header">
+            <h1>LinkedIn Learning Certificates</h1>
+            <p class="learning-subtitle">A curated collection of 409 LinkedIn Learning certificates demonstrating strategic cross-domain learning across 12+ technology domains. This page showcases only LinkedIn Learning achievements—organized by domain, year, and skills.</p>
+          </section>
+
+          <!-- Statistics Dashboard -->
+          <section class="stats-dashboard">
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 19.5C4 18.837 4.263 18.201 4.732 17.732C5.201 17.263 5.837 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.5 2H20V22H6.5C5.837 22 5.201 21.737 4.732 21.268C4.263 20.799 4 20.163 4 19.5V4.5C4 3.837 4.263 3.201 4.732 2.732C5.201 2.263 5.837 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-certificates">409</div>
+                <div class="stat-label">LinkedIn Learning Certificates</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-domains">12+</div>
+                <div class="stat-label">Technology Domains</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="active-years">6+</div>
+                <div class="stat-label">Active Years</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 6V12L8 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-hours">500+</div>
+                <div class="stat-label">Learning Hours</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Learning Page Layout: Sidebar + Main Content -->
+          <div class="learning-layout">
+            <!-- Left Sidebar: Filters -->
+            <aside class="learning-sidebar">
+              <div class="sidebar-content">
+                <h2 class="sidebar-title">Filters</h2>
+                
+                <!-- Search -->
+                <div class="search-box">
+                  <input type="text" id="search-input" placeholder="Search certificates..." aria-label="Search certificates">
+                  <span class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                      <path d="M13 13L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </div>
+                
+                <!-- Skills Filter -->
+                <div class="skills-filter-section" id="skills-filter">
+                  <label class="skills-filter-label">Filter by Skills</label>
+                  <div class="skills-list" id="skills-list">
+                    <!-- Skills will be dynamically loaded here -->
+                  </div>
+                </div>
+                
+                <!-- Domain Filter -->
+                <div class="filter-group">
+                  <label for="domain-filter">Domain</label>
+                  <select id="domain-filter" aria-label="Filter by domain">
+                    <option value="all">All Domains</option>
+                    <option value="programming">Programming & Backend</option>
+                    <option value="cloud">Cloud Platforms</option>
+                    <option value="frontend">Frontend Development</option>
+                    <option value="devops">DevOps & Infrastructure</option>
+                    <option value="ai">Artificial Intelligence</option>
+                    <option value="agile">Agile & Project Management</option>
+                    <option value="ecommerce">E-Commerce & SEO</option>
+                    <option value="communication">Communication</option>
+                    <option value="tools">Development Tools</option>
+                    <option value="security">Security</option>
+                    <option value="data">Data & Analytics</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <!-- Year Filter -->
+                <div class="filter-group">
+                  <label for="year-filter">Year</label>
+                  <select id="year-filter" aria-label="Filter by year">
+                    <option value="all">All Years</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                
+                <!-- Sort Filter -->
+                <div class="filter-group">
+                  <label for="sort-filter">Sort by</label>
+                  <select id="sort-filter" aria-label="Sort certificates">
+                    <option value="date-desc">Date (Newest First)</option>
+                    <option value="date-asc">Date (Oldest First)</option>
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                    <option value="domain">Domain</option>
+                  </select>
+                </div>
+                
+                <!-- Clear Filters -->
+                <button id="clear-filters" class="clear-filters-btn" aria-label="Clear all filters">Clear Filters</button>
+                
+                <!-- Active Filters -->
+                <div class="active-filters" id="active-filters"></div>
+              </div>
+            </aside>
+            
+            <!-- Main Content: Certificates -->
+            <main class="learning-main-content">
+              <!-- Results Info -->
+              <section class="results-info">
+                <p id="results-count">Showing <strong>409</strong> certificates</p>
+                <div class="view-toggle">
+                  <button id="grid-view" class="view-btn" aria-label="Grid view">⊞ Grid</button>
+                  <button id="list-view" class="view-btn active" aria-label="List view">☰ List</button>
+                </div>
+              </section>
+
+              <!-- Certificates Grid/List -->
+              <section class="certificates-container">
+                <div id="certificates-grid" class="certificates-grid list-view">
+                  <!-- Certificates will be dynamically loaded here -->
+                  <div class="loading-message">Loading certificates...</div>
+                </div>
+              </section>
+            </main>
+          </div>
+
+          <!-- Learning Philosophy -->
+          <section class="learning-philosophy-section">
+            <h2>Learning Philosophy</h2>
+            <p>My learning approach is structured around building a comprehensive tech culture that adapts to industry changes. By systematically covering multiple domains—from programming fundamentals to cloud platforms, from DevOps practices to AI tools—I ensure continuous growth and domain-agnostic expertise. This cross-domain learning strategy makes me adaptable to technology shifts and ready for diverse project challenges.</p>
+            <div class="philosophy-points">
+              <div class="philosophy-point">
+                <strong>Systematic Learning:</strong> Structured approach covering all major technology domains
+              </div>
+              <div class="philosophy-point">
+                <strong>Domain-Agnostic:</strong> Building expertise that transcends specific technologies
+              </div>
+              <div class="philosophy-point">
+                <strong>Continuous Growth:</strong> Regular learning to stay current with industry trends
+              </div>
+              <div class="philosophy-point">
+                <strong>Practical Application:</strong> Learning focused on real-world problem-solving
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="fr" class="lang-content">
+          <!-- Page Header -->
+          <section class="learning-header">
+            <h1>Certificats LinkedIn Learning</h1>
+            <p class="learning-subtitle">Une collection de 409 certificats LinkedIn Learning démontrant un apprentissage stratégique transdisciplinaire à travers 12+ domaines technologiques. Cette page présente uniquement les réalisations LinkedIn Learning—organisées par domaine, année et compétences.</p>
+          </section>
+
+          <!-- Statistics Dashboard -->
+          <section class="stats-dashboard">
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 19.5C4 18.837 4.263 18.201 4.732 17.732C5.201 17.263 5.837 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.5 2H20V22H6.5C5.837 22 5.201 21.737 4.732 21.268C4.263 20.799 4 20.163 4 19.5V4.5C4 3.837 4.263 3.201 4.732 2.732C5.201 2.263 5.837 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-certificates-fr">409</div>
+                <div class="stat-label">Certificats LinkedIn Learning</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-domains-fr">12+</div>
+                <div class="stat-label">Domaines Technologiques</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="active-years-fr">6+</div>
+                <div class="stat-label">Années Actives</div>
+              </div>
+            </div>
+            <div class="stat-card-large">
+              <div class="stat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 6V12L8 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-number" id="total-hours-fr">500+</div>
+                <div class="stat-label">Heures d'Apprentissage</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Learning Page Layout: Sidebar + Main Content -->
+          <div class="learning-layout">
+            <!-- Left Sidebar: Filters -->
+            <aside class="learning-sidebar">
+              <div class="sidebar-content">
+                <h2 class="sidebar-title">Filtres</h2>
+                
+                <!-- Search -->
+                <div class="search-box">
+                  <input type="text" id="search-input-fr" placeholder="Rechercher des certificats..." aria-label="Rechercher des certificats">
+                  <span class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/>
+                      <path d="M13 13L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </div>
+                
+                <!-- Skills Filter -->
+                <div class="skills-filter-section" id="skills-filter-fr">
+                  <label class="skills-filter-label">Filtrer par Compétences</label>
+                  <div class="skills-list" id="skills-list-fr">
+                    <!-- Skills will be dynamically loaded here -->
+                  </div>
+                </div>
+                
+                <!-- Domain Filter -->
+                <div class="filter-group">
+                  <label for="domain-filter-fr">Domaine</label>
+                  <select id="domain-filter-fr" aria-label="Filtrer par domaine">
+                    <option value="all">Tous les Domaines</option>
+                    <option value="programming">Programmation & Backend</option>
+                    <option value="cloud">Plateformes Cloud</option>
+                    <option value="frontend">Développement Frontend</option>
+                    <option value="devops">DevOps & Infrastructure</option>
+                    <option value="ai">Intelligence Artificielle</option>
+                    <option value="agile">Agile & Gestion de Projet</option>
+                    <option value="ecommerce">E-Commerce & SEO</option>
+                    <option value="communication">Communication</option>
+                    <option value="tools">Outils de Développement</option>
+                    <option value="security">Sécurité</option>
+                    <option value="data">Données & Analytique</option>
+                    <option value="other">Autre</option>
+                  </select>
+                </div>
+                
+                <!-- Year Filter -->
+                <div class="filter-group">
+                  <label for="year-filter-fr">Année</label>
+                  <select id="year-filter-fr" aria-label="Filtrer par année">
+                    <option value="all">Toutes les Années</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                  </select>
+                </div>
+                
+                <!-- Sort Filter -->
+                <div class="filter-group">
+                  <label for="sort-filter-fr">Trier par</label>
+                  <select id="sort-filter-fr" aria-label="Trier les certificats">
+                    <option value="date-desc">Date (Plus Récent)</option>
+                    <option value="date-asc">Date (Plus Ancien)</option>
+                    <option value="title-asc">Titre (A-Z)</option>
+                    <option value="title-desc">Titre (Z-A)</option>
+                    <option value="domain">Domaine</option>
+                  </select>
+                </div>
+                
+                <!-- Clear Filters -->
+                <button id="clear-filters-fr" class="clear-filters-btn" aria-label="Effacer tous les filtres">Effacer Filtres</button>
+                
+                <!-- Active Filters -->
+                <div class="active-filters" id="active-filters-fr"></div>
+              </div>
+            </aside>
+            
+            <!-- Main Content: Certificates -->
+            <main class="learning-main-content">
+              <!-- Results Info -->
+              <section class="results-info">
+                <p id="results-count-fr">Affichage de <strong>409</strong> certificats</p>
+                <div class="view-toggle">
+                  <button id="grid-view-fr" class="view-btn" aria-label="Vue grille">⊞ Grille</button>
+                  <button id="list-view-fr" class="view-btn active" aria-label="Vue liste">☰ Liste</button>
+                </div>
+              </section>
+
+              <!-- Certificates Grid/List -->
+              <section class="certificates-container">
+                <div id="certificates-grid-fr" class="certificates-grid list-view">
+                  <!-- Certificates will be dynamically loaded here -->
+                  <div class="loading-message">Chargement des certificats...</div>
+                </div>
+              </section>
+            </main>
+          </div>
+
+          <!-- Learning Philosophy -->
+          <section class="learning-philosophy-section">
+            <h2>Philosophie d'Apprentissage</h2>
+            <p>Mon approche d'apprentissage est structurée autour de la construction d'une culture tech complète qui s'adapte aux changements de l'industrie. En couvrant systématiquement plusieurs domaines—des fondamentaux de programmation aux plateformes cloud, des pratiques DevOps aux outils IA—je garantis une croissance continue et une expertise indépendante du domaine. Cette stratégie d'apprentissage transdisciplinaire me rend adaptable aux changements technologiques et prêt pour des défis de projets diversifiés.</p>
+            <div class="philosophy-points">
+              <div class="philosophy-point">
+                <strong>Apprentissage Systématique:</strong> Approche structurée couvrant tous les domaines technologiques majeurs
+              </div>
+              <div class="philosophy-point">
+                <strong>Indépendant du Domaine:</strong> Construction d'une expertise qui transcende les technologies spécifiques
+              </div>
+              <div class="philosophy-point">
+                <strong>Croissance Continue:</strong> Apprentissage régulier pour rester à jour avec les tendances de l'industrie
+              </div>
+              <div class="philosophy-point">
+                <strong>Application Pratique:</strong> Apprentissage axé sur la résolution de problèmes réels
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript for Learning Page -->
+  <script src="js/learning.js"></script>
+</body>
+</html>
