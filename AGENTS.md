@@ -31,6 +31,10 @@ For PRs:
 - Include a brief summary and list of changes.
 - Add before/after screenshots for UI changes.
 - Mention any external links or assets added.
+### Gitflow Convention (Required)
+- Create a feature branch using `feat/<what-i-did>` (e.g., `feat/sidebar-highlighting`).
+- Commit with a concise, professional message (e.g., `feat: refine sidebar highlight`).
+- Open a PR to `main` and wait for approval before merging.
 
 ## Security & Configuration Tips
 - External links should include `rel="noopener noreferrer"` when using `target="_blank"`.
