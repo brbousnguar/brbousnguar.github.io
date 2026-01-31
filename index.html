@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -207,14 +207,25 @@
       
       // Save language preference to localStorage
       localStorage.setItem('language', lang);
+
+      // Update sidebar anchors to match the active language
+      updateSidebarLang(lang);
       
-      // Re-initialize navigation and smooth scroll for the new language content
-      if (window.initNavigationHighlight) {
-        initNavigationHighlight();
-      }
+      // Re-initialize smooth scroll and navigation for the new language content
       if (window.initSmoothScroll) {
         initSmoothScroll();
       }
+      if (window.initNavigationHighlight) {
+        initNavigationHighlight();
+      }
+    }
+
+    function updateSidebarLang(lang) {
+      const suffix = lang === 'fr' ? '-fr' : '';
+      document.querySelectorAll('.sidebar-nav a[data-target]').forEach(link => {
+        const base = link.getAttribute('data-target');
+        link.setAttribute('href', `#${base}${suffix}`);
+      });
     }
     
     function toggleTheme() {
@@ -285,11 +296,11 @@
       // Back to top button functionality
       initBackToTop();
       
-      // Navigation active state on scroll
-      initNavigationHighlight();
-      
       // Smooth scroll for anchor links
       initSmoothScroll();
+      
+      // Navigation active state on scroll
+      initNavigationHighlight();
     };
     
     function initNavigationHighlight() {
@@ -480,16 +491,17 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <ul class="sidebar-nav">
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#value-proposition">Value</a></li>
-        <li><a href="#professional-experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#continuous-learning">Learning</a></li>
+        <li><a href="#summary" data-target="summary" class="active">Summary</a></li>
+        <li><a href="#value-proposition" data-target="value-proposition">Value Proposition</a></li>
+        <li><a href="#skills" data-target="skills">Skills</a></li>
+        <li><a href="#certifications" data-target="certifications">Certifications</a></li>
+        <li><a href="#continuous-learning" data-target="continuous-learning">Learning</a></li>
         <li><a href="learning.html">All Certificates</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#professional-experience" data-target="professional-experience">Experience</a></li>
+        <li><a href="#projects" data-target="projects">Projects</a></li>
+        <li><a href="#education" data-target="education">Education</a></li>
+        <li><a href="#faq" data-target="faq">FAQ</a></li>
+        <li><a href="#contact" data-target="contact">Contact</a></li>
         <li><a href="about.html">About Me</a></li>
       </ul>
     </aside>
@@ -714,27 +726,6 @@
             </div>
           </section>
 
-          <section class="section" id="skills-tags">
-            <div class="section-content">
-              <h2>Expertise Tags</h2>
-        <span class="tag">#SAP_COMMERCE_CLOUD</span>
-        <span class="tag">#MULESOFT_ANYPOINT</span>
-        <span class="tag">#ECOMMERCE_INTEGRATION</span>
-        <span class="tag">#API_LED_CONNECTIVITY</span>
-        <span class="tag">#MICROSERVICES</span>
-        <span class="tag">#DATAWEAVE</span>
-        <span class="tag">#OCC_APIS</span>
-        <span class="tag">#CCv2</span>
-        <span class="tag">#SPRING_BOOT</span>
-        <span class="tag">#KUBERNETES</span>
-        <span class="tag">#REST_APIs</span>
-        <span class="tag">#SYSTEM_INTEGRATION</span>
-        <span class="tag">#CLOUD_NATIVE</span>
-        <span class="tag">#DEVOPS</span>
-        <span class="tag">#AGILE</span>
-            </div>
-          </section>
-
           <section class="section" id="education">
             <div class="section-content">
               <h2>Education</h2>
@@ -788,14 +779,14 @@
             </div>
           </section>
 
-          <section class="section" id="summary">
+          <section class="section" id="summary-fr">
             <div class="section-content">
               <h2>Résumé</h2>
               <p>Consultant Senior en Intégration E-Commerce avec plus de 8 ans d'expertise en conception de solutions reliant les plateformes e-commerce traditionnelles aux architectures d'intégration modernes basées sur les APIs. Spécialisé en SAP Commerce Cloud (anciennement Hybris) et MuleSoft Anypoint Platform, je livre des solutions end-to-end pour systèmes d'entreprise complexes. Solide bagage technique en Java, microservices, architectures cloud-native et intégration de systèmes.</p>
             </div>
           </section>
 
-          <section class="section" id="value">
+          <section class="section" id="value-proposition-fr">
             <div class="section-content">
               <h2>Proposition de Valeur Unique</h2>
         <p>Je fais le pont entre les plateformes e-commerce et les architectures d'intégration modernes. Ma combinaison unique d'expertise approfondie en SAP Commerce Cloud (8+ ans) et de compétences émergentes en MuleSoft Anypoint me permet de concevoir et livrer des solutions d'intégration complètes qui connectent les systèmes legacy aux technologies de pointe.</p>
@@ -813,7 +804,7 @@
             </div>
           </section>
 
-          <section class="section" id="skills">
+          <section class="section" id="skills-fr">
             <div class="section-content">
               <h2>Compétences Techniques</h2>
         <ul>
@@ -828,7 +819,7 @@
             </div>
           </section>
 
-          <section class="section" id="certifications">
+          <section class="section" id="certifications-fr">
             <div class="section-content">
               <h2>Certifications Professionnelles</h2>
         <ul>
@@ -839,7 +830,7 @@
             </div>
           </section>
 
-          <section class="section" id="continuous-learning">
+          <section class="section" id="continuous-learning-fr">
             <div class="section-content">
               <div class="learning-journey-card">
                 <div class="learning-journey-header">
@@ -873,7 +864,7 @@
             </div>
           </section>
 
-          <section class="section" id="experience">
+          <section class="section" id="professional-experience-fr">
             <div class="section-content">
               <h2>Expériences Professionnelles</h2>
 
@@ -922,7 +913,7 @@
             </div>
           </section>
 
-          <section class="section" id="projects">
+          <section class="section" id="projects-fr">
             <div class="section-content">
         <h2>Projets d'Intégration Phares</h2>
         <div class="projects-list">
@@ -973,28 +964,7 @@
             </div>
           </section>
 
-          <section class="section">
-            <div class="section-content">
-              <h2>Tags d'Expertise</h2>
-        <span class="tag">#SAP_COMMERCE_CLOUD</span>
-        <span class="tag">#MULESOFT_ANYPOINT</span>
-        <span class="tag">#INTEGRATION_ECOMMERCE</span>
-        <span class="tag">#API_LED_CONNECTIVITY</span>
-        <span class="tag">#MICROSERVICES</span>
-        <span class="tag">#DATAWEAVE</span>
-        <span class="tag">#OCC_APIS</span>
-        <span class="tag">#CCv2</span>
-        <span class="tag">#SPRING_BOOT</span>
-        <span class="tag">#KUBERNETES</span>
-        <span class="tag">#REST_APIs</span>
-        <span class="tag">#INTEGRATION_SYSTEMES</span>
-        <span class="tag">#CLOUD_NATIVE</span>
-        <span class="tag">#DEVOPS</span>
-        <span class="tag">#AGILE</span>
-            </div>
-          </section>
-
-          <section class="section" id="education">
+          <section class="section" id="education-fr">
             <div class="section-content">
               <h2>Formation</h2>
               <p>2015 - Ingénieur d'État en Informatique & BI, INSEA Rabat</p>
@@ -1002,7 +972,7 @@
           </section>
           
           <!-- FAQ Section for AI SEO -->
-          <section class="section" id="faq">
+          <section class="section" id="faq-fr">
             <div class="section-content">
               <h2>Questions Fréquentes</h2>
               <div class="faq-grid">
@@ -1026,16 +996,17 @@
             </div>
           </section>
 
-          <section class="section" id="about">
+          <section class="section" id="contact-fr">
             <div class="section-content">
-          <div class="section-content">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
-          </div>
+              <h2>Contact</h2>
+              <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
+            </div>
+          </section>
         </div>
       </div>
-    </div>
-      </main>
-    </div>
+    </main>
+  </div>
 </body>
 </html>
+
+
