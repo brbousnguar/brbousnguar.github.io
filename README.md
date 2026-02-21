@@ -37,6 +37,12 @@ This repository contains the source code for my personal portfolio website showc
 - **Canonical URLs**: Prevent duplicate content issues
 - **Sitemap**: XML sitemap for search engine crawling
 
+## 🛠️ Local Development
+
+Use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VS Code extension for local preview — right-click any HTML file and select *Open with Live Server*. It auto-reloads on save.
+
+Alternatively: `python -m http.server 5173` then open `http://localhost:5173`.
+
 ## 📊 Performance
 
 - **Lightweight**: Minimal external dependencies
