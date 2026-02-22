@@ -2,11 +2,14 @@
 
 ## Project Structure & Module Organization
 This is a static GitHub Pages portfolio site. Key paths:
-- `index.html`, `about.html`: primary pages and content.
-- `css/`: site styles (`style.css`, `about.css`).
-- `img/`, `icons/`: images, logos, and icons.
-- SEO helpers: `sitemap.xml`, `robots.txt`, `seo-helper.html`, `seo-status.html`.
-- Assets like `Brahim_Bousnguar_CV.pdf` live at repo root.
+- `index.html`, `pages/about.html`, `pages/learning.html`: primary pages and content.
+- `assets/css/`: site styles (`style.css`, `about.css`, `learning.css`).
+- `assets/img/`, `assets/icons/`: images, logos, and icons.
+- `assets/js/`: frontend scripts (learning filters, data utils).
+- `assets/data/`: data files (e.g., `learning-data.json`).
+- SEO helpers: `sitemap.xml`, `robots.txt`.
+- Authoring tools: `tools/` (SEO helpers, favicon generator, setup guide).
+- Docs and PDFs: `docs/` (e.g., `Brahim_Bousnguar_CV.pdf`, guides).
 
 ## Build, Test, and Development Commands
 There is no build step.
@@ -21,7 +24,7 @@ There is no build step.
 
 ## Testing Guidelines
 No automated tests exist. Validate changes manually:
-- Open `index.html` and `about.html` locally.
+- Open `index.html`, `pages/about.html`, and `pages/learning.html` locally.
 - Check language toggle, theme toggle, and sidebar anchors.
 - Verify links (especially `target="_blank"`) and images load.
 

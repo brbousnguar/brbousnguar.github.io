@@ -9,4 +9,5 @@ Crawl-delay: 1
 
 # Disallow crawling of certain file types that aren't necessary for SEO
 Disallow: /*.pdf$
-Disallow: /create_favicon.html
+Disallow: /tools/
+Disallow: /docs/

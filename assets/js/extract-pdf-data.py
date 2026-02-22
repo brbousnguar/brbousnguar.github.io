@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Extract certificate data from PDF files and update learning-data.json
 This script reads PDF files to extract: date, title, skills, duration
@@ -117,7 +117,7 @@ def extract_title_from_text(text):
         # Pattern: number + "hour(s)" or "minute(s)" + optional bullet, appearing after date
         # But "10 minutes" in a title like "10 minutes, un livre" should be kept
         is_duration_metadata = False
-        if re.search(r'\d+\s+(hour|minute)[s]?\s*•', line, re.IGNORECASE):
+        if re.search(r'\d+\s+(hour|minute)[s]?\s*â€¢', line, re.IGNORECASE):
             is_duration_metadata = True
         
         if is_date_time_line or is_duration_metadata:
@@ -178,7 +178,7 @@ def format_skill_name(skill):
         return None
     
     # Clean up
-    skill = skill.strip('•,.:;()[]').strip()
+    skill = skill.strip('â€¢,.:;()[]').strip()
     
     # Handle special cases
     # Preserve acronyms like "AI", "API", "SQL", etc.
@@ -197,7 +197,7 @@ def format_skill_name(skill):
     lowercase_words = {'for', 'and', 'or', 'the', 'of', 'in', 'on', 'at', 'to', 'a', 'an', 'as', 'by', 'with'}
     
     for i, word in enumerate(words):
-        word_clean = word.strip('•,.:;()[]').strip()
+        word_clean = word.strip('â€¢,.:;()[]').strip()
         if not word_clean:
             continue
         
@@ -247,7 +247,7 @@ def extract_skills_from_text(text):
         if alt_match:
             skill_text = alt_match.group(1).strip()
             # Split by common separators if on same line
-            for skill in re.split(r'[•,\-;]', skill_text):
+            for skill in re.split(r'[â€¢,\-;]', skill_text):
                 skill_clean = skill.strip()
                 if skill_clean and len(skill_clean) >= 2:
                     formatted = format_skill_name(skill_clean)
@@ -299,8 +299,8 @@ def extract_skills_from_text(text):
         line_clean = line.strip()
         
         # Remove bullet points and common punctuation from start
-        line_clean = re.sub(r'^[•\-\*\.\s]+', '', line_clean)
-        line_clean = line_clean.strip('•,.:;()[]').strip()
+        line_clean = re.sub(r'^[â€¢\-\*\.\s]+', '', line_clean)
+        line_clean = line_clean.strip('â€¢,.:;()[]').strip()
         
         # Skip empty lines or very short lines
         if not line_clean or len(line_clean) < 2:
@@ -643,11 +643,11 @@ def main():
     }
     
     # Write JSON file
-    output_file = Path('js/learning-data.json')
+    output_file = Path('assets/data/learning-data.json')
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    print(f"\n✓ Generated {output_file} with {len(certificates)} certificates")
+    print(f"\nâœ“ Generated {output_file} with {len(certificates)} certificates")
     print(f"  Domains: {stats['domains']}")
     print(f"  Years: {', '.join(stats['years'])}")
 
@@ -687,3 +687,4 @@ if __name__ == '__main__':
     
     print(f"Using PDF library: {PDF_LIB}")
     main()
+

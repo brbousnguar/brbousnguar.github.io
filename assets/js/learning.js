@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Learning Page JavaScript
  * Handles filtering, searching, and displaying certificates
  */
@@ -17,7 +17,7 @@ function initLearningPage() {
 // Load certificates from JSON file
 async function loadCertificates() {
   try {
-    const response = await fetch('js/learning-data.json');
+    const response = await fetch('/assets/data/learning-data.json');
     if (!response.ok) {
       throw new Error('Failed to load certificate data');
     }
@@ -323,7 +323,7 @@ function updateActiveFilters(domain, year, search, suffix = '') {
   }
   
   if (year !== 'all') {
-    const label = isFr ? 'Année: ' : 'Year: ';
+    const label = isFr ? 'AnnÃ©e: ' : 'Year: ';
     const tag = createFilterTag(label + year, () => {
       document.getElementById('year-filter' + suffix).value = 'all';
       applyFilters();
@@ -342,7 +342,7 @@ function updateActiveFilters(domain, year, search, suffix = '') {
   
   // Show selected skills
   if (selectedSkills.size > 0) {
-    const label = isFr ? 'Compétences: ' : 'Skills: ';
+    const label = isFr ? 'CompÃ©tences: ' : 'Skills: ';
     Array.from(selectedSkills).forEach(skill => {
       const tag = createFilterTag(label + skill, () => {
         selectedSkills.delete(skill);
@@ -360,7 +360,7 @@ function createFilterTag(text, onClick) {
   tag.className = 'filter-tag';
   tag.innerHTML = `
     <span>${text}</span>
-    <button type="button" aria-label="Remove filter">×</button>
+    <button type="button" aria-label="Remove filter">Ã—</button>
   `;
   tag.querySelector('button').addEventListener('click', onClick);
   return tag;
@@ -405,7 +405,7 @@ function renderCertificates(suffix = '') {
   const isFr = lang === 'fr';
   
   if (!filteredCertificates || filteredCertificates.length === 0) {
-    const message = isFr ? 'Aucun certificat trouvé correspondant à vos filtres.' : 'No certificates found matching your filters.';
+    const message = isFr ? 'Aucun certificat trouvÃ© correspondant Ã  vos filtres.' : 'No certificates found matching your filters.';
     container.innerHTML = `<div class="no-results">${message}</div>`;
     return;
   }
@@ -509,3 +509,5 @@ function updateResultsCount(suffix = '') {
 window.initLearningPage = initLearningPage;
 window.renderSkillsFilter = renderSkillsFilter;
 window.filteredCertificates = filteredCertificates;
+
+

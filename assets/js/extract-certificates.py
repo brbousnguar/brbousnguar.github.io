@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Script to extract LinkedIn Learning certificate information from archived folder
 and generate a JSON file for the learning page.
@@ -155,11 +155,11 @@ def main():
     }
     
     # Write JSON file
-    output_file = Path('js/learning-data.json')
+    output_file = Path('assets/data/learning-data.json')
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    print(f"\n✓ Generated {output_file} with {len(certificates)} certificates")
+    print(f"\nâœ“ Generated {output_file} with {len(certificates)} certificates")
     print(f"  Domains: {stats['domains']}")
     print(f"  Years: {', '.join(stats['years'])}")
     
@@ -174,3 +174,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

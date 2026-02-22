@@ -23,17 +23,17 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 | File | Purpose |
 |------|---------|
 | `index.html` | Main portfolio page (hero, skills, projects, contact) |
-| `about.html` | Extended professional story |
-| `learning.html` | Certificates browser — loads dynamically from `js/learning-data.json` |
-| `css/style.css` | Global styles shared across all pages |
-| `css/about.css` | About page-specific styles |
-| `css/learning.css` | Learning page-specific styles |
-| `js/learning.js` | Certificate filtering, search, and rendering logic |
-| `js/learning-data.json` | Certificate dataset (~400 entries) consumed by `learning.js` |
+| `pages/about.html` | Extended professional story |
+| `pages/learning.html` | Certificates browser — loads dynamically from `assets/data/learning-data.json` |
+| `assets/css/style.css` | Global styles shared across all pages |
+| `assets/css/about.css` | About page-specific styles |
+| `assets/css/learning.css` | Learning page-specific styles |
+| `assets/js/learning.js` | Certificate filtering, search, and rendering logic |
+| `assets/data/learning-data.json` | Certificate dataset (~400 entries) consumed by `learning.js` |
 | `sitemap.xml` | Update when pages are added or removed |
 | `robots.txt` | Search crawler directives |
 
-The `js/` directory also contains Python scripts (`extract-*.py`, `organize-*.py`) used to process and reorganize the certificate data — these are one-off utilities, not part of the site runtime.
+The `assets/js/` directory also contains Python scripts (`extract-*.py`, `organize-*.py`) used to process and reorganize the certificate data — these are one-off utilities, not part of the site runtime.
 
 ## Architecture: Bilingual System
 
@@ -54,7 +54,7 @@ When adding content, always duplicate it in the other language or the toggle wil
 
 ## SEO Conventions
 
-Each page carries a full SEO head block: `<title>`, meta description/keywords, Open Graph, Twitter Card, JSON-LD structured data, canonical URL, and hreflang alternates. When adding or modifying a page, keep all of these consistent. Refer to `SEO-GUIDE.md` for the keyword strategy.
+Each page carries a full SEO head block: `<title>`, meta description/keywords, Open Graph, Twitter Card, JSON-LD structured data, canonical URL, and hreflang alternates. When adding or modifying a page, keep all of these consistent. Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
 
 ## Git & PR Workflow
 

@@ -50,7 +50,7 @@ Consider purchasing a custom domain:
 - Get listed in local business directories
 
 ### 4. Performance Optimization
-- Optimize images (compress favicon.png)
+- Optimize images (compress assets/img/favicon.png)
 - Enable GZIP compression
 - Use a CDN for faster loading
 

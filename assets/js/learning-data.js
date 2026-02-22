@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Learning Data - Certificate Information
  * This file contains sample certificate data structure
  * In production, this should be generated from the archived folder
@@ -17,7 +17,7 @@ window.learningDataSample = {
 
 // If learning-data.json doesn't exist, use sample data
 if (typeof fetch !== 'undefined') {
-  fetch('js/learning-data.json')
+  fetch('/assets/data/learning-data.json')
     .then(response => {
       if (!response.ok) {
         console.warn('learning-data.json not found, using sample data');
@@ -29,3 +29,5 @@ if (typeof fetch !== 'undefined') {
       console.warn('Error loading learning-data.json, using sample data');
     });
 }
+
+
