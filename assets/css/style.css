@@ -1849,6 +1849,48 @@ strong {
 }
 
 /* ============================================
+   SCROLL REVEAL MOTION SYSTEM
+   Hidden state is gated behind html.js so content
+   is always visible when JavaScript is unavailable.
+   ============================================ */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+  transition-delay: calc(var(--stagger-i, 0) * 70ms);
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .section {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {

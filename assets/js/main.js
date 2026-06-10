@@ -222,6 +222,70 @@ function initSmoothScroll() {
   });
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function initReveal() {
+  const targets = document.querySelectorAll('.reveal');
+  if (!targets.length) return;
+
+  // Stagger siblings inside any [data-stagger] container
+  document.querySelectorAll('[data-stagger]').forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+      if (child.classList.contains('reveal')) {
+        child.style.setProperty('--stagger-i', i);
+      }
+    });
+  });
+
+  if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    targets.forEach(el => finalizeCounters(el));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        animateCounters(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  targets.forEach(el => observer.observe(el));
+}
+
+function animateCounters(scope) {
+  scope.querySelectorAll('[data-count]:not([data-counted])').forEach(el => {
+    el.setAttribute('data-counted', 'true');
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (isNaN(target) || prefersReducedMotion()) {
+      el.textContent = target + suffix;
+      return;
+    }
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + (progress === 1 ? suffix : '');
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+function finalizeCounters(scope) {
+  scope.querySelectorAll('[data-count]').forEach(el => {
+    el.setAttribute('data-counted', 'true');
+    el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // The pre-paint head snippet already set data-theme / lang / data-lang;
   // restore the language content visibility and sync toggle button states.
@@ -241,6 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   initBackToTop();
+  initReveal();
 
   if (document.querySelector('.sidebar-nav a[href^="#"]')) {
     initSmoothScroll();
