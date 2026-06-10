@@ -57,8 +57,21 @@
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.png">
   <meta name="theme-color" content="#0066ff">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Pre-paint theme/language restore (must stay inline to avoid flash of wrong theme) -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('language') || 'en';
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
   
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -196,261 +209,6 @@
       }
     ]
   }
-  </script>
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const selected = document.getElementById(lang);
-      if (selected) selected.classList.add('active');
-      const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
-      if (btn) btn.classList.add('active');
-      
-      // Update HTML lang attribute for SEO and accessibility
-      document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('data-lang', lang);
-      
-      // Save language preference to localStorage
-      localStorage.setItem('language', lang);
-
-      // Update sidebar anchors to match the active language
-      updateSidebarLang(lang);
-      
-      // Re-initialize smooth scroll and navigation for the new language content
-      if (window.initSmoothScroll) {
-        initSmoothScroll();
-      }
-      if (window.initNavigationHighlight) {
-        initNavigationHighlight();
-      }
-    }
-
-    function updateSidebarLang(lang) {
-      const suffix = lang === 'fr' ? '-fr' : '';
-      document.querySelectorAll('.sidebar-nav a[data-target]').forEach(link => {
-        const base = link.getAttribute('data-target');
-        link.setAttribute('href', `#${base}${suffix}`);
-      });
-    }
-    
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update toggle button
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (newTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-    }
-    
-    window.onload = function () {
-      // Load saved language preference or default to English
-      const savedLang = localStorage.getItem('language') || 'en';
-      switchLang(savedLang);
-      
-      // Ensure HTML lang attribute is set on initial load
-      document.documentElement.setAttribute('lang', savedLang);
-      
-      // Detect system theme preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-      
-      // Use saved theme if available, otherwise use system preference (default to light)
-      const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-      
-      document.documentElement.setAttribute('data-theme', defaultTheme);
-      
-      // Update toggle button based on theme
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (defaultTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-      
-      // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) { // Only auto-switch if user hasn't set a preference
-          const newTheme = e.matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', newTheme);
-          
-          if (newTheme === 'light') {
-            lightOption.classList.add('active');
-            darkOption.classList.remove('active');
-          } else {
-            darkOption.classList.add('active');
-            lightOption.classList.remove('active');
-          }
-        }
-      });
-      
-      // Back to top button functionality
-      initBackToTop();
-      
-      // Smooth scroll for anchor links
-      initSmoothScroll();
-      
-      // Navigation active state on scroll
-      initNavigationHighlight();
-    };
-    
-    function initNavigationHighlight() {
-      // Get only sections from the currently active language content
-      const activeContent = document.querySelector('.lang-content.active');
-      if (!activeContent) return;
-      
-      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
-      
-      // Track if user just clicked a link
-      window.navigationClickTime = 0;
-      
-      window.updateActiveNavLink = function(targetId) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === targetId) {
-            link.classList.add('active');
-          }
-        });
-      };
-      
-      // Remove old scroll listener if exists
-      if (window.scrollHighlightHandler) {
-        window.removeEventListener('scroll', window.scrollHighlightHandler);
-      }
-      
-      // Create new scroll handler that always checks current active content
-      window.scrollHighlightHandler = function() {
-        // Don't update highlighting for 800ms after a click
-        if (Date.now() - window.navigationClickTime < 800) {
-          return;
-        }
-        
-        const currentActiveContent = document.querySelector('.lang-content.active');
-        if (!currentActiveContent) return;
-        
-        const currentSections = currentActiveContent.querySelectorAll('.section[id]');
-        const scrollPosition = window.scrollY + 200; // Check what's near top of viewport
-        
-        let currentSection = '';
-        
-        currentSections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = rect.top + window.scrollY;
-          const sectionBottom = sectionTop + rect.height;
-          
-          // Check if the scroll position is within this section
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-            currentSection = '#' + section.id;
-          }
-        });
-        
-        if (currentSection && window.updateActiveNavLink) {
-          updateActiveNavLink(currentSection);
-        }
-      };
-      
-      // Add the new scroll listener with throttling
-      let isScrolling = false;
-      window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-          window.requestAnimationFrame(() => {
-            if (window.scrollHighlightHandler) {
-              window.scrollHighlightHandler();
-            }
-            isScrolling = false;
-          });
-        }
-        isScrolling = true;
-      });
-      
-      // Trigger initial highlight check
-      if (window.scrollHighlightHandler) {
-        setTimeout(() => window.scrollHighlightHandler(), 100);
-      }
-    }
-    
-    function initBackToTop() {
-      // Create back to top button
-      const backToTop = document.createElement('button');
-      backToTop.className = 'back-to-top';
-      backToTop.innerHTML = '↑';
-      backToTop.setAttribute('aria-label', 'Back to top');
-      backToTop.title = 'Back to top';
-      document.body.appendChild(backToTop);
-      
-      // Show/hide on scroll
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      
-      // Scroll to top on click
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    }
-    
-    function initSmoothScroll() {
-      // Remove old listeners by cloning and replacing navigation links
-      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
-      navLinks.forEach(link => {
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-      });
-      
-      // Add fresh event listeners
-      document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          
-          // Update click timestamp to prevent scroll handler from overriding
-          window.navigationClickTime = Date.now();
-          
-          // Find target in active language content
-          const activeContent = document.querySelector('.lang-content.active');
-          if (!activeContent) return;
-          
-          const target = activeContent.querySelector(targetId);
-          if (target) {
-            // Calculate offset for sticky header (approx 60px) + extra spacing
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-            
-            // Update active state immediately on click
-            if (window.updateActiveNavLink) {
-              updateActiveNavLink(targetId);
-            }
-          }
-        });
-      });
-    }
   </script>
 </head>
 <body>

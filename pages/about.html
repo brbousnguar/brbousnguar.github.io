@@ -43,8 +43,21 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon.png">
   <meta name="theme-color" content="#0066ff">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Pre-paint theme/language restore (must stay inline to avoid flash of wrong theme) -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('language') || 'en';
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js" defer></script>
   <link rel="stylesheet" href="../assets/css/about.css">
   
   <!-- Breadcrumb Structured Data -->
@@ -66,86 +79,6 @@
   }
   </script>
   
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const selected = document.getElementById(lang);
-      if (selected) selected.classList.add('active');
-      const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
-      if (btn) btn.classList.add('active');
-      
-      // Update HTML lang attribute for SEO and accessibility
-      document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('data-lang', lang);
-    }
-    
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update toggle button
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (newTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-    }
-    
-    window.onload = function () {
-      // Load saved language preference or default to English
-      const savedLang = localStorage.getItem('language') || 'en';
-      switchLang(savedLang);
-      
-      // Ensure HTML lang attribute is set on initial load
-      document.documentElement.setAttribute('lang', savedLang);
-      
-      // Detect system theme preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-      
-      // Use saved theme if available, otherwise use system preference (default to light)
-      const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-      
-      document.documentElement.setAttribute('data-theme', defaultTheme);
-      
-      // Update toggle button based on theme
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (defaultTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-      
-      // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) { // Only auto-switch if user hasn't set a preference
-          const newTheme = e.matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', newTheme);
-          
-          if (newTheme === 'light') {
-            lightOption.classList.add('active');
-            darkOption.classList.remove('active');
-          } else {
-            darkOption.classList.add('active');
-            lightOption.classList.remove('active');
-          }
-        }
-      });
-    };
-  </script>
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
