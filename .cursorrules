@@ -10,28 +10,45 @@ Personal professional portfolio website for Brahim Bousnguar - Senior E-Commerce
 
 ### Color Palette (CSS Variables)
 **Light Theme (Default):**
-- Primary Background: `#faf8f3` (warm sepia/cream)
-- Secondary Background: `#f5f1e8`
-- Sidebar Background: `#f8f5ed`
-- Accent Color: `#d4a04f` (warm gold/amber)
-- Accent Hover: `#b8894a`
-- Text Primary: `#2d2416` (dark brown)
-- Text Secondary: `#5a4a34`
-- Text Muted: `#8b7a5e`
+- Primary Background: `#faf9f7` (warm off-white)
+- Secondary Background: `#f5f4f2`
+- Sidebar Background: `#f7f6f4`
+- Accent: `--accent: #d97706` (amber)
+- Accent Hover: `--accent-hover: #b45309`
+- Accent Text: `--accent-text: #92400e` (AA-safe amber for small text/links)
+- Accent Contrast: `--accent-contrast: #1c1917` (text on filled amber surfaces)
+- Accent Light: `--accent-light: #fdf0df` (tinted chips/washes)
+- Text Primary: `#1c1917` (warm graphite)
+- Text Secondary: `#44403c`
+- Text Muted: `#78716c` (meta/captions only — borderline 4.5:1)
 - Surface Dark: `#ffffff` (white cards)
-- Surface Light: `#f9f6ed`
-- Border Subtle: `#e8dfc8`
-- Border Medium: `#d4c9b0`
+- Surface Light: `#faf9f7`
+- Border Subtle: `#e7e5e4`
+- Border Medium: `#d6d3d1`
 
 **Dark Theme:**
-- Primary Background: `#1a1510` (dark sepia)
-- Secondary Background: `#2a2318`
-- Text Primary: `#e8dfc8` (light cream)
+- Primary Background: `#121110` (warm near-black)
+- Secondary Background / Cards: `#1c1a18`
+- Accent: `#f59e0b`, Accent Hover: `#fbbf24`, Accent Text: `#f59e0b`
+- Text Primary: `#f5f4f2`
 - Use CSS variable pattern: `var(--variable-name)`
 
+**Additional Tokens:**
+- Motion: `--transition-fast` (150ms), `--transition-base` (250ms), `--transition-slow` (400ms)
+- Radii: `--radius-sm` (6px), `--radius-md` (10px), `--radius-lg` (16px), `--radius-xl` (24px)
+- Glass: `--glass-bg`, `--glass-border` (use with `backdrop-filter: blur()` + `@supports` fallback)
+
+**Accent Usage Rules (WCAG AA — critical):**
+- `#d97706` on white/`#faf9f7` is only ~3.1:1 → NEVER use `--accent` for normal-size
+  text in light mode. Allowed: headings ≥24px (or ≥18.66px bold), icons, borders,
+  decorative elements, backgrounds.
+- Small amber text/links in light mode must use `--accent-text` (#92400e, ~6.4:1).
+- Filled amber buttons/chips use dark text `--accent-contrast` (#1c1917, ~5.4:1).
+  NEVER white text on amber (fails at ~3.1:1).
+
 **Design Philosophy:**
-- Warm, professional sepia/gold palette (NOT blue/cold colors)
-- Elegant, minimalist aesthetic
+- Warm graphite + amber palette — amber is the only accent hue; never blue/cold colors
+- Modern, dynamic, but professional: scroll-reveal motion, glass surfaces, fluid type
 - Professional business consultant feel
 - Avoid bright/neon colors or childish elements
 
@@ -212,14 +229,16 @@ Format: JSON-LD in `<script type="application/ld+json">` blocks
 ```
 /
 ├── index.html (main page)
-├── about.html (about page)
-├── css/
-│   ├── style.css (main styles)
-│   └── about.css (page-specific styles)
-├── img/
-│   ├── profile.jpeg
-│   └── favicon.png
-├── icons/ (social media icons)
+├── about.html / learning.html (redirect stubs → pages/)
+├── pages/
+│   ├── about.html
+│   └── learning.html
+├── assets/
+│   ├── css/ (style.css, about.css, learning.css)
+│   ├── js/ (main.js, learning.js + one-off Python data scripts)
+│   ├── img/ (profile.jpeg, favicon.png)
+│   └── data/ (learning-data.json)
+├── docs/ (CV PDF, SEO-GUIDE.md, TODO.md)
 ├── sitemap.xml
 ├── robots.txt
 └── .cursorrules (this file)
@@ -238,7 +257,7 @@ Format: JSON-LD in `<script type="application/ld+json">` blocks
 ### Favicon
 - Multiple sizes: `favicon.png`, `favicon.ico`
 - Apple touch icon: `180x180` PNG
-- Theme color: `#0066ff` (or adjust to match brand)
+- Theme color: `#faf9f7` (light) / `#121110` (dark) via media-scoped meta tags
 
 ## Link Standards
 
@@ -332,7 +351,7 @@ Before marking any task complete, ensure:
 ## AI Assistant Guidelines
 
 When working on this project:
-1. **Always maintain** the warm sepia/gold color scheme - never use blue/cold colors
+1. **Always maintain** the warm graphite + amber color scheme - amber is the only accent hue; never use blue/cold colors, and respect the Accent Usage Rules (no small amber text in light mode, no white text on amber)
 2. **Preserve** the professional, minimalist aesthetic
 3. **Follow** existing code patterns and structure
 4. **Check** both light and dark themes after changes
@@ -354,7 +373,7 @@ When working on this project:
 
 ---
 
-**Last Updated**: 2025-01-22
+**Last Updated**: 2026-06-10
 **Project Type**: Professional Portfolio Website
 **Primary Technologies**: HTML5, CSS3, Vanilla JavaScript
 

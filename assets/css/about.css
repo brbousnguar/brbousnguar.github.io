@@ -19,7 +19,7 @@ h3 {
 }
 
 .nav-back a {
-  color: var(--accent-blue);
+  color: var(--accent-text);
   text-decoration: none;
   font-weight: 500;
   display: inline-flex;
@@ -34,10 +34,10 @@ h3 {
 }
 
 .nav-back a:hover {
-  background: var(--accent-blue);
-  color: white;
+  background: var(--accent);
+  color: var(--accent-contrast);
   text-decoration: none;
-  border-color: var(--accent-blue);
+  border-color: var(--accent);
   box-shadow: var(--shadow-sm);
 }
 
@@ -76,8 +76,8 @@ h3 {
 
 .card-number {
   display: inline-block;
-  background: var(--accent-blue);
-  color: white;
+  background: var(--accent);
+  color: var(--accent-contrast);
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.25rem 0.625rem;
@@ -87,18 +87,18 @@ h3 {
 }
 
 .cta-section {
-  background: var(--accent-blue);
-  color: white;
+  background: var(--accent);
+  color: var(--accent-contrast);
   padding: 3rem 2.5rem;
   border-radius: 0;
   text-align: center;
   margin: 4rem 0 2rem;
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--accent-blue);
+  border: 1px solid var(--accent);
 }
 
 .cta-section h3 {
-  color: white;
+  color: var(--accent-contrast);
   margin-top: 0;
   font-size: clamp(1.5rem, 3vw, 1.875rem);
   font-weight: 600;
@@ -106,7 +106,7 @@ h3 {
 }
 
 .cta-section p {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--accent-contrast);
   font-size: 1.0625rem;
   max-width: 600px;
   margin: 1rem auto;
@@ -114,8 +114,8 @@ h3 {
 
 .cta-button {
   display: inline-block;
-  background: white;
-  color: var(--accent-blue);
+  background: var(--surface-dark);
+  color: var(--accent-text);
   padding: 0.875rem 2rem;
   border-radius: 6px;
   text-decoration: none;
@@ -146,7 +146,7 @@ h3 {
 .timeline-dot {
   width: 10px;
   height: 10px;
-  background: var(--accent-blue);
+  background: var(--accent);
   border-radius: 50%;
   margin-right: 1rem;
   margin-top: 0.5rem;
@@ -160,7 +160,7 @@ h3 {
 
 .timeline-year {
   font-weight: 600;
-  color: var(--accent-blue);
+  color: var(--accent-text);
   font-size: 0.9375rem;
   font-family: inherit;
   margin-bottom: 0.25rem;
@@ -241,8 +241,8 @@ h3 {
 
 .skill-item:hover {
   background: var(--accent-light);
-  color: var(--accent-blue);
-  border-color: var(--accent-blue);
+  color: var(--accent-text);
+  border-color: var(--accent);
 }
 
 .soft-skills {
@@ -253,7 +253,7 @@ h3 {
 
 .soft-skill-item {
   background: var(--accent-light);
-  color: var(--accent-blue);
+  color: var(--accent-text);
   padding: 0.875rem;
   border-radius: 4px;
   text-align: center;
@@ -264,9 +264,9 @@ h3 {
 }
 
 .soft-skill-item:hover {
-  background: var(--accent-blue);
-  color: white;
-  border-color: var(--accent-blue);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
 }
 
 /* Responsive Design for About Page */
