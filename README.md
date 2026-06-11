@@ -8,23 +8,25 @@ Visit the live portfolio at: [https://brbousnguar.github.io/](https://brbousngua
 
 ## 📋 About
 
-This repository contains the source code for my personal portfolio website showcasing my expertise as a SAP Commerce Cloud consultant and Mulesoft integrator with 8+ years of experience in Java, e-commerce architectures, and cloud-native systems.
+This repository contains the source code for my personal portfolio website showcasing my expertise as a SAP Commerce Cloud consultant and Mulesoft integrator with 9+ years of experience in Java, e-commerce architectures, and cloud-native systems.
 
 ## 🛠️ Technologies Used
 
 - **HTML5** - Semantic markup and structure
 - **CSS3** - Modern styling with gradients, animations, and responsive design
 - **JavaScript** - Interactive language switching and dynamic content
-- **Google Fonts** - Typography (Inter & Poppins)
+- **Google Fonts** - Typography (Inter)
 - **GitHub Pages** - Static site hosting
 
 ## 🎨 Features
 
 - **Bilingual Support** - English and French language toggle
-- **Responsive Design** - Mobile-first approach with modern glassmorphism effects
+- **Light/Dark Themes** - Warm graphite + amber palette driven by CSS custom properties
+- **Responsive Design** - Mobile-first approach with glassmorphism touches
 - **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, and JSON-LD structured data
-- **Professional Layout** - Clean, modern design with gradient backgrounds
-- **Interactive Elements** - Hover effects, smooth transitions, and dynamic content
+- **AI-Agent Ready** - llms.txt and profile.json machine-readable profile
+- **Professional Layout** - Hero with proof stats and a bento project grid
+- **Interactive Elements** - Scroll-reveal animations, stat counters, smooth transitions (with `prefers-reduced-motion` support)
 - **CV Download** - Direct PDF download functionality
 - **Contact Integration** - Direct email and social media links
 
