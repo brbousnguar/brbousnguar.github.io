@@ -79,7 +79,48 @@
     }]
   }
   </script>
-  
+
+  <!-- Person Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Brahim Bousnguar",
+    "givenName": "Brahim",
+    "familyName": "Bousnguar",
+    "jobTitle": "Senior E-Commerce Integration Consultant",
+    "description": "Senior E-Commerce Integration Consultant with 9+ years of experience. Career journey from SAP Commerce internship in 2015 to leading cloud-native migrations and API-led integration architectures across SEB Group, BYK, Miele and Roche Bobois.",
+    "url": "https://brbousnguar.github.io/",
+    "email": "b.bousnguar@gmail.com",
+    "image": "https://brbousnguar.github.io/assets/img/profile.jpeg",
+    "sameAs": [
+      "https://github.com/brbousnguar",
+      "https://www.linkedin.com/in/brahim-bousnguar/"
+    ],
+    "knowsAbout": [
+      "SAP Commerce Cloud",
+      "MuleSoft Anypoint Platform",
+      "Salesforce",
+      "API Integration",
+      "Microservices",
+      "Cloud Migration",
+      "AI-augmented development"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "INSEA Rabat"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Roche Bobois"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://brbousnguar.github.io/pages/about.html"
+    }
+  }
+  </script>
+
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
@@ -125,13 +166,16 @@
     <aside class="sidebar">
       <ul class="sidebar-nav">
         <li><a href="../index.html#hero">Overview</a></li>
-        <li><a href="../index.html#value-proposition">Value</a></li>
-        <li><a href="../index.html#professional-experience">Experience</a></li>
+        <li><a href="../index.html#value-proposition">Value Proposition</a></li>
         <li><a href="../index.html#projects">Projects</a></li>
         <li><a href="../index.html#skills">Skills</a></li>
         <li><a href="../index.html#certifications">Certifications</a></li>
+        <li><a href="../index.html#continuous-learning">Learning</a></li>
+        <li><a href="learning.html">All Certificates</a></li>
+        <li><a href="../index.html#professional-experience">Experience</a></li>
         <li><a href="../index.html#education">Education</a></li>
         <li><a href="../index.html#faq">FAQ</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
         <li><a href="about.html" class="active">About Me</a></li>
       </ul>
     </aside>
@@ -148,12 +192,12 @@
 
         <div id="en" class="lang-content">
           <h1>About Me</h1>
-          <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem; font-weight: 400;">
+          <p class="about-intro">
             My journey from a fresh engineering graduate to a Senior E-Commerce Integration Consultant bridging traditional platforms with modern API-led architectures.
           </p>
 
-      <div class="about-grid">
-        <div class="about-card">
+      <div class="about-grid" data-stagger>
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">I</span>
             How did your career journey begin?
@@ -203,7 +247,7 @@
           </div>
         </div>
 
-        <div class="about-card">
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">II</span>
             What drives your passion for technology?
@@ -225,7 +269,7 @@
           </p>
         </div>
 
-        <div class="about-card">
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">III</span>
             What's next in your professional journey?
@@ -253,7 +297,7 @@
       <div class="skills-section">
         <h2>My Skills</h2>
         <div class="skills-grid">
-          <div class="skills-table">
+          <div class="skills-table reveal">
             <h3>Technical Skills</h3>
             <div class="skill-category">
               <h4>Programming Languages</h4>
@@ -309,7 +353,7 @@
             </div>
           </div>
 
-          <div class="skills-table">
+          <div class="skills-table reveal">
             <h3>Soft Skills</h3>
             <div class="soft-skills">
               <div class="soft-skill-item">Team Leadership</div>
@@ -329,7 +373,7 @@
         </div>
       </div>
 
-      <div class="cta-section">
+      <div class="cta-section reveal">
         <h3>Ready to work together?</h3>
         <p>
           Let's discuss how my unique combination of SAP Commerce Cloud expertise and MuleSoft integration skills can help drive your next e-commerce transformation or integration project to success.
@@ -340,12 +384,12 @@
 
     <div id="fr" class="lang-content">
       <h1>À Propos</h1>
-      <p style="font-size: clamp(1rem, 3vw, 1.2rem); color: var(--text-muted); margin-bottom: 2rem; text-align: center; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
+      <p class="about-intro">
         Mon parcours d'un jeune diplômé ingénieur à Consultant Senior en Intégration E-Commerce reliant plateformes traditionnelles aux architectures API-led modernes.
       </p>
 
-      <div class="about-grid">
-        <div class="about-card">
+      <div class="about-grid" data-stagger>
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">I</span>
             Comment votre parcours professionnel a-t-il commencé ?
@@ -395,7 +439,7 @@
           </div>
         </div>
 
-        <div class="about-card">
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">II</span>
             Qu'est-ce qui alimente votre passion pour la technologie ?
@@ -417,7 +461,7 @@
           </p>
         </div>
 
-        <div class="about-card">
+        <div class="about-card reveal">
           <h3>
             <span class="card-number">III</span>
             Quelle est la prochaine étape de votre parcours professionnel ?
@@ -445,7 +489,7 @@
       <div class="skills-section">
         <h2>Mes Compétences</h2>
         <div class="skills-grid">
-          <div class="skills-table">
+          <div class="skills-table reveal">
             <h3>Compétences Techniques</h3>
             <div class="skill-category">
               <h4>Langages de Programmation</h4>
@@ -501,7 +545,7 @@
             </div>
           </div>
 
-          <div class="skills-table">
+          <div class="skills-table reveal">
             <h3>Compétences Transversales</h3>
             <div class="soft-skills">
               <div class="soft-skill-item">Leadership d'Équipe</div>
@@ -521,7 +565,7 @@
         </div>
       </div>
 
-          <div class="cta-section">
+          <div class="cta-section reveal">
             <h3>Prêt à travailler ensemble ?</h3>
             <p>
               Discutons de la façon dont ma combinaison unique d'expertise SAP Commerce Cloud et de compétences d'intégration MuleSoft peut aider à mener votre prochain projet de transformation e-commerce ou d'intégration vers le succès.
