@@ -1,0 +1,165 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Brahim Bousnguar",
+    "label": "Senior E-Commerce Integration Consultant",
+    "email": "b.bousnguar@gmail.com",
+    "url": "https://brbousnguar.github.io/",
+    "image": "https://brbousnguar.github.io/assets/img/profile.jpeg",
+    "summary": "Senior E-Commerce Integration Consultant with 9+ years bridging enterprise e-commerce platforms with modern API-led integration. Deep SAP Commerce Cloud expertise, production-grade MuleSoft Anypoint proficiency, and growing Salesforce ecosystem confidence. Applies AI-augmented development workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) daily.",
+    "location": {
+      "countryCode": "FR",
+      "region": "France"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "brahim-bousnguar",
+        "url": "https://www.linkedin.com/in/brahim-bousnguar/"
+      },
+      {
+        "network": "GitHub",
+        "username": "brbousnguar",
+        "url": "https://github.com/brbousnguar"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Roche Bobois",
+      "position": "MuleSoft Integration Specialist",
+      "startDate": "2025-01",
+      "summary": "API design and integration using MuleSoft Anypoint Platform for a luxury furniture retailer.",
+      "highlights": [
+        "Designed reusable APIs with Anypoint Studio and Anypoint Code Builder following API-led connectivity principles",
+        "Developed complex DataWeave transformations for data mapping, enrichment, and orchestration",
+        "Built integration flows connecting e-commerce platform with ERP, CRM, and third-party services",
+        "Integrated Salesforce CRM data flows with MuleSoft for end-to-end business process automation",
+        "Established API specifications, best practices, and governance standards for the integration team",
+        "Adopted AI-augmented development: GitHub Copilot, Ollama-based LLM CLI for commit/PR generation, Claude and OpenAI Codex CLI for code review"
+      ]
+    },
+    {
+      "name": "Miele",
+      "position": "Senior SAP Commerce Cloud Consultant",
+      "startDate": "2022-01",
+      "endDate": "2024-12",
+      "summary": "Cloud-native e-commerce platform optimization and microservices architecture.",
+      "highlights": [
+        "Optimized OCC REST APIs for performance and scalability in a global B2C platform",
+        "Designed microservices on SAP BTP Kyma (Kubernetes)",
+        "Led cloud-native migration from on-premise to SAP Commerce Cloud (CCv2) with zero-downtime deployment",
+        "Implemented CI/CD pipelines with Jenkins",
+        "Built integration layers to PIM, OMS, and payment gateways",
+        "Mentored the team on agile practices, microservices patterns, and API design"
+      ]
+    },
+    {
+      "name": "BYK",
+      "position": "Technical Lead — SAP Commerce Cloud",
+      "startDate": "2018-08",
+      "endDate": "2021-12",
+      "summary": "Enterprise B2B multi-country platform migration and integration across 15+ countries.",
+      "highlights": [
+        "Led architecture and migration from SAP Hybris 6.7 to Commerce Cloud CCv2 for a multi-country B2B platform",
+        "Designed integrations with SAP ERP, third-party logistics, and payment providers",
+        "Implemented custom OCC APIs for headless commerce",
+        "Performance optimization and technical SEO for organic traffic growth",
+        "Mentored junior developers on SAP Commerce, Spring, and integration patterns"
+      ]
+    },
+    {
+      "name": "SEB Group",
+      "position": "SAP Hybris Integration Specialist",
+      "startDate": "2016-07",
+      "endDate": "2018-07",
+      "summary": "Multi-brand e-commerce platform integration.",
+      "highlights": [
+        "Integrated international brands (All-Clad, Seb.fr, Krups) into a unified SAP Hybris core platform",
+        "Implemented Vertex tax engine integration for multi-jurisdiction compliance",
+        "Built Salesforce CRM integration with OAuth2 SSO",
+        "Established reusable integration patterns for future brand onboarding"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "INSEA Rabat",
+      "area": "Computer Science & Business Intelligence",
+      "studyType": "State Engineer",
+      "endDate": "2015"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "SAP Certified Development Professional — SAP Commerce Cloud Developer",
+      "date": "2023",
+      "issuer": "SAP"
+    },
+    {
+      "name": "SAP Certified Associate — SAP Hybris Commerce Business Analyst 6.3",
+      "date": "2018",
+      "issuer": "SAP"
+    }
+  ],
+  "skills": [
+    {
+      "name": "E-Commerce Platforms",
+      "keywords": ["SAP Commerce Cloud (Hybris)", "CCv2", "OCC APIs", "Spartacus", "SAP BTP Kyma"]
+    },
+    {
+      "name": "Integration & APIs",
+      "keywords": ["MuleSoft Anypoint Platform", "Salesforce", "DataWeave", "API-led Connectivity", "RAML", "OAS/Swagger", "REST", "SOAP"]
+    },
+    {
+      "name": "Languages & Frameworks",
+      "keywords": ["Java 17", "Spring Boot", "Spring Security", "Spring Integration", "JavaScript", "Microservices Architecture"]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "keywords": ["Jenkins", "Docker", "Kubernetes", "CI/CD Pipelines", "SAP BTP"]
+    },
+    {
+      "name": "Databases",
+      "keywords": ["MySQL", "SAP HANA", "PostgreSQL"]
+    },
+    {
+      "name": "AI & Dev Tools",
+      "keywords": ["GitHub Copilot", "Ollama (local & cloud LLMs)", "Claude (Anthropic)", "OpenAI Codex CLI"]
+    }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Professional" },
+    { "language": "French", "fluency": "Professional" }
+  ],
+  "projects": [
+    {
+      "name": "Roche Bobois — API-Led Integration Architecture",
+      "description": "Problem: fragmented point-to-point integrations between e-commerce, ERP, CRM and third-party services. Solution: reusable API-led architecture on MuleSoft Anypoint with governed specifications and DataWeave orchestration. Impact: faster integration delivery and end-to-end business process automation including Salesforce CRM data flows.",
+      "keywords": ["MuleSoft", "API-led", "DataWeave", "Salesforce"],
+      "roles": ["MuleSoft Integration Specialist"]
+    },
+    {
+      "name": "Miele — Cloud-Native Commerce Migration",
+      "description": "Problem: on-premise SAP Hybris limiting scalability of a global B2C platform. Solution: zero-downtime migration to SAP Commerce Cloud (CCv2) plus SAP BTP Kyma microservices and Jenkins CI/CD. Impact: scalable cloud-native platform with optimized OCC APIs.",
+      "keywords": ["SAP Commerce Cloud", "CCv2", "Kyma", "Kubernetes", "CI/CD"],
+      "roles": ["Senior SAP Commerce Cloud Consultant"]
+    },
+    {
+      "name": "BYK — Multi-Country B2B Platform",
+      "description": "Problem: aging SAP Hybris 6.7 B2B platform serving 15+ countries. Solution: led migration to Commerce Cloud CCv2 with custom OCC APIs, ERP/logistics/payment integrations. Impact: modern headless-capable B2B platform with improved performance and organic traffic growth.",
+      "keywords": ["SAP Commerce Cloud", "B2B", "OCC APIs", "SAP ERP"],
+      "roles": ["Technical Lead"]
+    }
+  ],
+  "meta": {
+    "canonical": "https://brbousnguar.github.io/profile.json",
+    "lastModified": "2026-06-11",
+    "learning": {
+      "totalCertificates": 411,
+      "domains": 11,
+      "source": "https://brbousnguar.github.io/assets/data/learning-data.json",
+      "browser": "https://brbousnguar.github.io/pages/learning.html"
+    }
+  }
+}
