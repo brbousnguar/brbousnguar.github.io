@@ -12,7 +12,7 @@ Scope: Content + structure + visual hierarchy. Keep the current stack (HTML/CSS/
 - [x] P1 / Scope: UX — Update sidebar anchors to include `#projects`, `#faq`, `#contact`
 - [x] P1 / Scope: UX — Add missing section IDs in FR blocks so sidebar works for both languages
 - [x] P1 / Scope: Maintainability — Replace inline styles on repeated blocks with CSS classes (projects cards, value props)
-- [ ] P2 / Scope: Visual — Decide on font usage: remove Poppins or apply it to headings consistently
+- [x] P2 / Scope: Visual — Decide on font usage: remove Poppins or apply it to headings consistently (Poppins removed; Inter only)
 
 ## Acceptance Criteria
 P0
@@ -25,11 +25,16 @@ P1
 - [x] Reused visual blocks (projects, value prop) are styled via CSS classes instead of inline styles
 
 ## High-Impact Enhancements (next)
-- [ ] P1 / Scope: Content+Layout — Add a hero section: 1-line positioning + 2–3 proof bullets + 2 CTAs (Contact / Download CV)
-- [ ] P1 / Scope: Content+Layout — Convert “Featured Integration Projects” into 3 card tiles with outcomes surfaced
+- [x] P1 / Scope: Content+Layout — Add a hero section: 1-line positioning + 2–3 proof bullets + 2 CTAs (Contact / Download CV)
+- [x] P1 / Scope: Content+Layout — Convert “Featured Integration Projects” into 3 card tiles with outcomes surfaced (bento grid)
 - [ ] P2 / Scope: Content — Add a credibility strip (client names/logos or text badges)
-- [ ] P1 / Scope: Content — Reformat each project to Problem / Role / Solution / Impact for faster scan
-- [ ] P2 / Scope: Layout — Improve first-view hierarchy (reduce CV density above the fold)
+- [x] P1 / Scope: Content — Reformat each project to Problem / Role / Solution / Impact for faster scan
+- [x] P2 / Scope: Layout — Improve first-view hierarchy (reduce CV density above the fold)
+
+## Follow-ups from 2026-06 redesign
+- [ ] P2 / Scope: SEO — Create a dedicated 1200x630 Open Graph banner image (currently square profile.jpeg)
+- [ ] P3 / Scope: SEO — Re-run assets/js/generate-learning-schema.py after each learning-data.json update
+- [ ] P1 / Scope: Data — Import Feb–May 2026 certificates from the Google Drive archive into `archived/2026/`, re-run the extract scripts to refresh learning-data.json (currently stops at 2026-01-19), then regenerate the learning schema
 
 ## Later / Nice-to-have
 - [ ] P2 / Scope: Visual — Add lightweight visuals (architecture diagram or simple schematic per project)

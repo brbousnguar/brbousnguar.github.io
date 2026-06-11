@@ -36,6 +36,9 @@
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://brbousnguar.github.io/">
+
+  <!-- Machine-readable profile for AI agents and integrations -->
+  <link rel="alternate" type="application/json" href="/profile.json" title="Structured profile (JSON Resume)">
   
   <!-- Hreflang tags for multilingual SEO -->
   <link rel="alternate" hreflang="en" href="https://brbousnguar.github.io/">
@@ -56,9 +59,23 @@
   
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.png">
-  <meta name="theme-color" content="#0066ff">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121110">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Pre-paint theme/language restore (must stay inline to avoid flash of wrong theme) -->
+  <script>
+    (function () {
+      var theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      var lang = localStorage.getItem('language') || 'en';
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
   
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -197,261 +214,6 @@
     ]
   }
   </script>
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-toggle button').forEach(btn => btn.classList.remove('active'));
-      const selected = document.getElementById(lang);
-      if (selected) selected.classList.add('active');
-      const btn = document.querySelector(`.lang-toggle button[onclick*="${lang}"]`);
-      if (btn) btn.classList.add('active');
-      
-      // Update HTML lang attribute for SEO and accessibility
-      document.documentElement.setAttribute('lang', lang);
-      document.documentElement.setAttribute('data-lang', lang);
-      
-      // Save language preference to localStorage
-      localStorage.setItem('language', lang);
-
-      // Update sidebar anchors to match the active language
-      updateSidebarLang(lang);
-      
-      // Re-initialize smooth scroll and navigation for the new language content
-      if (window.initSmoothScroll) {
-        initSmoothScroll();
-      }
-      if (window.initNavigationHighlight) {
-        initNavigationHighlight();
-      }
-    }
-
-    function updateSidebarLang(lang) {
-      const suffix = lang === 'fr' ? '-fr' : '';
-      document.querySelectorAll('.sidebar-nav a[data-target]').forEach(link => {
-        const base = link.getAttribute('data-target');
-        link.setAttribute('href', `#${base}${suffix}`);
-      });
-    }
-    
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update toggle button
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (newTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-    }
-    
-    window.onload = function () {
-      // Load saved language preference or default to English
-      const savedLang = localStorage.getItem('language') || 'en';
-      switchLang(savedLang);
-      
-      // Ensure HTML lang attribute is set on initial load
-      document.documentElement.setAttribute('lang', savedLang);
-      
-      // Detect system theme preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-      
-      // Use saved theme if available, otherwise use system preference (default to light)
-      const defaultTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-      
-      document.documentElement.setAttribute('data-theme', defaultTheme);
-      
-      // Update toggle button based on theme
-      const lightOption = document.getElementById('light-option');
-      const darkOption = document.getElementById('dark-option');
-      
-      if (defaultTheme === 'light') {
-        lightOption.classList.add('active');
-        darkOption.classList.remove('active');
-      } else {
-        darkOption.classList.add('active');
-        lightOption.classList.remove('active');
-      }
-      
-      // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) { // Only auto-switch if user hasn't set a preference
-          const newTheme = e.matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', newTheme);
-          
-          if (newTheme === 'light') {
-            lightOption.classList.add('active');
-            darkOption.classList.remove('active');
-          } else {
-            darkOption.classList.add('active');
-            lightOption.classList.remove('active');
-          }
-        }
-      });
-      
-      // Back to top button functionality
-      initBackToTop();
-      
-      // Smooth scroll for anchor links
-      initSmoothScroll();
-      
-      // Navigation active state on scroll
-      initNavigationHighlight();
-    };
-    
-    function initNavigationHighlight() {
-      // Get only sections from the currently active language content
-      const activeContent = document.querySelector('.lang-content.active');
-      if (!activeContent) return;
-      
-      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
-      
-      // Track if user just clicked a link
-      window.navigationClickTime = 0;
-      
-      window.updateActiveNavLink = function(targetId) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === targetId) {
-            link.classList.add('active');
-          }
-        });
-      };
-      
-      // Remove old scroll listener if exists
-      if (window.scrollHighlightHandler) {
-        window.removeEventListener('scroll', window.scrollHighlightHandler);
-      }
-      
-      // Create new scroll handler that always checks current active content
-      window.scrollHighlightHandler = function() {
-        // Don't update highlighting for 800ms after a click
-        if (Date.now() - window.navigationClickTime < 800) {
-          return;
-        }
-        
-        const currentActiveContent = document.querySelector('.lang-content.active');
-        if (!currentActiveContent) return;
-        
-        const currentSections = currentActiveContent.querySelectorAll('.section[id]');
-        const scrollPosition = window.scrollY + 200; // Check what's near top of viewport
-        
-        let currentSection = '';
-        
-        currentSections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = rect.top + window.scrollY;
-          const sectionBottom = sectionTop + rect.height;
-          
-          // Check if the scroll position is within this section
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-            currentSection = '#' + section.id;
-          }
-        });
-        
-        if (currentSection && window.updateActiveNavLink) {
-          updateActiveNavLink(currentSection);
-        }
-      };
-      
-      // Add the new scroll listener with throttling
-      let isScrolling = false;
-      window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-          window.requestAnimationFrame(() => {
-            if (window.scrollHighlightHandler) {
-              window.scrollHighlightHandler();
-            }
-            isScrolling = false;
-          });
-        }
-        isScrolling = true;
-      });
-      
-      // Trigger initial highlight check
-      if (window.scrollHighlightHandler) {
-        setTimeout(() => window.scrollHighlightHandler(), 100);
-      }
-    }
-    
-    function initBackToTop() {
-      // Create back to top button
-      const backToTop = document.createElement('button');
-      backToTop.className = 'back-to-top';
-      backToTop.innerHTML = '↑';
-      backToTop.setAttribute('aria-label', 'Back to top');
-      backToTop.title = 'Back to top';
-      document.body.appendChild(backToTop);
-      
-      // Show/hide on scroll
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      
-      // Scroll to top on click
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-    }
-    
-    function initSmoothScroll() {
-      // Remove old listeners by cloning and replacing navigation links
-      const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
-      navLinks.forEach(link => {
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-      });
-      
-      // Add fresh event listeners
-      document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          
-          // Update click timestamp to prevent scroll handler from overriding
-          window.navigationClickTime = Date.now();
-          
-          // Find target in active language content
-          const activeContent = document.querySelector('.lang-content.active');
-          if (!activeContent) return;
-          
-          const target = activeContent.querySelector(targetId);
-          if (target) {
-            // Calculate offset for sticky header (approx 60px) + extra spacing
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-            
-            // Update active state immediately on click
-            if (window.updateActiveNavLink) {
-              updateActiveNavLink(targetId);
-            }
-          }
-        });
-      });
-    }
-  </script>
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
@@ -496,14 +258,14 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <ul class="sidebar-nav">
-        <li><a href="#summary" data-target="summary" class="active">Summary</a></li>
+        <li><a href="#hero" data-target="hero" class="active">Overview</a></li>
         <li><a href="#value-proposition" data-target="value-proposition">Value Proposition</a></li>
+        <li><a href="#projects" data-target="projects">Projects</a></li>
         <li><a href="#skills" data-target="skills">Skills</a></li>
         <li><a href="#certifications" data-target="certifications">Certifications</a></li>
         <li><a href="#continuous-learning" data-target="continuous-learning">Learning</a></li>
         <li><a href="pages/learning.html">All Certificates</a></li>
         <li><a href="#professional-experience" data-target="professional-experience">Experience</a></li>
-        <li><a href="#projects" data-target="projects">Projects</a></li>
         <li><a href="#education" data-target="education">Education</a></li>
         <li><a href="#faq" data-target="faq">FAQ</a></li>
         <li><a href="#contact" data-target="contact">Contact</a></li>
@@ -521,39 +283,58 @@
           <span>CV</span>
         </nav>
 
-        <!-- Quick Links -->
-        <div class="nav-links">
-          <a href="docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-primary">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M14 9V14C14 14.5523 13.5523 15 13 15H3C2.44772 15 2 14.5523 2 14V9M5 7L8 10M8 10L11 7M8 10V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Download CV
-          </a>
-          <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer" class="nav-link-secondary">GitHub</a>
-          <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer" class="nav-link-secondary">LinkedIn</a>
-        </div>
-
         <div id="en" class="lang-content">
-          <!-- Professional Header -->
-          <section class="professional-header">
-            <div class="header-left">
-              <img src="assets/img/profile.jpeg" alt="Brahim Bousnguar - Senior E-Commerce Integration Consultant" width="100" height="100" class="profile-img" loading="eager">
+          <!-- Hero -->
+          <section class="section hero" id="hero">
+            <div class="hero-inner">
+              <div class="hero-text">
+                <p class="hero-kicker">Senior E-Commerce Integration Consultant · MuleSoft&nbsp;·&nbsp;Applied&nbsp;AI</p>
+                <h1>Brahim Bousnguar</h1>
+                <p class="hero-tagline">I connect SAP Commerce Cloud, MuleSoft and Salesforce into integration architectures that ship.</p>
+                <p class="hero-summary">9+ years bridging enterprise e-commerce platforms with modern API-led integration — delivering end-to-end solutions for complex enterprise systems while leveraging AI-augmented workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) to ship smarter and faster.</p>
+                <div class="hero-actions">
+                  <a href="#projects" class="btn-primary hero-cta">View Projects</a>
+                  <a href="docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-cta">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M14 9V14C14 14.5523 13.5523 15 13 15H3C2.44772 15 2 14.5523 2 14V9M5 7L8 10M8 10L11 7M8 10V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download CV
+                  </a>
+                </div>
+                <div class="hero-social">
+                  <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <span class="hero-social-sep" aria-hidden="true">·</span>
+                  <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+              </div>
+              <div class="hero-portrait">
+                <div class="hero-portrait-card">
+                  <img src="assets/img/profile.jpeg" alt="Brahim Bousnguar - Senior E-Commerce Integration Consultant" width="180" height="180" class="hero-img" loading="eager">
+                  <p class="hero-portrait-caption">SAP Commerce Cloud · MuleSoft · Salesforce</p>
+                </div>
+              </div>
             </div>
-            <div class="header-content">
-              <h1>Brahim BOUSNGUAR</h1>
-              <p class="title-line">Senior E-Commerce Integration Consultant</p>
-              <p class="experience-line">9+ years · SAP Commerce Cloud · MuleSoft · Salesforce · AI-Augmented Development</p>
+            <div class="hero-stats" data-stagger>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="9" data-suffix="+">9+</span>
+                <span class="hero-stat-label">Years in E-Commerce</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="411" data-suffix="+">411+</span>
+                <span class="hero-stat-label">Learning Certificates</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="15" data-suffix="+">15+</span>
+                <span class="hero-stat-label">Countries Served</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="4">4</span>
+                <span class="hero-stat-label">Enterprise Clients</span>
+              </div>
             </div>
           </section>
 
-          <section class="section" id="summary">
-            <div class="section-content">
-              <h2>Summary</h2>
-              <p>Senior E-Commerce Integration Consultant with 9+ years of expertise bridging enterprise e-commerce platforms with modern API-led integration architectures. Specialized in SAP Commerce Cloud (formerly Hybris) and MuleSoft Anypoint Platform, with proven confidence in Salesforce ecosystem integrations. Delivers end-to-end solutions for complex enterprise systems while actively leveraging AI-augmented development workflows — GitHub Copilot, Ollama-powered CLI automation, Claude, and OpenAI Codex CLI — to ship smarter and faster.</p>
-            </div>
-          </section>
-
-          <section class="section" id="value-proposition">
+          <section class="section reveal" id="value-proposition">
             <div class="section-content">
               <h2>Unique Value Proposition</h2>
               <p>I bridge the gap between e-commerce platforms and modern integration architectures. My combination of deep SAP Commerce Cloud expertise (9+ years), production-grade MuleSoft Anypoint proficiency, and growing Salesforce ecosystem confidence enables me to design and deliver comprehensive integration solutions — while actively applying AI tooling to accelerate delivery and raise quality.</p>
@@ -568,7 +349,95 @@
             </div>
           </section>
 
-          <section class="section" id="skills">
+          <section class="section reveal" id="projects">
+            <div class="section-content">
+              <h2>Featured Integration Projects</h2>
+              <div class="bento-grid" data-stagger>
+
+                <article class="project-card project-card--feature reveal">
+                  <div class="project-card-head">
+                    <span class="project-status project-status--ongoing">Ongoing</span>
+                    <h3 class="project-title">Roche Bobois — API-Led Integration Architecture</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">MuleSoft Anypoint</span>
+                      <span class="tech-tag">DataWeave</span>
+                      <span class="tech-tag">Salesforce</span>
+                      <span class="tech-tag">Orchestration</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problem</h4>
+                      <p>The luxury retailer's e-commerce platform, ERP, CRM and third-party services exchanged data through fragmented point-to-point flows that were hard to monitor and evolve.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>API-led architecture on MuleSoft Anypoint: reusable APIs, complex DataWeave transformations, robust error handling, and orchestration patterns coordinating multi-system transactions — including Salesforce CRM data flows.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>A unified, observable integration backbone across order, CRM and ERP flows, with API governance standards adopted by the team and delivery accelerated by AI-augmented workflows.</p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <span class="project-status">Completed</span>
+                    <h3 class="project-title">Miele — Cloud-Native Commerce Migration</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">SAP Commerce Cloud CCv2</span>
+                      <span class="tech-tag">SAP BTP Kyma</span>
+                      <span class="tech-tag">Kubernetes</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problem</h4>
+                      <p>A global B2C platform on on-premise SAP Hybris was limiting scalability and deployment velocity.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>Zero-downtime migration to SAP Commerce Cloud (CCv2), microservices on SAP BTP Kyma, OCC API optimization and Jenkins CI/CD pipelines.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>A cloud-native platform serving global B2C traffic with improved performance, scalability and continuous deployment.</p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <span class="project-status">Completed</span>
+                    <h3 class="project-title">BYK — Multi-Country B2B Platform</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">SAP Commerce Cloud</span>
+                      <span class="tech-tag">SAP ERP</span>
+                      <span class="tech-tag">OCC APIs</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problem</h4>
+                      <p>An aging SAP Hybris 6.7 B2B platform could not support a multi-country rollout or modern headless capabilities.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>Led the migration to Commerce Cloud CCv2 with SAP ERP integrations for pricing, inventory and order management, plus custom OCC APIs for B2B workflows.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>A single B2B platform serving 15+ countries with real-time ERP data and headless commerce capabilities.</p>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal" id="skills">
             <div class="section-content">
               <h2>Technical Skills</h2>
               <ul>
@@ -584,31 +453,32 @@
             </div>
           </section>
 
-          <section class="section" id="certifications">
+          <section class="section reveal" id="certifications">
             <div class="section-content">
               <h2>Professional Certifications</h2>
               <ul>
                 <li>SAP Certified Development Professional - SAP Commerce Cloud Developer (2023)</li>
                 <li>SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3 (2018)</li>
               </ul>
-              <p style="margin-top: 1rem; color: var(--text-muted); font-style: italic;">Currently pursuing MuleSoft Anypoint Platform certifications</p>
+              <p class="note-muted">Currently pursuing MuleSoft Anypoint Platform certifications</p>
             </div>
           </section>
 
-          <section class="section" id="continuous-learning">
+          <section class="section reveal" id="continuous-learning">
             <div class="section-content">
               <div class="learning-journey-card">
                 <div class="learning-journey-header">
                   <div>
-                    <h2>LinkedIn Learning Certificates</h2>
-                    <p class="learning-intro">Strategic cross-domain learning across 12+ technology domains. 409 LinkedIn Learning certificates building a foundation that transcends specific technologies.</p>
+                    <h2>Continuous Learning</h2>
+                    <p class="learning-intro">An intensive cross-domain foundation: 411+ LinkedIn Learning certificates across 12+ technology domains since 2023 — and still growing.</p>
+                    <p class="learning-focus"><strong>2026 focus:</strong> agentic AI, Model Context Protocol (MCP) and AI orchestration — applied daily in production MuleSoft integration work.</p>
                   </div>
                 </div>
                 
                 <div class="learning-journey-content">
                   <div class="learning-stats-compact">
                     <div class="stat-item">
-                      <div class="stat-number-compact" id="total-certificates">409</div>
+                      <div class="stat-number-compact" id="total-certificates">411+</div>
                       <div class="stat-label-compact">Certificates</div>
                     </div>
                     <div class="stat-divider"></div>
@@ -629,7 +499,7 @@
             </div>
           </section>
 
-          <section class="section" id="professional-experience">
+          <section class="section reveal" id="professional-experience">
             <div class="section-content">
               <h2>Professional Experience</h2>
         
@@ -680,55 +550,7 @@
             </div>
           </section>
 
-          <section class="section" id="projects">
-            <div class="section-content">
-              <h2>Featured Integration Projects</h2>
-              <div class="projects-list">
-                
-                <div class="project-entry">
-                  <div class="project-header">
-                    <h3 class="project-title">Roche Bobois - API-Led Integration Architecture</h3>
-                    <span class="project-status">Ongoing</span>
-                  </div>
-                  <div class="project-meta">
-                    <span class="tech-tag">MuleSoft Anypoint Platform</span>
-                    <span class="tech-tag">E-Commerce Integration</span>
-                    <span class="tech-tag">Workflow Orchestration</span>
-                  </div>
-                  <p class="project-description">Building integration flows between the e-commerce platform and back-office systems using MuleSoft Anypoint Platform. Work covers API design and implementation, DataWeave transformations, error handling, and workflow orchestration across ERP, CRM, and third-party services.</p>
-                </div>
-                
-                <div class="project-entry">
-                  <div class="project-header">
-                    <h3 class="project-title">Miele - Cloud-Native Commerce Platform Migration</h3>
-                    <span class="project-status">Completed</span>
-                  </div>
-                  <div class="project-meta">
-                    <span class="tech-tag">SAP Commerce Cloud CCv2</span>
-                    <span class="tech-tag">Microservices</span>
-                    <span class="tech-tag">Kubernetes</span>
-                  </div>
-                  <p class="project-description">Contributed to migrating a global B2C e-commerce platform from on-premise SAP Hybris to Commerce Cloud (CCv2). Worked on a microservices integration layer on SAP BTP Kyma and helped optimize OCC APIs for headless commerce use cases.</p>
-                </div>
-                
-                <div class="project-entry">
-                  <div class="project-header">
-                    <h3 class="project-title">BYK - Multi-Country B2B Platform Integration</h3>
-                    <span class="project-status">Completed</span>
-                  </div>
-                  <div class="project-meta">
-                    <span class="tech-tag">SAP Commerce Cloud</span>
-                    <span class="tech-tag">ERP Integration</span>
-                    <span class="tech-tag">Multi-Site Architecture</span>
-                  </div>
-                  <p class="project-description">Led the technical implementation of a B2B e-commerce platform across 15+ countries, including migration from SAP Hybris 6.7 to CCv2. Designed integrations with SAP ERP for pricing, inventory, and order management, and built custom APIs for B2B-specific workflows.</p>
-                </div>
-                
-              </div>
-            </div>
-          </section>
-
-          <section class="section" id="education">
+          <section class="section reveal" id="education">
             <div class="section-content">
               <h2>Education</h2>
               <p>2015 - State Engineer in Computer Science & BI, INSEA Rabat</p>
@@ -736,23 +558,23 @@
           </section>
           
           <!-- FAQ Section for AI SEO -->
-          <section class="section" id="faq">
+          <section class="section reveal" id="faq">
             <div class="section-content">
               <h2>Frequently Asked Questions</h2>
-              <div class="faq-grid">
-                <div class="faq-item">
+              <div class="faq-grid" data-stagger>
+                <div class="faq-item reveal">
                   <h3 class="faq-question">What makes you different from other SAP Commerce consultants?</h3>
                   <p class="faq-answer">My background covers the full integration stack: SAP Commerce Cloud for e-commerce (9+ years), MuleSoft Anypoint for API-led connectivity, and Salesforce for CRM integration. I also apply AI tooling concretely in my daily work — GitHub Copilot, Ollama, Claude, and OpenAI Codex CLI — which helps with things like automating commit and PR generation from code diffs.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">What types of projects do you specialize in?</h3>
                   <p class="faq-answer">I specialize in cloud-native e-commerce migrations (CCv2), API-led integration architecture, microservices implementation on Kubernetes, multi-country B2B/B2C platform development, and complex ERP/CRM integrations using MuleSoft Anypoint Platform.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">Do you work with remote teams?</h3>
                   <p class="faq-answer">Yes, I have extensive experience working with distributed teams across Europe. I'm proficient in agile methodologies, remote collaboration tools, and can effectively lead or contribute to international projects.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">What is your approach to integration architecture?</h3>
                   <p class="faq-answer">I follow API-led connectivity principles with clear separation of System, Process, and Experience layers. I prioritize reusable APIs, proper error handling, comprehensive monitoring, and governance frameworks that scale with business growth.</p>
                 </div>
@@ -760,35 +582,67 @@
             </div>
           </section>
 
-          <section class="section" id="contact">
-            <div class="section-content">
-              <h2>Contact</h2>
-              <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;" aria-label="Contact Brahim Bousnguar by email">b.bousnguar@gmail.com</a></p>
+          <section class="section reveal" id="contact">
+            <div class="section-content contact-cta">
+              <h2>Let's Work Together</h2>
+              <p>Open to consulting engagements in SAP Commerce Cloud, MuleSoft and Salesforce integration — let's discuss your next e-commerce or integration challenge.</p>
+              <a href="mailto:b.bousnguar@gmail.com" class="btn-primary" aria-label="Contact Brahim Bousnguar by email">b.bousnguar@gmail.com</a>
             </div>
           </section>
         </div>
 
         <div id="fr" class="lang-content">
-          <!-- Professional Header -->
-          <section class="professional-header">
-            <div class="header-left">
-              <img src="assets/img/profile.jpeg" alt="Brahim Bousnguar - Senior E-Commerce Integration Consultant" width="100" height="100" class="profile-img" loading="eager">
+          <!-- Hero -->
+          <section class="section hero" id="hero-fr">
+            <div class="hero-inner">
+              <div class="hero-text">
+                <p class="hero-kicker">Consultant Senior en Intégration E-Commerce · MuleSoft&nbsp;·&nbsp;IA&nbsp;Appliquée</p>
+                <h1>Brahim Bousnguar</h1>
+                <p class="hero-tagline">Je connecte SAP Commerce Cloud, MuleSoft et Salesforce en architectures d'intégration qui livrent.</p>
+                <p class="hero-summary">Plus de 9 ans à relier les plateformes e-commerce d'entreprise aux architectures d'intégration API-led modernes — des solutions end-to-end pour systèmes complexes, augmentées par des workflows IA (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) pour livrer plus intelligemment et plus rapidement.</p>
+                <div class="hero-actions">
+                  <a href="#projects-fr" class="btn-primary hero-cta">Voir les Projets</a>
+                  <a href="docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-cta">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M14 9V14C14 14.5523 13.5523 15 13 15H3C2.44772 15 2 14.5523 2 14V9M5 7L8 10M8 10L11 7M8 10V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Télécharger le CV
+                  </a>
+                </div>
+                <div class="hero-social">
+                  <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <span class="hero-social-sep" aria-hidden="true">·</span>
+                  <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+              </div>
+              <div class="hero-portrait">
+                <div class="hero-portrait-card">
+                  <img src="assets/img/profile.jpeg" alt="Brahim Bousnguar - Consultant Senior en Intégration E-Commerce" width="180" height="180" class="hero-img" loading="eager">
+                  <p class="hero-portrait-caption">SAP Commerce Cloud · MuleSoft · Salesforce</p>
+                </div>
+              </div>
             </div>
-            <div class="header-content">
-              <h1>Brahim BOUSNGUAR</h1>
-              <p class="title-line">Consultant Senior en Intégration E-Commerce</p>
-              <p class="experience-line">9+ ans · SAP Commerce Cloud · MuleSoft · Salesforce · Développement Augmenté IA</p>
+            <div class="hero-stats" data-stagger>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="9" data-suffix="+">9+</span>
+                <span class="hero-stat-label">Ans en E-Commerce</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="411" data-suffix="+">411+</span>
+                <span class="hero-stat-label">Certificats d'Apprentissage</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="15" data-suffix="+">15+</span>
+                <span class="hero-stat-label">Pays Desservis</span>
+              </div>
+              <div class="hero-stat reveal">
+                <span class="hero-stat-number" data-count="4">4</span>
+                <span class="hero-stat-label">Clients Grands Comptes</span>
+              </div>
             </div>
           </section>
 
-          <section class="section" id="summary-fr">
-            <div class="section-content">
-              <h2>Résumé</h2>
-              <p>Consultant Senior en Intégration E-Commerce avec plus de 9 ans d'expertise en conception de solutions reliant les plateformes e-commerce d'entreprise aux architectures d'intégration modernes basées sur les APIs. Spécialisé en SAP Commerce Cloud (anciennement Hybris) et MuleSoft Anypoint Platform, avec une maîtrise confirmée de l'écosystème Salesforce. Livre des solutions end-to-end pour systèmes d'entreprise complexes tout en intégrant activement des workflows de développement augmentés par IA — GitHub Copilot, automatisation CLI Ollama, Claude et OpenAI Codex CLI — pour livrer plus intelligemment et plus rapidement.</p>
-            </div>
-          </section>
-
-          <section class="section" id="value-proposition-fr">
+          <section class="section reveal" id="value-proposition-fr">
             <div class="section-content">
               <h2>Proposition de Valeur Unique</h2>
         <p>Je fais le pont entre les plateformes e-commerce et les architectures d'intégration modernes. Ma combinaison d'expertise approfondie en SAP Commerce Cloud (9+ ans), de maîtrise avérée de MuleSoft Anypoint et de confiance grandissante dans l'écosystème Salesforce me permet de concevoir et livrer des solutions d'intégration complètes — tout en appliquant concrètement les outils IA pour accélérer la livraison et élever la qualité.</p>
@@ -803,7 +657,95 @@
             </div>
           </section>
 
-          <section class="section" id="skills-fr">
+          <section class="section reveal" id="projects-fr">
+            <div class="section-content">
+              <h2>Projets d'Intégration Phares</h2>
+              <div class="bento-grid" data-stagger>
+
+                <article class="project-card project-card--feature reveal">
+                  <div class="project-card-head">
+                    <span class="project-status project-status--ongoing">En cours</span>
+                    <h3 class="project-title">Roche Bobois — Architecture d'Intégration API-Led</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">MuleSoft Anypoint</span>
+                      <span class="tech-tag">DataWeave</span>
+                      <span class="tech-tag">Salesforce</span>
+                      <span class="tech-tag">Orchestration</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problème</h4>
+                      <p>La plateforme e-commerce, l'ERP, le CRM et les services tiers échangeaient des données via des flux point-à-point fragmentés, difficiles à superviser et à faire évoluer.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>Architecture API-led sur MuleSoft Anypoint : APIs réutilisables, transformations DataWeave complexes, gestion d'erreurs robuste et patterns d'orchestration coordonnant les transactions multi-systèmes — y compris les flux de données Salesforce CRM.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>Un socle d'intégration unifié et observable entre commandes, CRM et ERP, avec des standards de gouvernance API adoptés par l'équipe et une livraison accélérée par les workflows augmentés par IA.</p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <span class="project-status">Terminé</span>
+                    <h3 class="project-title">Miele — Migration Commerce Cloud-Native</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">SAP Commerce Cloud CCv2</span>
+                      <span class="tech-tag">SAP BTP Kyma</span>
+                      <span class="tech-tag">Kubernetes</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problème</h4>
+                      <p>Une plateforme B2C mondiale sur SAP Hybris on-premise limitait la scalabilité et la vélocité de déploiement.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>Migration zero-downtime vers SAP Commerce Cloud (CCv2), microservices sur SAP BTP Kyma, optimisation des APIs OCC et pipelines CI/CD Jenkins.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>Une plateforme cloud-native servant le trafic B2C mondial avec des performances, une scalabilité et un déploiement continu améliorés.</p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <span class="project-status">Terminé</span>
+                    <h3 class="project-title">BYK — Plateforme B2B Multi-Pays</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">SAP Commerce Cloud</span>
+                      <span class="tech-tag">SAP ERP</span>
+                      <span class="tech-tag">OCC APIs</span>
+                    </div>
+                  </div>
+                  <div class="psi">
+                    <div class="psi-block">
+                      <h4 class="psi-label">Problème</h4>
+                      <p>Une plateforme B2B vieillissante sur SAP Hybris 6.7 ne pouvait pas soutenir un déploiement multi-pays ni les capacités headless modernes.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Solution</h4>
+                      <p>Direction de la migration vers Commerce Cloud CCv2 avec intégrations SAP ERP pour tarification, inventaire et gestion des commandes, plus des APIs OCC personnalisées pour les workflows B2B.</p>
+                    </div>
+                    <div class="psi-block">
+                      <h4 class="psi-label">Impact</h4>
+                      <p>Une plateforme B2B unique desservant 15+ pays avec des données ERP en temps réel et des capacités headless commerce.</p>
+                    </div>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal" id="skills-fr">
             <div class="section-content">
               <h2>Compétences Techniques</h2>
         <ul>
@@ -819,31 +761,32 @@
             </div>
           </section>
 
-          <section class="section" id="certifications-fr">
+          <section class="section reveal" id="certifications-fr">
             <div class="section-content">
               <h2>Certifications Professionnelles</h2>
         <ul>
           <li>Certifié SAP Commerce Cloud Developer (2023)</li>
           <li>Certifié SAP Hybris Business Analyst 6.3 (2018)</li>
         </ul>
-        <p style="margin-top: 1rem; color: var(--text-muted); font-style: italic;">Actuellement en cours de certification MuleSoft Anypoint Platform</p>
+        <p class="note-muted">Actuellement en cours de certification MuleSoft Anypoint Platform</p>
             </div>
           </section>
 
-          <section class="section" id="continuous-learning-fr">
+          <section class="section reveal" id="continuous-learning-fr">
             <div class="section-content">
               <div class="learning-journey-card">
                 <div class="learning-journey-header">
                   <div>
-                    <h2>Certificats LinkedIn Learning</h2>
-                    <p class="learning-intro">Apprentissage stratégique transdisciplinaire couvrant 12+ domaines technologiques. 409 certificats LinkedIn Learning formant une fondation qui transcende les technologies spécifiques.</p>
+                    <h2>Apprentissage Continu</h2>
+                    <p class="learning-intro">Une fondation transdisciplinaire intensive : 411+ certificats LinkedIn Learning couvrant 12+ domaines technologiques depuis 2023 — et toujours en croissance.</p>
+                    <p class="learning-focus"><strong>Cap 2026 :</strong> IA agentique, Model Context Protocol (MCP) et orchestration d'IA — appliqués chaque jour dans l'intégration MuleSoft en production.</p>
                   </div>
                 </div>
                 
                 <div class="learning-journey-content">
                   <div class="learning-stats-compact">
                     <div class="stat-item">
-                      <div class="stat-number-compact">409</div>
+                      <div class="stat-number-compact">411+</div>
                       <div class="stat-label-compact">Certificats</div>
                     </div>
                     <div class="stat-divider"></div>
@@ -864,7 +807,7 @@
             </div>
           </section>
 
-          <section class="section" id="professional-experience-fr">
+          <section class="section reveal" id="professional-experience-fr">
             <div class="section-content">
               <h2>Expériences Professionnelles</h2>
 
@@ -914,55 +857,7 @@
             </div>
           </section>
 
-          <section class="section" id="projects-fr">
-            <div class="section-content">
-        <h2>Projets d'Intégration Phares</h2>
-        <div class="projects-list">
-          
-          <div class="project-entry">
-            <div class="project-header">
-              <h3 class="project-title">Roche Bobois - Architecture d'Intégration API-Led</h3>
-              <span class="project-status">En cours</span>
-            </div>
-            <div class="project-meta">
-              <span class="tech-tag">MuleSoft Anypoint Platform</span>
-              <span class="tech-tag">Intégration E-Commerce</span>
-              <span class="tech-tag">Orchestration de Workflows</span>
-            </div>
-            <p class="project-description">Construction de flux d'intégration entre la plateforme e-commerce et les systèmes back-office via MuleSoft Anypoint Platform. Le travail couvre la conception et l'implémentation d'APIs, les transformations DataWeave, la gestion d'erreurs et l'orchestration de workflows entre ERP, CRM et services tiers.</p>
-          </div>
-          
-          <div class="project-entry">
-            <div class="project-header">
-              <h3 class="project-title">Miele - Migration Plateforme Commerce Cloud-Native</h3>
-              <span class="project-status">Terminé</span>
-            </div>
-            <div class="project-meta">
-              <span class="tech-tag">SAP Commerce Cloud CCv2</span>
-              <span class="tech-tag">Microservices</span>
-              <span class="tech-tag">Kubernetes</span>
-            </div>
-            <p class="project-description">Participation à la migration d'une plateforme e-commerce B2C mondiale de SAP Hybris on-premise vers Commerce Cloud (CCv2). Contribution à une couche d'intégration microservices sur SAP BTP Kyma et amélioration des APIs OCC pour les cas d'usage headless commerce.</p>
-          </div>
-          
-          <div class="project-entry">
-            <div class="project-header">
-              <h3 class="project-title">BYK - Intégration Plateforme B2B Multi-Pays</h3>
-              <span class="project-status">Terminé</span>
-            </div>
-            <div class="project-meta">
-              <span class="tech-tag">SAP Commerce Cloud</span>
-              <span class="tech-tag">Intégration ERP</span>
-              <span class="tech-tag">Architecture Multi-Sites</span>
-            </div>
-            <p class="project-description">Direction de l'implémentation technique d'une plateforme e-commerce B2B dans 15+ pays, incluant la migration de SAP Hybris 6.7 vers CCv2. Conception des intégrations avec SAP ERP pour la tarification, l'inventaire et la gestion des commandes, et développement d'APIs personnalisées pour les workflows B2B.</p>
-          </div>
-          
-        </div>
-            </div>
-          </section>
-
-          <section class="section" id="education-fr">
+          <section class="section reveal" id="education-fr">
             <div class="section-content">
               <h2>Formation</h2>
               <p>2015 - Ingénieur d'État en Informatique & BI, INSEA Rabat</p>
@@ -970,23 +865,23 @@
           </section>
           
           <!-- FAQ Section for AI SEO -->
-          <section class="section" id="faq-fr">
+          <section class="section reveal" id="faq-fr">
             <div class="section-content">
               <h2>Questions Fréquentes</h2>
-              <div class="faq-grid">
-                <div class="faq-item">
+              <div class="faq-grid" data-stagger>
+                <div class="faq-item reveal">
                   <h3 class="faq-question">Qu'est-ce qui vous différencie des autres consultants SAP Commerce ?</h3>
                   <p class="faq-answer">Mon expérience couvre l'ensemble du spectre de l'intégration : SAP Commerce Cloud pour l'e-commerce (9+ ans), MuleSoft Anypoint pour la connectivité API-led, et Salesforce pour l'intégration CRM. J'applique également des outils IA concrètement dans mon travail quotidien — GitHub Copilot, Ollama, Claude et OpenAI Codex CLI — notamment pour automatiser la génération de commits et pull requests à partir de diffs de code.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">Dans quels types de projets vous spécialisez-vous ?</h3>
                   <p class="faq-answer">Je me spécialise dans les migrations e-commerce cloud-native (CCv2), l'architecture d'intégration API-led, l'implémentation de microservices sur Kubernetes, le développement de plateformes B2B/B2C multi-pays, et les intégrations complexes ERP/CRM avec MuleSoft Anypoint Platform.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">Travaillez-vous avec des équipes distantes ?</h3>
                   <p class="faq-answer">Oui, j'ai une vaste expérience de travail avec des équipes distribuées à travers l'Europe. Je maîtrise les méthodologies agiles, les outils de collaboration à distance, et peux efficacement diriger ou contribuer à des projets internationaux.</p>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item reveal">
                   <h3 class="faq-question">Quelle est votre approche de l'architecture d'intégration ?</h3>
                   <p class="faq-answer">Je suis les principes d'API-led connectivity avec une séparation claire des couches System, Process et Experience. Je privilégie les APIs réutilisables, une gestion d'erreurs appropriée, un monitoring complet, et des frameworks de gouvernance qui évoluent avec la croissance business.</p>
                 </div>
@@ -994,10 +889,11 @@
             </div>
           </section>
 
-          <section class="section" id="contact-fr">
-            <div class="section-content">
-              <h2>Contact</h2>
-              <p>Email: <a href="mailto:b.bousnguar@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">b.bousnguar@gmail.com</a></p>
+          <section class="section reveal" id="contact-fr">
+            <div class="section-content contact-cta">
+              <h2>Travaillons Ensemble</h2>
+              <p>Disponible pour des missions de conseil en intégration SAP Commerce Cloud, MuleSoft et Salesforce — discutons de votre prochain défi e-commerce ou d'intégration.</p>
+              <a href="mailto:b.bousnguar@gmail.com" class="btn-primary" aria-label="Contacter Brahim Bousnguar par email">b.bousnguar@gmail.com</a>
             </div>
           </section>
         </div>

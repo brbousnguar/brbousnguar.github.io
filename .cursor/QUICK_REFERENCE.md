@@ -3,7 +3,9 @@
 ## 🎨 Design System Quick Look
 
 ### Colors (CSS Variables)
-- Accent: `var(--accent-blue)` = `#d4a04f` (warm gold)
+- Accent: `var(--accent)` = `#d97706` light / `#f59e0b` dark (amber)
+- Accent for small text (light mode): `var(--accent-text)` = `#92400e`
+- Text on filled amber: `var(--accent-contrast)` = `#1c1917` (never white)
 - Text Primary: `var(--text-primary)`
 - Text Secondary: `var(--text-secondary)`
 - Background: `var(--primary-bg)`
@@ -76,7 +78,7 @@ document.documentElement.setAttribute('data-lang', lang);
 ```
 
 ## 🚫 Don'ts
-- ❌ Don't use blue/cold colors (use warm gold/sepia)
+- ❌ Don't use blue/cold colors (use warm graphite + amber)
 - ❌ Don't skip heading levels (H1 → H2 → H3)
 - ❌ Don't forget `rel="noopener"` on external links
 - ❌ Don't hardcode colors (use CSS variables)
