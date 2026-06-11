@@ -34,6 +34,7 @@ P1
 ## Follow-ups from 2026-06 redesign
 - [ ] P2 / Scope: SEO — Create a dedicated 1200x630 Open Graph banner image (currently square profile.jpeg)
 - [ ] P3 / Scope: SEO — Re-run assets/js/generate-learning-schema.py after each learning-data.json update
+- [ ] P1 / Scope: Data — Import Feb–May 2026 certificates from the Google Drive archive into `archived/2026/`, re-run the extract scripts to refresh learning-data.json (currently stops at 2026-01-19), then regenerate the learning schema
 
 ## Later / Nice-to-have
 - [ ] P2 / Scope: Visual — Add lightweight visuals (architecture diagram or simple schematic per project)

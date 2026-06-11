@@ -7,7 +7,7 @@ Key facts:
 - Current role: MuleSoft Integration Specialist at Roche Bobois (since January 2025) — API-led integration architecture, DataWeave, Salesforce CRM data flows.
 - Previous: Senior SAP Commerce Cloud Consultant at Miele (2022–2024, cloud-native CCv2 migration + SAP BTP Kyma microservices); Technical Lead at BYK (2018–2021, multi-country B2B platform, Hybris 6.7 → CCv2); SAP Hybris Integration Specialist at SEB Group (2016–2018, multi-brand platform).
 - Certifications: SAP Certified Development Professional — SAP Commerce Cloud Developer (2023); SAP Certified Associate — Hybris Commerce Business Analyst 6.3 (2018). Currently pursuing MuleSoft Anypoint Platform certifications.
-- Continuous learning: 411 LinkedIn Learning certificates across 11 technology domains (AI, programming, cloud, DevOps, APIs, and more), 2023–2026.
+- Continuous learning: 411+ LinkedIn Learning certificates across 11 technology domains (AI, programming, cloud, DevOps, APIs, and more) since 2023, and still growing. Current 2026 focus: agentic AI, Model Context Protocol (MCP), and AI orchestration.
 - AI-augmented workflow: daily use of GitHub Copilot, Ollama-based LLM CLI tooling, Claude, and OpenAI Codex CLI.
 - Education: State Engineer in Computer Science & Business Intelligence, INSEA Rabat (2015).
 

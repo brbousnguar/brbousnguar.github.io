@@ -158,6 +158,8 @@
     "learning": {
       "totalCertificates": 411,
       "domains": 11,
+      "status": "ongoing",
+      "currentFocus": ["Agentic AI", "Model Context Protocol (MCP)", "AI Orchestration"],
       "source": "https://brbousnguar.github.io/assets/data/learning-data.json",
       "browser": "https://brbousnguar.github.io/pages/learning.html"
     }

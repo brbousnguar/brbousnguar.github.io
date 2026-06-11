@@ -1306,6 +1306,21 @@ strong {
   margin: 0;
 }
 
+.learning-focus {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0.875rem 0 0;
+  padding: 0.625rem 0.875rem;
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.learning-focus strong {
+  color: var(--accent-text);
+}
+
 .learning-journey-content {
   display: flex;
   align-items: center;
