@@ -1,0 +1,10 @@
+# Local screenshots and browser-automation artifacts
+.screenshots/
+.playwright-mcp/
+
+# Local MCP server configuration (may contain machine-specific paths or secrets)
+.mcp.json
+
+# OS cruft
+Thumbs.db
+.DS_Store
