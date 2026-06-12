@@ -92,6 +92,21 @@
   ],
   "certificates": [
     {
+      "name": "SAP Certified — Solution Architect — SAP Customer Experience",
+      "date": "2026-03",
+      "issuer": "SAP"
+    },
+    {
+      "name": "SAP Certified — Positioning SAP Business Suite via SAP Customer Experience Solutions",
+      "date": "2026-02",
+      "issuer": "SAP"
+    },
+    {
+      "name": "SAP Certified Associate — Business User — SAP Commerce Cloud",
+      "date": "2024-03",
+      "issuer": "SAP"
+    },
+    {
       "name": "SAP Certified Development Professional — SAP Commerce Cloud Developer",
       "date": "2023",
       "issuer": "SAP"
@@ -154,7 +169,7 @@
   ],
   "meta": {
     "canonical": "https://brbousnguar.github.io/profile.json",
-    "lastModified": "2026-06-11",
+    "lastModified": "2026-06-12",
     "learning": {
       "totalCertificates": 644,
       "domains": 12,
