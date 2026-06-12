@@ -52,7 +52,7 @@ When adding content you must duplicate it into **both** wrapper divs and give th
 
 ## Theming
 
-Light/dark theme is set via `data-theme` on `<html>` (default light; `data-theme="dark"` for dark). The choice is persisted to `localStorage` (`theme`) and falls back to the OS `prefers-color-scheme` on first visit; an inline pre-paint snippet in each page `<head>` applies it before first render. All colors come from CSS custom properties in `style.css` — use `var(--…)`, never hardcode. The palette is a deliberate **warm graphite + amber** scheme; amber is the only accent hue — do not introduce blue/cold accents. Amber contrast rules: small text in light mode uses `--accent-text`, filled amber surfaces use dark `--accent-contrast` text (never white). See `.cursorrules` for the full token table. Verify both themes after any visual change.
+Light/dark theme is set via `data-theme` on `<html>` (default light; `data-theme="dark"` for dark). The choice is persisted to `localStorage` (`theme`) and falls back to the OS `prefers-color-scheme` on first visit; an inline pre-paint snippet in each page `<head>` applies it before first render. All colors come from CSS custom properties in `style.css` — use `var(--…)`, never hardcode. The palette is a deliberate **warm graphite + amber** scheme; amber is the only accent hue — do not introduce blue/cold accents. Amber contrast rules: small text in light mode uses `--accent-text`, filled amber surfaces use dark `--accent-contrast` text (never white). See `docs/DESIGN-SYSTEM.md` for the full token table. Verify both themes after any visual change.
 
 ## Coding Conventions
 
@@ -67,7 +67,7 @@ Each page carries a full SEO head block: `<title>`, meta description/keywords, O
 
 ## Related Guidance & Conventions
 
-This repo also carries `AGENTS.md` and `.cursorrules`. `.cursorrules` is the authoritative, detailed spec for the **design system** (color tokens, typography, spacing, breakpoints), accessibility requirements (skip links, ARIA, focus states, WCAG AA contrast), and per-page SEO/structured-data checklists — consult it before substantial UI or content work rather than re-deriving these. Open enhancement work and priorities are tracked in `docs/TODO.md`.
+This repo also carries `AGENTS.md` and `docs/DESIGN-SYSTEM.md`. `docs/DESIGN-SYSTEM.md` is the authoritative, detailed spec for the **design system** (color tokens, typography, spacing, breakpoints), accessibility requirements (skip links, ARIA, focus states, WCAG AA contrast), and per-page SEO/structured-data checklists — consult it before substantial UI or content work rather than re-deriving these. Open enhancement work and priorities are tracked in `docs/TODO.md`.
 
 ## Git & PR Workflow
 

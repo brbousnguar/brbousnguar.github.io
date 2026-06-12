@@ -1,4 +1,4 @@
-# Cursor AI Configuration - Profile Site Project
+# Design System & Project Standards
 
 ## Project Overview
 Personal professional portfolio website for Brahim Bousnguar - Senior E-Commerce Integration Consultant.
@@ -238,10 +238,9 @@ Format: JSON-LD in `<script type="application/ld+json">` blocks
 │   ├── js/ (main.js, learning.js + one-off Python data scripts)
 │   ├── img/ (profile.jpeg, favicon.png)
 │   └── data/ (learning-data.json)
-├── docs/ (CV PDF, SEO-GUIDE.md, TODO.md)
+├── docs/ (CV PDF, SEO-GUIDE.md, TODO.md, DESIGN-SYSTEM.md — this file)
 ├── sitemap.xml
-├── robots.txt
-└── .cursorrules (this file)
+└── robots.txt
 ```
 
 ## Image Standards
@@ -373,7 +372,6 @@ When working on this project:
 
 ---
 
-**Last Updated**: 2026-06-10
+**Last Updated**: 2026-06-12
 **Project Type**: Professional Portfolio Website
 **Primary Technologies**: HTML5, CSS3, Vanilla JavaScript
-
