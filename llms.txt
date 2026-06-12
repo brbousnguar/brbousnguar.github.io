@@ -6,8 +6,8 @@ Key facts:
 
 - Current role: MuleSoft Integration Specialist at Roche Bobois (since January 2025) — API-led integration architecture, DataWeave, Salesforce CRM data flows.
 - Previous: Senior SAP Commerce Cloud Consultant at Miele (2022–2024, cloud-native CCv2 migration + SAP BTP Kyma microservices); Technical Lead at BYK (2018–2021, multi-country B2B platform, Hybris 6.7 → CCv2); SAP Hybris Integration Specialist at SEB Group (2016–2018, multi-brand platform).
-- Certifications: SAP Certified Development Professional — SAP Commerce Cloud Developer (2023); SAP Certified Associate — Hybris Commerce Business Analyst 6.3 (2018). Currently pursuing MuleSoft Anypoint Platform certifications.
-- Continuous learning: 411+ LinkedIn Learning certificates across 11 technology domains (AI, programming, cloud, DevOps, APIs, and more) since 2023, and still growing. Current 2026 focus: agentic AI, Model Context Protocol (MCP), and AI orchestration.
+- Certifications: SAP Certified — Solution Architect — SAP Customer Experience (Mar 2026); SAP Certified — Positioning SAP Business Suite via SAP Customer Experience Solutions (Feb 2026); SAP Certified Associate — Business User — SAP Commerce Cloud (2024); SAP Certified Development Professional — SAP Commerce Cloud Developer (2023); SAP Certified Associate — Hybris Commerce Business Analyst 6.3 (2018). Currently pursuing MuleSoft Anypoint Platform certifications.
+- Continuous learning: 644+ LinkedIn Learning certificates across 12 technology domains (AI, programming, cloud, DevOps, APIs, and more) since 2023, and still growing. Current 2026 focus: agentic AI, Model Context Protocol (MCP), and AI orchestration.
 - AI-augmented workflow: daily use of GitHub Copilot, Ollama-based LLM CLI tooling, Claude, and OpenAI Codex CLI.
 - Education: State Engineer in Computer Science & Business Intelligence, INSEA Rabat (2015).
 
@@ -15,12 +15,12 @@ Key facts:
 
 - [Portfolio home](https://brbousnguar.github.io/): hero, value proposition, project case studies (Problem/Solution/Impact), skills, experience, FAQ, contact. English and French content both present in the page.
 - [About](https://brbousnguar.github.io/pages/about.html): extended professional story, career timeline, detailed skills tables.
-- [Learning & certifications](https://brbousnguar.github.io/pages/learning.html): browsable catalog of all 411 LinkedIn Learning certificates with filtering by domain, year, and skill.
+- [Learning & certifications](https://brbousnguar.github.io/pages/learning.html): browsable catalog of all 644 LinkedIn Learning certificates with filtering by domain, year, and skill.
 
 ## Machine-readable
 
 - [profile.json](https://brbousnguar.github.io/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
-- [learning-data.json](https://brbousnguar.github.io/assets/data/learning-data.json): full certificate dataset (411 entries with title, date, duration, domain, skills).
+- [learning-data.json](https://brbousnguar.github.io/assets/data/learning-data.json): full certificate dataset (644 entries with title, date, duration, domain, skills).
 - [CV PDF](https://brbousnguar.github.io/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
 
 ## Contact

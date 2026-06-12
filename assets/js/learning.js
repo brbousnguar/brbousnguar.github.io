@@ -453,6 +453,15 @@ function createCertificateCard(cert, isFr = false) {
   const formattedDate = cert.date ? formatDate(cert.date) : (cert.year || '');
   
   const viewText = isFr ? 'Voir le Certificat' : 'View Certificate';
+
+  // Certificates synced from the archive metadata may not have a local PDF yet.
+  // Root-relative href: the page lives under /pages/ but the PDFs are at /archived/.
+  const linkHtml = cert.path ? `
+      <div class="certificate-actions">
+        <a href="/${cert.path}" target="_blank" rel="noopener noreferrer" class="certificate-link-learning">
+          ${viewText}
+        </a>
+      </div>` : '';
   
   // Only show skills from the certificate, not the domain badge
   // Domain is already shown in filters, so we don't need to duplicate it here
@@ -467,12 +476,7 @@ function createCertificateCard(cert, isFr = false) {
         ${formattedDate ? `<span>${formattedDate}</span>` : ''}
         ${cert.duration ? `<span>${cert.duration}</span>` : ''}
       </div>
-      ${allSkillsHtml ? `<div class="certificate-skills-learning">${allSkillsHtml}</div>` : '<div class="certificate-skills-learning"></div>'}
-      <div class="certificate-actions">
-        <a href="${cert.path}" target="_blank" rel="noopener noreferrer" class="certificate-link-learning">
-          ${viewText}
-        </a>
-      </div>
+      ${allSkillsHtml ? `<div class="certificate-skills-learning">${allSkillsHtml}</div>` : '<div class="certificate-skills-learning"></div>'}${linkHtml}
     </div>
   `;
 }
