@@ -57,6 +57,8 @@ Alternatively: `python -m http.server 5173` then open `http://localhost:5173`.
 - **Email**: [b.bousnguar@gmail.com](mailto:b.bousnguar@gmail.com)
 - **LinkedIn**: [linkedin.com/in/brahim-bousnguar](https://www.linkedin.com/in/brahim-bousnguar/)
 - **GitHub**: [github.com/brbousnguar](https://github.com/brbousnguar)
+- **X**: [@bbousnguar](https://x.com/bbousnguar)
+
 
 ## 📄 License
 

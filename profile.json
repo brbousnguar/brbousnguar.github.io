@@ -6,9 +6,10 @@
     "email": "b.bousnguar@gmail.com",
     "url": "https://brbousnguar.github.io/",
     "image": "https://brbousnguar.github.io/assets/img/profile.jpeg",
-    "summary": "Senior E-Commerce Integration Consultant with 9+ years bridging enterprise e-commerce platforms with modern API-led integration. Deep SAP Commerce Cloud expertise, production-grade MuleSoft Anypoint proficiency, and growing Salesforce ecosystem confidence. Applies AI-augmented development workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) daily.",
+    "summary": "Senior E-Commerce Integration Consultant with 9+ years bridging enterprise e-commerce platforms with modern API-led integration. Deep SAP Commerce Cloud expertise, production-grade MuleSoft Anypoint proficiency, and growing Salesforce ecosystem confidence. Applies AI-augmented development workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) daily. Also builds independent AI-tooling and Model Context Protocol (MCP) projects, and contributes fixes upstream to open-source projects such as CopilotKit and Open WebUI.",
     "location": {
       "countryCode": "FR",
+      "city": "Nantes",
       "region": "France"
     },
     "profiles": [
@@ -21,6 +22,11 @@
         "network": "GitHub",
         "username": "brbousnguar",
         "url": "https://github.com/brbousnguar"
+      },
+      {
+        "network": "X",
+        "username": "bbousnguar",
+        "url": "https://x.com/bbousnguar"
       }
     ]
   },
@@ -29,7 +35,7 @@
       "name": "Roche Bobois",
       "position": "MuleSoft Integration Specialist",
       "startDate": "2025-01",
-      "summary": "API design and integration using MuleSoft Anypoint Platform for a luxury furniture retailer.",
+      "summary": "API design and integration using MuleSoft Anypoint Platform for a luxury furniture retailer, delivered as a consultant through SQLI (Nantes, France).",
       "highlights": [
         "Designed reusable APIs with Anypoint Studio and Anypoint Code Builder following API-led connectivity principles",
         "Developed complex DataWeave transformations for data mapping, enrichment, and orchestration",
@@ -140,7 +146,11 @@
     },
     {
       "name": "AI & Dev Tools",
-      "keywords": ["GitHub Copilot", "Ollama (local & cloud LLMs)", "Claude (Anthropic)", "OpenAI Codex CLI"]
+      "keywords": ["GitHub Copilot", "Ollama (local & cloud LLMs)", "Claude (Anthropic)", "OpenAI Codex CLI", "Model Context Protocol (MCP)"]
+    },
+    {
+      "name": "Personal Tools & Languages",
+      "keywords": ["Python", "TypeScript", "FastAPI", "React", "SQLite"]
     }
   ],
   "languages": [
@@ -165,11 +175,87 @@
       "description": "Problem: aging SAP Hybris 6.7 B2B platform serving 15+ countries. Solution: led migration to Commerce Cloud CCv2 with custom OCC APIs, ERP/logistics/payment integrations. Impact: modern headless-capable B2B platform with improved performance and organic traffic growth.",
       "keywords": ["SAP Commerce Cloud", "B2B", "OCC APIs", "SAP ERP"],
       "roles": ["Technical Lead"]
+    },
+    {
+      "name": "Meterlex",
+      "description": "Local-first cost intelligence for AI coding assistants: Claude Code, Codex, Antigravity, Ollama, and Copilot CLI.",
+      "keywords": ["Python", "CLI", "Cost Intelligence"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/meterlex",
+      "type": "open-source"
+    },
+    {
+      "name": "MacBook MCP Server",
+      "description": "Python MCP server exposing battery, CPU, memory, and machine-status resources and tools.",
+      "keywords": ["Python", "MCP"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/macbook-mcp-server",
+      "type": "open-source"
+    },
+    {
+      "name": "E-Commerce Backend (Spring)",
+      "description": "Production-ready Spring Boot 3 e-commerce backend with JWT authentication and OpenAPI documentation.",
+      "keywords": ["Java", "Spring Boot", "JWT", "OpenAPI"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/ecommerce-backend-spring",
+      "type": "open-source"
+    },
+    {
+      "name": "DataWeave Exercises",
+      "description": "Practical DataWeave language exercises and examples for MuleSoft Anypoint integration.",
+      "keywords": ["DataWeave", "MuleSoft"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/dataweave-exercises",
+      "type": "open-source"
+    },
+    {
+      "name": "Ollama Benchmarking",
+      "description": "Benchmark and compare locally hosted LLMs across Ollama, Foundry Local, and different hardware.",
+      "keywords": ["Python", "Ollama", "Benchmarking"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/ollama-benchmarking",
+      "type": "open-source"
+    },
+    {
+      "name": "AI Models Costs",
+      "description": "Static React dashboard for comparing AI model API pricing across providers and modalities.",
+      "keywords": ["TypeScript", "React"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/ai-models-costs",
+      "type": "open-source"
+    },
+    {
+      "name": "Termo Track",
+      "description": "Local BLE temperature and humidity tracker built with FastAPI, React, SQLite, and MCP support.",
+      "keywords": ["TypeScript", "FastAPI", "MCP"],
+      "roles": ["Creator"],
+      "url": "https://github.com/brbousnguar/termo-track",
+      "type": "open-source"
+    }
+  ],
+  "openSourceContributions": [
+    {
+      "repo": "CopilotKit/CopilotKit",
+      "pr": "#6179",
+      "url": "https://github.com/CopilotKit/CopilotKit/pull/6179",
+      "description": "Cursor-preservation fixes and regression coverage for React chat inputs."
+    },
+    {
+      "repo": "open-webui/open-webui",
+      "pr": "#27747",
+      "url": "https://github.com/open-webui/open-webui/pull/27747",
+      "description": "Validation fix for optional RAG embedding-provider settings."
+    },
+    {
+      "repo": "mulesoft/data-weave-cli",
+      "pr": "#140",
+      "url": "https://github.com/mulesoft/data-weave-cli/pull/140",
+      "description": "CLI help correction for DataWeave input syntax."
     }
   ],
   "meta": {
     "canonical": "https://brbousnguar.github.io/profile.json",
-    "lastModified": "2026-06-12",
+    "lastModified": "2026-08-05",
     "learning": {
       "totalCertificates": 644,
       "domains": 12,
