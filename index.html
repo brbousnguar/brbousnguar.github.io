@@ -89,7 +89,8 @@
     "email": "b.bousnguar@gmail.com",
     "sameAs": [
       "https://github.com/brbousnguar",
-      "https://www.linkedin.com/in/brahim-bousnguar/"
+      "https://www.linkedin.com/in/brahim-bousnguar/",
+      "https://x.com/bbousnguar"
     ],
     "knowsAbout": [
       "SAP Commerce Cloud",
@@ -105,7 +106,12 @@
       "AI-augmented development",
       "GitHub Copilot",
       "Ollama",
-      "Large Language Models"
+      "Large Language Models",
+      "Model Context Protocol (MCP)",
+      "Python",
+      "TypeScript",
+      "FastAPI",
+      "React"
     ],
     "alumniOf": {
       "@type": "EducationalOrganization",
@@ -275,10 +281,10 @@
       <ul class="sidebar-nav">
         <li><a href="#hero" data-target="hero" class="active">Overview</a></li>
         <li><a href="#value-proposition" data-target="value-proposition">Value Proposition</a></li>
-        <li><a href="#projects" data-target="projects">Projects</a></li>
-        <li><a href="#skills" data-target="skills">Skills</a></li>
+        <li><a href="#projects" data-target="projects">Projects</a></li>        <li><a href="#open-source" data-target="open-source">Open Source</a></li>        <li><a href="#skills" data-target="skills">Skills</a></li>
         <li><a href="#certifications" data-target="certifications">Certifications</a></li>
-        <li><a href="#continuous-learning" data-target="continuous-learning">Learning</a></li>
+        <!-- Learning section disabled -->
+        <!-- <li><a href="#continuous-learning" data-target="continuous-learning">Learning</a></li> -->
         <li><a href="pages/learning.html">All Certificates</a></li>
         <li><a href="#professional-experience" data-target="professional-experience">Experience</a></li>
         <li><a href="#education" data-target="education">Education</a></li>
@@ -306,7 +312,7 @@
                 <p class="hero-kicker">Senior E-Commerce Integration Consultant · MuleSoft&nbsp;·&nbsp;Applied&nbsp;AI</p>
                 <h1>Brahim Bousnguar</h1>
                 <p class="hero-tagline">I connect SAP Commerce Cloud, MuleSoft and Salesforce into integration architectures that ship.</p>
-                <p class="hero-summary">9+ years bridging enterprise e-commerce platforms with modern API-led integration — delivering end-to-end solutions for complex enterprise systems while leveraging AI-augmented workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) to ship smarter and faster.</p>
+                <p class="hero-summary">9+ years bridging enterprise e-commerce platforms with modern API-led integration — delivering end-to-end solutions for complex enterprise systems while leveraging AI-augmented workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) to ship smarter and faster. Based in Nantes, France, currently delivering through SQLI.</p>
                 <div class="hero-actions">
                   <a href="#projects" class="btn-primary hero-cta">View Projects</a>
                   <a href="docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-cta">
@@ -325,6 +331,11 @@
                   <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     LinkedIn
+                  </a>
+                  <span class="hero-social-sep" aria-hidden="true">·</span>
+                  <a href="https://x.com/bbousnguar" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X
                   </a>
                 </div>
               </div>
@@ -464,17 +475,122 @@
             </div>
           </section>
 
+          <section class="section reveal" id="open-source">
+            <div class="section-content">
+              <h2>Open Source & AI Tooling</h2>
+              <p>Beyond client engagements, I build independent tools around AI workflows, MCP, and developer productivity — and contribute fixes upstream to projects I use daily.</p>
+              <div class="bento-grid" data-stagger>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Meterlex</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">CLI</span>
+                    </div>
+                  </div>
+                  <p>Local-first cost intelligence for AI coding assistants: Claude Code, Codex, Antigravity, Ollama, and Copilot CLI.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/meterlex" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">MacBook MCP Server</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">MCP</span>
+                    </div>
+                  </div>
+                  <p>Python MCP server exposing battery, CPU, memory, and machine-status resources and tools.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/macbook-mcp-server" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">E-Commerce Backend (Spring)</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Java</span>
+                      <span class="tech-tag">Spring Boot</span>
+                      <span class="tech-tag">JWT</span>
+                    </div>
+                  </div>
+                  <p>Production-ready Spring Boot 3 e-commerce backend with JWT authentication and OpenAPI documentation.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ecommerce-backend-spring" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">DataWeave Exercises</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">DataWeave</span>
+                      <span class="tech-tag">MuleSoft</span>
+                    </div>
+                  </div>
+                  <p>Practical DataWeave language exercises and examples for MuleSoft Anypoint integration.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/dataweave-exercises" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Ollama Benchmarking</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Ollama</span>
+                    </div>
+                  </div>
+                  <p>Benchmark and compare locally hosted LLMs across Ollama, Foundry Local, and different hardware.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ollama-benchmarking" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">AI Models Costs</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">React</span>
+                    </div>
+                  </div>
+                  <p>Static React dashboard for comparing AI model API pricing across providers and modalities.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ai-models-costs" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Termo Track</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">FastAPI</span>
+                      <span class="tech-tag">MCP</span>
+                    </div>
+                  </div>
+                  <p>Local BLE temperature and humidity tracker built with FastAPI, React, SQLite, and MCP support.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/termo-track" target="_blank" rel="noopener noreferrer">View on GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+              </div>
+
+              <div class="oss-contributions">
+                <h3>Open-Source Contributions</h3>
+                <ul>
+                  <li><a href="https://github.com/CopilotKit/CopilotKit/pull/6179" target="_blank" rel="noopener noreferrer">CopilotKit #6179</a> — cursor-preservation fixes and regression coverage for React chat inputs</li>
+                  <li><a href="https://github.com/open-webui/open-webui/pull/27747" target="_blank" rel="noopener noreferrer">Open WebUI #27747</a> — validation fix for optional RAG embedding-provider settings</li>
+                  <li><a href="https://github.com/mulesoft/data-weave-cli/pull/140" target="_blank" rel="noopener noreferrer">MuleSoft DataWeave CLI #140</a> — CLI help correction for DataWeave input syntax</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
           <section class="section reveal" id="skills">
             <div class="section-content">
               <h2>Technical Skills</h2>
               <ul>
                 <li><strong>E-Commerce Platforms:</strong> SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</li>
                 <li><strong>Integration & APIs:</strong> MuleSoft Anypoint Platform, Salesforce, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</li>
-                <li><strong>Languages:</strong> Java 17, JavaScript, HTML, CSS, Shell, Velocity, DataWeave</li>
-                <li><strong>Frameworks:</strong> Spring Boot, Spring Security, Spring Integration, Microservices Architecture</li>
+                <li><strong>Languages:</strong> Java 17, JavaScript, TypeScript, Python, HTML, CSS, Shell, Velocity, DataWeave</li>
+                <li><strong>Frameworks:</strong> Spring Boot, Spring Security, Spring Integration, FastAPI, React, Microservices Architecture</li>
                 <li><strong>DevOps & Cloud:</strong> Jenkins, Docker, Kubernetes, CI/CD Pipelines, SAP BTP, CCv2</li>
-                <li><strong>Databases:</strong> MySQL, SAP Hana, PostgreSQL</li>
-                <li><strong>AI & Dev Tools:</strong> GitHub Copilot, Ollama (local & cloud LLMs), Claude (Anthropic), OpenAI Codex CLI</li>
+                <li><strong>Databases:</strong> MySQL, SAP Hana, PostgreSQL, SQLite</li>
+                <li><strong>AI & Dev Tools:</strong> GitHub Copilot, Ollama (local & cloud LLMs), Claude (Anthropic), OpenAI Codex CLI, Model Context Protocol (MCP)</li>
                 <li><strong>Tools:</strong> Anypoint Studio, IntelliJ, VS Code, Postman, Kibana, Git</li>
               </ul>
             </div>
@@ -494,7 +610,7 @@
             </div>
           </section>
 
-          <section class="section reveal" id="continuous-learning">
+          <!-- <section class="section reveal" id="continuous-learning">
             <div class="section-content">
               <div class="learning-journey-card">
                 <div class="learning-journey-header">
@@ -527,7 +643,7 @@
                 </div>
               </div>
             </div>
-          </section>
+          </section> -->
 
           <section class="section reveal" id="professional-experience">
             <div class="section-content">
@@ -632,7 +748,7 @@
                 <p class="hero-kicker">Consultant Senior en Intégration E-Commerce · MuleSoft&nbsp;·&nbsp;IA&nbsp;Appliquée</p>
                 <h1>Brahim Bousnguar</h1>
                 <p class="hero-tagline">Je connecte SAP Commerce Cloud, MuleSoft et Salesforce en architectures d'intégration qui livrent.</p>
-                <p class="hero-summary">Plus de 9 ans à relier les plateformes e-commerce d'entreprise aux architectures d'intégration API-led modernes — des solutions end-to-end pour systèmes complexes, augmentées par des workflows IA (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) pour livrer plus intelligemment et plus rapidement.</p>
+                <p class="hero-summary">Plus de 9 ans à relier les plateformes e-commerce d'entreprise aux architectures d'intégration API-led modernes — des solutions end-to-end pour systèmes complexes, augmentées par des workflows IA (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) pour livrer plus intelligemment et plus rapidement. Basé à Nantes, France, actuellement en mission via SQLI.</p>
                 <div class="hero-actions">
                   <a href="#projects-fr" class="btn-primary hero-cta">Voir les Projets</a>
                   <a href="docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-cta">
@@ -651,6 +767,11 @@
                   <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     LinkedIn
+                  </a>
+                  <span class="hero-social-sep" aria-hidden="true">·</span>
+                  <a href="https://x.com/bbousnguar" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X
                   </a>
                 </div>
               </div>
@@ -790,17 +911,122 @@
             </div>
           </section>
 
+          <section class="section reveal" id="open-source-fr">
+            <div class="section-content">
+              <h2>Open Source & Outils IA</h2>
+              <p>Au-delà des missions clients, je construis des outils indépendants autour des workflows IA, de MCP, et de la productivité des développeurs — et je contribue des correctifs en amont sur des projets que j'utilise au quotidien.</p>
+              <div class="bento-grid" data-stagger>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Meterlex</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">CLI</span>
+                    </div>
+                  </div>
+                  <p>Intelligence des coûts local-first pour les assistants de codage IA : Claude Code, Codex, Antigravity, Ollama et Copilot CLI.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/meterlex" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">MacBook MCP Server</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">MCP</span>
+                    </div>
+                  </div>
+                  <p>Serveur MCP en Python exposant les ressources et outils de batterie, CPU, mémoire et état de la machine.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/macbook-mcp-server" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">E-Commerce Backend (Spring)</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Java</span>
+                      <span class="tech-tag">Spring Boot</span>
+                      <span class="tech-tag">JWT</span>
+                    </div>
+                  </div>
+                  <p>Backend e-commerce Spring Boot 3 prêt pour la production avec authentification JWT et documentation OpenAPI.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ecommerce-backend-spring" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">DataWeave Exercises</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">DataWeave</span>
+                      <span class="tech-tag">MuleSoft</span>
+                    </div>
+                  </div>
+                  <p>Exercices pratiques et exemples DataWeave pour l'intégration MuleSoft Anypoint.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/dataweave-exercises" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Ollama Benchmarking</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">Python</span>
+                      <span class="tech-tag">Ollama</span>
+                    </div>
+                  </div>
+                  <p>Comparaison de performances de LLMs hébergés localement sur Ollama, Foundry Local et différents matériels.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ollama-benchmarking" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">AI Models Costs</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">React</span>
+                    </div>
+                  </div>
+                  <p>Tableau de bord React statique comparant les tarifs des APIs de modèles IA entre fournisseurs et modalités.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/ai-models-costs" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+                <article class="project-card reveal">
+                  <div class="project-card-head">
+                    <h3 class="project-title">Termo Track</h3>
+                    <div class="project-meta">
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">FastAPI</span>
+                      <span class="tech-tag">MCP</span>
+                    </div>
+                  </div>
+                  <p>Tracker BLE local de température et d'humidité construit avec FastAPI, React, SQLite et support MCP.</p>
+                  <a class="repo-link" href="https://github.com/brbousnguar/termo-track" target="_blank" rel="noopener noreferrer">Voir sur GitHub <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </article>
+
+              </div>
+
+              <div class="oss-contributions">
+                <h3>Contributions Open-Source</h3>
+                <ul>
+                  <li><a href="https://github.com/CopilotKit/CopilotKit/pull/6179" target="_blank" rel="noopener noreferrer">CopilotKit #6179</a> — correctifs de préservation du curseur et couverture de tests de régression pour les champs de chat React</li>
+                  <li><a href="https://github.com/open-webui/open-webui/pull/27747" target="_blank" rel="noopener noreferrer">Open WebUI #27747</a> — correctif de validation pour les paramètres optionnels du fournisseur d'embedding RAG</li>
+                  <li><a href="https://github.com/mulesoft/data-weave-cli/pull/140" target="_blank" rel="noopener noreferrer">MuleSoft DataWeave CLI #140</a> — correction de l'aide CLI pour la syntaxe d'entrée DataWeave</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
           <section class="section reveal" id="skills-fr">
             <div class="section-content">
               <h2>Compétences Techniques</h2>
         <ul>
           <li><strong>Plateformes E-Commerce :</strong> SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</li>
           <li><strong>Intégration & APIs :</strong> MuleSoft Anypoint Platform, Salesforce, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</li>
-          <li><strong>Langages :</strong> Java 17, JavaScript, HTML, CSS, Shell, Velocity, DataWeave</li>
-          <li><strong>Frameworks :</strong> Spring Boot, Spring Security, Spring Integration, Architecture Microservices</li>
+          <li><strong>Langages :</strong> Java 17, JavaScript, TypeScript, Python, HTML, CSS, Shell, Velocity, DataWeave</li>
+          <li><strong>Frameworks :</strong> Spring Boot, Spring Security, Spring Integration, FastAPI, React, Architecture Microservices</li>
           <li><strong>DevOps & Cloud :</strong> Jenkins, Docker, Kubernetes, Pipelines CI/CD, SAP BTP, CCv2</li>
-          <li><strong>Bases de données :</strong> MySQL, SAP Hana, PostgreSQL</li>
-          <li><strong>IA & Outils Dev :</strong> GitHub Copilot, Ollama (LLMs locaux & cloud), Claude (Anthropic), OpenAI Codex CLI</li>
+          <li><strong>Bases de données :</strong> MySQL, SAP Hana, PostgreSQL, SQLite</li>
+          <li><strong>IA & Outils Dev :</strong> GitHub Copilot, Ollama (LLMs locaux & cloud), Claude (Anthropic), OpenAI Codex CLI, Model Context Protocol (MCP)</li>
           <li><strong>Outils :</strong> Anypoint Studio, IntelliJ, VS Code, Postman, Kibana, Git</li>
         </ul>
             </div>
@@ -820,7 +1046,7 @@
             </div>
           </section>
 
-          <section class="section reveal" id="continuous-learning-fr">
+          <!-- <section class="section reveal" id="continuous-learning-fr">
             <div class="section-content">
               <div class="learning-journey-card">
                 <div class="learning-journey-header">
@@ -853,7 +1079,7 @@
                 </div>
               </div>
             </div>
-          </section>
+          </section> -->
 
           <section class="section reveal" id="professional-experience-fr">
             <div class="section-content">
