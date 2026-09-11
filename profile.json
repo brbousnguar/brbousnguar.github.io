@@ -230,27 +230,16 @@
   ],
   "openSourceContributions": [
     {
-      "repo": "CopilotKit/CopilotKit",
-      "pr": "#6179",
-      "url": "https://github.com/CopilotKit/CopilotKit/pull/6179",
-      "description": "Cursor-preservation fixes and regression coverage for React chat inputs."
-    },
-    {
-      "repo": "open-webui/open-webui",
-      "pr": "#27747",
-      "url": "https://github.com/open-webui/open-webui/pull/27747",
-      "description": "Validation fix for optional RAG embedding-provider settings."
-    },
-    {
       "repo": "mulesoft/data-weave-cli",
       "pr": "#140",
+      "status": "merged",
       "url": "https://github.com/mulesoft/data-weave-cli/pull/140",
       "description": "CLI help correction for DataWeave input syntax."
     }
   ],
   "meta": {
     "canonical": "https://brbousnguar.github.io/profile.json",
-    "lastModified": "2026-08-05",
+    "lastModified": "2026-09-11",
     "learning": {
       "totalCertificates": 644,
       "domains": 12,
