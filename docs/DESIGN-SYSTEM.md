@@ -102,7 +102,7 @@ Anything not here does not exist; adding a component means adding it here.
 Header (brand mark, nav, EN/FR switch) · eyebrow · hero (name, lede with `.hl`,
 note, actions, portrait) · facts strip · section head · integration flow ·
 case row · project index row · upstream line · experience row · stack list ·
-credentials list · contact band (headline, email, one-line summary) + footer · about page intro · prose row ·
+credentials list (with Credly "Verify" links) · contact band (headline, email, one-line summary) + footer · about page intro · prose row ·
 timeline.
 
 ## Verification
