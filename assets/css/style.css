@@ -799,6 +799,13 @@ html[data-lang="fr"] .lang-switch [data-set-lang="fr"] {
 
 .contact-mail:hover { color: var(--sky); }
 
+.contact-sub {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--paper);
+}
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
