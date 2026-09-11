@@ -96,7 +96,6 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 - **Email**: [b.bousnguar@gmail.com](mailto:b.bousnguar@gmail.com)
 - **LinkedIn**: [linkedin.com/in/brahim-bousnguar](https://www.linkedin.com/in/brahim-bousnguar/)
 - **GitHub**: [github.com/brbousnguar](https://github.com/brbousnguar)
-- **X**: [@bbousnguar](https://x.com/bbousnguar)
 
 ---
 
