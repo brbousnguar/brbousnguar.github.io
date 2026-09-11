@@ -73,23 +73,25 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 ├── about.html, learning.html   # redirect stubs (about → pages/, learning → home)
 ├── assets/
 │   ├── css/style.css           # the only stylesheet
-│   ├── js/main.js              # EN/FR switch (the *.py beside it are legacy, unused)
-│   ├── img/                    # portrait, favicon
-│   └── icons/                  # social icons
+│   ├── js/main.js              # EN/FR switch
+│   └── img/                    # portrait, favicon set
 ├── docs/                       # CV PDF, DESIGN-SYSTEM.md, SEO-GUIDE.md, TODO.md
 ├── changelog/unreleased/       # one changelog fragment per PR
 ├── CHANGELOG.md                # collated changelog
 ├── llms.txt, profile.json      # machine-readable profile
 ├── sitemap.xml, robots.txt
-├── tools/                      # standalone authoring utilities, not linked from the site
-└── archived/                   # certificate PDFs from the removed Learning page, unused
+├── favicon.ico                 # 16/32/48 BB mark
+└── tools/
+    ├── cv.html                 # print source of the CV PDF (regeneration command inside)
+    └── make_favicons.py        # regenerates the favicon set from the BB mark
 ```
 
 ## Notes
 
 - Every visible section exists twice — in `#en` and in `#fr`, with a `-fr` ID suffix. Add content to both or the nav lands on an empty section.
 - The LinkedIn Learning certificate browser was removed; `learning.html` URLs redirect to the home page so old links don't 404.
-- `.github/workflows/main.yml` runs a Lighthouse report on push to `main`, but currently targets `https://brbousnguar.github.io/my-portfolio/`, not this site.
+- `.github/workflows/main.yml` runs a Lighthouse report against the live site on every push to `main`.
+- `docs/Brahim_Bousnguar_CV.pdf` and the favicons are generated files — edit `tools/cv.html` / `tools/make_favicons.py` and regenerate, never edit the outputs by hand.
 - Contribution conventions: [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md).
 
 ## Contact
