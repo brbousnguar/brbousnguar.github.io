@@ -231,14 +231,6 @@
   ],
   "meta": {
     "canonical": "https://brbousnguar.github.io/profile.json",
-    "lastModified": "2026-09-11",
-    "learning": {
-      "totalCertificates": 644,
-      "domains": 12,
-      "status": "ongoing",
-      "currentFocus": ["Agentic AI", "Model Context Protocol (MCP)", "AI Orchestration"],
-      "source": "https://brbousnguar.github.io/assets/data/learning-data.json",
-      "browser": "https://brbousnguar.github.io/pages/learning.html"
-    }
+    "lastModified": "2026-09-11"
   }
 }

@@ -33,7 +33,6 @@ P1
 
 ## Follow-ups from 2026-06 redesign
 - [ ] P2 / Scope: SEO — Create a dedicated 1200x630 Open Graph banner image (currently square profile.jpeg)
-- [ ] P3 / Scope: SEO — Re-run assets/js/generate-learning-schema.py after each learning-data.json update
 - [ ] P1 / Scope: Data — Import Jan 19–May 2026 certificate PDFs from the Google Drive archive into `archived/2026/` and re-run the extract scripts so the 233 entries synced from Drive metadata on 2026-06-11 get their `path`, `duration`, and `skills` filled in (they currently render without a View Certificate link)
 
 ## Later / Nice-to-have

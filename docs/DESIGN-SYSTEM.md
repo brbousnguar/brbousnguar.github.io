@@ -1,377 +1,155 @@
-# Design System & Project Standards
+# Blueprint — design system
 
-## Project Overview
-Personal professional portfolio website for Brahim Bousnguar - Senior E-Commerce Integration Consultant.
-- Platform: Static HTML/CSS/JavaScript site hosted on GitHub Pages
-- URL: https://brbousnguar.github.io/
-- Primary focus: Professional presentation, SEO optimization, accessibility
+The design system for brbousnguar.github.io. **This file and `assets/css/style.css`
+change in the same commit.** A spec that drifts is worse than none.
 
-## Design System & Visual Identity
+Blueprint is a light-only variant of the Banknote system used by the Fortunex and
+Vitalex webapps (`~/Server/webapps/fortunex/DESIGN.md`): same form language, same
+type split, a palette tuned for a professional profile instead of a finance app.
 
-### Color Palette (CSS Variables)
-**Light Theme (Default):**
-- Primary Background: `#faf9f7` (warm off-white)
-- Secondary Background: `#f5f4f2`
-- Sidebar Background: `#f7f6f4`
-- Accent: `--accent: #d97706` (amber)
-- Accent Hover: `--accent-hover: #b45309`
-- Accent Text: `--accent-text: #92400e` (AA-safe amber for small text/links)
-- Accent Contrast: `--accent-contrast: #1c1917` (text on filled amber surfaces)
-- Accent Light: `--accent-light: #fdf0df` (tinted chips/washes)
-- Text Primary: `#1c1917` (warm graphite)
-- Text Secondary: `#44403c`
-- Text Muted: `#78716c` (meta/captions only — borderline 4.5:1)
-- Surface Dark: `#ffffff` (white cards)
-- Surface Light: `#faf9f7`
-- Border Subtle: `#e7e5e4`
-- Border Medium: `#d6d3d1`
+## Why it exists
 
-**Dark Theme:**
-- Primary Background: `#121110` (warm near-black)
-- Secondary Background / Cards: `#1c1a18`
-- Accent: `#f59e0b`, Accent Hover: `#fbbf24`, Accent Text: `#f59e0b`
-- Text Primary: `#f5f4f2`
-- Use CSS variable pattern: `var(--variable-name)`
+The previous theme had drifted into the generated-portfolio look: an amber accent
+on warm grey, a light/dark toggle with sun/moon emoji, rounded cards with soft
+shadows everywhere, icon-in-tile stat cards with count-up animations, scroll-reveal
+on every block, a sidebar of twelve links, glass surfaces, a visible FAQ written for
+crawlers, and a 644-certificate LinkedIn Learning browser. Every piece was
+competent. Together they read as a template, and they buried the actual work.
 
-**Additional Tokens:**
-- Motion: `--transition-fast` (150ms), `--transition-base` (250ms), `--transition-slow` (400ms)
-- Radii: `--radius-sm` (6px), `--radius-md` (10px), `--radius-lg` (16px), `--radius-xl` (24px)
-- Glass: `--glass-bg`, `--glass-border` (use with `backdrop-filter: blur()` + `@supports` fallback)
+Blueprint removes all of it. What is left is type, rules and one colour.
 
-**Accent Usage Rules (WCAG AA — critical):**
-- `#d97706` on white/`#faf9f7` is only ~3.1:1 → NEVER use `--accent` for normal-size
-  text in light mode. Allowed: headings ≥24px (or ≥18.66px bold), icons, borders,
-  decorative elements, backgrounds.
-- Small amber text/links in light mode must use `--accent-text` (#92400e, ~6.4:1).
-- Filled amber buttons/chips use dark text `--accent-contrast` (#1c1917, ~5.4:1).
-  NEVER white text on amber (fails at ~3.1:1).
+## Palette
 
-**Design Philosophy:**
-- Warm graphite + amber palette — amber is the only accent hue; never blue/cold colors
-- Modern, dynamic, but professional: scroll-reveal motion, glass surfaces, fluid type
-- Professional business consultant feel
-- Avoid bright/neon colors or childish elements
+Measured with `~/Server/.claude/skills/brb-flat-poster-theme/scripts/check-palette.py`
+against paper `#FBFAF7` and ink `#131211` (ink on paper **17.93:1**).
 
-### Typography
-- Primary Font: `Inter` (system fonts fallback)
-- Heading Font: `Inter` (same family for consistency)
-- Base Font Size: `15px`
-- Line Height: `1.6` (body), `1.2-1.4` (headings)
-- Font weights: 300, 400, 500, 600, 700 available
-- Use system fonts as fallback: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif`
+| Token | Hex | Role | As text on paper | White on it | Class |
+|---|---|---|---|---|---|
+| `--ink` | `#131211` | text, rules, the contact band | 17.93 | — | text + fill |
+| `--ink-2` | `#3A3833` | secondary text | 11.1 | — | text |
+| `--muted` | `#5E5B55` | meta, labels | 6.48 (5.88 on `--paper-2`) | — | text |
+| `--cobalt` | `#1446C8` | links, primary button, numbers, the core flow node | 7.34 (6.67 on `--paper-2`) | 7.66 | **DUAL-ROLE** |
+| `--on-cobalt` | `#FFFFFF` | text and rules on the cobalt fill | — | — | on-fill |
+| `--marker` | `#FFD84D` | the highlighter stroke | 1.33 | 1.38 | **FILL-ONLY** |
+| `--sky` | `#9DB6FF` | links inside the ink band | 9.42 on ink | — | **TEXT-ON-INK ONLY** |
+| `--paper` | `#FBFAF7` | page ground | — | — | ground |
+| `--paper-2` | `#F1EFE9` | alternate section band | — | — | ground |
+| `--rule` | `#D9D6CE` | hairlines | — | — | non-text |
 
-### Spacing & Layout
-- Base spacing unit: `1rem` (15px base)
-- Section spacing: `2rem - 3rem`
-- Card padding: `2rem`
-- Border radius: `4px - 8px` (subtle, not rounded)
-- Shadow levels: `--shadow-sm`, `--shadow-md`, `--shadow-lg`, `--shadow-xl`
-- Max content width: `900px` (container), `1200px` (main-content)
-- Sidebar width: `240px` (desktop), full width on mobile
+Rules that have already cost bugs elsewhere:
 
-### Responsive Breakpoints
-- Mobile: `max-width: 480px`
-- Tablet: `max-width: 768px`
-- Desktop: `max-width: 1024px`
-- Large Desktop: `> 1024px`
+- **`--marker` never sets type.** It exists for exactly one element: `.hl`, the
+  highlighter behind one phrase in the hero. Ink on it is 13.53:1.
+- **Cobalt fails on ink** (2.44:1). Inside `.contact` links use `--sky`, headings and
+  body use `--paper`. Focus rings switch to `--sky` there too.
+- **No dark mode.** `color-scheme: light` is declared; there is no `data-theme`, no
+  `prefers-color-scheme` branch, no toggle. Do not add one back.
 
-## Layout Structure Standards
+## Form language
 
-### HTML Structure Pattern
-```html
-<!DOCTYPE html>
-<html lang="en" data-lang="en">
-<head>
-  <!-- Meta tags, CSS, structured data -->
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header class="top-header">...</header>
-  <div class="page-wrapper">
-    <aside class="sidebar">...</aside>
-    <main class="main-content" id="main-content">...</main>
-  </div>
-</body>
-</html>
+1. **Flat.** No shadows, gradients, blur or glass. Depth comes from type scale and
+   colour weight.
+2. **Hard-edged.** `border-radius: 0` everywhere, including the portrait. There is no
+   named exception.
+3. **Separated by rule and colour change**, not by a box around every item. Rows
+   (cases, projects, experience, stack, credentials) are divided by hairlines; only
+   the three flow nodes carry a full border.
+4. **Unequal.** The Roche Bobois case is larger than the other two; the middle flow
+   node is wider and filled; the contact block is the only ink surface. A grid of
+   identical cards is the failure mode this replaced.
+5. **Still.** No scroll-reveal, no counters, no back-to-top button. Hover is an
+   instant ink inversion (`.btn`, `.index a`, `.site-nav a`).
+
+## Type
+
+Three roles, never blurred. Same families as Fortunex and Vitalex; Inter is
+deliberately gone.
+
+| Role | Family | Used for |
+|---|---|---|
+| Display | Archivo 600–800, `-0.02` to `-0.045em` | name, headings, numbers, buttons, project names |
+| Reading | Hanken Grotesk 400–600, 17px | body copy, lists |
+| Technical | IBM Plex Mono 400–500 | eyebrows, dates, tags, stack labels, footer |
+
+Sentence case for display. All-caps only for mono eyebrows and labels. Every
+display heading carries `overflow-wrap: break-word`.
+
+## Imagery
+
+One photo (the 336×336 portrait, shown at 168px so it stays sharp on 2× screens).
+Everything explanatory is built from HTML and CSS — the integration flow in
+"What I do" replaces the old value-proposition paragraph.
+
+## Concision
+
+The page states each fact once. Experience keeps three bullets per role; the case
+studies keep one sentence each for Problem / Built / Result. Never shorten by
+changing a date, title, client, certification name or metric — those are the
+product.
+
+## Bilingual
+
+Both languages ship in the DOM. The inline pre-paint script sets `data-lang` on
+`<html>`; CSS shows `#en` or `#fr` from that attribute, so there is no flash and no
+JS dependency for visibility. Short inline strings (nav, skip link) use
+`.t-en` / `.t-fr` spans. Section IDs in the French body carry a `-fr` suffix;
+`main.js` rewrites every `a[data-target]` to point at the right one.
+
+## Component list
+
+Anything not here does not exist; adding a component means adding it here.
+
+Header (brand mark, nav, EN/FR switch) · eyebrow · hero (name, lede with `.hl`,
+note, actions, portrait) · facts strip · section head · integration flow ·
+case row · project index row · upstream line · experience row · stack list ·
+credentials list · contact band + footer · about page intro · prose row ·
+timeline.
+
+## Verification
+
+Run before shipping any change to this file or `style.css`, with the site served
+from its root:
+
+```bash
+PORT=8798 ~/Server/.claude/skills/brb-flat-poster-theme/scripts/verify.sh . index.html pages/about.html
 ```
 
-### Page Components Required
-1. **Top Header**: Sticky, contains logo, language toggle, theme toggle
-2. **Sidebar Navigation**: Left side (desktop), horizontal scroll (mobile)
-3. **Main Content**: Max-width container, breadcrumbs, content sections
-4. **Skip Link**: Accessibility-first link (hidden until focused)
+- **Contrast**, alpha-composited: **0 failures** on both pages.
+- **Reflow at true 320px**, in **both languages**: page `scrollWidth` 320. The only
+  reported overflow is the nav links inside `.site-nav`, which is its own horizontal
+  scroller below 390px — expected. At ≤480px the `Stack` link (`.nav-optional`) hides
+  so the other five fit a 390px phone without scrolling.
+- **Lighthouse mobile** (chrome-devtools MCP, loopback): Accessibility, Best
+  Practices and SEO **100** on both pages.
+- Switch to FR and confirm every nav anchor lands on a non-empty `-fr` section.
 
-### Section Pattern
-```html
-<section class="section" id="section-id">
-  <div class="section-content">
-    <h2>Section Title</h2>
-    <!-- Content -->
-  </div>
-</section>
+## SEO and accessibility requirements
+
+Every page keeps: `<title>`, meta description and keywords, Open Graph, Twitter
+Card, canonical, `hreflang` en / fr / x-default, JSON-LD (`Person` +
+`BreadcrumbList`), a skip link, one `<h1>`, and visible focus rings. There is no
+`FAQPage` markup — it requires visible Q&A, which the site no longer has.
+AI-readability lives in `llms.txt`, `profile.json`, the Person JSON-LD and the
+AI-crawler allowlist in `robots.txt`; the footer links the first two.
+
+External links carry `target="_blank" rel="noopener noreferrer"`. Use tokens, never
+hex literals, outside `:root`.
+
+## File organisation
+
 ```
-
-## SEO Standards & Requirements
-
-### Required Meta Tags (Every Page)
-1. **Title Tag**: Max 60 chars, include keywords and name
-   - Format: `Name | Title/Role | Key Expertise`
-   - Example: `Brahim Bousnguar | Senior E-Commerce Integration Consultant | 8+ Years SAP Commerce Cloud & MuleSoft`
-
-2. **Meta Description**: 155-160 chars optimal (max 220 acceptable)
-   - Include value proposition, years of experience, key technologies
-   - Compelling call-to-action implied
-
-3. **Meta Keywords**: Comma-separated, relevant to expertise
-   - Include: technologies, job titles, specializations
-
-4. **Open Graph Tags** (All pages):
-   - `og:type`, `og:url`, `og:title`, `og:description`, `og:image`
-
-5. **Twitter Card Tags** (All pages):
-   - `twitter:card`, `twitter:url`, `twitter:title`, `twitter:description`, `twitter:image`
-
-6. **Canonical URL**: Every page must have canonical link
-
-7. **Hreflang Tags**: For multilingual pages
-   - `rel="alternate" hreflang="en"`
-   - `rel="alternate" hreflang="fr"`
-   - `rel="alternate" hreflang="x-default"`
-
-### Structured Data (Schema.org) - REQUIRED
-Every page must include appropriate structured data:
-
-1. **BreadcrumbList** (All pages)
-2. **Person** (Main pages)
-3. **FAQPage** (FAQ sections)
-4. **WebPage** (as mainEntityOfPage where applicable)
-
-Format: JSON-LD in `<script type="application/ld+json">` blocks
-
-### Technical SEO Requirements
-- ✅ Semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<article>`)
-- ✅ Proper heading hierarchy (H1 → H2 → H3, no skipping levels)
-- ✅ Descriptive alt text for all images
-- ✅ Clean URL structure (no query parameters)
-- ✅ XML Sitemap present and updated
-- ✅ robots.txt configured properly
-- ✅ Mobile-responsive (critical for SEO)
-
-### Performance SEO
-- Preconnect to external resources (fonts, APIs)
-- DNS prefetch for external domains
-- Image optimization (width/height attributes, lazy loading where appropriate)
-- Minimize render-blocking resources
-
-## Accessibility Standards (WCAG 2.1 AA Compliance)
-
-### Required Accessibility Features
-1. **Skip Links**: Every page must have skip-to-main-content link
-2. **ARIA Labels**: 
-   - Navigation: `aria-label="Breadcrumb"`
-   - Buttons: `aria-label` for icon-only buttons
-   - Decorative separators: `aria-hidden="true"`
-3. **Focus States**: All interactive elements must have visible focus indicators
-4. **Semantic HTML**: Use proper HTML5 semantic elements
-5. **Alt Text**: All images must have descriptive alt text
-6. **Language Attributes**: HTML `lang` attribute must match content language and update dynamically
-
-### Keyboard Navigation
-- All interactive elements must be keyboard accessible
-- Tab order should be logical
-- Focus indicators must be visible (2px outline minimum)
-
-### Color Contrast
-- Text must meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
-- Ensure contrast works in both light and dark themes
-
-## Multilingual Support Standards
-
-### Language Switching
-- Must support English (`en`) and French (`fr`)
-- Use `.lang-content` divs with `id="en"` and `id="fr"`
-- Language switching must update:
-  - HTML `lang` attribute
-  - `data-lang` attribute
-  - Active language content visibility
-  - localStorage persistence
-
-### Language Toggle UI
-- Flags/icons for visual language selection
-- Active language button must be clearly indicated
-- Both languages should have identical content structure
-
-## Code Style & Best Practices
-
-### HTML
-- Use semantic HTML5 elements
-- Indentation: 2 spaces (check existing files)
-- Quotes: Double quotes for attributes
-- Self-closing tags: No trailing slash (`<img>` not `<img />`)
-- Comments: Use `<!-- Comment -->` for HTML comments
-
-### CSS
-- Use CSS custom properties (variables) for colors and spacing
-- Follow BEM-like naming: `.component-element--modifier`
-- Mobile-first responsive design approach
-- Use `var(--variable-name)` for theme-aware properties
-- Group related styles together
-- Use `clamp()` for fluid typography where appropriate
-
-### JavaScript
-- Vanilla JavaScript (no frameworks required)
-- Use descriptive function names
-- Store user preferences in localStorage (language, theme)
-- Ensure graceful degradation (works without JS)
-- Use event delegation where appropriate
-
-### File Organization
+index.html                 # the portfolio
+pages/about.html           # career story
+about.html, learning.html  # redirect stubs (learning → home, noindex)
+pages/learning.html        # redirect stub → home, noindex
+assets/css/style.css       # the only stylesheet
+assets/js/main.js          # EN/FR switch
+assets/img/                # portrait, favicon
+docs/                      # CV PDF, this file, SEO-GUIDE.md, TODO.md
+llms.txt, profile.json     # machine-readable profile
+sitemap.xml, robots.txt
 ```
-/
-├── index.html (main page)
-├── about.html / learning.html (redirect stubs → pages/)
-├── pages/
-│   ├── about.html
-│   └── learning.html
-├── assets/
-│   ├── css/ (style.css, about.css, learning.css)
-│   ├── js/ (main.js, learning.js + one-off Python data scripts)
-│   ├── img/ (profile.jpeg, favicon.png)
-│   └── data/ (learning-data.json)
-├── docs/ (CV PDF, SEO-GUIDE.md, TODO.md, DESIGN-SYSTEM.md — this file)
-├── sitemap.xml
-└── robots.txt
-```
-
-## Image Standards
-
-### Image Requirements
-- Profile images: Always include `width` and `height` attributes
-- Above-fold images: `loading="eager"`
-- Below-fold images: Can use `loading="lazy"`
-- Alt text: Descriptive, include context (not just "image")
-- Format: JPEG for photos, PNG for icons/logos
-- Optimization: Compress images, consider WebP in future
-
-### Favicon
-- Multiple sizes: `favicon.png`, `favicon.ico`
-- Apple touch icon: `180x180` PNG
-- Theme color: `#faf9f7` (light) / `#121110` (dark) via media-scoped meta tags
-
-## Link Standards
-
-### External Links
-- Always include `rel="noopener noreferrer"` for `target="_blank"` links
-- Example: `<a href="https://..." target="_blank" rel="noopener noreferrer">`
-
-### Internal Links
-- Use relative paths for same-domain links
-- Use absolute URLs in structured data
-
-### Email Links
-- Format: `<a href="mailto:email@domain.com" aria-label="Descriptive label">`
-- Include ARIA labels for context
-
-## Content Standards
-
-### Professional Tone
-- Professional, confident, but not boastful
-- Focus on value delivered, not just tasks completed
-- Use metrics and achievements where possible
-- Clear value proposition in summary sections
-
-### Content Structure
-- Summary/Introduction: Clear value proposition
-- Experience: Chronological, focus on achievements
-- Skills: Organized by category (technical, soft skills)
-- Projects: Include context, technologies, achievements
-- Contact: Clear call-to-action
-
-## Theme Toggle Standards
-
-### Dark/Light Theme
-- Must support both light and dark themes
-- Use `data-theme="dark"` attribute on `<html>` element
-- Persist theme preference in localStorage
-- Respect system preference on first visit
-- Toggle button in header (sun/moon icons)
-
-## Validation & Quality Checklist
-
-Before marking any task complete, ensure:
-- [ ] All pages have proper meta tags (title, description, OG, Twitter)
-- [ ] Structured data is valid JSON-LD
-- [ ] Images have width/height attributes and descriptive alt text
-- [ ] All external links have `rel="noopener noreferrer"`
-- [ ] Skip link is present and functional
-- [ ] Focus states are visible for all interactive elements
-- [ ] Language switching updates HTML lang attribute
-- [ ] Mobile responsive (test at 480px, 768px breakpoints)
-- [ ] No console errors in browser
-- [ ] Semantic HTML structure maintained
-- [ ] CSS variables used (not hardcoded colors)
-- [ ] Dark/light theme works correctly
-
-## Performance Targets
-
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
-- Time to Interactive: < 3.5s
-- Lighthouse Performance Score: > 90
-
-## Common Patterns to Follow
-
-### Adding a New Section
-1. Add semantic HTML structure
-2. Use `.section` and `.section-content` classes
-3. Include proper heading hierarchy
-4. Add section ID for navigation
-5. Update sidebar navigation if needed
-6. Ensure responsive design
-7. Add structured data if appropriate
-
-### Adding a New Page
-1. Copy structure from existing page (index.html or about.html)
-2. Update meta tags (title, description, canonical)
-3. Add hreflang tags
-4. Add breadcrumb structured data
-5. Update sitemap.xml
-6. Ensure consistent navigation
-7. Test language switching
-
-### Modifying Styles
-1. Use CSS variables when possible
-2. Check both light and dark themes
-3. Test responsive breakpoints
-4. Maintain consistent spacing (use rem units)
-5. Use existing shadow/border utilities
-
-## AI Assistant Guidelines
-
-When working on this project:
-1. **Always maintain** the warm graphite + amber color scheme - amber is the only accent hue; never use blue/cold colors, and respect the Accent Usage Rules (no small amber text in light mode, no white text on amber)
-2. **Preserve** the professional, minimalist aesthetic
-3. **Follow** existing code patterns and structure
-4. **Check** both light and dark themes after changes
-5. **Test** responsive behavior at breakpoints
-6. **Validate** SEO requirements are met
-7. **Ensure** accessibility standards are maintained
-8. **Update** structured data when content changes
-9. **Use** CSS variables for all colors/spacing
-10. **Maintain** bilingual support if adding content
-
-## Notes for Future Development
-
-- Consider adding blog section (future)
-- Potential PWA features (manifest, service worker)
-- Image optimization: WebP format support
-- Consider adding RSS feed for blog (future)
-- Analytics integration ready (Google Analytics, GTM)
-- Search Console setup recommended
 
 ---
 
-**Last Updated**: 2026-06-12
-**Project Type**: Professional Portfolio Website
-**Primary Technologies**: HTML5, CSS3, Vanilla JavaScript
+**Last updated**: 2026-09-11

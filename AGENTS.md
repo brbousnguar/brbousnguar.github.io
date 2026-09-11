@@ -2,11 +2,10 @@
 
 ## Project Structure & Module Organization
 This is a static GitHub Pages portfolio site. Key paths:
-- `index.html`, `pages/about.html`, `pages/learning.html`: primary pages and content.
-- `assets/css/`: site styles (`style.css`, `about.css`, `learning.css`).
+- `index.html`, `pages/about.html`: the two pages. `learning.html` and `pages/learning.html` are noindex redirect stubs to home.
+- `assets/css/style.css`: the only stylesheet (Blueprint design system — see `docs/DESIGN-SYSTEM.md`).
 - `assets/img/`, `assets/icons/`: images, logos, and icons.
-- `assets/js/`: frontend scripts (learning filters, data utils).
-- `assets/data/`: data files (e.g., `learning-data.json`).
+- `assets/js/main.js`: the EN/FR switch. The `*.py` files beside it are legacy certificate-processing scripts, unused by the site.
 - SEO helpers: `sitemap.xml`, `robots.txt`.
 - Authoring tools: `tools/` (SEO helpers, favicon generator, setup guide).
 - Docs and PDFs: `docs/` (e.g., `Brahim_Bousnguar_CV.pdf`, guides).
@@ -24,8 +23,9 @@ There is no build step.
 
 ## Testing Guidelines
 No automated tests exist. Validate changes manually:
-- Open `index.html`, `pages/about.html`, and `pages/learning.html` locally.
-- Check language toggle, theme toggle, and sidebar anchors.
+- Open `index.html` and `pages/about.html` locally.
+- Check the EN/FR switch and that every nav anchor lands on a non-empty section in both languages.
+- Run the contrast + 320px reflow harness and Lighthouse listed in `docs/DESIGN-SYSTEM.md`. The site is light-only: never add a dark theme or rounded corners.
 - Verify links (especially `target="_blank"`) and images load.
 
 ## Commit & Pull Request Guidelines
