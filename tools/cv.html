@@ -4,181 +4,253 @@
   <meta charset="UTF-8">
   <title>Brahim Bousnguar — CV</title>
   <!--
-    CV source file. Not linked from the site.
-    To regenerate docs/Brahim_Bousnguar_CV.pdf, run from the repo root:
-    & "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --no-pdf-header-footer --print-to-pdf="docs\Brahim_Bousnguar_CV.pdf" "tools\cv.html"
-    Content mirrors profile.json — keep both in sync.
+    CV source file. Not linked from the site. Content mirrors profile.json;
+    visual language is the site's Blueprint system (docs/DESIGN-SYSTEM.md):
+    flat, hard-edged, rule-separated, ink + one cobalt accent, printed on white.
+
+    Regenerate docs/Brahim_Bousnguar_CV.pdf from the repo root (fonts load
+    from Google Fonts, so stay online and keep the virtual-time budget):
+
+    macOS:
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+        --no-pdf-header-footer --virtual-time-budget=10000 \
+        --print-to-pdf=docs/Brahim_Bousnguar_CV.pdf "file://$PWD/tools/cv.html"
+    Windows:
+      & "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --no-pdf-header-footer --virtual-time-budget=10000 --print-to-pdf="docs\Brahim_Bousnguar_CV.pdf" "tools\cv.html"
+
+    Must stay at two A4 pages.
   -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #d97706;
-      --accent-text: #92400e;
-      --accent-contrast: #1c1917;
-      --accent-light: #fdf0df;
-      --text-primary: #1c1917;
-      --text-secondary: #44403c;
-      --text-muted: #78716c;
-      --surface-light: #faf9f7;
-      --rule: #e7e2dc;
+      --ink: #131211;
+      --ink-2: #3a3833;
+      --muted: #5e5b55;
+      --rule: #d9d6ce;
+      --cobalt: #1446c8;
+      --font-display: "Archivo", "Hanken Grotesk", -apple-system, "Segoe UI", sans-serif;
+      --font-body: "Hanken Grotesk", -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
     }
 
-    @page {
-      size: A4;
-      margin: 13mm 14mm;
-    }
+    @page { size: A4; margin: 13mm 15mm; }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
-      color: var(--text-primary);
-      font-size: 9.5pt;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: #fff;
+      font-size: 9.4pt;
       line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
-    a { color: var(--accent-text); text-decoration: none; }
+    a { color: var(--cobalt); text-decoration: none; }
 
     /* ---------- Header ---------- */
     .cv-header {
-      border-bottom: 2.5px solid var(--accent);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2mm 8mm;
+      align-items: end;
+      border-bottom: 2px solid var(--ink);
       padding-bottom: 4mm;
-      margin-bottom: 5mm;
     }
 
     .cv-name {
-      font-size: 20pt;
+      font-family: var(--font-display);
+      font-size: 25pt;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
     }
 
     .cv-title {
+      font-family: var(--font-display);
       font-size: 12pt;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-top: 1mm;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 2mm;
     }
 
     .cv-kicker {
-      font-size: 9pt;
-      font-weight: 700;
-      color: var(--accent-text);
+      font-family: var(--font-mono);
+      font-size: 7.8pt;
+      font-weight: 500;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 1mm;
+      color: var(--muted);
+      margin-top: 1.2mm;
     }
 
     .cv-contact {
-      margin-top: 2.5mm;
-      font-size: 8.5pt;
-      color: var(--text-muted);
-    }
-
-    .cv-contact span + span::before {
-      content: " · ";
-      color: var(--accent);
-      font-weight: 700;
-      margin: 0 1mm;
+      font-family: var(--font-mono);
+      font-size: 7.8pt;
+      line-height: 1.6;
+      text-align: right;
+      color: var(--ink-2);
     }
 
     /* ---------- Sections ---------- */
+    section { margin-top: 5mm; }
+
     h2 {
-      font-size: 10.5pt;
-      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--text-primary);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 1mm;
-      margin: 5mm 0 2.5mm;
+      color: var(--muted);
+      padding-bottom: 1.4mm;
+      border-bottom: 1px solid var(--ink);
+      margin-bottom: 2.5mm;
     }
 
     h2::before {
       content: "";
-      display: inline-block;
-      width: 3mm;
-      height: 3mm;
-      background: var(--accent);
-      border-radius: 0.8mm;
-      margin-right: 2mm;
+      width: 2.4mm;
+      height: 2.4mm;
+      background: var(--cobalt);
+      flex-shrink: 0;
     }
 
-    .summary { color: var(--text-secondary); }
+    .summary { color: var(--ink-2); max-width: 170mm; }
 
     /* ---------- Experience ---------- */
-    .job { margin-bottom: 4mm; break-inside: avoid; }
-
-    .job-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 4mm;
+    .job {
+      display: grid;
+      grid-template-columns: 30mm 1fr;
+      gap: 0 5mm;
+      padding: 2.6mm 0 3mm;
+      border-bottom: 1px solid var(--rule);
+      break-inside: avoid;
     }
 
-    .job-role { font-size: 10.5pt; font-weight: 700; }
-    .job-org { color: var(--accent-text); font-weight: 600; }
+    .job:last-child { border-bottom: 0; }
 
     .job-dates {
-      font-size: 8.5pt;
-      font-weight: 600;
-      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 7.8pt;
+      color: var(--muted);
+      padding-top: 0.9mm;
+    }
+
+    .job-org {
+      font-family: var(--font-display);
+      font-size: 11.5pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .job-role { font-weight: 600; color: var(--ink-2); }
+
+    .job-summary { color: var(--muted); margin: 0.4mm 0 1.2mm; }
+
+    .job ul { list-style: none; }
+
+    .job li {
+      position: relative;
+      padding-left: 4mm;
+      margin-bottom: 0.5mm;
+      color: var(--ink-2);
+    }
+
+    .job li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 2.2mm;
+      height: 1.4px;
+      background: var(--ink);
+    }
+
+    /* ---------- Skills ---------- */
+    .skills { break-inside: avoid; }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 36mm 1fr;
+      gap: 0 5mm;
+      padding: 1.4mm 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .skill-row:last-child { border-bottom: 0; }
+
+    .skill-name {
+      font-family: var(--font-mono);
+      font-size: 7.4pt;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.5mm;
+    }
+
+    .skill-keywords { color: var(--ink); }
+
+    /* ---------- Credentials ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 0 9mm;
+      break-inside: avoid;
+    }
+
+    .cred {
+      display: grid;
+      grid-template-columns: 11mm 1fr auto;
+      gap: 0 3mm;
+      padding: 1.5mm 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cred:last-of-type { border-bottom: 0; }
+
+    .cred-year {
+      font-family: var(--font-mono);
+      font-size: 7.8pt;
+      font-weight: 500;
+      color: var(--cobalt);
+      padding-top: 0.4mm;
+    }
+
+    .cred-verify {
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      font-weight: 500;
+      padding-top: 0.5mm;
       white-space: nowrap;
     }
 
-    .job-summary {
-      color: var(--text-secondary);
-      font-style: italic;
-      margin: 0.5mm 0 1mm;
-    }
+    .note { margin-top: 2mm; font-size: 8.4pt; color: var(--muted); }
 
-    .job ul { padding-left: 4.5mm; }
-    .job li { margin-bottom: 0.6mm; color: var(--text-secondary); }
-    .job li::marker { color: var(--accent); }
-
-    /* ---------- Skills ---------- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5mm 6mm;
-    }
-
-    .skill-row { break-inside: avoid; }
-    .skill-name { font-weight: 700; font-size: 9pt; }
-    .skill-keywords { color: var(--text-secondary); font-size: 8.8pt; }
-
-    /* ---------- Certifications / education ---------- */
-    .cred { display: flex; justify-content: space-between; gap: 4mm; margin-bottom: 1.2mm; }
-    .cred-name { font-weight: 600; }
-    .cred-detail { color: var(--text-muted); font-size: 8.5pt; white-space: nowrap; }
-
-    .learning-note {
-      background: var(--accent-light);
-      color: var(--accent-contrast);
-      border-radius: 1.5mm;
-      padding: 2mm 3mm;
-      margin-top: 2mm;
-      font-size: 8.8pt;
-    }
-
-    .keep-together { break-inside: avoid; }
-
-    /* ---------- Footer line ---------- */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 8mm;
-    }
-
-    .langs { color: var(--text-secondary); }
+    .langs { color: var(--ink-2); }
+    .langs div { padding: 1.5mm 0; border-bottom: 1px solid var(--rule); }
+    .langs div:last-child { border-bottom: 0; }
   </style>
 </head>
 <body>
 
   <header class="cv-header">
-    <div class="cv-name">Brahim Bousnguar</div>
-    <div class="cv-title">Senior E-Commerce Integration Consultant</div>
-    <div class="cv-kicker">MuleSoft · Applied AI</div>
+    <div>
+      <div class="cv-name">Brahim Bousnguar</div>
+      <div class="cv-title">Senior E-Commerce Integration Consultant</div>
+      <div class="cv-kicker">SAP Commerce Cloud · MuleSoft · Salesforce · Applied AI</div>
+    </div>
     <div class="cv-contact">
-      <span>b.bousnguar@gmail.com</span><span>France</span><span>brbousnguar.github.io</span><span>linkedin.com/in/brahim-bousnguar</span><span>github.com/brbousnguar</span>
+      <a href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a><br>
+      Nantes, France<br>
+      <a href="https://brbousnguar.github.io/">brbousnguar.github.io</a><br>
+      <a href="https://www.linkedin.com/in/brahim-bousnguar/">linkedin.com/in/brahim-bousnguar</a><br>
+      <a href="https://github.com/brbousnguar">github.com/brbousnguar</a>
     </div>
   </header>
 
@@ -196,106 +268,127 @@
     <h2>Experience</h2>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-role">MuleSoft Integration Specialist — <span class="job-org">Roche Bobois</span></div>
-        <div class="job-dates">01/2025 – Present</div>
+      <div class="job-dates">01/2025 – Present</div>
+      <div>
+        <div class="job-org">Roche Bobois</div>
+        <div class="job-role">MuleSoft Integration Specialist</div>
+        <p class="job-summary">API design and integration on MuleSoft Anypoint Platform for a luxury furniture retailer.</p>
+        <ul>
+          <li>Designed reusable APIs with Anypoint Studio and Anypoint Code Builder following API-led connectivity principles</li>
+          <li>Developed complex DataWeave transformations for data mapping, enrichment, and orchestration</li>
+          <li>Built integration flows connecting the e-commerce platform with ERP, CRM, and third-party services</li>
+          <li>Integrated Salesforce CRM data flows with MuleSoft for end-to-end business process automation</li>
+          <li>Established API specifications, best practices, and governance standards for the integration team</li>
+          <li>Adopted AI-augmented development: GitHub Copilot, Ollama-based LLM CLI for commit/PR generation, Claude and OpenAI Codex CLI for code review</li>
+        </ul>
       </div>
-      <p class="job-summary">API design and integration on MuleSoft Anypoint Platform for a luxury furniture retailer.</p>
-      <ul>
-        <li>Designed reusable APIs with Anypoint Studio and Anypoint Code Builder following API-led connectivity principles</li>
-        <li>Developed complex DataWeave transformations for data mapping, enrichment, and orchestration</li>
-        <li>Built integration flows connecting the e-commerce platform with ERP, CRM, and third-party services</li>
-        <li>Integrated Salesforce CRM data flows with MuleSoft for end-to-end business process automation</li>
-        <li>Established API specifications, best practices, and governance standards for the integration team</li>
-        <li>Adopted AI-augmented development: GitHub Copilot, Ollama-based LLM CLI for commit/PR generation, Claude and OpenAI Codex CLI for code review</li>
-      </ul>
     </div>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-role">Senior SAP Commerce Cloud Consultant — <span class="job-org">Miele</span></div>
-        <div class="job-dates">01/2022 – 12/2024</div>
+      <div class="job-dates">01/2022 – 12/2024</div>
+      <div>
+        <div class="job-org">Miele</div>
+        <div class="job-role">Senior SAP Commerce Cloud Consultant</div>
+        <p class="job-summary">Cloud-native e-commerce platform optimization and microservices architecture.</p>
+        <ul>
+          <li>Optimized OCC REST APIs for performance and scalability in a global B2C platform</li>
+          <li>Designed microservices on SAP BTP Kyma (Kubernetes)</li>
+          <li>Led cloud-native migration from on-premise to SAP Commerce Cloud (CCv2) with zero-downtime deployment</li>
+          <li>Implemented CI/CD pipelines with Jenkins; built integration layers to PIM, OMS, and payment gateways</li>
+          <li>Mentored the team on agile practices, microservices patterns, and API design</li>
+        </ul>
       </div>
-      <p class="job-summary">Cloud-native e-commerce platform optimization and microservices architecture.</p>
-      <ul>
-        <li>Optimized OCC REST APIs for performance and scalability in a global B2C platform</li>
-        <li>Designed microservices on SAP BTP Kyma (Kubernetes)</li>
-        <li>Led cloud-native migration from on-premise to SAP Commerce Cloud (CCv2) with zero-downtime deployment</li>
-        <li>Implemented CI/CD pipelines with Jenkins; built integration layers to PIM, OMS, and payment gateways</li>
-        <li>Mentored the team on agile practices, microservices patterns, and API design</li>
-      </ul>
     </div>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-role">Technical Lead — SAP Commerce Cloud — <span class="job-org">BYK</span></div>
-        <div class="job-dates">08/2018 – 12/2021</div>
+      <div class="job-dates">08/2018 – 12/2021</div>
+      <div>
+        <div class="job-org">BYK</div>
+        <div class="job-role">Technical Lead — SAP Commerce Cloud</div>
+        <p class="job-summary">Enterprise B2B multi-country platform migration and integration across 15+ countries.</p>
+        <ul>
+          <li>Led architecture and migration from SAP Hybris 6.7 to Commerce Cloud CCv2 for a multi-country B2B platform</li>
+          <li>Designed integrations with SAP ERP, third-party logistics, and payment providers</li>
+          <li>Implemented custom OCC APIs for headless commerce</li>
+          <li>Performance optimization and technical SEO driving organic traffic growth</li>
+          <li>Mentored junior developers on SAP Commerce, Spring, and integration patterns</li>
+        </ul>
       </div>
-      <p class="job-summary">Enterprise B2B multi-country platform migration and integration across 15+ countries.</p>
-      <ul>
-        <li>Led architecture and migration from SAP Hybris 6.7 to Commerce Cloud CCv2 for a multi-country B2B platform</li>
-        <li>Designed integrations with SAP ERP, third-party logistics, and payment providers</li>
-        <li>Implemented custom OCC APIs for headless commerce</li>
-        <li>Performance optimization and technical SEO driving organic traffic growth</li>
-        <li>Mentored junior developers on SAP Commerce, Spring, and integration patterns</li>
-      </ul>
     </div>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-role">SAP Hybris Integration Specialist — <span class="job-org">SEB Group</span></div>
-        <div class="job-dates">07/2016 – 07/2018</div>
+      <div class="job-dates">07/2016 – 07/2018</div>
+      <div>
+        <div class="job-org">SEB Group</div>
+        <div class="job-role">SAP Hybris Integration Specialist</div>
+        <p class="job-summary">Multi-brand e-commerce platform integration.</p>
+        <ul>
+          <li>Integrated international brands (All-Clad, Seb.fr, Krups) into a unified SAP Hybris core platform</li>
+          <li>Implemented Vertex tax engine integration for multi-jurisdiction compliance</li>
+          <li>Built Salesforce CRM integration with OAuth2 SSO</li>
+          <li>Established reusable integration patterns for future brand onboarding</li>
+        </ul>
       </div>
-      <p class="job-summary">Multi-brand e-commerce platform integration.</p>
-      <ul>
-        <li>Integrated international brands (All-Clad, Seb.fr, Krups) into a unified SAP Hybris core platform</li>
-        <li>Implemented Vertex tax engine integration for multi-jurisdiction compliance</li>
-        <li>Built Salesforce CRM integration with OAuth2 SSO</li>
-        <li>Established reusable integration patterns for future brand onboarding</li>
-      </ul>
     </div>
   </section>
 
-  <section class="keep-together">
+  <section class="skills">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-row"><span class="skill-name">E-Commerce Platforms:</span> <span class="skill-keywords">SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</span></div>
-      <div class="skill-row"><span class="skill-name">Integration &amp; APIs:</span> <span class="skill-keywords">MuleSoft Anypoint Platform, Salesforce, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</span></div>
-      <div class="skill-row"><span class="skill-name">Languages &amp; Frameworks:</span> <span class="skill-keywords">Java 17, Spring Boot, Spring Security, Spring Integration, JavaScript, Microservices Architecture</span></div>
-      <div class="skill-row"><span class="skill-name">DevOps &amp; Cloud:</span> <span class="skill-keywords">Jenkins, Docker, Kubernetes, CI/CD Pipelines, SAP BTP</span></div>
-      <div class="skill-row"><span class="skill-name">Databases:</span> <span class="skill-keywords">MySQL, SAP HANA, PostgreSQL</span></div>
-      <div class="skill-row"><span class="skill-name">AI &amp; Dev Tools:</span> <span class="skill-keywords">GitHub Copilot, Ollama (local &amp; cloud LLMs), Claude (Anthropic), OpenAI Codex CLI</span></div>
-    </div>
+    <div class="skill-row"><span class="skill-name">E-Commerce</span><span class="skill-keywords">SAP Commerce Cloud (Hybris), CCv2, OCC APIs, Spartacus, SAP BTP Kyma</span></div>
+    <div class="skill-row"><span class="skill-name">Integration &amp; APIs</span><span class="skill-keywords">MuleSoft Anypoint Platform, Salesforce, DataWeave, API-led Connectivity, RAML, OAS/Swagger, REST, SOAP</span></div>
+    <div class="skill-row"><span class="skill-name">Languages &amp; Frameworks</span><span class="skill-keywords">Java 17, Spring Boot, Spring Security, Spring Integration, JavaScript, Microservices Architecture</span></div>
+    <div class="skill-row"><span class="skill-name">DevOps &amp; Cloud</span><span class="skill-keywords">Jenkins, Docker, Kubernetes, CI/CD Pipelines, SAP BTP</span></div>
+    <div class="skill-row"><span class="skill-name">Databases</span><span class="skill-keywords">MySQL, SAP HANA, PostgreSQL</span></div>
+    <div class="skill-row"><span class="skill-name">AI &amp; Dev Tools</span><span class="skill-keywords">GitHub Copilot, Ollama (local &amp; cloud LLMs), Claude (Anthropic), OpenAI Codex CLI, Model Context Protocol (MCP)</span></div>
+    <div class="skill-row"><span class="skill-name">Personal Projects</span><span class="skill-keywords">Python, TypeScript, FastAPI, React, SQLite</span></div>
   </section>
 
   <div class="two-col">
     <section>
       <h2>Certifications</h2>
       <div class="cred">
-        <span class="cred-name">SAP Certified Development Professional — SAP Commerce Cloud Developer</span>
-        <span class="cred-detail">SAP, 2023</span>
+        <span class="cred-year">2026</span>
+        <span>SAP Certified — Solution Architect — SAP Customer Experience</span>
+        <a class="cred-verify" href="https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f">Verify ↗</a>
       </div>
       <div class="cred">
-        <span class="cred-name">SAP Certified Associate — SAP Hybris Commerce Business Analyst 6.3</span>
-        <span class="cred-detail">SAP, 2018</span>
+        <span class="cred-year">2026</span>
+        <span>SAP Certified — Positioning SAP Business Suite via SAP Customer Experience Solutions</span>
+        <a class="cred-verify" href="https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2">Verify ↗</a>
       </div>
-      <div class="learning-note">
-        <strong>Continuous learning:</strong> 411+ certificates across 11 domains (2023–2026).
-        Current focus: agentic AI, Model Context Protocol (MCP), and AI orchestration —
-        full browser at <a href="https://brbousnguar.github.io/pages/learning.html">brbousnguar.github.io/pages/learning.html</a>.
+      <div class="cred">
+        <span class="cred-year">2024</span>
+        <span>SAP Certified Associate — Business User — SAP Commerce Cloud</span>
+        <a class="cred-verify" href="https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b">Verify ↗</a>
       </div>
+      <div class="cred">
+        <span class="cred-year">2023</span>
+        <span>SAP Certified Development Professional — SAP Commerce Cloud Developer</span>
+        <span></span>
+      </div>
+      <div class="cred">
+        <span class="cred-year">2018</span>
+        <span>SAP Certified Associate — SAP Hybris Commerce Business Analyst 6.3</span>
+        <span></span>
+      </div>
+      <p class="note">Currently preparing MuleSoft Anypoint Platform certifications · <a href="https://www.credly.com/users/brahim-bousnguar">credly.com/users/brahim-bousnguar</a></p>
     </section>
 
     <section>
       <h2>Education</h2>
       <div class="cred">
-        <span class="cred-name">State Engineer, Computer Science &amp; Business Intelligence</span>
-        <span class="cred-detail">2015</span>
+        <span class="cred-year">2015</span>
+        <span>State Engineer, Computer Science &amp; Business Intelligence — INSEA, Rabat</span>
+        <span></span>
       </div>
-      <p class="skill-keywords">INSEA, Rabat</p>
 
-      <h2>Languages</h2>
-      <p class="langs">French — Professional<br>English — Professional</p>
+      <section>
+        <h2>Languages</h2>
+        <div class="langs">
+          <div>French — Professional</div>
+          <div>English — Professional</div>
+        </div>
+      </section>
     </section>
   </div>
 
