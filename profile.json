@@ -196,22 +196,6 @@
       "type": "open-source"
     },
     {
-      "name": "E-Commerce Backend (Spring)",
-      "description": "Production-ready Spring Boot 3 e-commerce backend with JWT authentication and OpenAPI documentation.",
-      "keywords": ["Java", "Spring Boot", "JWT", "OpenAPI"],
-      "roles": ["Creator"],
-      "url": "https://github.com/brbousnguar/ecommerce-backend-spring",
-      "type": "open-source"
-    },
-    {
-      "name": "Ollama Benchmarking",
-      "description": "Benchmark and compare locally hosted LLMs across Ollama, Foundry Local, and different hardware.",
-      "keywords": ["Python", "Ollama", "Benchmarking"],
-      "roles": ["Creator"],
-      "url": "https://github.com/brbousnguar/ollama-benchmarking",
-      "type": "open-source"
-    },
-    {
       "name": "AI Models Costs",
       "description": "Static React dashboard for comparing AI model API pricing across providers and modalities.",
       "keywords": ["TypeScript", "React"],
