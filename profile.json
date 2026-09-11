@@ -196,14 +196,6 @@
       "type": "open-source"
     },
     {
-      "name": "DataWeave Exercises",
-      "description": "Practical DataWeave language exercises and examples for MuleSoft Anypoint integration.",
-      "keywords": ["DataWeave", "MuleSoft"],
-      "roles": ["Creator"],
-      "url": "https://github.com/brbousnguar/dataweave-exercises",
-      "type": "open-source"
-    },
-    {
       "name": "Ollama Benchmarking",
       "description": "Benchmark and compare locally hosted LLMs across Ollama, Foundry Local, and different hardware.",
       "keywords": ["Python", "Ollama", "Benchmarking"],
