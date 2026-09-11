@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Get Report
         run: |
           npm install -g lighthouse
-          lighthouse https://brbousnguar.github.io/my-portfolio/ --chrome-flags="--headless" --output="json" --output-path="./report.json"
+          lighthouse https://brbousnguar.github.io/ --chrome-flags="--headless" --output="json" --output-path="./report.json"
           cat ./report.json

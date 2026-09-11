@@ -147,10 +147,14 @@ about.html, learning.html  # redirect stubs (learning → home, noindex)
 pages/learning.html        # redirect stub → home, noindex
 assets/css/style.css       # the only stylesheet
 assets/js/main.js          # EN/FR switch
-assets/img/                # portrait, favicon
-docs/                      # CV PDF, this file, SEO-GUIDE.md, TODO.md
+assets/img/                # portrait, favicon set
+favicon.ico                # 16/32/48 BB mark
+docs/                      # CV PDF (generated), this file, SEO-GUIDE.md, TODO.md
+tools/cv.html              # CV print source
+tools/make_favicons.py     # favicon generator
 llms.txt, profile.json     # machine-readable profile
 sitemap.xml, robots.txt
+CHANGELOG.md, changelog/unreleased/   # collated log + one fragment per PR
 ```
 
 ---
