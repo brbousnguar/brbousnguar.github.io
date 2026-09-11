@@ -741,7 +741,7 @@ html[data-lang="fr"] .lang-switch [data-set-lang="fr"] {
 
 .creds li {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr) auto;
   gap: 12px;
   padding-block: 14px;
   border-bottom: 1px solid var(--rule);
@@ -749,6 +749,14 @@ html[data-lang="fr"] .lang-switch [data-set-lang="fr"] {
 }
 
 .creds .mono { font-size: 13px; color: var(--cobalt); font-weight: 500; padding-top: 2px; }
+
+.creds-verify {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 3px;
+  white-space: nowrap;
+}
 
 .creds-note { margin-top: 14px; font-size: 15px; color: var(--muted); }
 
@@ -758,6 +766,8 @@ html[data-lang="fr"] .lang-switch [data-set-lang="fr"] {
 
 @media (max-width: 480px) {
   .stack div { grid-template-columns: minmax(0, 1fr); }
+  .creds li { grid-template-columns: 52px minmax(0, 1fr); row-gap: 4px; }
+  .creds-verify { grid-column: 2; padding-top: 0; }
 }
 
 /* ── Contact band + footer (the one ink block) ───────────────────────── */

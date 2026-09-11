@@ -22,6 +22,11 @@
         "network": "GitHub",
         "username": "brbousnguar",
         "url": "https://github.com/brbousnguar"
+      },
+      {
+        "network": "Credly",
+        "username": "brahim-bousnguar",
+        "url": "https://www.credly.com/users/brahim-bousnguar"
       }
     ]
   },
@@ -95,17 +100,20 @@
     {
       "name": "SAP Certified — Solution Architect — SAP Customer Experience",
       "date": "2026-03",
-      "issuer": "SAP"
+      "issuer": "SAP",
+      "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f"
     },
     {
       "name": "SAP Certified — Positioning SAP Business Suite via SAP Customer Experience Solutions",
       "date": "2026-02",
-      "issuer": "SAP"
+      "issuer": "SAP",
+      "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2"
     },
     {
       "name": "SAP Certified Associate — Business User — SAP Commerce Cloud",
       "date": "2024-03",
-      "issuer": "SAP"
+      "issuer": "SAP",
+      "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b"
     },
     {
       "name": "SAP Certified Development Professional — SAP Commerce Cloud Developer",
