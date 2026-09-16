@@ -98,6 +98,12 @@
   ],
   "certificates": [
     {
+      "name": "GitHub Copilot (GH-300)",
+      "date": "2026-09",
+      "issuer": "Microsoft / GitHub",
+      "url": "https://learn.microsoft.com/en-us/users/brahimbousnguar-7690/credentials/certification/github-copilot?tab=credentials-tab"
+    },
+    {
       "name": "SAP Certified — Solution Architect — SAP Customer Experience",
       "date": "2026-03",
       "issuer": "SAP",
