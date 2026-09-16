@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://brbousnguar.github.io/sitemap.xml
+Sitemap: https://heybrahim.com/sitemap.xml
 
 # Allow search engines to crawl all content
 Crawl-delay: 1

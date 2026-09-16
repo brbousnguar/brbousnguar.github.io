@@ -12,13 +12,13 @@ Key facts:
 
 ## Pages
 
-- [Portfolio home](https://brbousnguar.github.io/): hero, integration diagram (SAP Commerce Cloud → MuleSoft → Salesforce/ERP), client case studies (Problem/Built/Result), side projects and open source, experience, stack, certifications, contact. English and French content both present in the page.
-- [About](https://brbousnguar.github.io/pages/about.html): career story, timeline, current focus and what comes next.
+- [Portfolio home](https://heybrahim.com/): hero, integration diagram (SAP Commerce Cloud → MuleSoft → Salesforce/ERP), client case studies (Problem/Built/Result), side projects and open source, experience, stack, certifications, contact. English and French content both present in the page.
+- [About](https://heybrahim.com/pages/about.html): career story, timeline, current focus and what comes next.
 
 ## Machine-readable
 
-- [profile.json](https://brbousnguar.github.io/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
-- [CV PDF](https://brbousnguar.github.io/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
+- [profile.json](https://heybrahim.com/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
+- [CV PDF](https://heybrahim.com/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
 
 ## Contact
 
