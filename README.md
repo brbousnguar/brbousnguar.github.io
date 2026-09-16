@@ -1,7 +1,7 @@
 # brbousnguar.github.io
 
 **Portfolio of Brahim Bousnguar — Senior E-Commerce Integration Consultant (SAP Commerce Cloud, MuleSoft Anypoint, Salesforce).**
-A static, bilingual (EN/FR) GitHub Pages site with no build step, served from `main` at **[brbousnguar.github.io](https://brbousnguar.github.io/)**.
+A static, bilingual (EN/FR) GitHub Pages site with no build step, served from `main` at **[brbousnguar.github.io](https://heybrahim.com/)**.
 
 ---
 

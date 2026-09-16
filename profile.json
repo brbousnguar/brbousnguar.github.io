@@ -4,8 +4,8 @@
     "name": "Brahim Bousnguar",
     "label": "Senior E-Commerce Integration Consultant",
     "email": "b.bousnguar@gmail.com",
-    "url": "https://brbousnguar.github.io/",
-    "image": "https://brbousnguar.github.io/assets/img/profile.jpeg",
+    "url": "https://heybrahim.com/",
+    "image": "https://heybrahim.com/assets/img/profile.jpeg",
     "summary": "Senior E-Commerce Integration Consultant with 9+ years bridging enterprise e-commerce platforms with modern API-led integration. Deep SAP Commerce Cloud expertise, production-grade MuleSoft Anypoint proficiency, and growing Salesforce ecosystem confidence. Applies AI-augmented development workflows (GitHub Copilot, Ollama, Claude, OpenAI Codex CLI) daily. Also builds independent AI-tooling and Model Context Protocol (MCP) projects, and contributes fixes upstream to open-source projects such as CopilotKit and Open WebUI.",
     "location": {
       "countryCode": "FR",
@@ -228,7 +228,7 @@
     }
   ],
   "meta": {
-    "canonical": "https://brbousnguar.github.io/profile.json",
+    "canonical": "https://heybrahim.com/profile.json",
     "lastModified": "2026-09-11"
   }
 }
