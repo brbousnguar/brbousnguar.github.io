@@ -13,6 +13,17 @@
 - **Social media preview**: Professional image and descriptions
 
 ### 3. Structured Data (JSON-LD)
+Each page carries one `@graph` whose nodes link by `@id` (#41):
+
+| Node | `@id` | Notes |
+|---|---|---|
+| `Person` | `https://heybrahim.com/#person` | Identical on every page: name, image, address (Nantes), languages, occupation, `sameAs`, credentials |
+| `WebSite` | `https://heybrahim.com/#website` | `publisher` and `about` → `#person` |
+| Page (`ProfilePage`, `AboutPage`, later `Article`…) | `<page url>#webpage` | `isPartOf` → `#website`, `mainEntity`/`about` → `#person` |
+| `BreadcrumbList` | `<page url>#breadcrumb` | Linked from the page node |
+
+Search engines and AI answer engines use this graph to resolve "who is Brahim Bousnguar" to one entity. Add new profiles to `sameAs` on every page when they exist. Validate with https://search.google.com/test/rich-results and https://validator.schema.org/.
+
 - **Person schema**: Rich snippets for search engines
 - **Professional credentials**: SAP certifications highlighted
 - **Contact information**: Structured for search engines
