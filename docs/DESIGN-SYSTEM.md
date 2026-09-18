@@ -106,7 +106,8 @@ note, actions, portrait) · facts strip · section head · integration flow ·
 case row · project index row · upstream line · experience row · stack list ·
 credentials list (with Credly "Verify" links) · contact band (headline, email, one-line summary) + footer · about page intro · prose row ·
 timeline · note page (contents aside, topic chips, TL;DR, code block,
-table) · notes index row.
+table) · notes index row · project page (the note layout with an "At a glance" facts list and
+square outline link buttons; facts come first on a phone).
 
 ### Notes
 

@@ -3,32 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notes on MuleSoft, SAP Commerce and AI-augmented engineering | Brahim Bousnguar</title>
-  <meta name="description" content="Technical notes by Brahim Bousnguar on MuleSoft Anypoint, SAP Commerce Cloud, Salesforce integration, MCP servers and AI-augmented engineering — problems solved on real projects.">
+  <title>MacBook MCP Server — Ask Claude how your Mac is doing | Brahim Bousnguar</title>
+  <meta name="description" content="A small Python MCP server that exposes a MacBook&#x27;s CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale.">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Brahim Bousnguar">
   <meta property="og:locale" content="en_US">
-  <meta property="og:url" content="https://heybrahim.com/notes/">
-  <meta property="og:title" content="Notes on MuleSoft, SAP Commerce and AI-augmented engineering | Brahim Bousnguar">
-  <meta property="og:description" content="Technical notes by Brahim Bousnguar on MuleSoft Anypoint, SAP Commerce Cloud, Salesforce integration, MCP servers and AI-augmented engineering — problems solved on real projects.">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:url" content="https://heybrahim.com/projects/macbook-mcp-server.html">
+  <meta property="og:title" content="MacBook MCP Server — Ask Claude how your Mac is doing | Brahim Bousnguar">
+  <meta property="og:description" content="A small Python MCP server that exposes a MacBook&#x27;s CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale.">
   <meta property="og:image" content="https://heybrahim.com/assets/img/og-card.png?v=1">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Brahim Bousnguar — Senior E-Commerce Integration Consultant: SAP Commerce Cloud, MuleSoft and Salesforce. heybrahim.com">
+  <link rel="alternate" type="text/markdown" href="/projects/macbook-mcp-server.md">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Notes on MuleSoft, SAP Commerce and AI-augmented engineering | Brahim Bousnguar">
-  <meta name="twitter:description" content="Technical notes by Brahim Bousnguar on MuleSoft Anypoint, SAP Commerce Cloud, Salesforce integration, MCP servers and AI-augmented engineering — problems solved on real projects.">
+  <meta name="twitter:title" content="MacBook MCP Server — Ask Claude how your Mac is doing | Brahim Bousnguar">
+  <meta name="twitter:description" content="A small Python MCP server that exposes a MacBook&#x27;s CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale.">
   <meta name="twitter:image" content="https://heybrahim.com/assets/img/og-card.png?v=1">
   <meta name="twitter:image:alt" content="Brahim Bousnguar — Senior E-Commerce Integration Consultant: SAP Commerce Cloud, MuleSoft and Salesforce. heybrahim.com">
 
   <meta name="author" content="Brahim Bousnguar">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://heybrahim.com/notes/">
+  <link rel="canonical" href="https://heybrahim.com/projects/macbook-mcp-server.html">
+  <link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/macbook-mcp-server.html">
+  <link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/macbook-mcp-server.html">
+  <link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/macbook-mcp-server.html">
   <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
 
   <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
@@ -179,25 +184,25 @@
         }
       },
       {
-        "@type": "CollectionPage",
-        "@id": "https://heybrahim.com/notes/#webpage",
-        "url": "https://heybrahim.com/notes/",
-        "name": "Notes on MuleSoft, SAP Commerce and AI-augmented engineering | Brahim Bousnguar",
-        "description": "Technical notes by Brahim Bousnguar on MuleSoft Anypoint, SAP Commerce Cloud, Salesforce integration, MCP servers and AI-augmented engineering — problems solved on real projects.",
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/projects/macbook-mcp-server.html#webpage",
+        "url": "https://heybrahim.com/projects/macbook-mcp-server.html",
+        "name": "MacBook MCP Server",
+        "description": "A small Python MCP server that exposes a MacBook's CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale.",
         "inLanguage": "en",
         "isPartOf": {
           "@id": "https://heybrahim.com/#website"
         },
         "breadcrumb": {
-          "@id": "https://heybrahim.com/notes/#breadcrumb"
+          "@id": "https://heybrahim.com/projects/macbook-mcp-server.html#breadcrumb"
         },
         "mainEntity": {
-          "@id": "https://heybrahim.com/notes/#blog"
+          "@id": "https://heybrahim.com/projects/macbook-mcp-server.html#software"
         }
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://heybrahim.com/notes/#breadcrumb",
+        "@id": "https://heybrahim.com/projects/macbook-mcp-server.html#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -208,29 +213,41 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Notes",
-            "item": "https://heybrahim.com/notes/"
+            "name": "Projects",
+            "item": "https://heybrahim.com/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "MacBook MCP Server",
+            "item": "https://heybrahim.com/projects/macbook-mcp-server.html"
           }
         ]
       },
       {
-        "@type": "Blog",
-        "@id": "https://heybrahim.com/notes/#blog",
-        "name": "Notes — Brahim Bousnguar",
-        "url": "https://heybrahim.com/notes/",
-        "inLanguage": "en",
+        "@type": "SoftwareSourceCode",
+        "@id": "https://heybrahim.com/projects/macbook-mcp-server.html#software",
+        "name": "MacBook MCP Server",
+        "description": "A small Python MCP server that exposes a MacBook's CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale.",
+        "codeRepository": "https://github.com/brbousnguar/macbook-mcp-server",
+        "programmingLanguage": [
+          "Python",
+          "MCP SDK"
+        ],
+        "license": "Apache-2.0",
         "author": {
           "@id": "https://heybrahim.com/#person"
         },
-        "blogPost": [
-          {
-            "@type": "TechArticle",
-            "@id": "https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html#article",
-            "headline": "The official MuleSoft MCP server can't read your logs, so I built one that can",
-            "url": "https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html",
-            "datePublished": "2026-09-18"
-          }
-        ]
+        "creator": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "dateCreated": "2026-03-26",
+        "dateModified": "2026-03-26",
+        "url": "https://heybrahim.com/projects/macbook-mcp-server.html",
+        "sameAs": [
+          "https://github.com/brbousnguar/macbook-mcp-server"
+        ],
+        "inLanguage": "en"
       }
     ]
   }
@@ -247,43 +264,56 @@
       </a>
       <nav class="site-nav" aria-label="Main">
         <a href="/#work">Work</a>
-        <a href="/#projects">Projects</a>
+        <a href="/#projects" aria-current="page">Projects</a>
         <a href="/#experience">Experience</a>
         <a href="/#stack" class="nav-optional">Stack</a>
         <a href="/pages/about.html">About</a>
-        <a href="/notes/" aria-current="page">Notes</a>
+        <a href="/notes/">Notes</a>
         <a href="#contact">Contact</a>
       </nav>
       <nav class="lang-switch" aria-label="Language / Langue">
-        <a href="/notes/" hreflang="en" lang="en" aria-current="true" aria-label="English">EN</a>
-        <a href="/fr/" hreflang="fr" lang="fr" aria-label="Site en français">FR</a>
+        <a href="/projects/macbook-mcp-server.html" hreflang="en" lang="en" aria-current="true" aria-label="English">EN</a>
+        <a href="/fr/projets/macbook-mcp-server.html" hreflang="fr" lang="fr" aria-label="Français">FR</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
 
-    <section class="page-intro">
-      <div class="wrap">
-        <p class="eyebrow">Notes</p>
-        <h1>Notes from the integration layer.</h1>
-        <p class="hero-lede">Stuff I build and figure out. MuleSoft, SAP Commerce, Salesforce, and a lot of AI tooling on the side.</p>
-        <p class="note-feed mono"><a href="/notes/feed.xml">Atom feed</a> · written in English</p>
-      </div>
-    </section>
+    <article class="project" aria-labelledby="project-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/#projects">Side project</a></p>
+          <h1 id="project-title">MacBook MCP Server</h1>
+          <p class="hero-lede">Ask Claude how your Mac is doing</p>
+        </div>
+      </header>
 
-    <div class="wrap">
-      <ol class="note-list">
-          <li class="note-row">
-            <time class="mono" datetime="2026-09-18">18 Sep 2026</time>
-            <div>
-              <h2><a href="/notes/mulewatch-anypoint-logs-mcp.html">The official MuleSoft MCP server can&#x27;t read your logs, so I built one that can</a></h2>
-              <p>mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs. The trick is finding the right replica in the Monitoring Archive in one call instead of hundreds.</p>
-              <p class="note-row-meta mono">MuleSoft · Anypoint Platform · MCP · observability · 4 min read</p>
-            </div>
-          </li>
-      </ol>
-    </div>
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="At a glance">
+          <p class="note-aside-title mono">At a glance</p>
+          <dl class="project-facts"><div><dt>Status</dt><dd>Working, personal use</dd></div><div><dt>Stack</dt><dd>Python · MCP SDK</dd></div><div><dt>License</dt><dd>Apache-2.0</dd></div></dl>
+          <ul class="project-links"><li><a href="https://github.com/brbousnguar/macbook-mcp-server" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>A small MCP server that lets Claude check on a Mac: CPU, memory, disk, battery, network, GPU, and the processes eating the most CPU or RAM. Ask "why is my fan so loud?" and it can actually look.</p>
+<h2 id="what-it-exposes">What it exposes</h2>
+<p>Tools:</p>
+<ul><li><code>get_system_overview</code></li><li><code>get_disk_usage</code></li><li><code>get_battery</code></li><li><code>get_network</code></li><li><code>get_gpu</code></li><li><code>get_top_resource_processes</code></li></ul>
+<p>And one resource, <code>status://system/overview</code>, for clients that read resources instead of calling tools.</p>
+<h2 id="local-or-remote">Local or remote</h2>
+<p>On the same machine, run it over <code>stdio</code> and add it to Claude Desktop. That's the simple path.</p>
+<p>For a Mac you want to check from somewhere else, it also speaks streamable HTTP:</p>
+<pre data-lang="bash"><code>PYTHONPATH=src MCP_TRANSPORT=streamable-http MCP_HOST=127.0.0.1 MCP_PORT=8765 python3 -m macbook_status_mcp.server</code></pre>
+<p>Don't put that on the public internet. The MCP spec itself warns about DNS rebinding for remote HTTP servers. Keep it private on Tailscale, bound to the Tailscale IP, with the optional bearer token (<code>MCP_SHARED_TOKEN</code>). A <code>launchd</code> template keeps it running after a reboot.</p>
+<h2 id="why-plain-python">Why plain Python</h2>
+<p>Machine monitoring is a code problem, not a workflow problem, so this uses the native Python MCP SDK. Alerting through something like n8n can sit on top later.</p>
+          <p class="note-source mono">Plain text: <a href="/projects/macbook-mcp-server.md">macbook-mcp-server.md</a> · <a href="/#projects">All projects</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="wrap">
