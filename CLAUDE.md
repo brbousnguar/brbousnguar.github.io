@@ -22,10 +22,10 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The portfolio: hero, facts strip, integration flow, client cases, side projects, experience, stack, credentials, contact |
-| `pages/about.html` | Career story, timeline, current focus, what's next |
+| `index.html` | English home (`/`) — the portfolio: hero, facts strip, integration flow, client cases, side projects, experience, stack, credentials, contact |
+| `pages/about.html` | English About — career story, timeline, current focus, what's next |
+| `fr/index.html`, `fr/a-propos.html` | French counterparts at `/fr/` and `/fr/a-propos.html` |
 | `assets/css/style.css` | The only stylesheet (Blueprint design system) |
-| `assets/js/main.js` | EN/FR switch — the only runtime script |
 | `llms.txt`, `profile.json` | Machine-readable profile for AI agents; linked from the footer |
 | `sitemap.xml` | Update when pages are added or removed |
 | `robots.txt` | Search crawler directives, with an explicit AI-crawler allowlist |
@@ -39,12 +39,11 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 
 ## Architecture: Bilingual System
 
-Every user-visible section must exist in **both English and French**, and the page ships **both copies in the DOM at once** — the toggle changes which is visible, it does not load content. There are two layers:
+**One language per URL.** English lives at `/` and `/pages/about.html`; French at `/fr/` and `/fr/a-propos.html`. Each page has one `lang`, one `<h1>`, its own title/description/OG tags (FR pages use `og-card-fr.png` and `og:locale` `fr_FR`), a self-canonical, and reciprocal `hreflang` links (`en`, `fr`, `x-default` → English). There is no runtime script and no `localStorage`: the header's EN/FR switch is two plain links to the counterpart page (`aria-current` marks the active one), so crawlers see both versions and nothing auto-redirects.
 
-1. **Wrapper level:** the entire EN body lives in `<div id="en" class="lang-content">` and the FR body in `<div id="fr" class="lang-content">`. The inline pre-paint script sets `data-lang` on `<html>` from `localStorage` (`language`), and CSS shows `#en` or `#fr` from that attribute — visibility needs no JS. `setLanguage(lang)` in `main.js` flips the attribute and persists it. Short strings outside the wrappers (nav, skip link) use `.t-en` / `.t-fr` spans.
-2. **Section level:** matching sections are mirrored by ID suffix — `work` / `work-fr`, `contact` / `contact-fr`, etc. Nav links carry `data-target="<base id>"`; `main.js` rewrites their `href` to the suffixed ID for the active language.
+When you change visible content, change **both** the English file and its French counterpart; section IDs are the same in both languages (`#work`, `#contact`…). FR pages use root-absolute paths (`/assets/…`, `/fr/#work`). Adding a page means: both language files, the four `hreflang`/canonical links on each, and both URLs in `sitemap.xml` with `xhtml:link` alternates.
 
-When adding content you must duplicate it into **both** wrapper divs and give the FR copy the `-fr` ID suffix, or the nav will land on an empty section.
+**Exception — notes are English-only** (decided 2026-09-18, #44): a note gets a French version only when it is worth translating, and only then does it carry `hreflang` alternates.
 
 ## Theming
 
@@ -59,7 +58,7 @@ When adding content you must duplicate it into **both** wrapper divs and give th
 
 ## SEO Conventions
 
-Each page carries a full SEO head block: `<title>`, meta description, Open Graph (with `og:image:alt`, `og:site_name`, `og:locale`), Twitter Card (`name=` attributes, not `property=`), JSON-LD structured data as **one linked `@graph`** — `Person` (`@id` `https://heybrahim.com/#person`, identical on every page: edit both copies together), `WebSite` (`#website`), the page node (`ProfilePage` on home, `AboutPage` on About; later pages use their own type) with `mainEntity` → `#person`, and a `BreadcrumbList`. New pages reuse the `#person` / `#website` `@id`s instead of inventing new Person blocks; no FAQPage — there is no visible FAQ, canonical URL, and hreflang alternates (`en` / `fr` / `x-default`). When adding or modifying a page, keep all of these consistent. No `meta keywords` (search engines ignore it) and no `Crawl-delay` in `robots.txt` (Bing throttles on it). Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
+Each page carries a full SEO head block: `<title>`, meta description, Open Graph (with `og:image:alt`, `og:site_name`, `og:locale`), Twitter Card (`name=` attributes, not `property=`), JSON-LD structured data as **one linked `@graph`** — `Person` (`@id` `https://heybrahim.com/#person`, identical on every page: edit both copies together), `WebSite` (`#website`), the page node (`ProfilePage` on home, `AboutPage` on About; later pages use their own type) with `mainEntity` → `#person`, and a `BreadcrumbList`. New pages reuse the `#person` / `#website` `@id`s instead of inventing new Person blocks; no FAQPage — there is no visible FAQ, canonical URL, and reciprocal hreflang alternates between the EN and FR URLs (`en` / `fr` / `x-default` → EN). When adding or modifying a page, keep all of these consistent. No `meta keywords` (search engines ignore it) and no `Crawl-delay` in `robots.txt` (Bing throttles on it). Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
 
 **IndexNow:** after a deploy that adds or changes pages, run `python3 tools/indexnow.py` (whole sitemap) or `python3 tools/indexnow.py <url>…`. It pings Bing, whose index also feeds ChatGPT search, Copilot and DuckDuckGo. The key file `e163ae94f3a76216d86baae9ec74bcd2.txt` at the repo root proves ownership — keep it.
 
