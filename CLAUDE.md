@@ -29,6 +29,7 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 | `llms.txt`, `profile.json` | Machine-readable profile for AI agents; linked from the footer |
 | `sitemap.xml` | Update when pages are added or removed |
 | `robots.txt` | Search crawler directives, with an explicit AI-crawler allowlist |
+| `tools/indexnow.py` | Pings IndexNow (Bing, Yandex…) with changed URLs after a deploy |
 
 **Watch out — these are not the files you want to edit:**
 
@@ -58,7 +59,9 @@ When adding content you must duplicate it into **both** wrapper divs and give th
 
 ## SEO Conventions
 
-Each page carries a full SEO head block: `<title>`, meta description/keywords, Open Graph, Twitter Card, JSON-LD structured data (BreadcrumbList + Person; no FAQPage — there is no visible FAQ), canonical URL, and hreflang alternates (`en` / `fr` / `x-default`). When adding or modifying a page, keep all of these consistent. Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
+Each page carries a full SEO head block: `<title>`, meta description, Open Graph (with `og:image:alt`, `og:site_name`, `og:locale`), Twitter Card (`name=` attributes, not `property=`), JSON-LD structured data (BreadcrumbList + Person; no FAQPage — there is no visible FAQ), canonical URL, and hreflang alternates (`en` / `fr` / `x-default`). When adding or modifying a page, keep all of these consistent. No `meta keywords` (search engines ignore it) and no `Crawl-delay` in `robots.txt` (Bing throttles on it). Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
+
+**IndexNow:** after a deploy that adds or changes pages, run `python3 tools/indexnow.py` (whole sitemap) or `python3 tools/indexnow.py <url>…`. It pings Bing, whose index also feeds ChatGPT search, Copilot and DuckDuckGo. The key file `e163ae94f3a76216d86baae9ec74bcd2.txt` at the repo root proves ownership — keep it.
 
 ## Related Guidance & Conventions
 

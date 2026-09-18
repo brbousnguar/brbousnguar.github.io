@@ -128,8 +128,8 @@ PORT=8798 ~/Server/.claude/skills/brb-flat-poster-theme/scripts/verify.sh . inde
 
 ## SEO and accessibility requirements
 
-Every page keeps: `<title>`, meta description and keywords, Open Graph, Twitter
-Card, canonical, `hreflang` en / fr / x-default, JSON-LD (`Person` +
+Every page keeps: `<title>`, meta description, Open Graph, Twitter
+Card (no `meta keywords` — ignored by search engines), canonical, `hreflang` en / fr / x-default, JSON-LD (`Person` +
 `BreadcrumbList`), a skip link, one `<h1>`, and visible focus rings. There is no
 `FAQPage` markup — it requires visible Q&A, which the site no longer has.
 AI-readability lives in `llms.txt`, `profile.json`, the Person JSON-LD and the
