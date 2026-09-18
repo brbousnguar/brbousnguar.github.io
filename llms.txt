@@ -21,6 +21,16 @@ Key facts:
 - [profile.json](https://heybrahim.com/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
 - [CV PDF](https://heybrahim.com/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
 
+## Client work
+
+Anonymised case studies (English; French versions under https://heybrahim.com/fr/missions/). Markdown at the same URL with `.md`.
+
+<!-- work:start -->
+- [API-led integration for a luxury furniture retailer](https://heybrahim.com/work/api-led-luxury-retail.html) (2026-09-18): How I moved a luxury furniture retailer's e-commerce, ERP, CRM and third-party flows from point-to-point links to reusable API-led integration on MuleSoft Anypoint, with DataWeave and Salesforce CRM flows. Ongoing since 2025. Markdown: https://heybrahim.com/work/api-led-luxury-retail.md
+- [Moving a global appliance brand to SAP Commerce Cloud](https://heybrahim.com/work/cloud-commerce-migration-appliances.html) (2026-09-18): How I helped move a global home-appliance manufacturer's B2C platform from on-premise SAP Hybris to SAP Commerce Cloud (CCv2) with zero downtime, optimised OCC APIs, built microservices on SAP BTP Kyma and set up Jenkins CI/CD. 2022–2024. Markdown: https://heybrahim.com/work/cloud-commerce-migration-appliances.md
+- [One B2B commerce platform for 15+ countries](https://heybrahim.com/work/multi-country-b2b-platform.html) (2026-09-18): How I led the architecture and migration of a specialty chemicals group's multi-country B2B platform from SAP Hybris 6.7 to SAP Commerce Cloud (CCv2), with SAP ERP, logistics and payment integrations and custom OCC APIs for headless commerce. 2018–2021. Markdown: https://heybrahim.com/work/multi-country-b2b-platform.md
+<!-- work:end -->
+
 ## Projects
 
 Side projects, one page each (English; French versions under https://heybrahim.com/fr/projets/). Markdown at the same URL with `.md`.

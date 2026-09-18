@@ -1006,7 +1006,7 @@ a:hover { text-decoration-thickness: 2px; }
   .note-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 
-/* ── Project pages (/projects/, /fr/projets/) — reuse the note layout ── */
+/* ── Project and case-study pages — reuse the note layout ───────────── */
 
 .project-facts { margin: 12px 0 0; }
 .project-facts div { border-top: 1px solid var(--rule); padding-block: 8px; }
@@ -1027,7 +1027,24 @@ a:hover { text-decoration-thickness: 2px; }
 
 .project .page-intro .hero-lede { max-width: 34ch; }
 
+/* Case studies reuse the home page's .flow diagram inside the article column. */
+.note-body .flow { margin-top: 1.4em; }
+.note-body .flow li { padding: 7px 0; margin-top: 0; color: inherit; }
+.note-body .flow li::before { content: none; }
+.note-body .flow-node h3 { margin-top: 8px; font-size: 1.25rem; }
+.note-body .flow-node--core li { color: var(--on-cobalt); }
+
 @media (max-width: 860px) {
-  .project .note-aside { order: -1; }
-  .project .note-aside-title { display: block; }
+  .project .note-aside,
+  .case-study .note-aside { order: -1; }
+  .project .note-aside-title,
+  .case-study .note-aside-title { display: block; }
+}
+
+.case-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
 }

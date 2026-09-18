@@ -21,6 +21,16 @@ Key facts:
 - [profile.json](https://heybrahim.com/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
 - [CV PDF](https://heybrahim.com/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
 
+## Client work
+
+Anonymised case studies (English; French versions under https://heybrahim.com/fr/missions/). Markdown at the same URL with `.md`.
+
+<!-- work:start -->
+- [API-led integration for a luxury furniture retailer](https://heybrahim.com/work/api-led-luxury-retail.html) (2026-09-18): How I moved a luxury furniture retailer's e-commerce, ERP, CRM and third-party flows from point-to-point links to reusable API-led integration on MuleSoft Anypoint, with DataWeave and Salesforce CRM flows. Ongoing since 2025. Markdown: https://heybrahim.com/work/api-led-luxury-retail.md
+- [Moving a global appliance brand to SAP Commerce Cloud](https://heybrahim.com/work/cloud-commerce-migration-appliances.html) (2026-09-18): How I helped move a global home-appliance manufacturer's B2C platform from on-premise SAP Hybris to SAP Commerce Cloud (CCv2) with zero downtime, optimised OCC APIs, built microservices on SAP BTP Kyma and set up Jenkins CI/CD. 2022–2024. Markdown: https://heybrahim.com/work/cloud-commerce-migration-appliances.md
+- [One B2B commerce platform for 15+ countries](https://heybrahim.com/work/multi-country-b2b-platform.html) (2026-09-18): How I led the architecture and migration of a specialty chemicals group's multi-country B2B platform from SAP Hybris 6.7 to SAP Commerce Cloud (CCv2), with SAP ERP, logistics and payment integrations and custom OCC APIs for headless commerce. 2018–2021. Markdown: https://heybrahim.com/work/multi-country-b2b-platform.md
+<!-- work:end -->
+
 ## Projects
 
 Side projects, one page each (English; French versions under https://heybrahim.com/fr/projets/). Markdown at the same URL with `.md`.
@@ -313,3 +323,192 @@ Don't put that on the public internet. The MCP spec itself warns about DNS rebin
 ## Why plain Python
 
 Machine monitoring is a code problem, not a workflow problem, so this uses the native Python MCP SDK. Alerting through something like n8n can sit on top later.
+
+
+# Client work (full text)
+
+---
+
+## API-led integration for a luxury furniture retailer
+
+URL: https://heybrahim.com/work/api-led-luxury-retail.html
+Published: 2026-09-18 · Updated: 2026-09-18
+
+The retailer's e-commerce site, ERP, CRM and a handful of third-party services were talking to each other directly. Every new need meant another point-to-point flow, and when one failed it was hard to tell where.
+
+Since January 2025 my job has been to move that onto MuleSoft Anypoint, API-led: wrap each system once, and let every flow reuse it.
+
+## The shape
+
+<div class="flow" role="group" aria-label="API-led integration: e-commerce to MuleSoft to ERP, CRM and third parties">
+  <div class="flow-node">
+    <p class="flow-label">Channels</p>
+    <h3>E-commerce</h3>
+    <ul>
+      <li>Orders</li>
+      <li>Customers</li>
+      <li>Catalogue</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node flow-node--core">
+    <p class="flow-label">Integration layer</p>
+    <h3>MuleSoft Anypoint</h3>
+    <ul>
+      <li>Experience APIs</li>
+      <li>Process APIs · orchestration</li>
+      <li>System APIs · DataWeave</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node">
+    <p class="flow-label">Back office</p>
+    <h3>ERP · CRM · partners</h3>
+    <ul>
+      <li>ERP</li>
+      <li>Salesforce CRM</li>
+      <li>Third-party services</li>
+    </ul>
+  </div>
+</div>
+
+System APIs own the connection to each back-office system. Process APIs orchestrate the business flows. Experience APIs serve the channels. Change one system and only its System API has to move.
+
+## What I built
+
+- Reusable APIs designed in Anypoint Studio and Anypoint Code Builder, following API-led connectivity.
+- DataWeave transformations for the mapping, enrichment and orchestration between systems.
+- Integration flows between the e-commerce platform, the ERP, the CRM and third-party services.
+- Salesforce CRM data flows wired into MuleSoft, so business processes run end to end.
+- API specifications, best practices and governance standards for the integration team.
+
+## Where it landed
+
+One observable integration backbone across the order, CRM and ERP flows, instead of a web of direct links. The governance standards became the team's way of working.
+
+## What came out of it
+
+AI is part of the daily workflow on this mission: GitHub Copilot, an Ollama-based CLI that writes commits and PRs, Claude and Codex for code review.
+
+It also produced a side project. I first built a log-reading MCP server for this estate, then released a client-free version as [mulewatch](/projects/mulewatch.html).
+
+Working on something similar? [Say hello](#contact).
+
+---
+
+## Moving a global appliance brand to SAP Commerce Cloud
+
+URL: https://heybrahim.com/work/cloud-commerce-migration-appliances.html
+Published: 2026-09-18 · Updated: 2026-09-18
+
+A global B2C store running on on-premise SAP Hybris. It worked, but the platform was holding back scalability and how fast the team could ship.
+
+The move: SAP Commerce Cloud (CCv2), with no downtime for customers, and new capabilities built as microservices next to it instead of inside it.
+
+## The shape
+
+<div class="flow" role="group" aria-label="Cloud commerce: storefront to SAP Commerce Cloud to PIM, OMS and payments, with Kyma microservices">
+  <div class="flow-node">
+    <p class="flow-label">Channels</p>
+    <h3>B2C storefronts</h3>
+    <ul>
+      <li>Global traffic</li>
+      <li>OCC REST APIs</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node flow-node--core">
+    <p class="flow-label">Commerce core</p>
+    <h3>SAP Commerce Cloud</h3>
+    <ul>
+      <li>CCv2</li>
+      <li>Microservices on SAP BTP Kyma</li>
+      <li>Jenkins CI/CD</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node">
+    <p class="flow-label">Back office</p>
+    <h3>PIM · OMS · payments</h3>
+    <ul>
+      <li>Product data</li>
+      <li>Order management</li>
+      <li>Payment gateways</li>
+    </ul>
+  </div>
+</div>
+
+## What I built
+
+- The cloud-native migration from on-premise Hybris to CCv2, with zero-downtime deployment.
+- Faster, more scalable OCC REST APIs for the storefronts.
+- Microservices on SAP BTP Kyma (Kubernetes), so new features didn't all land in the commerce core.
+- CI/CD pipelines with Jenkins.
+- Integration layers to the PIM, the OMS and the payment gateways.
+
+I also mentored the team on agile practices, microservices patterns and API design.
+
+## Where it landed
+
+A cloud-native platform serving global B2C traffic, with better performance and continuous deployment.
+
+Planning a Hybris to CCv2 move? [Say hello](#contact).
+
+---
+
+## One B2B commerce platform for 15+ countries
+
+URL: https://heybrahim.com/work/multi-country-b2b-platform.html
+Published: 2026-09-18 · Updated: 2026-09-18
+
+An ageing SAP Hybris 6.7 B2B platform that couldn't support a multi-country rollout or headless commerce.
+
+As technical lead, I owned the architecture and the migration to SAP Commerce Cloud (CCv2): one platform for every country, fed with real-time ERP data.
+
+## The shape
+
+<div class="flow" role="group" aria-label="B2B commerce: headless storefronts to SAP Commerce Cloud to SAP ERP, logistics and payments">
+  <div class="flow-node">
+    <p class="flow-label">Channels</p>
+    <h3>B2B storefronts</h3>
+    <ul>
+      <li>15+ countries</li>
+      <li>Headless</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node flow-node--core">
+    <p class="flow-label">Commerce core</p>
+    <h3>SAP Commerce Cloud</h3>
+    <ul>
+      <li>CCv2</li>
+      <li>Custom OCC APIs</li>
+      <li>B2B workflows</li>
+    </ul>
+  </div>
+  <div class="flow-link" aria-hidden="true"><span>⇄</span></div>
+  <div class="flow-node">
+    <p class="flow-label">Back office</p>
+    <h3>SAP ERP · partners</h3>
+    <ul>
+      <li>Pricing, inventory, orders</li>
+      <li>Third-party logistics</li>
+      <li>Payment providers</li>
+    </ul>
+  </div>
+</div>
+
+## What I built
+
+- The architecture and migration from SAP Hybris 6.7 to Commerce Cloud CCv2.
+- SAP ERP integrations for pricing, inventory and orders, plus third-party logistics and payment providers.
+- Custom OCC APIs for headless B2B workflows.
+- Performance work and technical SEO for organic traffic.
+
+I also mentored the junior developers on SAP Commerce, Spring and integration patterns.
+
+## Where it landed
+
+One B2B platform serving 15+ countries, with real-time ERP data and headless commerce.
+
+Running a multi-country B2B platform? [Say hello](#contact).
