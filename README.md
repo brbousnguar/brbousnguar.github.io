@@ -11,7 +11,7 @@ Presents 9+ years of enterprise e-commerce and integration work to recruiters, c
 
 - **Home (`index.html`)** — hero, facts strip, an integration-flow diagram (SAP Commerce Cloud → MuleSoft → Salesforce/ERP), three client case studies (Problem / Built / Result), side projects and open-source contributions, experience, stack, SAP certifications, and a contact block.
 - **About (`pages/about.html`)** — career story, timeline, current focus and what comes next.
-- **Bilingual** — English and French both ship in the DOM; an EN/FR switch in the header flips between them and the choice persists in `localStorage`.
+- **Bilingual** — English at `/`, French at `/fr/`, one language per URL with reciprocal `hreflang`; the EN/FR switch in the header links to the counterpart page.
 - **Machine-readable** — `llms.txt`, `profile.json` (JSON Resume style) and Person JSON-LD for search engines and AI agents; `robots.txt` explicitly allows the major AI crawlers.
 - **CV download** — `docs/Brahim_Bousnguar_CV.pdf`.
 
@@ -58,7 +58,7 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 |---|---|
 | Markup | HTML5, JSON-LD (Person, BreadcrumbList) |
 | Styles | One hand-written stylesheet, CSS custom properties |
-| Script | Vanilla JS (`assets/js/main.js`, EN/FR switch only) |
+| Script | None — no runtime JavaScript |
 | Fonts | Google Fonts: Archivo, Hanken Grotesk, IBM Plex Mono |
 | Hosting | GitHub Pages from `main` |
 
@@ -67,13 +67,15 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 ```text
 .
 ├── index.html                  # the portfolio (EN + FR bodies)
+├── fr/
+│   ├── index.html              # French home (/fr/)
+│   └── a-propos.html           # French About
 ├── pages/
 │   ├── about.html              # career story (canonical)
 │   └── learning.html           # noindex redirect stub → home
 ├── about.html, learning.html   # redirect stubs (about → pages/, learning → home)
 ├── assets/
 │   ├── css/style.css           # the only stylesheet
-│   ├── js/main.js              # EN/FR switch
 │   └── img/                    # portrait, favicon set
 ├── docs/                       # CV PDF, DESIGN-SYSTEM.md, SEO-GUIDE.md, TODO.md
 ├── changelog/unreleased/       # one changelog fragment per PR
@@ -91,7 +93,7 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 
 ## Notes
 
-- Every visible section exists twice — in `#en` and in `#fr`, with a `-fr` ID suffix. Add content to both or the nav lands on an empty section.
+- Every page exists twice — English (`/`, `pages/`) and French (`fr/`). Change both files; keep the canonical, `hreflang` and sitemap entries paired.
 - The LinkedIn Learning certificate browser was removed; `learning.html` URLs redirect to the home page so old links don't 404.
 - `.github/workflows/main.yml` runs a Lighthouse report against the live site on every push to `main`.
 - `docs/Brahim_Bousnguar_CV.pdf` and the favicons are generated files — edit `tools/cv.html` / `tools/make_favicons.py` and regenerate, never edit the outputs by hand.

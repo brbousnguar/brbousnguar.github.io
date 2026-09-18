@@ -97,17 +97,9 @@ a:hover { text-decoration-thickness: 2px; }
   padding-inline: var(--gutter);
 }
 
-/* ── Bilingual ───────────────────────────────────────────────────────────
-   Both languages ship in the DOM. The pre-paint script sets data-lang on
-   <html>, so visibility is pure CSS and there is no flash. Page bodies use
-   #en / #fr wrappers; short inline strings use .t-en / .t-fr spans. */
-
-.lang-content { display: none; }
-html:not([data-lang="fr"]) #en,
-html[data-lang="fr"] #fr { display: block; }
-
-html:not([data-lang="fr"]) .t-fr,
-html[data-lang="fr"] .t-en { display: none; }
+/* ── Languages ─────────────────────────────────────────────────────────
+   One language per URL: English at / and /pages/, French under /fr/.
+   The header switch is a pair of links to the counterpart page. */
 
 /* ── Header ──────────────────────────────────────────────────────────── */
 
@@ -178,23 +170,21 @@ html[data-lang="fr"] .t-en { display: none; }
   flex-shrink: 0;
 }
 
-.lang-switch button {
-  appearance: none;
-  border: 0;
-  background: transparent;
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
   padding: 6px 10px;
   min-height: 34px;
-  cursor: pointer;
 }
 
-.lang-switch button + button { border-left: 1px solid var(--ink); }
+.lang-switch a + a { border-left: 1px solid var(--ink); }
 
-html:not([data-lang="fr"]) .lang-switch [data-set-lang="en"],
-html[data-lang="fr"] .lang-switch [data-set-lang="fr"] {
+.lang-switch a[aria-current] {
   background: var(--ink);
   color: var(--paper);
 }

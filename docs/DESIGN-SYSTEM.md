@@ -92,11 +92,10 @@ product.
 
 ## Bilingual
 
-Both languages ship in the DOM. The inline pre-paint script sets `data-lang` on
-`<html>`; CSS shows `#en` or `#fr` from that attribute, so there is no flash and no
-JS dependency for visibility. Short inline strings (nav, skip link) use
-`.t-en` / `.t-fr` spans. Section IDs in the French body carry a `-fr` suffix;
-`main.js` rewrites every `a[data-target]` to point at the right one.
+One language per URL: English at `/` and `/pages/about.html`, French at `/fr/`
+and `/fr/a-propos.html`, linked by reciprocal `hreflang`. The header switch is a
+pair of links (`.lang-switch a`, the current one marked `aria-current` and filled
+ink). No script, no `localStorage`, same section IDs in both languages.
 
 ## Component list
 
@@ -124,7 +123,7 @@ PORT=8798 ~/Server/.claude/skills/brb-flat-poster-theme/scripts/verify.sh . inde
   so the other five fit a 390px phone without scrolling.
 - **Lighthouse mobile** (chrome-devtools MCP, loopback): Accessibility, Best
   Practices and SEO **100** on both pages.
-- Switch to FR and confirm every nav anchor lands on a non-empty `-fr` section.
+- Open `/fr/` and `/fr/a-propos.html` and confirm every nav anchor and the EN/FR switch land on the counterpart page.
 
 ## SEO and accessibility requirements
 
@@ -146,7 +145,7 @@ pages/about.html           # career story
 about.html, learning.html  # redirect stubs (learning → home, noindex)
 pages/learning.html        # redirect stub → home, noindex
 assets/css/style.css       # the only stylesheet
-assets/js/main.js          # EN/FR switch
+fr/index.html, fr/a-propos.html  # French pages
 assets/img/                # portrait, favicon set
 favicon.ico                # 16/32/48 BB mark
 docs/                      # CV PDF (generated), this file, SEO-GUIDE.md, TODO.md

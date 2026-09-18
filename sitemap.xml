@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://heybrahim.com/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/"/>
   </url>
   <url>
     <loc>https://heybrahim.com/pages/about.html</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/pages/about.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/a-propos.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/pages/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/pages/about.html"/>
   </url>
 </urlset>

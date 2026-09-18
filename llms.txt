@@ -12,8 +12,9 @@ Key facts:
 
 ## Pages
 
-- [Portfolio home](https://heybrahim.com/): hero, integration diagram (SAP Commerce Cloud → MuleSoft → Salesforce/ERP), client case studies (Problem/Built/Result), side projects and open source, experience, stack, certifications, contact. English and French content both present in the page.
+- [Portfolio home](https://heybrahim.com/): hero, integration diagram (SAP Commerce Cloud → MuleSoft → Salesforce/ERP), client case studies (Problem/Built/Result), side projects and open source, experience, stack, certifications, contact. English; the French version is at https://heybrahim.com/fr/.
 - [About](https://heybrahim.com/pages/about.html): career story, timeline, current focus and what comes next.
+- French versions: [Accueil](https://heybrahim.com/fr/), [À propos](https://heybrahim.com/fr/a-propos.html).
 
 ## Machine-readable
 

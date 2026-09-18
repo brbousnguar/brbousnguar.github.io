@@ -12,6 +12,9 @@
 - **Twitter sharing**: Twitter Card meta tags
 - **Social media preview**: Professional image and descriptions
 
+### Languages and hreflang
+English and French have separate URLs (#43): `/` ↔ `/fr/`, `/pages/about.html` ↔ `/fr/a-propos.html`. Each page is self-canonical and lists `hreflang="en"`, `hreflang="fr"` and `x-default` (→ English); `sitemap.xml` repeats the pairs with `xhtml:link`. French pages target French searches ("consultant SAP Commerce Nantes", "intégration MuleSoft"), so their titles and descriptions are written in French, not translated word for word.
+
 ### 3. Structured Data (JSON-LD)
 Each page carries one `@graph` whose nodes link by `@id` (#41):
 
