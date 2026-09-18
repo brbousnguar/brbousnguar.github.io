@@ -5,7 +5,7 @@
 ### 1. Enhanced Meta Tags
 - **Title Tags**: Optimized with relevant keywords and professional positioning
 - **Meta Descriptions**: Compelling descriptions that encourage click-throughs
-- **Keywords**: Comprehensive, targeted keywords for SAP Commerce Cloud and Mulesoft consulting
+- **Keywords**: carried by titles, descriptions, headings and body copy — the `meta keywords` tag was removed (#40) because search engines ignore it
 
 ### 2. Open Graph & Social Media
 - **Facebook/LinkedIn sharing**: Optimized Open Graph tags

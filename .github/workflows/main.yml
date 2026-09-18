@@ -12,9 +12,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Get Report
         run: |
           npm install -g lighthouse
-          lighthouse https://brbousnguar.github.io/ --chrome-flags="--headless" --output="json" --output-path="./report.json"
+          lighthouse https://heybrahim.com/ --chrome-flags="--headless" --output="json" --output-path="./report.json"
           cat ./report.json

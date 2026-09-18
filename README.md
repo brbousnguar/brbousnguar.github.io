@@ -1,7 +1,7 @@
 # brbousnguar.github.io
 
 **Portfolio of Brahim Bousnguar — Senior E-Commerce Integration Consultant (SAP Commerce Cloud, MuleSoft Anypoint, Salesforce).**
-A static, bilingual (EN/FR) GitHub Pages site with no build step, served from `main` at **[brbousnguar.github.io](https://heybrahim.com/)**.
+A static, bilingual (EN/FR) GitHub Pages site with no build step, served from `main` at **[heybrahim.com](https://heybrahim.com/)**.
 
 ---
 
@@ -80,10 +80,12 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 ├── CHANGELOG.md                # collated changelog
 ├── llms.txt, profile.json      # machine-readable profile
 ├── sitemap.xml, robots.txt
+├── <key>.txt                   # IndexNow ownership key (keep)
 ├── favicon.ico                 # 16/32/48 BB mark
 └── tools/
     ├── cv.html                 # print source of the CV PDF (regeneration command inside)
-    └── make_favicons.py        # regenerates the favicon set from the BB mark
+    ├── make_favicons.py        # regenerates the favicon set from the BB mark
+    └── indexnow.py             # pings Bing/IndexNow with changed URLs after a deploy
 ```
 
 ## Notes
@@ -92,6 +94,7 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 - The LinkedIn Learning certificate browser was removed; `learning.html` URLs redirect to the home page so old links don't 404.
 - `.github/workflows/main.yml` runs a Lighthouse report against the live site on every push to `main`.
 - `docs/Brahim_Bousnguar_CV.pdf` and the favicons are generated files — edit `tools/cv.html` / `tools/make_favicons.py` and regenerate, never edit the outputs by hand.
+- After a deploy that adds or changes pages, run `python3 tools/indexnow.py` so Bing (and ChatGPT search, Copilot, DuckDuckGo) recrawl them.
 - Contribution conventions: [`AGENTS.md`](AGENTS.md) and [`CLAUDE.md`](CLAUDE.md).
 
 ## Contact
