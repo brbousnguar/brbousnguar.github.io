@@ -9,6 +9,8 @@ Collections (sources sit next to their output; the .md is published as-is):
     notes/<slug>.md          → /notes/<slug>.html            English only (#44)
     projects/<slug>.md       → /projects/<slug>.html         EN, paired with
     fr/projets/<slug>.md     → /fr/projets/<slug>.html       FR by filename (#46)
+    work/<slug>.md           → /work/<slug>.html             EN + FR case studies,
+    fr/missions/<slug>.md    → /fr/missions/<slug>.html      anonymised (#45)
 
 Front matter, between `---` lines, one `key: value` per line:
 
@@ -16,6 +18,7 @@ Front matter, between `---` lines, one `key: value` per line:
                draft: true (optional; skipped)
     notes      tags (comma-separated), project (URL, optional)
     projects   tagline, repo, npm / live (optional URLs), stack, license, status
+    work       tagline, client (anonymised!), period, role, stack
 
 Also writes, all generated — never edit by hand:
 
@@ -80,6 +83,7 @@ ANALYTICS = """  <!-- Cloudflare Web Analytics: cookieless, no consent banner ne
 COLLECTIONS = {
     "notes": {"en": ("notes", "/notes/")},
     "projects": {"en": ("projects", "/projects/"), "fr": ("fr/projets", "/fr/projets/")},
+    "work": {"en": ("work", "/work/"), "fr": ("fr/missions", "/fr/missions/")},
 }
 
 
@@ -503,33 +507,26 @@ PROJECT_TEXT = {
 }
 
 
-def project_page(p, graph):
-    lang, url, T, L = p["lang"], p["url"], PROJECT_TEXT[p["lang"]], LANG[p["lang"]]
-    links = [(T[k], p[k]) for k in ("repo", "npm", "live") if p.get(k)]
-    code = {
-        "@type": "SoftwareSourceCode", "@id": url + "#software", "name": p["title"], "description": p["description"],
-        "codeRepository": p["repo"], "programmingLanguage": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],
-        "license": p.get("license"), "author": {"@id": SITE + "/#person"}, "creator": {"@id": SITE + "/#person"},
-        "dateCreated": p["date"], "dateModified": p["updated"], "url": url,
-        "sameAs": [u for _, u in links], "inLanguage": lang,
-    }
-    home_projects = L["home"] + "#projects"
+def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class, page_title):
+    """Shared layout for project and case-study pages: intro, facts aside, Markdown body."""
+    lang, url, L = p["lang"], p["url"], LANG[p["lang"]]
+    back = L["home"] + "#" + anchor
     nodes = graph + page_nodes(lang, url, p["title"], p["description"], "WebPage",
-                               [(L["home_crumb"], SITE + L["home"]), (T["crumb"], SITE + home_projects), (p["title"], url)],
-                               mainEntity={"@id": url + "#software"}) + [code]
+                               [(L["home_crumb"], SITE + L["home"]), (T["crumb"], SITE + back), (p["title"], url)],
+                               mainEntity={"@id": main_node["@id"]}) + [main_node]
     switch = {l: u.replace(SITE, "") for l, u in p["alternates"].items()}
-    facts = "".join(f"<div><dt>{label}</dt><dd>{html.escape(p[key])}</dd></div>"
-                    for key, label in (("status", T["status"]), ("stack", T["stack"]), ("license", T["license"])) if p.get(key))
+    fact_items = "".join(f"<div><dt>{label}</dt><dd>{html.escape(value)}</dd></div>" for label, value in facts if value)
     link_items = "".join(f'<li><a href="{html.escape(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a></li>'
                          for label, u in links)
-    return (head(lang, f'{p["title"]} — {p["tagline"]} | Brahim Bousnguar', p["description"], url, "website", nodes,
+    links_html = f'\n          <ul class="project-links">{link_items}</ul>' if link_items else ""
+    return (head(lang, f"{page_title} | Brahim Bousnguar", p["description"], url, "website", nodes,
                  alternates=p["alternates"], extra=f'  <link rel="alternate" type="text/markdown" href="{p["md_path"]}">\n')
-            + header(lang, "projects", switch) + f"""
-    <article class="project" aria-labelledby="project-title">
+            + header(lang, nav_key, switch) + f"""
+    <article class="{css_class}" aria-labelledby="page-title">
       <header class="page-intro note-intro">
         <div class="wrap">
-          <p class="eyebrow"><a href="{home_projects}">{T["eyebrow"]}</a></p>
-          <h1 id="project-title">{html.escape(p["title"])}</h1>
+          <p class="eyebrow"><a href="{back}">{T["eyebrow"]}</a></p>
+          <h1 id="page-title">{html.escape(p["title"])}</h1>
           <p class="hero-lede">{html.escape(p["tagline"])}</p>
         </div>
       </header>
@@ -538,18 +535,56 @@ def project_page(p, graph):
        <div class="note-layout">
         <aside class="note-aside" aria-label="{T["facts"]}">
           <p class="note-aside-title mono">{T["facts"]}</p>
-          <dl class="project-facts">{facts}</dl>
-          <ul class="project-links">{link_items}</ul>
+          <dl class="project-facts">{fact_items}</dl>{links_html}
         </aside>
         <div class="note-body prose">
 {p["html"]}
-          <p class="note-source mono">{T["source"]}: <a href="{p["md_path"]}">{p["slug"]}.md</a> · <a href="{home_projects}">{T["more"]}</a></p>
+          <p class="note-source mono">{T["source"]}: <a href="{p["md_path"]}">{p["slug"]}.md</a> · <a href="{back}">{T["more"]}</a></p>
         </div>
        </div>
       </div>
     </article>
 
 """ + contact_block(lang) + FOOTER)
+
+
+def project_page(p, graph):
+    T, url = PROJECT_TEXT[p["lang"]], p["url"]
+    links = [(T[k], p[k]) for k in ("repo", "npm", "live") if p.get(k)]
+    code = {
+        "@type": "SoftwareSourceCode", "@id": url + "#software", "name": p["title"], "description": p["description"],
+        "codeRepository": p["repo"], "programmingLanguage": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],
+        "license": p.get("license"), "author": {"@id": SITE + "/#person"}, "creator": {"@id": SITE + "/#person"},
+        "dateCreated": p["date"], "dateModified": p["updated"], "url": url,
+        "sameAs": [u for _, u in links], "inLanguage": p["lang"],
+    }
+    facts = [(T["status"], p.get("status")), (T["stack"], p.get("stack")), (T["license"], p.get("license"))]
+    return detail_page(p, graph, T, "projects", "projects", facts, links, code, "project",
+                       f'{p["title"]} — {p["tagline"]}')
+
+
+# ── Case studies ────────────────────────────────────────────────────────────
+
+WORK_TEXT = {
+    "en": {"eyebrow": "Client work", "crumb": "Work", "facts": "The mission", "client": "Client", "period": "Period",
+           "role": "My role", "stack": "Stack", "source": "Plain text", "more": "All client work"},
+    "fr": {"eyebrow": "Mission client", "crumb": "Missions", "facts": "La mission", "client": "Client", "period": "Période",
+           "role": "Mon rôle", "stack": "Stack", "source": "Texte brut", "more": "Toutes les missions"},
+}
+
+
+def work_page(p, graph):
+    T, url = WORK_TEXT[p["lang"]], p["url"]
+    article = {
+        "@type": "Article", "@id": url + "#article", "headline": p["title"], "description": p["description"],
+        "inLanguage": p["lang"], "datePublished": p["date"], "dateModified": p["updated"],
+        "author": {"@id": SITE + "/#person"}, "publisher": {"@id": SITE + "/#person"},
+        "mainEntityOfPage": {"@id": url + "#webpage"}, "image": f"{SITE}/assets/img/{LANG[p['lang']]['card']}",
+        "keywords": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],
+    }
+    facts = [(T["client"], p.get("client")), (T["period"], p.get("period")), (T["role"], p.get("role")),
+             (T["stack"], p.get("stack"))]
+    return detail_page(p, graph, T, "work", "work", facts, [], article, "case-study", p["title"])
 
 
 # ── Site-wide outputs ───────────────────────────────────────────────────────
@@ -590,9 +625,9 @@ def update_llms_index(name, pages):
     path.write_text(text)
 
 
-def llms_full(notes, projects):
+def llms_full(notes, projects, work):
     parts = [(ROOT / "llms.txt").read_text().rstrip()]
-    for heading, pages in (("Notes (full text)", notes), ("Projects (full text)", projects)):
+    for heading, pages in (("Notes (full text)", notes), ("Projects (full text)", projects), ("Client work (full text)", work)):
         parts.append(f"\n\n# {heading}\n")
         for p in pages:
             parts.append(f"\n---\n\n## {p['title']}\n\nURL: {p['url']}\nPublished: {p['date']} · Updated: {p['updated']}\n\n{p['markdown']}\n")
@@ -602,6 +637,7 @@ def llms_full(notes, projects):
 def main():
     notes = [p for p in load("notes")]
     projects = load("projects")
+    work = load("work")
     if not notes:
         raise SystemExit("no published notes in notes/")
     graph = site_graph()
@@ -611,12 +647,16 @@ def main():
     (ROOT / "notes/feed.xml").write_text(feed(notes))
     for p in projects:
         (ROOT / p["file"]).write_text(project_page(p, graph))
-    (ROOT / "sitemap.xml").write_text(sitemap(notes, notes + projects))
+    for p in work:
+        (ROOT / p["file"]).write_text(work_page(p, graph))
+    (ROOT / "sitemap.xml").write_text(sitemap(notes, notes + projects + work))
     update_llms_index("notes", notes)
     en_projects = [p for p in projects if p["lang"] == "en"]
     update_llms_index("projects", en_projects)
-    (ROOT / "llms-full.txt").write_text(llms_full(notes, en_projects))
-    print(f"built {len(notes)} note(s), {len(projects)} project page(s)")
+    en_work = [p for p in work if p["lang"] == "en"]
+    update_llms_index("work", en_work)
+    (ROOT / "llms-full.txt").write_text(llms_full(notes, en_projects, en_work))
+    print(f"built {len(notes)} note(s), {len(projects)} project page(s), {len(work)} case stud(ies)")
 
 
 if __name__ == "__main__":

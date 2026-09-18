@@ -107,4 +107,46 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/macbook-mcp-server.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/macbook-mcp-server.html"/>
   </url>
+  <url>
+    <loc>https://heybrahim.com/work/api-led-luxury-retail.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/api-led-luxury-retail.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/api-led-luxury-retail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/api-led-luxury-retail.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/work/cloud-commerce-migration-appliances.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/cloud-commerce-migration-appliances.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/cloud-commerce-migration-appliances.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/cloud-commerce-migration-appliances.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/work/multi-country-b2b-platform.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/multi-country-b2b-platform.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/multi-country-b2b-platform.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/multi-country-b2b-platform.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/missions/api-led-luxury-retail.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/api-led-luxury-retail.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/api-led-luxury-retail.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/api-led-luxury-retail.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/missions/cloud-commerce-migration-appliances.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/cloud-commerce-migration-appliances.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/cloud-commerce-migration-appliances.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/cloud-commerce-migration-appliances.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/missions/multi-country-b2b-platform.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/work/multi-country-b2b-platform.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/missions/multi-country-b2b-platform.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/work/multi-country-b2b-platform.html"/>
+  </url>
 </urlset>
