@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termo Track — La température d'une pièce, d'un capteur BLE jusqu'à Claude | Brahim Bousnguar</title>
+  <meta name="description" content="Termo Track écoute les capteurs Bluetooth ThermoPro, stocke les mesures dans SQLite, affiche température et humidité en direct dans un tableau de bord React à côté de la météo extérieure, et expose le tout aux clients IA via MCP. Local, sans compte cloud.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Brahim Bousnguar">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://heybrahim.com/fr/projets/termo-track.html">
+  <meta property="og:title" content="Termo Track — La température d&#x27;une pièce, d&#x27;un capteur BLE jusqu&#x27;à Claude | Brahim Bousnguar">
+  <meta property="og:description" content="Termo Track écoute les capteurs Bluetooth ThermoPro, stocke les mesures dans SQLite, affiche température et humidité en direct dans un tableau de bord React à côté de la météo extérieure, et expose le tout aux clients IA via MCP. Local, sans compte cloud.">
+  <meta property="og:image" content="https://heybrahim.com/assets/img/og-card-fr.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Brahim Bousnguar — Consultant senior en intégration e-commerce : SAP Commerce Cloud, MuleSoft et Salesforce. heybrahim.com">
+  <link rel="alternate" type="text/markdown" href="/fr/projets/termo-track.md">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Termo Track — La température d&#x27;une pièce, d&#x27;un capteur BLE jusqu&#x27;à Claude | Brahim Bousnguar">
+  <meta name="twitter:description" content="Termo Track écoute les capteurs Bluetooth ThermoPro, stocke les mesures dans SQLite, affiche température et humidité en direct dans un tableau de bord React à côté de la météo extérieure, et expose le tout aux clients IA via MCP. Local, sans compte cloud.">
+  <meta name="twitter:image" content="https://heybrahim.com/assets/img/og-card-fr.png?v=1">
+  <meta name="twitter:image:alt" content="Brahim Bousnguar — Consultant senior en intégration e-commerce : SAP Commerce Cloud, MuleSoft et Salesforce. heybrahim.com">
+
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://heybrahim.com/fr/projets/termo-track.html">
+  <link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/termo-track.html">
+  <link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/termo-track.html">
+  <link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/termo-track.html">
+  <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
+
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://heybrahim.com/#person",
+        "name": "Brahim Bousnguar",
+        "givenName": "Brahim",
+        "familyName": "Bousnguar",
+        "jobTitle": "Senior E-Commerce Integration Consultant",
+        "description": "Senior E-Commerce Integration Consultant with 9+ years specializing in SAP Commerce Cloud, MuleSoft Anypoint Platform, and Salesforce. API-led integration architecture for enterprise commerce, delivered with AI-augmented development workflows.",
+        "url": "https://heybrahim.com/",
+        "email": "mailto:b.bousnguar@gmail.com",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://heybrahim.com/#portrait",
+          "url": "https://heybrahim.com/assets/img/profile.jpeg",
+          "width": 336,
+          "height": 336,
+          "caption": "Brahim Bousnguar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nantes",
+          "addressRegion": "Pays de la Loire",
+          "addressCountry": "FR"
+        },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "E-Commerce Integration Consultant",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          },
+          "skills": "SAP Commerce Cloud, MuleSoft Anypoint Platform, DataWeave, Salesforce integration, API-led connectivity"
+        },
+        "sameAs": [
+          "https://github.com/brbousnguar",
+          "https://www.linkedin.com/in/brahim-bousnguar/",
+          "https://www.credly.com/users/brahim-bousnguar"
+        ],
+        "knowsAbout": [
+          "SAP Commerce Cloud",
+          "MuleSoft Anypoint Platform",
+          "Salesforce",
+          "DataWeave",
+          "API-led connectivity",
+          "Java",
+          "Spring Boot",
+          "E-commerce",
+          "Microservices",
+          "Cloud migration",
+          "AI-augmented development",
+          "Model Context Protocol (MCP)",
+          "Python",
+          "TypeScript",
+          "FastAPI",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "INSEA Rabat",
+          "alternateName": "Institut National de Statistique et d'Économie Appliquée"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SQLI",
+          "url": "https://www.sqli.com/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "GitHub Copilot (GH-300)",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/BrahimBousnguar-7690/20B68101386B5A?sharingId=9C9C9C1DC7CAD24F",
+            "dateCreated": "2026-09"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Solution Architect - SAP Customer Experience",
+            "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Positioning SAP Customer Experience Solutions",
+            "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Business User - SAP Commerce Cloud",
+            "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b",
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Development Professional - SAP Commerce Cloud Developer",
+            "dateCreated": "2023"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3",
+            "dateCreated": "2018"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://heybrahim.com/#website",
+        "url": "https://heybrahim.com/",
+        "name": "Brahim Bousnguar",
+        "inLanguage": [
+          "en",
+          "fr"
+        ],
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "about": {
+          "@id": "https://heybrahim.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/fr/projets/termo-track.html#webpage",
+        "url": "https://heybrahim.com/fr/projets/termo-track.html",
+        "name": "Termo Track",
+        "description": "Termo Track écoute les capteurs Bluetooth ThermoPro, stocke les mesures dans SQLite, affiche température et humidité en direct dans un tableau de bord React à côté de la météo extérieure, et expose le tout aux clients IA via MCP. Local, sans compte cloud.",
+        "inLanguage": "fr",
+        "isPartOf": {
+          "@id": "https://heybrahim.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://heybrahim.com/fr/projets/termo-track.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://heybrahim.com/fr/projets/termo-track.html#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://heybrahim.com/fr/projets/termo-track.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://heybrahim.com/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://heybrahim.com/fr/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Termo Track",
+            "item": "https://heybrahim.com/fr/projets/termo-track.html"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://heybrahim.com/fr/projets/termo-track.html#software",
+        "name": "Termo Track",
+        "description": "Termo Track écoute les capteurs Bluetooth ThermoPro, stocke les mesures dans SQLite, affiche température et humidité en direct dans un tableau de bord React à côté de la météo extérieure, et expose le tout aux clients IA via MCP. Local, sans compte cloud.",
+        "codeRepository": "https://github.com/brbousnguar/termo-track",
+        "programmingLanguage": [
+          "Python",
+          "FastAPI",
+          "SQLite",
+          "React",
+          "MCP"
+        ],
+        "license": null,
+        "author": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "creator": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "dateCreated": "2026-06-13",
+        "dateModified": "2026-06-13",
+        "url": "https://heybrahim.com/fr/projets/termo-track.html",
+        "sameAs": [
+          "https://github.com/brbousnguar/termo-track"
+        ],
+        "inLanguage": "fr"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/fr/" class="brand">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span>Brahim Bousnguar</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/fr/#work">Missions</a>
+        <a href="/fr/#projects" aria-current="page">Projets</a>
+        <a href="/fr/#experience">Parcours</a>
+        <a href="/fr/#stack" class="nav-optional">Stack</a>
+        <a href="/fr/a-propos.html">À propos</a>
+        <a href="/notes/" hreflang="en">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Language / Langue">
+        <a href="/projects/termo-track.html" hreflang="en" lang="en" aria-label="English">EN</a>
+        <a href="/fr/projets/termo-track.html" hreflang="fr" lang="fr" aria-current="true" aria-label="Français">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article class="project" aria-labelledby="project-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/fr/#projects">Projet perso</a></p>
+          <h1 id="project-title">Termo Track</h1>
+          <p class="hero-lede">La température d&#x27;une pièce, d&#x27;un capteur BLE jusqu&#x27;à Claude</p>
+        </div>
+      </header>
+
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="En bref">
+          <p class="note-aside-title mono">En bref</p>
+          <dl class="project-facts"><div><dt>Statut</dt><dd>Tourne à la maison</dd></div><div><dt>Stack</dt><dd>Python · FastAPI · SQLite · React · MCP</dd></div></dl>
+          <ul class="project-links"><li><a href="https://github.com/brbousnguar/termo-track" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>Un capteur ThermoPro diffuse la température et l'humidité en Bluetooth. Termo Track capte ces trames, garde l'historique, et laisse un tableau de bord comme Claude les lire. Pas d'appli constructeur, pas de compte cloud.</p>
+<h2 id="le-chemin-des-donnes">Le chemin des données</h2>
+<ol><li><code>scanner_daemon.py</code> reçoit les annonces BLE du capteur (avec <code>bleak</code>).</li><li>Il écrit chaque mesure dans SQLite.</li><li>FastAPI sert du REST et un WebSocket depuis cette même base.</li><li>Le tableau de bord React lit l'API et reçoit les mises à jour en direct sur <code>/ws</code>, avec une alerte quand le capteur se tait.</li><li><code>mcp_server.py</code> expose les mêmes données aux clients IA, en stdio ou en HTTP.</li></ol>
+<p>Un fichier SQLite, trois lecteurs. C'est toute l'architecture.</p>
+<h2 id="dedans-contre-dehors">Dedans contre dehors</h2>
+<p>Le tableau compare les mesures intérieures avec la météo extérieure d'Open-Meteo, qui ne demande pas de clé. Les fenêtres récentes utilisent l'API de prévision, les vues mois et année l'archive historique.</p>
+<h2 id="ce-que-claude-peut-demander">Ce que Claude peut demander</h2>
+<p>Outils MCP : <code>get_current_reading</code>, <code>get_sensor_history</code>, <code>get_sensor_stats</code>, <code>get_comfort_level</code>, <code>get_outside_weather</code> et <code>get_indoor_outdoor_comparison</code>.</p>
+<p>Du coup « la chambre était-elle plus humide que dehors la semaine dernière ? » devient une question, pas un tableur.</p>
+          <p class="note-source mono">Texte brut: <a href="/fr/projets/termo-track.md">termo-track.md</a> · <a href="/fr/#projects">Tous les projets</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Écrivez-moi.</h2>
+          <a class="contact-mail" href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a>
+          <p class="contact-sub">Intégration SAP Commerce Cloud, MuleSoft et Salesforce · Nantes · FR / EN</p>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </p>
+          <footer class="site-foot">
+            <span>© 2026 Brahim Bousnguar</span>
+            <span>Pour les agents IA : <a href="/llms.txt">llms.txt</a> · <a href="/profile.json">profile.json</a></span>
+          </footer>
+        </div>
+      </section>
+  </main>
+</body>
+</html>

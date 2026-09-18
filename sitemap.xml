@@ -37,4 +37,74 @@
     <loc>https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html</loc>
     <lastmod>2026-09-18</lastmod>
   </url>
+  <url>
+    <loc>https://heybrahim.com/projects/mulewatch.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/mulewatch.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/mulewatch.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/mulewatch.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/mulewatch.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/mulewatch.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/mulewatch.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/mulewatch.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/meterlex.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/meterlex.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/meterlex.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/meterlex.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/meterlex.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/meterlex.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/meterlex.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/meterlex.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/ai-models-costs.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/ai-models-costs.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/ai-models-costs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/ai-models-costs.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/ai-models-costs.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/ai-models-costs.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/ai-models-costs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/ai-models-costs.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/termo-track.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/termo-track.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/termo-track.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/termo-track.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/termo-track.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/termo-track.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/termo-track.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/termo-track.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/macbook-mcp-server.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/macbook-mcp-server.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/macbook-mcp-server.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/macbook-mcp-server.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/macbook-mcp-server.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/macbook-mcp-server.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/macbook-mcp-server.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/macbook-mcp-server.html"/>
+  </url>
 </urlset>

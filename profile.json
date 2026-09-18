@@ -135,85 +135,189 @@
   "skills": [
     {
       "name": "E-Commerce Platforms",
-      "keywords": ["SAP Commerce Cloud (Hybris)", "CCv2", "OCC APIs", "Spartacus", "SAP BTP Kyma"]
+      "keywords": [
+        "SAP Commerce Cloud (Hybris)",
+        "CCv2",
+        "OCC APIs",
+        "Spartacus",
+        "SAP BTP Kyma"
+      ]
     },
     {
       "name": "Integration & APIs",
-      "keywords": ["MuleSoft Anypoint Platform", "Salesforce", "DataWeave", "API-led Connectivity", "RAML", "OAS/Swagger", "REST", "SOAP"]
+      "keywords": [
+        "MuleSoft Anypoint Platform",
+        "Salesforce",
+        "DataWeave",
+        "API-led Connectivity",
+        "RAML",
+        "OAS/Swagger",
+        "REST",
+        "SOAP"
+      ]
     },
     {
       "name": "Languages & Frameworks",
-      "keywords": ["Java 17", "Spring Boot", "Spring Security", "Spring Integration", "JavaScript", "Microservices Architecture"]
+      "keywords": [
+        "Java 17",
+        "Spring Boot",
+        "Spring Security",
+        "Spring Integration",
+        "JavaScript",
+        "Microservices Architecture"
+      ]
     },
     {
       "name": "DevOps & Cloud",
-      "keywords": ["Jenkins", "Docker", "Kubernetes", "CI/CD Pipelines", "SAP BTP"]
+      "keywords": [
+        "Jenkins",
+        "Docker",
+        "Kubernetes",
+        "CI/CD Pipelines",
+        "SAP BTP"
+      ]
     },
     {
       "name": "Databases",
-      "keywords": ["MySQL", "SAP HANA", "PostgreSQL"]
+      "keywords": [
+        "MySQL",
+        "SAP HANA",
+        "PostgreSQL"
+      ]
     },
     {
       "name": "AI & Dev Tools",
-      "keywords": ["GitHub Copilot", "Ollama (local & cloud LLMs)", "Claude (Anthropic)", "OpenAI Codex CLI", "Model Context Protocol (MCP)"]
+      "keywords": [
+        "GitHub Copilot",
+        "Ollama (local & cloud LLMs)",
+        "Claude (Anthropic)",
+        "OpenAI Codex CLI",
+        "Model Context Protocol (MCP)"
+      ]
     },
     {
       "name": "Personal Tools & Languages",
-      "keywords": ["Python", "TypeScript", "FastAPI", "React", "SQLite"]
+      "keywords": [
+        "Python",
+        "TypeScript",
+        "FastAPI",
+        "React",
+        "SQLite"
+      ]
     }
   ],
   "languages": [
-    { "language": "English", "fluency": "Professional" },
-    { "language": "French", "fluency": "Professional" }
+    {
+      "language": "English",
+      "fluency": "Professional"
+    },
+    {
+      "language": "French",
+      "fluency": "Professional"
+    }
   ],
   "projects": [
     {
       "name": "Roche Bobois — API-Led Integration Architecture",
       "description": "Problem: fragmented point-to-point integrations between e-commerce, ERP, CRM and third-party services. Solution: reusable API-led architecture on MuleSoft Anypoint with governed specifications and DataWeave orchestration. Impact: faster integration delivery and end-to-end business process automation including Salesforce CRM data flows.",
-      "keywords": ["MuleSoft", "API-led", "DataWeave", "Salesforce"],
-      "roles": ["MuleSoft Integration Specialist"]
+      "keywords": [
+        "MuleSoft",
+        "API-led",
+        "DataWeave",
+        "Salesforce"
+      ],
+      "roles": [
+        "MuleSoft Integration Specialist"
+      ]
     },
     {
       "name": "Miele — Cloud-Native Commerce Migration",
       "description": "Problem: on-premise SAP Hybris limiting scalability of a global B2C platform. Solution: zero-downtime migration to SAP Commerce Cloud (CCv2) plus SAP BTP Kyma microservices and Jenkins CI/CD. Impact: scalable cloud-native platform with optimized OCC APIs.",
-      "keywords": ["SAP Commerce Cloud", "CCv2", "Kyma", "Kubernetes", "CI/CD"],
-      "roles": ["Senior SAP Commerce Cloud Consultant"]
+      "keywords": [
+        "SAP Commerce Cloud",
+        "CCv2",
+        "Kyma",
+        "Kubernetes",
+        "CI/CD"
+      ],
+      "roles": [
+        "Senior SAP Commerce Cloud Consultant"
+      ]
     },
     {
       "name": "BYK — Multi-Country B2B Platform",
       "description": "Problem: aging SAP Hybris 6.7 B2B platform serving 15+ countries. Solution: led migration to Commerce Cloud CCv2 with custom OCC APIs, ERP/logistics/payment integrations. Impact: modern headless-capable B2B platform with improved performance and organic traffic growth.",
-      "keywords": ["SAP Commerce Cloud", "B2B", "OCC APIs", "SAP ERP"],
-      "roles": ["Technical Lead"]
+      "keywords": [
+        "SAP Commerce Cloud",
+        "B2B",
+        "OCC APIs",
+        "SAP ERP"
+      ],
+      "roles": [
+        "Technical Lead"
+      ]
+    },
+    {
+      "name": "mulewatch",
+      "url": "https://heybrahim.com/projects/mulewatch.html",
+      "description": "Read-only MCP server for MuleSoft Anypoint Platform: live and archived application logs, Runtime Manager, API Manager and Exchange. Published on npm and the MCP registry.",
+      "keywords": [
+        "MCP",
+        "MuleSoft",
+        "TypeScript"
+      ]
     },
     {
       "name": "Meterlex",
       "description": "Local-first cost intelligence for AI coding assistants: Claude Code, Codex, Antigravity, Ollama, and Copilot CLI.",
-      "keywords": ["Python", "CLI", "Cost Intelligence"],
-      "roles": ["Creator"],
+      "keywords": [
+        "Python",
+        "CLI",
+        "Cost Intelligence"
+      ],
+      "roles": [
+        "Creator"
+      ],
       "url": "https://github.com/brbousnguar/meterlex",
       "type": "open-source"
     },
     {
       "name": "MacBook MCP Server",
       "description": "Python MCP server exposing battery, CPU, memory, and machine-status resources and tools.",
-      "keywords": ["Python", "MCP"],
-      "roles": ["Creator"],
+      "keywords": [
+        "Python",
+        "MCP"
+      ],
+      "roles": [
+        "Creator"
+      ],
       "url": "https://github.com/brbousnguar/macbook-mcp-server",
       "type": "open-source"
     },
     {
       "name": "AI Models Costs",
       "description": "Static React dashboard for comparing AI model API pricing across providers and modalities.",
-      "keywords": ["TypeScript", "React"],
-      "roles": ["Creator"],
+      "keywords": [
+        "TypeScript",
+        "React"
+      ],
+      "roles": [
+        "Creator"
+      ],
       "url": "https://github.com/brbousnguar/ai-models-costs",
       "type": "open-source"
     },
     {
       "name": "Termo Track",
       "description": "Local BLE temperature and humidity tracker built with FastAPI, React, SQLite, and MCP support.",
-      "keywords": ["TypeScript", "FastAPI", "MCP"],
-      "roles": ["Creator"],
+      "keywords": [
+        "TypeScript",
+        "FastAPI",
+        "MCP"
+      ],
+      "roles": [
+        "Creator"
+      ],
       "url": "https://github.com/brbousnguar/termo-track",
       "type": "open-source"
     }

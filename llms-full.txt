@@ -21,6 +21,18 @@ Key facts:
 - [profile.json](https://heybrahim.com/profile.json): JSON Resume-style structured profile (basics, work history, skills, projects, education).
 - [CV PDF](https://heybrahim.com/docs/Brahim_Bousnguar_CV.pdf): downloadable résumé.
 
+## Projects
+
+Side projects, one page each (English; French versions under https://heybrahim.com/fr/projets/). Markdown at the same URL with `.md`.
+
+<!-- projects:start -->
+- [mulewatch](https://heybrahim.com/projects/mulewatch.html) (2026-09-08): mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs, list deployed apps, API Manager instances and Exchange assets. Markdown: https://heybrahim.com/projects/mulewatch.md
+- [Meterlex](https://heybrahim.com/projects/meterlex.html) (2026-07-30): Meterlex reads the session logs of Claude Code, Codex, Gemini CLI, Antigravity, Ollama and Copilot CLI, prices every model call at the public API rate and compares it with what your subscriptions cost. Local-first, token counts only. Markdown: https://heybrahim.com/projects/meterlex.md
+- [AI Models Costs](https://heybrahim.com/projects/ai-models-costs.html) (2026-06-15): A static React dashboard comparing public API prices across American, Chinese, European and specialist AI providers, for text, reasoning, image, audio, video, embeddings and more, normalized to USD per 1M tokens where possible. Markdown: https://heybrahim.com/projects/ai-models-costs.md
+- [Termo Track](https://heybrahim.com/projects/termo-track.html) (2026-06-13): Termo Track listens to ThermoPro Bluetooth sensors, stores readings in SQLite, shows live temperature and humidity in a React dashboard next to the outside weather, and exposes it all to AI clients through MCP. Local-first, no cloud account. Markdown: https://heybrahim.com/projects/termo-track.md
+- [MacBook MCP Server](https://heybrahim.com/projects/macbook-mcp-server.html) (2026-03-26): A small Python MCP server that exposes a MacBook's CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale. Markdown: https://heybrahim.com/projects/macbook-mcp-server.md
+<!-- projects:end -->
+
 ## Notes
 
 Technical notes (English), newest first. Plain-text Markdown of each is at the same URL with `.md`; everything in one file: https://heybrahim.com/llms-full.txt
@@ -44,7 +56,6 @@ Technical notes (English), newest first. Plain-text Markdown of each is at the s
 
 URL: https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html
 Published: 2026-09-18 · Updated: 2026-09-18
-Topics: MuleSoft, Anypoint Platform, MCP, observability
 
 MuleSoft has an official MCP server. It scaffolds projects, generates flows, deploys apps. What it can't do is the one thing I need when something breaks in prod: read the logs.
 
@@ -127,3 +138,178 @@ Run `anypoint_whoami` first to see what it's connected to. Then just ask: *"show
 It's v0.1, Apache-2.0, on [npm](https://www.npmjs.com/package/mulewatch) and the [MCP registry](https://registry.modelcontextprotocol.io/?q=mulewatch). Everything is tested against a live org except API Manager, because my test app didn't have the `View APIs Configuration` scope. If you run MuleSoft, try it and tell me what breaks. Issues and PRs are open on [GitHub](https://github.com/brbousnguar/mulewatch).
 
 *MuleSoft and Anypoint Platform are Salesforce trademarks. mulewatch is an independent project.*
+
+
+# Projects (full text)
+
+---
+
+## mulewatch
+
+URL: https://heybrahim.com/projects/mulewatch.html
+Published: 2026-09-08 · Updated: 2026-09-08
+
+mulewatch plugs your AI assistant into MuleSoft Anypoint Platform so you can ask about a Mule estate in plain English and get answers from the real platform APIs. It's built for the person holding the pager, not the person writing the flow.
+
+It does the one thing the official MuleSoft MCP server doesn't: read and search application logs, including the historical ones in the Monitoring Archive.
+
+## What you can ask it
+
+- Latest logs of an app, normalized across CloudHub 2.0, Runtime Fabric and legacy CloudHub.
+- Just the `ERROR` and `FATAL` lines, with counts by logger and replica.
+- Logs from a past date, pulled from the Anypoint Monitoring Archive.
+- What's deployed where, which API Manager instances front it, and what's in Exchange.
+
+Every tool is read-only. There's no deploy, restart or policy tool, on purpose.
+
+## The interesting bit
+
+The Monitoring Archive is indexed per replica, not per app, so a naive search has to probe every replica an app ever had. mulewatch tries the replica that's running right now first, and only falls back to a full scan when the app was redeployed since. On a test app with 669 archived replicas, a search for today probed exactly one.
+
+I wrote the whole story up here: [The official MuleSoft MCP server can't read your logs, so I built one that can](/notes/mulewatch-anypoint-logs-mcp.html).
+
+## Run it
+
+```bash
+claude mcp add mulewatch --env ANYPOINT_CLIENT_ID=... --env ANYPOINT_CLIENT_SECRET=... -- npx -y mulewatch
+```
+
+It works the same in Claude Desktop, Cursor and OpenClaw with an `npx -y mulewatch` entry. Lock it to safe environments with `ANYPOINT_ALLOWED_ENVIRONMENTS=Dev,Sandbox`.
+
+---
+
+## Meterlex
+
+URL: https://heybrahim.com/projects/meterlex.html
+Published: 2026-07-30 · Updated: 2026-07-30
+
+Flat monthly AI subscriptions hide how much you actually use them. Meterlex reads the logs your coding tools already write to disk, prices every model call at the public API rate, and shows you the subscription next to what the same usage would cost on consumption.
+
+## How it works
+
+Each machine runs a tiny collector: one Python file, no dependencies. It reads that machine's logs and sends **token counts only** to a hub. The hub is two Docker containers and a SQLite file you host. Transcripts never leave the machine that wrote them.
+
+It currently reads Claude Code, Codex, Antigravity, Gemini CLI, Ollama (including cloud models run through Claude Code), Copilot CLI and OpenClaw agents.
+
+The cost of each call is:
+
+```text
+(input × prompt_rate + output × completion_rate
+ + cache_read × cache_read_rate + cache_write × cache_write_rate) × fx_rate
+```
+
+Savings are API cost minus subscription. Positive means the subscription wins.
+
+## The bug that was off by 2.5×
+
+Claude Code logs every part of a reply (the thinking, the text, each tool call) as its own line, and every one of those lines carries the whole reply's usage. Count lines and you overstate tokens by about **2.5×**.
+
+Meterlex counts each reply once, by message id, at its final numbers. Gemini CLI has a similar habit: it appends a message again every time it updates it, so those get deduplicated too.
+
+## What you see
+
+Four screens over this week, this month or this year, counted in your own time zone:
+
+- **Now**: tokens, list price vs. what you paid, cache share, tokens per day.
+- **Machines**: one meter per machine, and which collectors went quiet.
+- **Harnesses** and **Models**: per tool and per model, ranked.
+
+It's a personal tool, so the API has no auth. Keep it on localhost or a private network.
+
+---
+
+## AI Models Costs
+
+URL: https://heybrahim.com/projects/ai-models-costs.html
+Published: 2026-06-15 · Updated: 2026-06-15
+
+Comparing AI API prices means opening a dozen pricing pages that all use different units. This dashboard puts them in one table: American, Chinese and European providers, plus specialists like Z.AI and Moonshot/Kimi.
+
+It covers text, reasoning, multimodal, image, audio, video, live translation, documents, embeddings, rerank and tooling.
+
+## Curated, not scraped
+
+Vendor pricing pages are all different, and pretending every price can be safely scraped would be lying. So the rows are curated from official sources, and a refresh script does the honest part:
+
+```bash
+npm run refresh-prices
+```
+
+It checks each provider's official pricing pages, stamps every row with `lastChecked`, and marks a provider `source-unavailable` if none of its pages answered. The row stays, flagged, instead of silently going stale.
+
+Provider pages live in one JSON registry, which the dashboard also shows as a Sources view.
+
+## Units
+
+Token prices are normalized to USD per 1M tokens when the provider publishes that unit. Everything else keeps its native unit: per image, minute, hour, character, page, request or generated second.
+
+## No backend
+
+The build is fully static: no database, no API calls at runtime. It deploys to GitHub Pages from Actions, and you can [use it live](https://heybrahim.com/ai-models-costs/).
+
+---
+
+## Termo Track
+
+URL: https://heybrahim.com/projects/termo-track.html
+Published: 2026-06-13 · Updated: 2026-06-13
+
+A ThermoPro sensor broadcasts temperature and humidity over Bluetooth. Termo Track picks that up, keeps the history, and lets both a dashboard and Claude read it. No vendor app, no cloud account.
+
+## How the data flows
+
+1. `scanner_daemon.py` receives the sensor's BLE advertisements (with `bleak`).
+2. It writes each reading into SQLite.
+3. FastAPI serves REST and a WebSocket from that same database.
+4. The React dashboard reads the API and gets live pushes over `/ws`, with a stale-data warning when the sensor goes quiet.
+5. `mcp_server.py` exposes the same data to AI clients over stdio or HTTP.
+
+One SQLite file, three readers. That's the whole architecture.
+
+## Inside vs. outside
+
+The dashboard compares indoor readings with the outside weather from Open-Meteo, which needs no API key. Recent windows use the forecast API; month and year views use the historical archive.
+
+## What Claude can ask
+
+MCP tools: `get_current_reading`, `get_sensor_history`, `get_sensor_stats`, `get_comfort_level`, `get_outside_weather` and `get_indoor_outdoor_comparison`.
+
+So "was the bedroom more humid than outside last week?" is one question, not a spreadsheet.
+
+---
+
+## MacBook MCP Server
+
+URL: https://heybrahim.com/projects/macbook-mcp-server.html
+Published: 2026-03-26 · Updated: 2026-03-26
+
+A small MCP server that lets Claude check on a Mac: CPU, memory, disk, battery, network, GPU, and the processes eating the most CPU or RAM. Ask "why is my fan so loud?" and it can actually look.
+
+## What it exposes
+
+Tools:
+
+- `get_system_overview`
+- `get_disk_usage`
+- `get_battery`
+- `get_network`
+- `get_gpu`
+- `get_top_resource_processes`
+
+And one resource, `status://system/overview`, for clients that read resources instead of calling tools.
+
+## Local or remote
+
+On the same machine, run it over `stdio` and add it to Claude Desktop. That's the simple path.
+
+For a Mac you want to check from somewhere else, it also speaks streamable HTTP:
+
+```bash
+PYTHONPATH=src MCP_TRANSPORT=streamable-http MCP_HOST=127.0.0.1 MCP_PORT=8765 python3 -m macbook_status_mcp.server
+```
+
+Don't put that on the public internet. The MCP spec itself warns about DNS rebinding for remote HTTP servers. Keep it private on Tailscale, bound to the Tailscale IP, with the optional bearer token (`MCP_SHARED_TOKEN`). A `launchd` template keeps it running after a reboot.
+
+## Why plain Python
+
+Machine monitoring is a code problem, not a workflow problem, so this uses the native Python MCP SDK. Alerting through something like n8n can sit on top later.
