@@ -11,7 +11,9 @@ Needs Pillow. The font dir must hold Archivo[wdth,wght].ttf,
 HankenGrotesk[wght].ttf and IBMPlexMono-Medium.ttf (the Google Fonts
 variable files); without one, they are downloaded from the google/fonts repo
 with curl into a temp dir. Writes assets/img/og-card.png (EN) and
-assets/img/og-card-fr.png (FR). After changing them, bump the ?v= query on the
+assets/img/og-card-fr.png (FR), then one card per generated page (notes,
+projects, case studies) into assets/img/og/, read through tools/build_site.py;
+run tools/build_site.py afterwards so pages point at their cards. After changing them, bump the ?v= query on the
 og:image / twitter:image URLs so LinkedIn and X refetch, then re-scrape the
 URL in the LinkedIn Post Inspector.
 """
@@ -90,6 +92,100 @@ def wrap(draw, words, font, width):
     return lines
 
 
+def band(d, fonts, right_text):
+    """Ink band: BB mark, domain, and a mono line in sky (text-only on ink)."""
+    d.rectangle([0, H - BAND, W, H], fill=INK)
+    mark = 48
+    my = H - BAND + (BAND - mark) // 2
+    d.rectangle([PAD, my, PAD + mark - 1, my + mark - 1], outline=PAPER, width=2)
+    bb_font = load(fonts, "archivo", 24, weight=800, width=100)
+    bl, bt, br, bb = d.textbbox((0, 0), "BB", font=bb_font)
+    d.text((PAD + (mark - (br - bl)) / 2 - bl, my + (mark - (bb - bt)) / 2 - bt), "BB", font=bb_font, fill=PAPER)
+    domain_font = load(fonts, "archivo", 34, weight=700, width=100)
+    dl, dt, dr, db = d.textbbox((0, 0), "heybrahim.com", font=domain_font)
+    d.text((PAD + mark + 24, H - BAND + (BAND - (db - dt)) / 2 - dt), "heybrahim.com", font=domain_font, fill=PAPER)
+    stack_font = load(fonts, "mono", 18)
+    sw = d.textlength(right_text, font=stack_font)
+    sl, st, sr, sb = d.textbbox((0, 0), right_text, font=stack_font)
+    d.text((W - PAD - sw, H - BAND + (BAND - (sb - st)) / 2 - st), right_text, font=stack_font, fill=SKY)
+
+
+def plain_wrap(d, text, font, width):
+    lines, line = [], ""
+    for word in text.split():
+        trial = f"{line} {word}".strip()
+        if line and d.textlength(trial, font=font) > width:
+            lines.append(line)
+            line = word
+        else:
+            line = trial
+    return lines + [line] if line else lines
+
+
+# ── Per-page cards (notes, projects, case studies) ─────────────────────────
+
+EYEBROWS = {
+    ("notes", "en"): "NOTES",
+    ("projects", "en"): "SIDE PROJECT", ("projects", "fr"): "PROJET PERSO",
+    ("work", "en"): "CLIENT WORK", ("work", "fr"): "MISSION CLIENT",
+}
+
+
+def page_card(fonts, page, out):
+    im = Image.new("RGB", (W, H), PAPER)
+    d = ImageDraw.Draw(im)
+    content_w = W - 2 * PAD
+
+    mono = load(fonts, "mono", 20)
+    d.rectangle([PAD, PAD + 2, PAD + 13, PAD + 15], fill=COBALT)
+    d.text((PAD + 28, PAD - 3), EYEBROWS[(page["collection"], page["lang"])], font=mono, fill=INK_2)
+
+    # Headline: the largest size (up to 128px) that fits in three lines.
+    for size in range(128, 46, -2):
+        title_font = load(fonts, "archivo", size, weight=800, width=100)
+        lines = plain_wrap(d, page["title"], title_font, content_w)
+        if len(lines) <= 3:
+            break
+    line_h = int(size * 1.02)
+    top = d.textbbox((0, 0), "Hg", font=title_font)[1]
+    y = PAD + 46
+    for line in lines:
+        d.text((PAD - 3, y - top), line, font=title_font, fill=INK)
+        y += line_h
+
+    # Sub line: the tagline (projects, work) or the description (notes), max two lines.
+    sub_font = load(fonts, "hanken", 38 if len(lines) == 1 else 30, weight=500)
+    sub_h = 50 if len(lines) == 1 else 40
+    sub = page.get("tagline") or page["description"]
+    sub_lines = plain_wrap(d, sub, sub_font, content_w - 40)
+    if len(sub_lines) > 2:
+        sub_lines = sub_lines[:2]
+        while d.textlength(sub_lines[1] + " …", font=sub_font) > content_w - 40:
+            sub_lines[1] = sub_lines[1].rsplit(" ", 1)[0]
+        sub_lines[1] += " …"
+    # Directly under the headline, so short titles don't leave a hole.
+    sy = y + 28
+    for line in sub_lines:
+        d.text((PAD, sy), line, font=sub_font, fill=INK_2)
+        sy += sub_h
+
+    band(d, fonts, "BRAHIM BOUSNGUAR")
+    im.save(out, optimize=True)
+    return Path(out).stat().st_size // 1024
+
+
+def page_cards(fonts):
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    sys.dont_write_bytecode = True  # no tools/__pycache__ in the repo
+    import build_site
+    Path("assets/img/og").mkdir(parents=True, exist_ok=True)
+    for collection in build_site.COLLECTIONS:
+        for page in build_site.load(collection):
+            out = build_site.card_path(page)
+            kb = page_card(fonts, page, out.lstrip("/"))
+            print(f"{out.lstrip('/')}: {kb} KB")
+
+
 def card(fonts, lang):
     c = COPY[lang]
     im = Image.new("RGB", (W, H), PAPER)
@@ -139,21 +235,7 @@ def card(fonts, lang):
             x += d.textlength(word, font=lede_font) + space
         y += line_h
 
-    # Ink band: BB mark, domain, stack in sky (text-only on ink).
-    d.rectangle([0, H - BAND, W, H], fill=INK)
-    mark = 48
-    my = H - BAND + (BAND - mark) // 2
-    d.rectangle([PAD, my, PAD + mark - 1, my + mark - 1], outline=PAPER, width=2)
-    bb_font = load(fonts, "archivo", 24, weight=800, width=100)
-    bl, bt, br, bb = d.textbbox((0, 0), "BB", font=bb_font)
-    d.text((PAD + (mark - (br - bl)) / 2 - bl, my + (mark - (bb - bt)) / 2 - bt), "BB", font=bb_font, fill=PAPER)
-    domain_font = load(fonts, "archivo", 34, weight=700, width=100)
-    dl, dt, dr, db = d.textbbox((0, 0), "heybrahim.com", font=domain_font)
-    d.text((PAD + mark + 24, H - BAND + (BAND - (db - dt)) / 2 - dt), "heybrahim.com", font=domain_font, fill=PAPER)
-    stack_font = load(fonts, "mono", 18)
-    sw = d.textlength(STACK, font=stack_font)
-    sl, st, sr, sb = d.textbbox((0, 0), STACK, font=stack_font)
-    d.text((W - PAD - sw, H - BAND + (BAND - (sb - st)) / 2 - st), STACK, font=stack_font, fill=SKY)
+    band(d, fonts, STACK)
 
     # Place line under the portrait, like the hero caption.
     place_font = load(fonts, "mono", 16)
@@ -167,6 +249,7 @@ def main():
     fonts = font_dir(sys.argv[1] if len(sys.argv) > 1 else None)
     for lang in COPY:
         card(fonts, lang)
+    page_cards(fonts)
 
 
 if __name__ == "__main__":

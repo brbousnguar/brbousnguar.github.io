@@ -258,6 +258,18 @@ def contact_block(lang):
 MONTHS_FR = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
 
 
+def card_path(page):
+    """Where a page's own share card lives (made by tools/make_og_card.py)."""
+    suffix = "-fr" if page["lang"] == "fr" else ""
+    return f"/assets/img/og/{page['collection']}-{page['slug']}{suffix}.png"
+
+
+def card_for(page):
+    """The page's own card when it has been rendered, the site card otherwise."""
+    path = card_path(page)
+    return path if (ROOT / path.lstrip("/")).exists() else f"/assets/img/{LANG[page['lang']]['card']}"
+
+
 def human_date(iso, lang="en"):
     d = datetime.strptime(iso, "%Y-%m-%d")
     return f"{d.day} {MONTHS_FR[d.month - 1]} {d.year}" if lang == "fr" else d.strftime("%-d %b %Y")
@@ -268,11 +280,12 @@ def ld_script(graph):
     return '  <script type="application/ld+json">\n' + "\n".join("  " + l for l in body.splitlines()) + "\n  </script>"
 
 
-def head(lang, title, description, url, og_type, graph, alternates=None, extra=""):
+def head(lang, title, description, url, og_type, graph, alternates=None, extra="", card=None, card_alt=None):
     L = LANG[lang]
     t, d = html.escape(title), html.escape(description)
     t_text = html.escape(title, quote=False)
-    card = f"{SITE}/assets/img/{L['card']}?v=1"
+    card = f"{SITE}{card}?v=1" if card else f"{SITE}/assets/img/{L['card']}?v=1"
+    card_alt = html.escape(card_alt) if card_alt else L["card_alt"]
     alt_locale = f'  <meta property="og:locale:alternate" content="{L["alt_locale"]}">\n' if alternates and len(alternates) > 1 else ""
     hreflang = ""
     if alternates and len(alternates) > 1:
@@ -297,14 +310,14 @@ def head(lang, title, description, url, og_type, graph, alternates=None, extra="
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="{L['card_alt']}">
+  <meta property="og:image:alt" content="{card_alt}">
 {extra}
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{t}">
   <meta name="twitter:description" content="{d}">
   <meta name="twitter:image" content="{card}">
-  <meta name="twitter:image:alt" content="{L['card_alt']}">
+  <meta name="twitter:image:alt" content="{card_alt}">
 
   <meta name="author" content="Brahim Bousnguar">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -384,7 +397,7 @@ def note_page(note, graph):
         "@type": "TechArticle", "@id": url + "#article", "headline": note["title"], "description": note["description"],
         "datePublished": note["date"], "dateModified": note["updated"], "inLanguage": "en",
         "author": {"@id": SITE + "/#person"}, "publisher": {"@id": SITE + "/#person"},
-        "mainEntityOfPage": {"@id": url + "#webpage"}, "image": f"{SITE}/assets/img/og-card.png",
+        "mainEntityOfPage": {"@id": url + "#webpage"}, "image": SITE + card_for(note),
         "keywords": note["tags"], "wordCount": note["words"],
         "encoding": {"@type": "MediaObject", "contentUrl": SITE + note["md_path"], "encodingFormat": "text/markdown"},
     }
@@ -402,7 +415,8 @@ def note_page(note, graph):
                if note["updated"] != note["date"] else "")
     tags = "".join(f"<li>{html.escape(t)}</li>" for t in note["tags"])
     toc = "".join(f'<li><a href="#{hid}">{text}</a></li>' for hid, text in note["toc"])
-    return (head("en", f'{note["title"]} | Brahim Bousnguar', note["description"], url, "article", nodes, extra=extra)
+    return (head("en", f'{note["title"]} | Brahim Bousnguar', note["description"], url, "article", nodes, extra=extra,
+                 card=card_for(note), card_alt=f'{note["title"]} — a note by Brahim Bousnguar, heybrahim.com')
             + header("en", "notes", {"en": "/notes/"}) + f"""
     <article class="note" aria-labelledby="note-title">
       <header class="page-intro note-intro">
@@ -520,7 +534,8 @@ def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class
                          for label, u in links)
     links_html = f'\n          <ul class="project-links">{link_items}</ul>' if link_items else ""
     return (head(lang, f"{page_title} | Brahim Bousnguar", p["description"], url, "website", nodes,
-                 alternates=p["alternates"], extra=f'  <link rel="alternate" type="text/markdown" href="{p["md_path"]}">\n')
+                 alternates=p["alternates"], extra=f'  <link rel="alternate" type="text/markdown" href="{p["md_path"]}">\n',
+                 card=card_for(p), card_alt=f'{p["title"]} — {p["tagline"]}. Brahim Bousnguar, heybrahim.com')
             + header(lang, nav_key, switch) + f"""
     <article class="{css_class}" aria-labelledby="page-title">
       <header class="page-intro note-intro">
@@ -556,7 +571,7 @@ def project_page(p, graph):
         "codeRepository": p["repo"], "programmingLanguage": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],
         "license": p.get("license"), "author": {"@id": SITE + "/#person"}, "creator": {"@id": SITE + "/#person"},
         "dateCreated": p["date"], "dateModified": p["updated"], "url": url,
-        "sameAs": [u for _, u in links], "inLanguage": p["lang"],
+        "sameAs": [u for _, u in links], "inLanguage": p["lang"], "image": SITE + card_for(p),
     }
     facts = [(T["status"], p.get("status")), (T["stack"], p.get("stack")), (T["license"], p.get("license"))]
     return detail_page(p, graph, T, "projects", "projects", facts, links, code, "project",
@@ -579,7 +594,7 @@ def work_page(p, graph):
         "@type": "Article", "@id": url + "#article", "headline": p["title"], "description": p["description"],
         "inLanguage": p["lang"], "datePublished": p["date"], "dateModified": p["updated"],
         "author": {"@id": SITE + "/#person"}, "publisher": {"@id": SITE + "/#person"},
-        "mainEntityOfPage": {"@id": url + "#webpage"}, "image": f"{SITE}/assets/img/{LANG[p['lang']]['card']}",
+        "mainEntityOfPage": {"@id": url + "#webpage"}, "image": SITE + card_for(p),
         "keywords": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],
     }
     facts = [(T["client"], p.get("client")), (T["period"], p.get("period")), (T["role"], p.get("role")),
