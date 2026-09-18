@@ -104,4 +104,45 @@ replies[key] = _merge_max(replies[key], t) if key in replies else t&lt;/code&gt;
 &lt;p&gt;It&#x27;s v0.1, Apache-2.0, on &lt;a href=&quot;https://www.npmjs.com/package/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;npm&lt;/a&gt; and the &lt;a href=&quot;https://registry.modelcontextprotocol.io/?q=mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;MCP registry&lt;/a&gt;. Everything is tested against a live org except API Manager, because my test app didn&#x27;t have the &lt;code&gt;View APIs Configuration&lt;/code&gt; scope. If you run MuleSoft, try it and tell me what breaks. Issues and PRs are open on &lt;a href=&quot;https://github.com/brbousnguar/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;MuleSoft and Anypoint Platform are Salesforce trademarks. mulewatch is an independent project.&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
+  <entry>
+    <title>My README generator isn&#x27;t allowed to make things up</title>
+    <link rel="alternate" type="text/html" href="https://heybrahim.com/notes/vibetidy-grounded-readme.html"/>
+    <id>https://heybrahim.com/notes/vibetidy-grounded-readme.html</id>
+    <published>2026-09-18T00:00:00Z</published>
+    <updated>2026-09-18T00:00:00Z</updated>
+    <summary>vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn&#x27;t work, and npm refused a name that looked free. Here&#x27;s what I learned.</summary>
+    <category term="LLM"/><category term="developer tools"/><category term="Node.js"/><category term="npm"/><category term="CI"/>
+    <content type="html">&lt;p&gt;Ask an LLM to write a README and you get something long, confident and partly invented: flags that don&#x27;t exist, env vars nobody reads, a setup step from a different project.&lt;/p&gt;
+&lt;p&gt;So in &lt;a href=&quot;/projects/vibetidy.html&quot;&gt;vibetidy&lt;/a&gt; the LLM doesn&#x27;t get to decide what&#x27;s true. A scanner reads the repo, and the model only turns those verified facts into prose.&lt;/p&gt;
+&lt;p&gt;Funny thing: while building a tool about not advertising what isn&#x27;t real, CI caught me doing exactly that. Twice.&lt;/p&gt;
+&lt;h2 id=&quot;the-scanner-is-the-product&quot;&gt;The scanner is the product&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;vibetidy readme&lt;/code&gt; scans the repository first: the manifest, scripts, dependencies, &lt;code&gt;.env.example&lt;/code&gt;, entry points, the folder tree, the existing README. Only those facts go to the model, and the prompt says it plainly: never invent a feature, a flag, an environment variable, a dependency or a version.&lt;/p&gt;
+&lt;p&gt;When the facts are thin, you get a short README that&#x27;s right instead of a long one that&#x27;s plausible. And you can check what the model would see before spending a token:&lt;/p&gt;
+&lt;pre data-lang=&quot;bash&quot;&gt;&lt;code&gt;npx vibetidy readme --print-context&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No API key needed for that. It prints the scanned facts and the full prompt, and exits.&lt;/p&gt;
+&lt;h2 id=&quot;bug-one-a-flag-i-documented-but-never-registered&quot;&gt;Bug one: a flag I documented but never registered&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;issue-check --help&lt;/code&gt; listed &lt;code&gt;--no-changelog&lt;/code&gt;. The README&#x27;s options table listed it too. Using it exited with &lt;code&gt;Unknown option &#x27;--no-changelog&#x27;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The flag was never registered in the parser. Node&#x27;s &lt;code&gt;parseArgs&lt;/code&gt; only honours a &lt;code&gt;--no-&lt;/code&gt; prefix with &lt;code&gt;allowNegative&lt;/code&gt;, which needs a newer Node than the &lt;code&gt;&amp;gt;=20.10.0&lt;/code&gt; the package advertises. So it became a plain &lt;code&gt;--skip-changelog&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The fix was one line. The interesting part is that nothing caught it: the docs looked right, the code read plausibly, every test passed. So I added a test for the whole class of bug. It pulls every flag out of each command&#x27;s &lt;code&gt;--help&lt;/code&gt; output and asserts the parser accepts it:&lt;/p&gt;
+&lt;pre data-lang=&quot;js&quot;&gt;&lt;code&gt;for (const flag of flagsIn(help)) {
+  const res = runCli([command, flag, &#x27;x&#x27;, &#x27;--help&#x27;]);
+  assert.notEqual(res.status, 2, `${flag} is documented but rejected`);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To make sure it bites, I planted a fake &lt;code&gt;--phantom-flag&lt;/code&gt; in the usage text. The suite failed with the exact rejection message.&lt;/p&gt;
+&lt;h2 id=&quot;bug-two-the-tests-never-ran-on-node-20&quot;&gt;Bug two: the tests never ran on Node 20&lt;/h2&gt;
+&lt;p&gt;Opening that PR turned CI red on &lt;code&gt;main&lt;/code&gt;: 5 legs out of 9.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm test&lt;/code&gt; ran &lt;code&gt;node --test &quot;test/**/*.test.js&quot;&lt;/code&gt;. Glob support in &lt;code&gt;node --test&lt;/code&gt; only landed in Node 21. On Node 20 the quoted pattern is taken as a literal path, so every 20.x leg failed with &lt;code&gt;Could not find .../test/**/*.test.js&lt;/code&gt;. The suite had never run on the Node version &lt;code&gt;engines&lt;/code&gt; promised.&lt;/p&gt;
+&lt;p&gt;The fix is almost funny: plain &lt;code&gt;node --test&lt;/code&gt;, with no pattern at all. Default discovery has worked since Node 18. CI went green on all nine legs (Ubuntu, macOS and Windows, times Node 20, 22 and 24).&lt;/p&gt;
+&lt;p&gt;Same class as bug one: something advertised that didn&#x27;t work. The 9-leg matrix is why I found both.&lt;/p&gt;
+&lt;h2 id=&quot;npm-said-no-to-a-name-that-looked-free&quot;&gt;npm said no to a name that looked free&lt;/h2&gt;
+&lt;p&gt;The tool started as &lt;code&gt;tidyrepo&lt;/code&gt;. &lt;code&gt;npm view tidyrepo&lt;/code&gt; returned a 404, so the name looked available.&lt;/p&gt;
+&lt;p&gt;Then &lt;code&gt;npm publish&lt;/code&gt; failed with a 403. npm&#x27;s similarity check strips punctuation, so &lt;code&gt;tidyrepo&lt;/code&gt; collided with an existing &lt;code&gt;tidy-repo&lt;/code&gt;. A 404 isn&#x27;t proof a name is free: check the hyphenated and underscored versions too.&lt;/p&gt;
+&lt;p&gt;It&#x27;s &lt;code&gt;vibetidy&lt;/code&gt; now, which honestly fits better.&lt;/p&gt;
+&lt;h2 id=&quot;try-it&quot;&gt;Try it&lt;/h2&gt;
+&lt;p&gt;It&#x27;s MIT, zero runtime dependencies, and works with OpenAI, OpenRouter, Anthropic, Groq, DeepSeek, Together, or a local Ollama:&lt;/p&gt;
+&lt;pre data-lang=&quot;bash&quot;&gt;&lt;code&gt;npx vibetidy readme --print-context      # see the facts, no key needed
+npx vibetidy readme                      # generate, review the diff, confirm
+npx vibetidy issue-check --install-hook  # nag on feature commits with no issue&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If it writes something your repo doesn&#x27;t back up, that&#x27;s a bug. Open an issue on &lt;a href=&quot;https://github.com/brbousnguar/vibetidy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
 </feed>
