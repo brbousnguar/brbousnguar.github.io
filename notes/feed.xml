@@ -8,6 +8,51 @@
   <updated>2026-09-18T00:00:00Z</updated>
   <author><name>Brahim Bousnguar</name><uri>https://heybrahim.com/</uri></author>
   <entry>
+    <title>Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high</title>
+    <link rel="alternate" type="text/html" href="https://heybrahim.com/notes/claude-code-token-overcount.html"/>
+    <id>https://heybrahim.com/notes/claude-code-token-overcount.html</id>
+    <published>2026-09-18T00:00:00Z</published>
+    <updated>2026-09-18T00:00:00Z</updated>
+    <summary>Claude Code writes one log line per part of a reply, and every line repeats the whole reply&#x27;s token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here&#x27;s the fix from Meterlex, plus the same trap in Gemini CLI.</summary>
+    <category term="Claude Code"/><category term="AI tooling"/><category term="observability"/><category term="Python"/>
+    <content type="html">&lt;p&gt;If you add up token usage from Claude Code&#x27;s session logs line by line, your total is wrong. On my machine it was &lt;strong&gt;2.5×&lt;/strong&gt; too high, and output tokens were &lt;strong&gt;4.4×&lt;/strong&gt; too high.&lt;/p&gt;
+&lt;p&gt;The logs aren&#x27;t lying. Every line just repeats the usage of the whole reply it belongs to. Count replies, not lines: key by the message id.&lt;/p&gt;
+&lt;p&gt;I hit this building &lt;a href=&quot;/projects/meterlex.html&quot;&gt;Meterlex&lt;/a&gt;, a tool that prices my AI coding usage at API rates. Here&#x27;s what&#x27;s going on and the fix.&lt;/p&gt;
+&lt;h2 id=&quot;one-reply-many-lines&quot;&gt;One reply, many lines&lt;/h2&gt;
+&lt;p&gt;Claude Code keeps transcripts in &lt;code&gt;~/.claude/projects/**/*.jsonl&lt;/code&gt;. A single assistant reply isn&#x27;t one line. Each part of it is logged on its own line: the thinking, the text, each tool call.&lt;/p&gt;
+&lt;p&gt;And each of those lines carries the same &lt;code&gt;usage&lt;/code&gt; block, for the whole reply. Simplified, with made-up numbers, one reply with a text part and a tool call looks like this:&lt;/p&gt;
+&lt;pre data-lang=&quot;json&quot;&gt;&lt;code&gt;{&quot;type&quot;: &quot;assistant&quot;, &quot;uuid&quot;: &quot;a1…&quot;, &quot;message&quot;: {&quot;id&quot;: &quot;msg_01X…&quot;, &quot;usage&quot;: {&quot;input_tokens&quot;: 12, &quot;output_tokens&quot;: 480}}}
+{&quot;type&quot;: &quot;assistant&quot;, &quot;uuid&quot;: &quot;b2…&quot;, &quot;message&quot;: {&quot;id&quot;: &quot;msg_01X…&quot;, &quot;usage&quot;: {&quot;input_tokens&quot;: 12, &quot;output_tokens&quot;: 480}}}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Two lines, two different &lt;code&gt;uuid&lt;/code&gt;s, one &lt;code&gt;message.id&lt;/code&gt;. Sum both and you&#x27;ve counted that reply twice. A reply with five tool calls gets counted six or seven times.&lt;/p&gt;
+&lt;h2 id=&quot;how-big-the-error-is&quot;&gt;How big the error is&lt;/h2&gt;
+&lt;p&gt;On my Mac&#x27;s transcripts: &lt;strong&gt;44,158&lt;/strong&gt; assistant lines, but only &lt;strong&gt;18,701&lt;/strong&gt; actual replies.&lt;/p&gt;
+&lt;p&gt;Counting lines gave 2.5× the real tokens. Output tokens were 4.4× too high.&lt;/p&gt;
+&lt;p&gt;That matters if you&#x27;re doing what Meterlex does: comparing a flat subscription with what the same usage would cost on the API. Overcount the usage and the subscription looks like a way better deal than it is.&lt;/p&gt;
+&lt;h2 id=&quot;the-fix-key-by-message-id&quot;&gt;The fix: key by message id&lt;/h2&gt;
+&lt;p&gt;Use &lt;code&gt;message.id&lt;/code&gt; as the key for a reply, and when you see it again, merge instead of adding. The one subtle bit: a reply&#x27;s numbers can grow while it streams, so keep each count at its largest value, not the first or the sum.&lt;/p&gt;
+&lt;p&gt;This is the core of it, from the Meterlex collector:&lt;/p&gt;
+&lt;pre data-lang=&quot;python&quot;&gt;&lt;code&gt;def _merge_max(a, b):
+    &quot;&quot;&quot;Two records of the same reply: each token count at its largest
+    (a reply&#x27;s numbers only grow as it streams), the earliest time.&quot;&quot;&quot;
+    m = dict(a)
+    for f in TOKEN_FIELDS:
+        m[f] = max(a[f], b[f])
+    m[&quot;ts&quot;] = min(a[&quot;ts&quot;], b[&quot;ts&quot;])
+    return m
+
+key = (session_id, msg.get(&quot;id&quot;) or uuid)
+replies[key] = _merge_max(replies[key], t) if key in replies else t&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lines without a &lt;code&gt;message.id&lt;/code&gt; fall back to their &lt;code&gt;uuid&lt;/code&gt;, so nothing gets dropped.&lt;/p&gt;
+&lt;h2 id=&quot;migrating-the-rows-you-already-stored&quot;&gt;Migrating the rows you already stored&lt;/h2&gt;
+&lt;p&gt;If you&#x27;ve been storing per-line rows, re-sending the same transcript with the new key would just add a third copy. So each reply also carries its old per-line &lt;code&gt;uuid&lt;/code&gt;s as &lt;code&gt;alt_keys&lt;/code&gt;, and the hub folds any stored row with one of those keys into the new one. Old data cleans itself up the next time a file is read.&lt;/p&gt;
+&lt;h2 id=&quot;gemini-cli-does-it-too&quot;&gt;Gemini CLI does it too&lt;/h2&gt;
+&lt;p&gt;Different tool, same trap. Gemini CLI appends a message again every time it updates it. One project&#x27;s file had &lt;strong&gt;56,651&lt;/strong&gt; lines for &lt;strong&gt;908&lt;/strong&gt; messages. Same fix: key by message id.&lt;/p&gt;
+&lt;p&gt;Codex has a milder version: it can repeat a &lt;code&gt;token_count&lt;/code&gt; event with an unchanged running total. Meterlex skips those.&lt;/p&gt;
+&lt;h2 id=&quot;try-it&quot;&gt;Try it&lt;/h2&gt;
+&lt;p&gt;If you track AI usage from local logs, check your keys. Count distinct message ids against lines on one of your own transcripts. The gap is the overcount.&lt;/p&gt;
+&lt;p&gt;Meterlex does all of this for Claude Code, Codex, Gemini CLI, Antigravity, Ollama, Copilot CLI and OpenClaw, and it&#x27;s MIT on &lt;a href=&quot;https://github.com/brbousnguar/meterlex&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;. If your numbers look off in a different way, open an issue.&lt;/p&gt;</content>
+  </entry>
+  <entry>
     <title>The official MuleSoft MCP server can&#x27;t read your logs, so I built one that can</title>
     <link rel="alternate" type="text/html" href="https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html"/>
     <id>https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html</id>

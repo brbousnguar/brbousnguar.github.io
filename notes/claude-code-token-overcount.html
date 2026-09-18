@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counting Claude Code tokens from the logs? You're probably 2.5× too high | Brahim Bousnguar</title>
+  <meta name="description" content="Claude Code writes one log line per part of a reply, and every line repeats the whole reply&#x27;s token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here&#x27;s the fix from Meterlex, plus the same trap in Gemini CLI.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Brahim Bousnguar">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://heybrahim.com/notes/claude-code-token-overcount.html">
+  <meta property="og:title" content="Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high | Brahim Bousnguar">
+  <meta property="og:description" content="Claude Code writes one log line per part of a reply, and every line repeats the whole reply&#x27;s token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here&#x27;s the fix from Meterlex, plus the same trap in Gemini CLI.">
+  <meta property="og:image" content="https://heybrahim.com/assets/img/og/notes-claude-code-token-overcount.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high — a note by Brahim Bousnguar, heybrahim.com">
+  <meta property="article:published_time" content="2026-09-18">
+  <meta property="article:modified_time" content="2026-09-18">
+  <meta property="article:author" content="https://heybrahim.com/">
+  <meta property="article:tag" content="Claude Code">
+  <meta property="article:tag" content="AI tooling">
+  <meta property="article:tag" content="observability">
+  <meta property="article:tag" content="Python">
+  <link rel="alternate" type="text/markdown" href="/notes/claude-code-token-overcount.md">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high | Brahim Bousnguar">
+  <meta name="twitter:description" content="Claude Code writes one log line per part of a reply, and every line repeats the whole reply&#x27;s token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here&#x27;s the fix from Meterlex, plus the same trap in Gemini CLI.">
+  <meta name="twitter:image" content="https://heybrahim.com/assets/img/og/notes-claude-code-token-overcount.png?v=1">
+  <meta name="twitter:image:alt" content="Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high — a note by Brahim Bousnguar, heybrahim.com">
+
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://heybrahim.com/notes/claude-code-token-overcount.html">
+  <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
+
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://heybrahim.com/#person",
+        "name": "Brahim Bousnguar",
+        "givenName": "Brahim",
+        "familyName": "Bousnguar",
+        "jobTitle": "Senior E-Commerce Integration Consultant",
+        "description": "Senior E-Commerce Integration Consultant with 9+ years specializing in SAP Commerce Cloud, MuleSoft Anypoint Platform, and Salesforce. API-led integration architecture for enterprise commerce, delivered with AI-augmented development workflows.",
+        "url": "https://heybrahim.com/",
+        "email": "mailto:b.bousnguar@gmail.com",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://heybrahim.com/#portrait",
+          "url": "https://heybrahim.com/assets/img/profile.jpeg",
+          "width": 336,
+          "height": 336,
+          "caption": "Brahim Bousnguar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nantes",
+          "addressRegion": "Pays de la Loire",
+          "addressCountry": "FR"
+        },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "E-Commerce Integration Consultant",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          },
+          "skills": "SAP Commerce Cloud, MuleSoft Anypoint Platform, DataWeave, Salesforce integration, API-led connectivity"
+        },
+        "sameAs": [
+          "https://github.com/brbousnguar",
+          "https://www.linkedin.com/in/brahim-bousnguar/",
+          "https://www.credly.com/users/brahim-bousnguar"
+        ],
+        "knowsAbout": [
+          "SAP Commerce Cloud",
+          "MuleSoft Anypoint Platform",
+          "Salesforce",
+          "DataWeave",
+          "API-led connectivity",
+          "Java",
+          "Spring Boot",
+          "E-commerce",
+          "Microservices",
+          "Cloud migration",
+          "AI-augmented development",
+          "Model Context Protocol (MCP)",
+          "Python",
+          "TypeScript",
+          "FastAPI",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "INSEA Rabat",
+          "alternateName": "Institut National de Statistique et d'Économie Appliquée"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SQLI",
+          "url": "https://www.sqli.com/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "GitHub Copilot (GH-300)",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/BrahimBousnguar-7690/20B68101386B5A?sharingId=9C9C9C1DC7CAD24F",
+            "dateCreated": "2026-09"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Solution Architect - SAP Customer Experience",
+            "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Positioning SAP Customer Experience Solutions",
+            "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Business User - SAP Commerce Cloud",
+            "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b",
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Development Professional - SAP Commerce Cloud Developer",
+            "dateCreated": "2023"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3",
+            "dateCreated": "2018"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://heybrahim.com/#website",
+        "url": "https://heybrahim.com/",
+        "name": "Brahim Bousnguar",
+        "inLanguage": [
+          "en",
+          "fr"
+        ],
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "about": {
+          "@id": "https://heybrahim.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#webpage",
+        "url": "https://heybrahim.com/notes/claude-code-token-overcount.html",
+        "name": "Counting Claude Code tokens from the logs? You're probably 2.5× too high",
+        "description": "Claude Code writes one log line per part of a reply, and every line repeats the whole reply's token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here's the fix from Meterlex, plus the same trap in Gemini CLI.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://heybrahim.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#article"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heybrahim.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Notes",
+            "item": "https://heybrahim.com/notes/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Counting Claude Code tokens from the logs? You're probably 2.5× too high",
+            "item": "https://heybrahim.com/notes/claude-code-token-overcount.html"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#article",
+        "headline": "Counting Claude Code tokens from the logs? You're probably 2.5× too high",
+        "description": "Claude Code writes one log line per part of a reply, and every line repeats the whole reply's token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here's the fix from Meterlex, plus the same trap in Gemini CLI.",
+        "datePublished": "2026-09-18",
+        "dateModified": "2026-09-18",
+        "inLanguage": "en",
+        "author": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#webpage"
+        },
+        "image": "https://heybrahim.com/assets/img/og/notes-claude-code-token-overcount.png",
+        "keywords": [
+          "Claude Code",
+          "AI tooling",
+          "observability",
+          "Python"
+        ],
+        "wordCount": 631,
+        "encoding": {
+          "@type": "MediaObject",
+          "contentUrl": "https://heybrahim.com/notes/claude-code-token-overcount.md",
+          "encodingFormat": "text/markdown"
+        },
+        "about": {
+          "@type": "SoftwareSourceCode",
+          "codeRepository": "https://github.com/brbousnguar/meterlex"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Cloudflare Web Analytics: cookieless, no consent banner needed (#47) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5fa2715383d04f25bb5d45fdb806263f"}'></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span>Brahim Bousnguar</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#stack" class="nav-optional">Stack</a>
+        <a href="/pages/about.html">About</a>
+        <a href="/notes/" aria-current="page">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Language / Langue">
+        <a href="/notes/" hreflang="en" lang="en" aria-current="true" aria-label="English">EN</a>
+        <a href="/fr/" hreflang="fr" lang="fr" aria-label="Site en français">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article class="note" aria-labelledby="note-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/notes/">Notes</a></p>
+          <h1 id="note-title">Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high</h1>
+          <p class="note-meta mono">By <a href="/pages/about.html" rel="author">Brahim Bousnguar</a> · <time datetime="2026-09-18">18 Sep 2026</time> · 3 min read</p>
+        </div>
+      </header>
+
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="On this page">
+          <p class="note-aside-title mono">On this page</p>
+          <ol class="note-toc"><li><a href="#one-reply-many-lines">One reply, many lines</a></li><li><a href="#how-big-the-error-is">How big the error is</a></li><li><a href="#the-fix-key-by-message-id">The fix: key by message id</a></li><li><a href="#migrating-the-rows-you-already-stored">Migrating the rows you already stored</a></li><li><a href="#gemini-cli-does-it-too">Gemini CLI does it too</a></li><li><a href="#try-it">Try it</a></li></ol>
+          <ul class="note-tags" aria-label="Topics"><li>Claude Code</li><li>AI tooling</li><li>observability</li><li>Python</li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>If you add up token usage from Claude Code's session logs line by line, your total is wrong. On my machine it was <strong>2.5×</strong> too high, and output tokens were <strong>4.4×</strong> too high.</p>
+<p>The logs aren't lying. Every line just repeats the usage of the whole reply it belongs to. Count replies, not lines: key by the message id.</p>
+<p>I hit this building <a href="/projects/meterlex.html">Meterlex</a>, a tool that prices my AI coding usage at API rates. Here's what's going on and the fix.</p>
+<h2 id="one-reply-many-lines">One reply, many lines</h2>
+<p>Claude Code keeps transcripts in <code>~/.claude/projects/**/*.jsonl</code>. A single assistant reply isn't one line. Each part of it is logged on its own line: the thinking, the text, each tool call.</p>
+<p>And each of those lines carries the same <code>usage</code> block, for the whole reply. Simplified, with made-up numbers, one reply with a text part and a tool call looks like this:</p>
+<pre data-lang="json"><code>{"type": "assistant", "uuid": "a1…", "message": {"id": "msg_01X…", "usage": {"input_tokens": 12, "output_tokens": 480}}}
+{"type": "assistant", "uuid": "b2…", "message": {"id": "msg_01X…", "usage": {"input_tokens": 12, "output_tokens": 480}}}</code></pre>
+<p>Two lines, two different <code>uuid</code>s, one <code>message.id</code>. Sum both and you've counted that reply twice. A reply with five tool calls gets counted six or seven times.</p>
+<h2 id="how-big-the-error-is">How big the error is</h2>
+<p>On my Mac's transcripts: <strong>44,158</strong> assistant lines, but only <strong>18,701</strong> actual replies.</p>
+<p>Counting lines gave 2.5× the real tokens. Output tokens were 4.4× too high.</p>
+<p>That matters if you're doing what Meterlex does: comparing a flat subscription with what the same usage would cost on the API. Overcount the usage and the subscription looks like a way better deal than it is.</p>
+<h2 id="the-fix-key-by-message-id">The fix: key by message id</h2>
+<p>Use <code>message.id</code> as the key for a reply, and when you see it again, merge instead of adding. The one subtle bit: a reply's numbers can grow while it streams, so keep each count at its largest value, not the first or the sum.</p>
+<p>This is the core of it, from the Meterlex collector:</p>
+<pre data-lang="python"><code>def _merge_max(a, b):
+    """Two records of the same reply: each token count at its largest
+    (a reply's numbers only grow as it streams), the earliest time."""
+    m = dict(a)
+    for f in TOKEN_FIELDS:
+        m[f] = max(a[f], b[f])
+    m["ts"] = min(a["ts"], b["ts"])
+    return m
+
+key = (session_id, msg.get("id") or uuid)
+replies[key] = _merge_max(replies[key], t) if key in replies else t</code></pre>
+<p>Lines without a <code>message.id</code> fall back to their <code>uuid</code>, so nothing gets dropped.</p>
+<h2 id="migrating-the-rows-you-already-stored">Migrating the rows you already stored</h2>
+<p>If you've been storing per-line rows, re-sending the same transcript with the new key would just add a third copy. So each reply also carries its old per-line <code>uuid</code>s as <code>alt_keys</code>, and the hub folds any stored row with one of those keys into the new one. Old data cleans itself up the next time a file is read.</p>
+<h2 id="gemini-cli-does-it-too">Gemini CLI does it too</h2>
+<p>Different tool, same trap. Gemini CLI appends a message again every time it updates it. One project's file had <strong>56,651</strong> lines for <strong>908</strong> messages. Same fix: key by message id.</p>
+<p>Codex has a milder version: it can repeat a <code>token_count</code> event with an unchanged running total. Meterlex skips those.</p>
+<h2 id="try-it">Try it</h2>
+<p>If you track AI usage from local logs, check your keys. Count distinct message ids against lines on one of your own transcripts. The gap is the overcount.</p>
+<p>Meterlex does all of this for Claude Code, Codex, Gemini CLI, Antigravity, Ollama, Copilot CLI and OpenClaw, and it's MIT on <a href="https://github.com/brbousnguar/meterlex" target="_blank" rel="noopener noreferrer">GitHub</a>. If your numbers look off in a different way, open an issue.</p>
+          <p class="note-source mono">Plain text: <a href="/notes/claude-code-token-overcount.md">claude-code-token-overcount.md</a> · <a href="/notes/feed.xml">Atom feed</a> · <a href="/notes/">All notes</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Say hello.</h2>
+          <a class="contact-mail" href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a>
+          <p class="contact-sub">SAP Commerce Cloud, MuleSoft and Salesforce integration · Nantes · EN / FR</p>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </p>
+          <footer class="site-foot">
+            <span>© 2026 Brahim Bousnguar</span>
+            <span>For AI agents: <a href="/llms.txt">llms.txt</a> · <a href="/profile.json">profile.json</a></span>
+          </footer>
+        </div>
+      </section>
+  </main>
+</body>
+</html>
