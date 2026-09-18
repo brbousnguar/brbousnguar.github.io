@@ -225,6 +225,13 @@
         "blogPost": [
           {
             "@type": "TechArticle",
+            "@id": "https://heybrahim.com/notes/claude-code-token-overcount.html#article",
+            "headline": "Counting Claude Code tokens from the logs? You're probably 2.5× too high",
+            "url": "https://heybrahim.com/notes/claude-code-token-overcount.html",
+            "datePublished": "2026-09-18"
+          },
+          {
+            "@type": "TechArticle",
             "@id": "https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html#article",
             "headline": "The official MuleSoft MCP server can't read your logs, so I built one that can",
             "url": "https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html",
@@ -276,6 +283,14 @@
 
     <div class="wrap">
       <ol class="note-list">
+          <li class="note-row">
+            <time class="mono" datetime="2026-09-18">18 Sep 2026</time>
+            <div>
+              <h2><a href="/notes/claude-code-token-overcount.html">Counting Claude Code tokens from the logs? You&#x27;re probably 2.5× too high</a></h2>
+              <p>Claude Code writes one log line per part of a reply, and every line repeats the whole reply&#x27;s token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here&#x27;s the fix from Meterlex, plus the same trap in Gemini CLI.</p>
+              <p class="note-row-meta mono">Claude Code · AI tooling · observability · Python · 3 min read</p>
+            </div>
+          </li>
           <li class="note-row">
             <time class="mono" datetime="2026-09-18">18 Sep 2026</time>
             <div>
