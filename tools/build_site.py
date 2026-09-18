@@ -72,6 +72,11 @@ LANG = {
     },
 }
 
+# Cloudflare Web Analytics beacon (#47). Cookieless; the token is public by design.
+ANALYTICS = """  <!-- Cloudflare Web Analytics: cookieless, no consent banner needed (#47) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5fa2715383d04f25bb5d45fdb806263f"}'></script>
+"""
+
 COLLECTIONS = {
     "notes": {"en": ("notes", "/notes/")},
     "projects": {"en": ("projects", "/projects/"), "fr": ("fr/projets", "/fr/projets/")},
@@ -315,7 +320,7 @@ def head(lang, title, description, url, og_type, graph, alternates=None, extra="
 
   <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
 {ld_script(graph)}
-</head>
+{ANALYTICS}</head>
 """
 
 

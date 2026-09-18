@@ -15,6 +15,7 @@ Presents 9+ years of enterprise e-commerce and integration work to recruiters, c
 - **Notes (`/notes/`)** — English-only technical articles built from Markdown by `tools/build_site.py`, with an Atom feed, TechArticle JSON-LD, a `.md` copy of each note and `llms-full.txt` for AI agents.
 - **Bilingual** — English at `/`, French at `/fr/`, one language per URL with reciprocal `hreflang`; the EN/FR switch in the header links to the counterpart page.
 - **Machine-readable** — `llms.txt`, `profile.json` (JSON Resume style) and Person JSON-LD for search engines and AI agents; `robots.txt` explicitly allows the major AI crawlers.
+- **Analytics** — Cloudflare Web Analytics beacon on every page: cookieless, no consent banner.
 - **CV download** — `docs/Brahim_Bousnguar_CV.pdf`.
 
 ## Requirements

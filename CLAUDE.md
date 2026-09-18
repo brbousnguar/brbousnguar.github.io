@@ -48,6 +48,10 @@ When you change visible content, change **both** the English file and its French
 
 **Exception — notes are English-only** (decided 2026-09-18, #44): a note gets a French version only when it is worth translating, and only then does it carry `hreflang` alternates.
 
+## Analytics
+
+Cloudflare Web Analytics (#47): a cookieless beacon, so no consent banner. The snippet sits at the end of `<head>` in the four hand-written pages and in `ANALYTICS` in `tools/build_site.py` for generated pages. Every new hand-written page needs it too. The dashboard is in Brahim's Cloudflare account (heybrahim.com's DNS is on Cloudflare); the token is public by design.
+
 ## Generated pages (`tools/build_site.py`)
 
 Notes and project pages are Markdown sources built into HTML by `python3 tools/build_site.py` (no dependencies). Commit the sources **and** the outputs together, and never hand-edit an output: `notes/*.html`, `notes/index.html`, `notes/feed.xml`, `projects/*.html`, `fr/projets/*.html`, `sitemap.xml`, `llms-full.txt`, and the lists between `<!-- notes:… -->` / `<!-- projects:… -->` markers in `llms.txt`. The builder takes `#person`/`#website` from `index.html` and the contact band from `pages/about.html` / `fr/a-propos.html`, so edit those there. Nav labels, the language switch and per-language strings live in its `LANG` and `PROJECT_TEXT` tables.
