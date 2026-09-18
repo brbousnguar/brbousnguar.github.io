@@ -6,7 +6,7 @@
 Sources are `notes/<slug>.md`, each with a front matter block:
 
     ---
-    title: Question-shaped title
+    title: Hook-style title
     description: One or two sentences; used as meta description and index summary
     date: 2026-09-18
     updated: 2026-10-02        (optional)
@@ -392,7 +392,7 @@ def index_page(notes, graph, contact):
       <div class="wrap">
         <p class="eyebrow">Notes</p>
         <h1>Notes from the integration layer.</h1>
-        <p class="hero-lede">Problems solved on real projects — MuleSoft, SAP Commerce, Salesforce, and the AI tooling I build around them.</p>
+        <p class="hero-lede">Stuff I build and figure out. MuleSoft, SAP Commerce, Salesforce, and a lot of AI tooling on the side.</p>
         <p class="note-feed mono"><a href="/notes/feed.xml">Atom feed</a> · written in English</p>
       </div>
     </section>
