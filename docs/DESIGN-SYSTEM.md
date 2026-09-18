@@ -105,7 +105,18 @@ Header (brand mark, nav, EN/FR switch) · eyebrow · hero (name, lede with `.hl`
 note, actions, portrait) · facts strip · section head · integration flow ·
 case row · project index row · upstream line · experience row · stack list ·
 credentials list (with Credly "Verify" links) · contact band (headline, email, one-line summary) + footer · about page intro · prose row ·
-timeline.
+timeline · note page (contents aside, topic chips, TL;DR, code block,
+table) · notes index row.
+
+### Notes
+
+`/notes/` pages reuse the header, `.page-intro` and the ink contact band. A note is a
+two-column `.note-layout` (220px aside with the numbered contents list and topic
+chips, then `.note-body` at 70ch); under 860px the article comes first and the
+contents list is hidden. The TL;DR paragraph carries the one cobalt left rule;
+code blocks are `--paper-2` fills with a 1px ink border, square, scrolling
+horizontally rather than wrapping. The index is rule-separated `.note-row`s
+(date in cobalt mono, title, summary, topics).
 
 ## Verification
 

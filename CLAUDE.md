@@ -27,7 +27,9 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 | `fr/index.html`, `fr/a-propos.html` | French counterparts at `/fr/` and `/fr/a-propos.html` |
 | `assets/css/style.css` | The only stylesheet (Blueprint design system) |
 | `llms.txt`, `profile.json` | Machine-readable profile for AI agents; linked from the footer |
-| `sitemap.xml` | Update when pages are added or removed |
+| `notes/<slug>.md` | Note sources (English-only, front matter + Markdown); published as-is for agents |
+| `tools/build_notes.py` | Builds `notes/*.html`, `notes/index.html`, `notes/feed.xml`, `sitemap.xml`, `llms-full.txt` and the note list in `llms.txt` — never hand-edit those outputs |
+| `sitemap.xml` | **Generated** by `tools/build_notes.py`; add a new static page to its `STATIC_PAGES` list, then rebuild |
 | `robots.txt` | Search crawler directives, with an explicit AI-crawler allowlist |
 | `tools/indexnow.py` | Pings IndexNow (Bing, Yandex…) with changed URLs after a deploy |
 
@@ -41,9 +43,15 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 
 **One language per URL.** English lives at `/` and `/pages/about.html`; French at `/fr/` and `/fr/a-propos.html`. Each page has one `lang`, one `<h1>`, its own title/description/OG tags (FR pages use `og-card-fr.png` and `og:locale` `fr_FR`), a self-canonical, and reciprocal `hreflang` links (`en`, `fr`, `x-default` → English). There is no runtime script and no `localStorage`: the header's EN/FR switch is two plain links to the counterpart page (`aria-current` marks the active one), so crawlers see both versions and nothing auto-redirects.
 
-When you change visible content, change **both** the English file and its French counterpart; section IDs are the same in both languages (`#work`, `#contact`…). FR pages use root-absolute paths (`/assets/…`, `/fr/#work`). Adding a page means: both language files, the four `hreflang`/canonical links on each, and both URLs in `sitemap.xml` with `xhtml:link` alternates.
+When you change visible content, change **both** the English file and its French counterpart; section IDs are the same in both languages (`#work`, `#contact`…). FR pages use root-absolute paths (`/assets/…`, `/fr/#work`). Adding a page means: both language files, the four `hreflang`/canonical links on each, and both URLs in `STATIC_PAGES` in `tools/build_notes.py` (which writes `sitemap.xml` with `xhtml:link` alternates).
 
 **Exception — notes are English-only** (decided 2026-09-18, #44): a note gets a French version only when it is worth translating, and only then does it carry `hreflang` alternates.
+
+## Notes (`/notes/`)
+
+Writing lives in `notes/<slug>.md`: front matter (`title`, `description`, `date`, optional `updated`, `tags`, `project`, `draft: true`) then Markdown. Run `python3 tools/build_notes.py` and commit the sources **and** the generated files together; after the deploy, run `tools/indexnow.py`. The builder takes `#person`/`#website` from `index.html` and the contact band from `pages/about.html`, so edit those there. Its converter handles `##`/`###`, paragraphs, `-`/`1.` lists, `>` quotes, fenced code, pipe tables, bold, italic, inline code and links; write raw HTML for anything else.
+
+How a note is written (this is what search and AI answer engines quote): a question-shaped title; a first paragraph starting **TL;DR** that answers it in 2–3 sentences; `##` headings phrased as questions, each answered in its first sentence; real code and numbers; dated; client work anonymised with nothing under NDA and no invented figures. Brahim reviews every note before it is merged.
 
 ## Theming
 
