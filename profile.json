@@ -292,19 +292,6 @@
       "type": "open-source"
     },
     {
-      "name": "MacBook MCP Server",
-      "description": "Python MCP server exposing battery, CPU, memory, and machine-status resources and tools.",
-      "keywords": [
-        "Python",
-        "MCP"
-      ],
-      "roles": [
-        "Creator"
-      ],
-      "url": "https://github.com/brbousnguar/macbook-mcp-server",
-      "type": "open-source"
-    },
-    {
       "name": "AI Models Costs",
       "description": "Static React dashboard for comparing AI model API pricing across providers and modalities.",
       "keywords": [
@@ -315,20 +302,6 @@
         "Creator"
       ],
       "url": "https://github.com/brbousnguar/ai-models-costs",
-      "type": "open-source"
-    },
-    {
-      "name": "Termo Track",
-      "description": "Local BLE temperature and humidity tracker built with FastAPI, React, SQLite, and MCP support.",
-      "keywords": [
-        "TypeScript",
-        "FastAPI",
-        "MCP"
-      ],
-      "roles": [
-        "Creator"
-      ],
-      "url": "https://github.com/brbousnguar/termo-track",
       "type": "open-source"
     },
     {
@@ -347,15 +320,6 @@
       "keywords": [
         "JavaScript",
         "Ollama"
-      ]
-    },
-    {
-      "name": "ASCII Art Studio",
-      "url": "https://heybrahim.com/projects/ascii-art-studio.html",
-      "description": "Browser-only ASCII art: figlet text, terminal animations, image to ASCII, export as a runnable .sh.",
-      "keywords": [
-        "TypeScript",
-        "Vite"
       ]
     }
   ],
