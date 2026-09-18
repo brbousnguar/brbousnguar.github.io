@@ -292,19 +292,6 @@
       "type": "open-source"
     },
     {
-      "name": "AI Models Costs",
-      "description": "Static React dashboard for comparing AI model API pricing across providers and modalities.",
-      "keywords": [
-        "TypeScript",
-        "React"
-      ],
-      "roles": [
-        "Creator"
-      ],
-      "url": "https://github.com/brbousnguar/ai-models-costs",
-      "type": "open-source"
-    },
-    {
       "name": "FocusTracker",
       "url": "https://heybrahim.com/projects/focus-tracker.html",
       "description": "Native macOS focus timer with a menu-bar countdown and dashboard; data stays local or in your own Supabase.",
