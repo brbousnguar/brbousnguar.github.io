@@ -34,7 +34,7 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 **Watch out — these are not the files you want to edit:**
 
 - Root `about.html` is a **redirect stub** pointing at `pages/about.html`. Root `learning.html` and `pages/learning.html` are `noindex` redirect stubs to the home page — the LinkedIn Learning browser was removed on 2026-09-11; keep the stubs so old links don't 404.
-- `tools/` holds the two generators, not linked from the site: `cv.html` (below) and `make_favicons.py`, which rebuilds `favicon.ico` and the `assets/img/` icon PNGs from the BB brand mark — bump the `?v=` query on the icon links after regenerating.
+- `tools/` holds the generators, not linked from the site: `cv.html` (below); `make_favicons.py`, which rebuilds `favicon.ico` and the `assets/img/` icon PNGs from the BB brand mark — bump the `?v=` query on the icon links after regenerating; and `make_og_card.py`, which renders the 1200×630 share cards `assets/img/og-card.png` (EN) and `og-card-fr.png` (FR, used once French has its own URL) from the hero copy — rerun it when the name, title or lede changes, bump the `?v=` on `og:image`/`twitter:image`, and re-scrape in the LinkedIn Post Inspector.
 - `docs/Brahim_Bousnguar_CV.pdf` is **generated** from `tools/cv.html` (Blueprint styling, content mirrors `profile.json`) — edit the HTML and re-print it with the headless-Chrome command in its header comment; never edit the PDF by hand. Keep it at two A4 pages.
 
 ## Architecture: Bilingual System

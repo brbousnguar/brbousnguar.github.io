@@ -85,6 +85,7 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 └── tools/
     ├── cv.html                 # print source of the CV PDF (regeneration command inside)
     ├── make_favicons.py        # regenerates the favicon set from the BB mark
+    ├── make_og_card.py         # renders the 1200×630 EN/FR share cards
     └── indexnow.py             # pings Bing/IndexNow with changed URLs after a deploy
 ```
 
