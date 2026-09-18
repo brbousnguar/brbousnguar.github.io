@@ -42,6 +42,10 @@
     <lastmod>2026-09-18</lastmod>
   </url>
   <url>
+    <loc>https://heybrahim.com/notes/vibetidy-grounded-readme.html</loc>
+    <lastmod>2026-09-18</lastmod>
+  </url>
+  <url>
     <loc>https://heybrahim.com/projects/mulewatch.html</loc>
     <lastmod>2026-09-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/mulewatch.html"/>
@@ -49,11 +53,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/mulewatch.html"/>
   </url>
   <url>
+    <loc>https://heybrahim.com/projects/vibetidy.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/vibetidy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/vibetidy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/vibetidy.html"/>
+  </url>
+  <url>
     <loc>https://heybrahim.com/fr/projets/mulewatch.html</loc>
     <lastmod>2026-09-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/mulewatch.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/mulewatch.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/mulewatch.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/vibetidy.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/vibetidy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/vibetidy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/vibetidy.html"/>
   </url>
   <url>
     <loc>https://heybrahim.com/projects/meterlex.html</loc>

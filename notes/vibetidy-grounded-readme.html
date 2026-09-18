@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My README generator isn't allowed to make things up | Brahim Bousnguar</title>
+  <meta name="description" content="vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn&#x27;t work, and npm refused a name that looked free. Here&#x27;s what I learned.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Brahim Bousnguar">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://heybrahim.com/notes/vibetidy-grounded-readme.html">
+  <meta property="og:title" content="My README generator isn&#x27;t allowed to make things up | Brahim Bousnguar">
+  <meta property="og:description" content="vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn&#x27;t work, and npm refused a name that looked free. Here&#x27;s what I learned.">
+  <meta property="og:image" content="https://heybrahim.com/assets/img/og/notes-vibetidy-grounded-readme.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="My README generator isn&#x27;t allowed to make things up — a note by Brahim Bousnguar, heybrahim.com">
+  <meta property="article:published_time" content="2026-09-18">
+  <meta property="article:modified_time" content="2026-09-18">
+  <meta property="article:author" content="https://heybrahim.com/">
+  <meta property="article:tag" content="LLM">
+  <meta property="article:tag" content="developer tools">
+  <meta property="article:tag" content="Node.js">
+  <meta property="article:tag" content="npm">
+  <meta property="article:tag" content="CI">
+  <link rel="alternate" type="text/markdown" href="/notes/vibetidy-grounded-readme.md">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My README generator isn&#x27;t allowed to make things up | Brahim Bousnguar">
+  <meta name="twitter:description" content="vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn&#x27;t work, and npm refused a name that looked free. Here&#x27;s what I learned.">
+  <meta name="twitter:image" content="https://heybrahim.com/assets/img/og/notes-vibetidy-grounded-readme.png?v=1">
+  <meta name="twitter:image:alt" content="My README generator isn&#x27;t allowed to make things up — a note by Brahim Bousnguar, heybrahim.com">
+
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://heybrahim.com/notes/vibetidy-grounded-readme.html">
+  <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
+
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://heybrahim.com/#person",
+        "name": "Brahim Bousnguar",
+        "givenName": "Brahim",
+        "familyName": "Bousnguar",
+        "jobTitle": "Senior E-Commerce Integration Consultant",
+        "description": "Senior E-Commerce Integration Consultant with 9+ years specializing in SAP Commerce Cloud, MuleSoft Anypoint Platform, and Salesforce. API-led integration architecture for enterprise commerce, delivered with AI-augmented development workflows.",
+        "url": "https://heybrahim.com/",
+        "email": "mailto:b.bousnguar@gmail.com",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://heybrahim.com/#portrait",
+          "url": "https://heybrahim.com/assets/img/profile.jpeg",
+          "width": 336,
+          "height": 336,
+          "caption": "Brahim Bousnguar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nantes",
+          "addressRegion": "Pays de la Loire",
+          "addressCountry": "FR"
+        },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "E-Commerce Integration Consultant",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          },
+          "skills": "SAP Commerce Cloud, MuleSoft Anypoint Platform, DataWeave, Salesforce integration, API-led connectivity"
+        },
+        "sameAs": [
+          "https://github.com/brbousnguar",
+          "https://www.linkedin.com/in/brahim-bousnguar/",
+          "https://www.credly.com/users/brahim-bousnguar"
+        ],
+        "knowsAbout": [
+          "SAP Commerce Cloud",
+          "MuleSoft Anypoint Platform",
+          "Salesforce",
+          "DataWeave",
+          "API-led connectivity",
+          "Java",
+          "Spring Boot",
+          "E-commerce",
+          "Microservices",
+          "Cloud migration",
+          "AI-augmented development",
+          "Model Context Protocol (MCP)",
+          "Python",
+          "TypeScript",
+          "FastAPI",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "INSEA Rabat",
+          "alternateName": "Institut National de Statistique et d'Économie Appliquée"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SQLI",
+          "url": "https://www.sqli.com/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "GitHub Copilot (GH-300)",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/BrahimBousnguar-7690/20B68101386B5A?sharingId=9C9C9C1DC7CAD24F",
+            "dateCreated": "2026-09"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Solution Architect - SAP Customer Experience",
+            "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Positioning SAP Customer Experience Solutions",
+            "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Business User - SAP Commerce Cloud",
+            "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b",
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Development Professional - SAP Commerce Cloud Developer",
+            "dateCreated": "2023"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3",
+            "dateCreated": "2018"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://heybrahim.com/#website",
+        "url": "https://heybrahim.com/",
+        "name": "Brahim Bousnguar",
+        "inLanguage": [
+          "en",
+          "fr"
+        ],
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "about": {
+          "@id": "https://heybrahim.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#webpage",
+        "url": "https://heybrahim.com/notes/vibetidy-grounded-readme.html",
+        "name": "My README generator isn't allowed to make things up",
+        "description": "vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn't work, and npm refused a name that looked free. Here's what I learned.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://heybrahim.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#article"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heybrahim.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Notes",
+            "item": "https://heybrahim.com/notes/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "My README generator isn't allowed to make things up",
+            "item": "https://heybrahim.com/notes/vibetidy-grounded-readme.html"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#article",
+        "headline": "My README generator isn't allowed to make things up",
+        "description": "vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn't work, and npm refused a name that looked free. Here's what I learned.",
+        "datePublished": "2026-09-18",
+        "dateModified": "2026-09-18",
+        "inLanguage": "en",
+        "author": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://heybrahim.com/notes/vibetidy-grounded-readme.html#webpage"
+        },
+        "image": "https://heybrahim.com/assets/img/og/notes-vibetidy-grounded-readme.png",
+        "keywords": [
+          "LLM",
+          "developer tools",
+          "Node.js",
+          "npm",
+          "CI"
+        ],
+        "wordCount": 641,
+        "encoding": {
+          "@type": "MediaObject",
+          "contentUrl": "https://heybrahim.com/notes/vibetidy-grounded-readme.md",
+          "encodingFormat": "text/markdown"
+        },
+        "about": {
+          "@type": "SoftwareSourceCode",
+          "codeRepository": "https://github.com/brbousnguar/vibetidy"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Cloudflare Web Analytics: cookieless, no consent banner needed (#47) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5fa2715383d04f25bb5d45fdb806263f"}'></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span>Brahim Bousnguar</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#projects">Projects</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#stack" class="nav-optional">Stack</a>
+        <a href="/pages/about.html">About</a>
+        <a href="/notes/" aria-current="page">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Language / Langue">
+        <a href="/notes/" hreflang="en" lang="en" aria-current="true" aria-label="English">EN</a>
+        <a href="/fr/" hreflang="fr" lang="fr" aria-label="Site en français">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article class="note" aria-labelledby="note-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/notes/">Notes</a></p>
+          <h1 id="note-title">My README generator isn&#x27;t allowed to make things up</h1>
+          <p class="note-meta mono">By <a href="/pages/about.html" rel="author">Brahim Bousnguar</a> · <time datetime="2026-09-18">18 Sep 2026</time> · 3 min read</p>
+        </div>
+      </header>
+
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="On this page">
+          <p class="note-aside-title mono">On this page</p>
+          <ol class="note-toc"><li><a href="#the-scanner-is-the-product">The scanner is the product</a></li><li><a href="#bug-one-a-flag-i-documented-but-never-registered">Bug one: a flag I documented but never registered</a></li><li><a href="#bug-two-the-tests-never-ran-on-node-20">Bug two: the tests never ran on Node 20</a></li><li><a href="#npm-said-no-to-a-name-that-looked-free">npm said no to a name that looked free</a></li><li><a href="#try-it">Try it</a></li></ol>
+          <ul class="note-tags" aria-label="Topics"><li>LLM</li><li>developer tools</li><li>Node.js</li><li>npm</li><li>CI</li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>Ask an LLM to write a README and you get something long, confident and partly invented: flags that don't exist, env vars nobody reads, a setup step from a different project.</p>
+<p>So in <a href="/projects/vibetidy.html">vibetidy</a> the LLM doesn't get to decide what's true. A scanner reads the repo, and the model only turns those verified facts into prose.</p>
+<p>Funny thing: while building a tool about not advertising what isn't real, CI caught me doing exactly that. Twice.</p>
+<h2 id="the-scanner-is-the-product">The scanner is the product</h2>
+<p><code>vibetidy readme</code> scans the repository first: the manifest, scripts, dependencies, <code>.env.example</code>, entry points, the folder tree, the existing README. Only those facts go to the model, and the prompt says it plainly: never invent a feature, a flag, an environment variable, a dependency or a version.</p>
+<p>When the facts are thin, you get a short README that's right instead of a long one that's plausible. And you can check what the model would see before spending a token:</p>
+<pre data-lang="bash"><code>npx vibetidy readme --print-context</code></pre>
+<p>No API key needed for that. It prints the scanned facts and the full prompt, and exits.</p>
+<h2 id="bug-one-a-flag-i-documented-but-never-registered">Bug one: a flag I documented but never registered</h2>
+<p><code>issue-check --help</code> listed <code>--no-changelog</code>. The README's options table listed it too. Using it exited with <code>Unknown option '--no-changelog'</code>.</p>
+<p>The flag was never registered in the parser. Node's <code>parseArgs</code> only honours a <code>--no-</code> prefix with <code>allowNegative</code>, which needs a newer Node than the <code>&gt;=20.10.0</code> the package advertises. So it became a plain <code>--skip-changelog</code>.</p>
+<p>The fix was one line. The interesting part is that nothing caught it: the docs looked right, the code read plausibly, every test passed. So I added a test for the whole class of bug. It pulls every flag out of each command's <code>--help</code> output and asserts the parser accepts it:</p>
+<pre data-lang="js"><code>for (const flag of flagsIn(help)) {
+  const res = runCli([command, flag, 'x', '--help']);
+  assert.notEqual(res.status, 2, `${flag} is documented but rejected`);
+}</code></pre>
+<p>To make sure it bites, I planted a fake <code>--phantom-flag</code> in the usage text. The suite failed with the exact rejection message.</p>
+<h2 id="bug-two-the-tests-never-ran-on-node-20">Bug two: the tests never ran on Node 20</h2>
+<p>Opening that PR turned CI red on <code>main</code>: 5 legs out of 9.</p>
+<p><code>npm test</code> ran <code>node --test "test/**/*.test.js"</code>. Glob support in <code>node --test</code> only landed in Node 21. On Node 20 the quoted pattern is taken as a literal path, so every 20.x leg failed with <code>Could not find .../test/**/*.test.js</code>. The suite had never run on the Node version <code>engines</code> promised.</p>
+<p>The fix is almost funny: plain <code>node --test</code>, with no pattern at all. Default discovery has worked since Node 18. CI went green on all nine legs (Ubuntu, macOS and Windows, times Node 20, 22 and 24).</p>
+<p>Same class as bug one: something advertised that didn't work. The 9-leg matrix is why I found both.</p>
+<h2 id="npm-said-no-to-a-name-that-looked-free">npm said no to a name that looked free</h2>
+<p>The tool started as <code>tidyrepo</code>. <code>npm view tidyrepo</code> returned a 404, so the name looked available.</p>
+<p>Then <code>npm publish</code> failed with a 403. npm's similarity check strips punctuation, so <code>tidyrepo</code> collided with an existing <code>tidy-repo</code>. A 404 isn't proof a name is free: check the hyphenated and underscored versions too.</p>
+<p>It's <code>vibetidy</code> now, which honestly fits better.</p>
+<h2 id="try-it">Try it</h2>
+<p>It's MIT, zero runtime dependencies, and works with OpenAI, OpenRouter, Anthropic, Groq, DeepSeek, Together, or a local Ollama:</p>
+<pre data-lang="bash"><code>npx vibetidy readme --print-context      # see the facts, no key needed
+npx vibetidy readme                      # generate, review the diff, confirm
+npx vibetidy issue-check --install-hook  # nag on feature commits with no issue</code></pre>
+<p>If it writes something your repo doesn't back up, that's a bug. Open an issue on <a href="https://github.com/brbousnguar/vibetidy" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+          <p class="note-source mono">Plain text: <a href="/notes/vibetidy-grounded-readme.md">vibetidy-grounded-readme.md</a> · <a href="/notes/feed.xml">Atom feed</a> · <a href="/notes/">All notes</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Say hello.</h2>
+          <a class="contact-mail" href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a>
+          <p class="contact-sub">SAP Commerce Cloud, MuleSoft and Salesforce integration · Nantes · EN / FR</p>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </p>
+          <footer class="site-foot">
+            <span>© 2026 Brahim Bousnguar</span>
+            <span>For AI agents: <a href="/llms.txt">llms.txt</a> · <a href="/profile.json">profile.json</a></span>
+          </footer>
+        </div>
+      </section>
+  </main>
+</body>
+</html>

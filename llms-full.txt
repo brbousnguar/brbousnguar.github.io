@@ -37,6 +37,7 @@ Side projects, one page each (English; French versions under https://heybrahim.c
 
 <!-- projects:start -->
 - [mulewatch](https://heybrahim.com/projects/mulewatch.html) (2026-09-08): mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs, list deployed apps, API Manager instances and Exchange assets. Markdown: https://heybrahim.com/projects/mulewatch.md
+- [vibetidy](https://heybrahim.com/projects/vibetidy.html) (2026-09-08): vibetidy is a zero-dependency Node CLI that writes a README from what a repository actually contains, with an LLM that's only allowed to format verified facts, and warns when a feature-sized commit has no issue behind it. Markdown: https://heybrahim.com/projects/vibetidy.md
 - [Meterlex](https://heybrahim.com/projects/meterlex.html) (2026-07-30): Meterlex reads the session logs of Claude Code, Codex, Gemini CLI, Antigravity, Ollama and Copilot CLI, prices every model call at the public API rate and compares it with what your subscriptions cost. Local-first, token counts only. Markdown: https://heybrahim.com/projects/meterlex.md
 - [AI Models Costs](https://heybrahim.com/projects/ai-models-costs.html) (2026-06-15): A static React dashboard comparing public API prices across American, Chinese, European and specialist AI providers, for text, reasoning, image, audio, video, embeddings and more, normalized to USD per 1M tokens where possible. Markdown: https://heybrahim.com/projects/ai-models-costs.md
 - [Termo Track](https://heybrahim.com/projects/termo-track.html) (2026-06-13): Termo Track listens to ThermoPro Bluetooth sensors, stores readings in SQLite, shows live temperature and humidity in a React dashboard next to the outside weather, and exposes it all to AI clients through MCP. Local-first, no cloud account. Markdown: https://heybrahim.com/projects/termo-track.md
@@ -50,6 +51,7 @@ Technical notes (English), newest first. Plain-text Markdown of each is at the s
 <!-- notes:start -->
 - [Counting Claude Code tokens from the logs? You're probably 2.5× too high](https://heybrahim.com/notes/claude-code-token-overcount.html) (2026-09-18): Claude Code writes one log line per part of a reply, and every line repeats the whole reply's token usage. Count lines and you overcount tokens about 2.5×, output about 4.4×. Key by message id instead. Here's the fix from Meterlex, plus the same trap in Gemini CLI. Markdown: https://heybrahim.com/notes/claude-code-token-overcount.md
 - [The official MuleSoft MCP server can't read your logs, so I built one that can](https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html) (2026-09-18): mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs. The trick is finding the right replica in the Monitoring Archive in one call instead of hundreds. Markdown: https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.md
+- [My README generator isn't allowed to make things up](https://heybrahim.com/notes/vibetidy-grounded-readme.html) (2026-09-18): vibetidy writes READMEs for AI-generated repos, but the LLM only formats facts a scanner verified. Building it, CI caught two things the project advertised that didn't work, and npm refused a name that looked free. Here's what I learned. Markdown: https://heybrahim.com/notes/vibetidy-grounded-readme.md
 <!-- notes:end -->
 
 ## Contact
@@ -222,6 +224,78 @@ It's v0.1, Apache-2.0, on [npm](https://www.npmjs.com/package/mulewatch) and the
 
 *MuleSoft and Anypoint Platform are Salesforce trademarks. mulewatch is an independent project.*
 
+---
+
+## My README generator isn't allowed to make things up
+
+URL: https://heybrahim.com/notes/vibetidy-grounded-readme.html
+Published: 2026-09-18 · Updated: 2026-09-18
+
+Ask an LLM to write a README and you get something long, confident and partly invented: flags that don't exist, env vars nobody reads, a setup step from a different project.
+
+So in [vibetidy](/projects/vibetidy.html) the LLM doesn't get to decide what's true. A scanner reads the repo, and the model only turns those verified facts into prose.
+
+Funny thing: while building a tool about not advertising what isn't real, CI caught me doing exactly that. Twice.
+
+## The scanner is the product
+
+`vibetidy readme` scans the repository first: the manifest, scripts, dependencies, `.env.example`, entry points, the folder tree, the existing README. Only those facts go to the model, and the prompt says it plainly: never invent a feature, a flag, an environment variable, a dependency or a version.
+
+When the facts are thin, you get a short README that's right instead of a long one that's plausible. And you can check what the model would see before spending a token:
+
+```bash
+npx vibetidy readme --print-context
+```
+
+No API key needed for that. It prints the scanned facts and the full prompt, and exits.
+
+## Bug one: a flag I documented but never registered
+
+`issue-check --help` listed `--no-changelog`. The README's options table listed it too. Using it exited with `Unknown option '--no-changelog'`.
+
+The flag was never registered in the parser. Node's `parseArgs` only honours a `--no-` prefix with `allowNegative`, which needs a newer Node than the `>=20.10.0` the package advertises. So it became a plain `--skip-changelog`.
+
+The fix was one line. The interesting part is that nothing caught it: the docs looked right, the code read plausibly, every test passed. So I added a test for the whole class of bug. It pulls every flag out of each command's `--help` output and asserts the parser accepts it:
+
+```js
+for (const flag of flagsIn(help)) {
+  const res = runCli([command, flag, 'x', '--help']);
+  assert.notEqual(res.status, 2, `${flag} is documented but rejected`);
+}
+```
+
+To make sure it bites, I planted a fake `--phantom-flag` in the usage text. The suite failed with the exact rejection message.
+
+## Bug two: the tests never ran on Node 20
+
+Opening that PR turned CI red on `main`: 5 legs out of 9.
+
+`npm test` ran `node --test "test/**/*.test.js"`. Glob support in `node --test` only landed in Node 21. On Node 20 the quoted pattern is taken as a literal path, so every 20.x leg failed with `Could not find .../test/**/*.test.js`. The suite had never run on the Node version `engines` promised.
+
+The fix is almost funny: plain `node --test`, with no pattern at all. Default discovery has worked since Node 18. CI went green on all nine legs (Ubuntu, macOS and Windows, times Node 20, 22 and 24).
+
+Same class as bug one: something advertised that didn't work. The 9-leg matrix is why I found both.
+
+## npm said no to a name that looked free
+
+The tool started as `tidyrepo`. `npm view tidyrepo` returned a 404, so the name looked available.
+
+Then `npm publish` failed with a 403. npm's similarity check strips punctuation, so `tidyrepo` collided with an existing `tidy-repo`. A 404 isn't proof a name is free: check the hyphenated and underscored versions too.
+
+It's `vibetidy` now, which honestly fits better.
+
+## Try it
+
+It's MIT, zero runtime dependencies, and works with OpenAI, OpenRouter, Anthropic, Groq, DeepSeek, Together, or a local Ollama:
+
+```bash
+npx vibetidy readme --print-context      # see the facts, no key needed
+npx vibetidy readme                      # generate, review the diff, confirm
+npx vibetidy issue-check --install-hook  # nag on feature commits with no issue
+```
+
+If it writes something your repo doesn't back up, that's a bug. Open an issue on [GitHub](https://github.com/brbousnguar/vibetidy).
+
 
 # Projects (full text)
 
@@ -258,6 +332,44 @@ claude mcp add mulewatch --env ANYPOINT_CLIENT_ID=... --env ANYPOINT_CLIENT_SECR
 ```
 
 It works the same in Claude Desktop, Cursor and OpenClaw with an `npx -y mulewatch` entry. Lock it to safe environments with `ANYPOINT_ALLOWED_ENVIRONMENTS=Dev,Sandbox`.
+
+---
+
+## vibetidy
+
+URL: https://heybrahim.com/projects/vibetidy.html
+Published: 2026-09-08 · Updated: 2026-09-08
+
+You shipped something from v0, Bolt, Lovable or a long Claude session. It works. The README still says *Getting Started with Create React App*, and nothing records why anything was built. vibetidy fixes those two things and stops.
+
+```bash
+npx vibetidy readme                      # generate README.md, review the diff, confirm
+npx vibetidy issue-check --install-hook  # nag on feature commits with no issue
+```
+
+## Two commands
+
+- **`readme`** scans the repo (manifest, scripts, dependencies, `.env.example`, entry points, folder tree, the existing README) and has an LLM turn only those facts into a README with a fixed structure. It shows a diff and waits for you before writing.
+- **`issue-check`** looks at what's staged. A new source file or more than 40 inserted lines is a feature; lockfiles, build output, docs and tests don't count. No issue number in the branch or the commits? It tells you, and can file the issue with `gh` and write a changelog fragment.
+
+## The grounding rule
+
+The scanner is the product; the model is a formatter. The prompt forbids inventing a feature, a flag, an env var, a dependency or a version. Thin facts give you a short, accurate README instead of a long, plausible one.
+
+You can see exactly what would be sent, with no API key:
+
+```bash
+npx vibetidy readme --print-context
+```
+
+## Small on purpose
+
+- **Zero runtime dependencies.** `npx vibetidy` downloads one package.
+- **Any OpenAI-compatible endpoint:** OpenAI, OpenRouter, Anthropic, Groq, DeepSeek, Together, or a local Ollama / LM Studio.
+- **It warns, it doesn't block.** A hook that blocks on day one gets `--no-verify`'d on day two. Add `--strict` once the habit sticks.
+- CI runs on Ubuntu, macOS and Windows with Node 20, 22 and 24.
+
+The story of what CI caught, and why npm refused the first name: [My README generator isn't allowed to make things up](/notes/vibetidy-grounded-readme.html).
 
 ---
 
