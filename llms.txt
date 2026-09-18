@@ -26,7 +26,7 @@ Key facts:
 Technical notes (English), newest first. Plain-text Markdown of each is at the same URL with `.md`; everything in one file: https://heybrahim.com/llms-full.txt
 
 <!-- notes:start -->
-- [Reading MuleSoft Anypoint logs from an AI agent: why I built mulewatch](https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html) (2026-09-18): MuleSoft's official MCP server builds and deploys Mule apps but cannot read application logs. mulewatch is a read-only MCP server that fetches live and archived Anypoint logs, finding the right replica in a handful of calls. Markdown: https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.md
+- [The official MuleSoft MCP server can't read your logs, so I built one that can](https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html) (2026-09-18): mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs. The trick is finding the right replica in the Monitoring Archive in one call instead of hundreds. Markdown: https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.md
 <!-- notes:end -->
 
 ## Contact

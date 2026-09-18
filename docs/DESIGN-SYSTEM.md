@@ -113,7 +113,7 @@ table) · notes index row.
 `/notes/` pages reuse the header, `.page-intro` and the ink contact band. A note is a
 two-column `.note-layout` (220px aside with the numbered contents list and topic
 chips, then `.note-body` at 70ch); under 860px the article comes first and the
-contents list is hidden. The TL;DR paragraph carries the one cobalt left rule;
+contents list is hidden. The opening (hook) paragraph carries the one cobalt left rule;
 code blocks are `--paper-2` fills with a 1px ink border, square, scrolling
 horizontally rather than wrapping. The index is rule-separated `.note-row`s
 (date in cobalt mono, title, summary, topics).

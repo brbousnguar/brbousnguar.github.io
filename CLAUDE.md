@@ -51,7 +51,7 @@ When you change visible content, change **both** the English file and its French
 
 Writing lives in `notes/<slug>.md`: front matter (`title`, `description`, `date`, optional `updated`, `tags`, `project`, `draft: true`) then Markdown. Run `python3 tools/build_notes.py` and commit the sources **and** the generated files together; after the deploy, run `tools/indexnow.py`. The builder takes `#person`/`#website` from `index.html` and the contact band from `pages/about.html`, so edit those there. Its converter handles `##`/`###`, paragraphs, `-`/`1.` lists, `>` quotes, fenced code, pipe tables, bold, italic, inline code and links; write raw HTML for anything else.
 
-How a note is written (this is what search and AI answer engines quote): a question-shaped title; a first paragraph starting **TL;DR** that answers it in 2–3 sentences; `##` headings phrased as questions, each answered in its first sentence; real code and numbers; dated; client work anonymised with nothing under NDA and no invented figures. Brahim reviews every note before it is merged.
+Notes follow the author's private voice guide, which is kept outside this repo on purpose; don't add style rules here. Two rules are structural and public: the opening paragraph must answer the title on its own (search and AI answer engines quote it), and nothing is invented (no experiences, clients or numbers that aren't sourced; nothing under NDA). Brahim reviews every note before it is merged, and his wording wins.
 
 ## Theming
 

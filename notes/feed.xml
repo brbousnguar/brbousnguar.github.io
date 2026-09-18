@@ -8,43 +8,39 @@
   <updated>2026-09-18T00:00:00Z</updated>
   <author><name>Brahim Bousnguar</name><uri>https://heybrahim.com/</uri></author>
   <entry>
-    <title>Reading MuleSoft Anypoint logs from an AI agent: why I built mulewatch</title>
+    <title>The official MuleSoft MCP server can&#x27;t read your logs, so I built one that can</title>
     <link rel="alternate" type="text/html" href="https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html"/>
     <id>https://heybrahim.com/notes/mulewatch-anypoint-logs-mcp.html</id>
     <published>2026-09-18T00:00:00Z</published>
     <updated>2026-09-18T00:00:00Z</updated>
-    <summary>MuleSoft&#x27;s official MCP server builds and deploys Mule apps but cannot read application logs. mulewatch is a read-only MCP server that fetches live and archived Anypoint logs, finding the right replica in a handful of calls.</summary>
+    <summary>mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs. The trick is finding the right replica in the Monitoring Archive in one call instead of hundreds.</summary>
     <category term="MuleSoft"/><category term="Anypoint Platform"/><category term="MCP"/><category term="observability"/>
-    <content type="html">&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt; — MuleSoft ships an official MCP server, but it is a development tool: it scaffolds, generates and deploys, and it does not retrieve application logs. During an incident, logs are the first thing you need. &lt;a href=&quot;https://github.com/brbousnguar/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mulewatch&lt;/a&gt; is an open-source, read-only MCP server that gives Claude, Cursor or any MCP client the live Runtime Manager logs &lt;em&gt;and&lt;/em&gt; the historical Monitoring Archive — resolving the right replica in a few calls instead of hundreds. It runs with &lt;code&gt;npx -y mulewatch&lt;/code&gt; and your own connected app.&lt;/p&gt;
-&lt;h2 id=&quot;what-does-the-official-mulesoft-mcp-server-cover&quot;&gt;What does the official MuleSoft MCP server cover?&lt;/h2&gt;
-&lt;p&gt;MuleSoft publishes &lt;a href=&quot;https://docs.mulesoft.com/mulesoft-mcp-server&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;mulesoft-mcp-server&lt;/code&gt;&lt;/a&gt;. It is built for the person &lt;em&gt;writing&lt;/em&gt; the integration: it creates Mule projects, generates flows and API specs, and deploys applications, mostly from a local project open in an IDE.&lt;/p&gt;
-&lt;p&gt;That is a good tool for building. It is the wrong shape for operating. At the time of writing (September 2026) it has no tool for retrieving or searching application logs, and it assumes a checked-out Mule project that the on-call engineer usually doesn&#x27;t have.&lt;/p&gt;
-&lt;h2 id=&quot;why-are-logs-the-part-that-matters&quot;&gt;Why are logs the part that matters?&lt;/h2&gt;
-&lt;p&gt;When an order stops reaching the ERP at 2 a.m., the questions are always the same:&lt;/p&gt;
-&lt;ul&gt;&lt;li&gt;Which application failed, in which environment?&lt;/li&gt;&lt;li&gt;What did it log around the time of the failure?&lt;/li&gt;&lt;li&gt;Did it fail once, or has it been failing since the last deployment?&lt;/li&gt;&lt;/ul&gt;
-&lt;p&gt;Every one of those needs logs. An AI agent that can list your APIs but can&#x27;t read a stack trace can&#x27;t help with any of them. So mulewatch does one job — observability — and stays out of deployment entirely.&lt;/p&gt;
-&lt;h2 id=&quot;why-isnt-the-runtime-manager-log-tail-enough&quot;&gt;Why isn&#x27;t the Runtime Manager log tail enough?&lt;/h2&gt;
-&lt;p&gt;The logs you see in Runtime Manager are a &lt;strong&gt;live tail&lt;/strong&gt;: a small rolling buffer per application. On a busy app it can scroll out within minutes, whatever &lt;code&gt;startTime&lt;/code&gt; and &lt;code&gt;endTime&lt;/code&gt; you pass. If the incident happened last night, the tail has already forgotten it.&lt;/p&gt;
-&lt;p&gt;The history lives somewhere else: the &lt;strong&gt;Anypoint Monitoring Archive API&lt;/strong&gt;. It stores log files in ten-minute windows, landing each file roughly ten minutes after its window closes, and keeps them far longer. It needs Anypoint Monitoring to be enabled for the organization.&lt;/p&gt;
-&lt;h2 id=&quot;how-does-the-monitoring-archive-index-logs&quot;&gt;How does the Monitoring Archive index logs?&lt;/h2&gt;
-&lt;p&gt;This is the part that makes archive search slow if you do it naively. The archive is indexed &lt;strong&gt;per replica&lt;/strong&gt;, not per application. Each entity is named &lt;code&gt;{appName}_{replicaId}&lt;/code&gt;, and every redeploy creates new replicas. You cannot ask for &quot;the logs of &lt;code&gt;order-sync-api&lt;/code&gt; on 9 August&quot;; you have to know which replica was running that day and ask for its files.&lt;/p&gt;
-&lt;p&gt;An application that has been redeployed often accumulates hundreds of replica entities. Probing each one is slow, and the Archive API allows &lt;strong&gt;60 requests per minute&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;how-does-mulewatch-find-the-right-replica-quickly&quot;&gt;How does mulewatch find the right replica quickly?&lt;/h2&gt;
-&lt;p&gt;It takes two paths and reports which one it used:&lt;/p&gt;
-&lt;ol&gt;&lt;li&gt;&lt;strong&gt;Live-replica fast path.&lt;/strong&gt; It reads the replica ids visible in the current Runtime Manager tail and tries those first. Pods usually live between redeploys, so the replica running now normally produced the logs of the recent past too. A typical lookup costs a handful of archive calls.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Full-scan fallback.&lt;/strong&gt; If that replica has no files for the requested dates — because the app was redeployed since — it lists every replica the application has ever had and probes each one, bounded by a &lt;code&gt;maxEntities&lt;/code&gt; cap.&lt;/li&gt;&lt;/ol&gt;
-&lt;p&gt;On a production application used for testing, the archive held &lt;strong&gt;669 replica entities&lt;/strong&gt;. A search for the current day went through the fast path, probed &lt;strong&gt;one&lt;/strong&gt; entity, found 127 archive files and parsed 2,859 log lines. A date from before the last redeploy correctly fell back to the full scan, which is the slow case the cap exists for.&lt;/p&gt;
-&lt;p&gt;The client throttles itself below the 60 requests/minute limit and backs off on &lt;code&gt;429&lt;/code&gt;, so a long search slows down instead of failing.&lt;/p&gt;
-&lt;h2 id=&quot;why-is-every-tool-read-only&quot;&gt;Why is every tool read-only?&lt;/h2&gt;
-&lt;p&gt;Because an LLM should not be restarting production Mule applications, and the official server already covers deployment for people who want it. mulewatch has no deploy, stop, restart or policy tools at all.&lt;/p&gt;
-&lt;p&gt;It also scopes the whole server, not one tool, to the environments you allow:&lt;/p&gt;
+    <content type="html">&lt;p&gt;MuleSoft has an official MCP server. It scaffolds projects, generates flows, deploys apps. What it can&#x27;t do is the one thing I need when something breaks in prod: read the logs.&lt;/p&gt;
+&lt;p&gt;So I built &lt;a href=&quot;https://github.com/brbousnguar/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;mulewatch&lt;/a&gt;. It&#x27;s an open-source MCP server that gives Claude, Cursor or any MCP client your Anypoint logs, live and archived. Read-only. One line to run: &lt;code&gt;npx -y mulewatch&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I first built a version of this for my day job. This one is the cleaned-up, works-for-anyone release.&lt;/p&gt;
+&lt;h2 id=&quot;building-vs-running&quot;&gt;Building vs. running&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&quot;https://docs.mulesoft.com/mulesoft-mcp-server&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;official server&lt;/a&gt; is for building Mule apps, and it&#x27;s good at that. But it expects a local Mule project open in your IDE. When a flow fails in prod, you usually don&#x27;t have one open. You have Runtime Manager in a browser tab.&lt;/p&gt;
+&lt;p&gt;mulewatch covers the other half of the job: figuring out what happened. Logs, deployed apps, API Manager instances, Exchange assets. Nothing that writes.&lt;/p&gt;
+&lt;h2 id=&quot;the-live-tail-forgets-fast&quot;&gt;The live tail forgets fast&lt;/h2&gt;
+&lt;p&gt;The logs you see in Runtime Manager are a live tail: a small rolling buffer per app. On a busy app it scrolls out in minutes, whatever &lt;code&gt;startTime&lt;/code&gt; you pass. If the problem happened last night, it&#x27;s already gone.&lt;/p&gt;
+&lt;p&gt;The real history lives in the Anypoint Monitoring Archive API. It stores logs in 10-minute files that land about 10 minutes after each window closes, and keeps them for a long time. You need Anypoint Monitoring enabled on the org.&lt;/p&gt;
+&lt;h2 id=&quot;the-fun-part-finding-the-right-replica&quot;&gt;The fun part: finding the right replica&lt;/h2&gt;
+&lt;p&gt;Here&#x27;s the catch. The archive isn&#x27;t indexed per app. It&#x27;s indexed per replica, as &lt;code&gt;{appName}_{replicaId}&lt;/code&gt;, and every redeploy creates new replicas. So you can&#x27;t just ask for &quot;the logs of order-sync-api on 9 August&quot;. You need to know which pod was running that day.&lt;/p&gt;
+&lt;p&gt;The app I tested on had &lt;strong&gt;669&lt;/strong&gt; replica entities in the archive. The API allows 60 requests a minute. Probing all of them is about 11 minutes of waiting before you read a single line.&lt;/p&gt;
+&lt;p&gt;Turns out you almost never need to. Pods usually live until the next redeploy, so the replica running right now probably wrote the recent logs too. mulewatch does this:&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;Grab the replica IDs from the live tail and try those first.&lt;/li&gt;&lt;li&gt;No files for that date? The app was redeployed since. Fall back to scanning every replica it ever had, capped by &lt;code&gt;maxEntities&lt;/code&gt;.&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;On that test, searching today probed &lt;strong&gt;1&lt;/strong&gt; replica, found 127 archive files and parsed 2,859 log lines. A date from before the last redeploy fell back to the full scan, as it should. The client also stays under the rate limit and backs off on &lt;code&gt;429&lt;/code&gt;, so a long search gets slower instead of failing.&lt;/p&gt;
+&lt;h2 id=&quot;read-only-on-purpose&quot;&gt;Read-only, on purpose&lt;/h2&gt;
+&lt;p&gt;I don&#x27;t want an LLM restarting production Mule apps. So there&#x27;s no deploy, stop, restart or policy tool in mulewatch. None. If you need those, use the official server next to it.&lt;/p&gt;
+&lt;p&gt;You can also lock the whole server to the environments you trust:&lt;/p&gt;
 &lt;pre data-lang=&quot;dotenv&quot;&gt;&lt;code&gt;ANYPOINT_ALLOWED_ENVIRONMENTS=Dev,Sandbox&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With that set, every tool refuses anything outside the list and says why. Pair it with a connected app that only has access to those environments and production is out of reach twice over.&lt;/p&gt;
-&lt;h2 id=&quot;what-trips-people-up-when-connecting-to-anypoint&quot;&gt;What trips people up when connecting to Anypoint?&lt;/h2&gt;
-&lt;p&gt;One thing, almost every time: &lt;strong&gt;environments belong to business groups, not to the root organization.&lt;/strong&gt; Connected-app credentials resolve to the root org, which often has zero environments — so the first call comes back empty and it looks like the credentials are wrong.&lt;/p&gt;
-&lt;p&gt;mulewatch has an &lt;code&gt;anypoint_list_business_groups&lt;/code&gt; tool for exactly this. List the groups, then pass the right id as &lt;code&gt;orgId&lt;/code&gt; or pin it with &lt;code&gt;ANYPOINT_ORG_ID&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The second trap is scopes. Anypoint answers a missing scope with a bare &lt;code&gt;403 Forbidden&lt;/code&gt;; mulewatch catches it and names the scope you probably need (&lt;code&gt;Read Applications&lt;/code&gt;, Monitoring &lt;code&gt;Viewer&lt;/code&gt;, &lt;code&gt;View APIs Configuration&lt;/code&gt;…).&lt;/p&gt;
-&lt;h2 id=&quot;how-do-i-try-it&quot;&gt;How do I try it?&lt;/h2&gt;
-&lt;p&gt;Create a connected app in &lt;strong&gt;Access Management → Connected Apps&lt;/strong&gt; (&quot;acts on its own behalf&quot;), grant the read scopes, and point your MCP client at &lt;code&gt;npx&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Anything outside the list gets refused, with the reason. Pair it with a connected app that only sees those environments and prod is out of reach twice.&lt;/p&gt;
+&lt;h2 id=&quot;the-thing-thatll-trip-you-up&quot;&gt;The thing that&#x27;ll trip you up&lt;/h2&gt;
+&lt;p&gt;Environments live on business groups, not on the root org. Connected-app credentials resolve to the root org, which often has zero environments. So your first call comes back empty and you think the credentials are broken. They&#x27;re not.&lt;/p&gt;
+&lt;p&gt;Call &lt;code&gt;anypoint_list_business_groups&lt;/code&gt;, grab the right id, set &lt;code&gt;ANYPOINT_ORG_ID&lt;/code&gt;. Done.&lt;/p&gt;
+&lt;p&gt;Same energy for scopes: Anypoint answers a missing scope with a bare &lt;code&gt;403&lt;/code&gt;. mulewatch catches it and tells you which scope you&#x27;re probably missing.&lt;/p&gt;
+&lt;h2 id=&quot;try-it&quot;&gt;Try it&lt;/h2&gt;
+&lt;p&gt;Create a connected app (&quot;acts on its own behalf&quot;), give it read scopes, and add this to Claude Desktop, Cursor or OpenClaw:&lt;/p&gt;
 &lt;pre data-lang=&quot;json&quot;&gt;&lt;code&gt;{
   &quot;mcpServers&quot;: {
     &quot;mulewatch&quot;: {
@@ -57,11 +53,10 @@
     }
   }
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For Claude Code:&lt;/p&gt;
+&lt;p&gt;Or in Claude Code:&lt;/p&gt;
 &lt;pre data-lang=&quot;bash&quot;&gt;&lt;code&gt;claude mcp add mulewatch --env ANYPOINT_CLIENT_ID=... --env ANYPOINT_CLIENT_SECRET=... -- npx -y mulewatch&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Start with &lt;code&gt;anypoint_whoami&lt;/code&gt;: it shows which credentials, business group and environment allowlist the server is running with. Then ask in plain language — &lt;em&gt;&quot;show me the ERROR lines of order-sync-api in Prod yesterday between 1 and 3 a.m.&quot;&lt;/em&gt; — and the agent picks &lt;code&gt;anypoint_search_archived_logs&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;whats-the-current-status&quot;&gt;What&#x27;s the current status?&lt;/h2&gt;
-&lt;p&gt;Version 0.1, Apache-2.0, on &lt;a href=&quot;https://www.npmjs.com/package/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;npm&lt;/a&gt; and the &lt;a href=&quot;https://registry.modelcontextprotocol.io/?q=mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;MCP registry&lt;/a&gt;. Every read path was exercised against a live Anypoint organization, except API Manager instances, which still need a test with the &lt;code&gt;View APIs Configuration&lt;/code&gt; scope. Issues and pull requests are welcome on &lt;a href=&quot;https://github.com/brbousnguar/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;MuleSoft, Anypoint Platform and CloudHub are trademarks of Salesforce, Inc. mulewatch is an independent project, not affiliated with or endorsed by Salesforce.&lt;/em&gt;&lt;/p&gt;</content>
+&lt;p&gt;Run &lt;code&gt;anypoint_whoami&lt;/code&gt; first to see what it&#x27;s connected to. Then just ask: &lt;em&gt;&quot;show me the ERROR lines of order-sync-api in Prod yesterday between 1 and 3 a.m.&quot;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It&#x27;s v0.1, Apache-2.0, on &lt;a href=&quot;https://www.npmjs.com/package/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;npm&lt;/a&gt; and the &lt;a href=&quot;https://registry.modelcontextprotocol.io/?q=mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;MCP registry&lt;/a&gt;. Everything is tested against a live org except API Manager, because my test app didn&#x27;t have the &lt;code&gt;View APIs Configuration&lt;/code&gt; scope. If you run MuleSoft, try it and tell me what breaks. Issues and PRs are open on &lt;a href=&quot;https://github.com/brbousnguar/mulewatch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;MuleSoft and Anypoint Platform are Salesforce trademarks. mulewatch is an independent project.&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
