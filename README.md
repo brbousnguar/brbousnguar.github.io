@@ -63,7 +63,7 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
 | Markup | HTML5, JSON-LD (Person, BreadcrumbList) |
 | Styles | One hand-written stylesheet, CSS custom properties |
 | Script | None — no runtime JavaScript |
-| Fonts | Google Fonts: Archivo, Hanken Grotesk, IBM Plex Mono |
+| Fonts | Archivo, Hanken Grotesk, IBM Plex Mono: self-hosted latin woff2 in `assets/fonts/` (OFL 1.1) |
 | Hosting | GitHub Pages from `main` |
 
 ## Repository layout

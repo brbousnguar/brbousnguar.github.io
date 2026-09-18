@@ -64,6 +64,8 @@ Rules that have already cost bugs elsewhere:
 
 Three roles, never blurred. Same families as Fortunex and Vitalex; Inter is
 deliberately gone.
+All three are self-hosted from `assets/fonts/` (latin woff2, OFL 1.1) with
+`font-display: swap`; Archivo and Hanken Grotesk are variable and preloaded.
 
 | Role | Family | Used for |
 |---|---|---|
