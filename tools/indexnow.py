@@ -12,8 +12,8 @@ The key is public by design: it is served at https://heybrahim.com/<KEY>.txt
 to prove we own the host. Keep that file at the repo root.
 """
 import json
+import subprocess
 import sys
-import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -36,17 +36,23 @@ def main():
         "keyLocation": f"https://{HOST}/{KEY}.txt",
         "urlList": urls,
     }
-    req = urllib.request.Request(
-        "https://api.indexnow.org/indexnow",
-        data=json.dumps(payload).encode(),
-        headers={"Content-Type": "application/json; charset=utf-8"},
-        method="POST",
+    # curl, not urllib: python.org builds on macOS often lack CA certificates.
+    result = subprocess.run(
+        [
+            "curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "30",
+            "-X", "POST", "https://api.indexnow.org/indexnow",
+            "-H", "Content-Type: application/json; charset=utf-8",
+            "--data-binary", json.dumps(payload),
+        ],
+        capture_output=True, text=True, check=True,
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        # 200 = accepted, 202 = accepted, key validation pending
-        print(f"IndexNow {resp.status}: submitted {len(urls)} URL(s)")
-        for url in urls:
-            print(f"  {url}")
+    status = result.stdout.strip()
+    # 200 = accepted, 202 = accepted, key validation pending
+    print(f"IndexNow {status}: submitted {len(urls)} URL(s)")
+    for url in urls:
+        print(f"  {url}")
+    if status not in ("200", "202"):
+        sys.exit(1)
 
 
 if __name__ == "__main__":
