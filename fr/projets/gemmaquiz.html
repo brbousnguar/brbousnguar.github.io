@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemmaquiz — Transformer n'importe quel sujet en quiz avec un modèle Gemma local | Brahim Bousnguar</title>
+  <meta name="description" content="gemmaquiz transforme un sujet approximatif en quiz à choix multiples : un modèle Gemma local via Ollama nettoie le sujet, lit le vrai article Wikipédia et écrit les questions. Pas de LLM cloud, pas de clé d&#x27;API.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Brahim Bousnguar">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://heybrahim.com/fr/projets/gemmaquiz.html">
+  <meta property="og:title" content="gemmaquiz — Transformer n&#x27;importe quel sujet en quiz avec un modèle Gemma local | Brahim Bousnguar">
+  <meta property="og:description" content="gemmaquiz transforme un sujet approximatif en quiz à choix multiples : un modèle Gemma local via Ollama nettoie le sujet, lit le vrai article Wikipédia et écrit les questions. Pas de LLM cloud, pas de clé d&#x27;API.">
+  <meta property="og:image" content="https://heybrahim.com/assets/img/og/projects-gemmaquiz-fr.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="gemmaquiz — Transformer n&#x27;importe quel sujet en quiz avec un modèle Gemma local. Brahim Bousnguar, heybrahim.com">
+  <link rel="alternate" type="text/markdown" href="/fr/projets/gemmaquiz.md">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="gemmaquiz — Transformer n&#x27;importe quel sujet en quiz avec un modèle Gemma local | Brahim Bousnguar">
+  <meta name="twitter:description" content="gemmaquiz transforme un sujet approximatif en quiz à choix multiples : un modèle Gemma local via Ollama nettoie le sujet, lit le vrai article Wikipédia et écrit les questions. Pas de LLM cloud, pas de clé d&#x27;API.">
+  <meta name="twitter:image" content="https://heybrahim.com/assets/img/og/projects-gemmaquiz-fr.png?v=1">
+  <meta name="twitter:image:alt" content="gemmaquiz — Transformer n&#x27;importe quel sujet en quiz avec un modèle Gemma local. Brahim Bousnguar, heybrahim.com">
+
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://heybrahim.com/fr/projets/gemmaquiz.html">
+  <link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/gemmaquiz.html">
+  <link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/gemmaquiz.html">
+  <link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/gemmaquiz.html">
+  <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
+
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <link rel="preload" href="/assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/hanken-grotesk-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://heybrahim.com/#person",
+        "name": "Brahim Bousnguar",
+        "givenName": "Brahim",
+        "familyName": "Bousnguar",
+        "jobTitle": "Senior E-Commerce Integration Consultant",
+        "description": "Senior E-Commerce Integration Consultant with 9+ years specializing in SAP Commerce Cloud, MuleSoft Anypoint Platform, and Salesforce. API-led integration architecture for enterprise commerce, delivered with AI-augmented development workflows.",
+        "url": "https://heybrahim.com/",
+        "email": "mailto:b.bousnguar@gmail.com",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://heybrahim.com/#portrait",
+          "url": "https://heybrahim.com/assets/img/profile.jpeg",
+          "width": 336,
+          "height": 336,
+          "caption": "Brahim Bousnguar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nantes",
+          "addressRegion": "Pays de la Loire",
+          "addressCountry": "FR"
+        },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "E-Commerce Integration Consultant",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          },
+          "skills": "SAP Commerce Cloud, MuleSoft Anypoint Platform, DataWeave, Salesforce integration, API-led connectivity"
+        },
+        "sameAs": [
+          "https://github.com/brbousnguar",
+          "https://www.linkedin.com/in/brahim-bousnguar/",
+          "https://www.credly.com/users/brahim-bousnguar"
+        ],
+        "knowsAbout": [
+          "SAP Commerce Cloud",
+          "MuleSoft Anypoint Platform",
+          "Salesforce",
+          "DataWeave",
+          "API-led connectivity",
+          "Java",
+          "Spring Boot",
+          "E-commerce",
+          "Microservices",
+          "Cloud migration",
+          "AI-augmented development",
+          "Model Context Protocol (MCP)",
+          "Python",
+          "TypeScript",
+          "FastAPI",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "INSEA Rabat",
+          "alternateName": "Institut National de Statistique et d'Économie Appliquée"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SQLI",
+          "url": "https://www.sqli.com/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "GitHub Copilot (GH-300)",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/BrahimBousnguar-7690/20B68101386B5A?sharingId=9C9C9C1DC7CAD24F",
+            "dateCreated": "2026-09"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Solution Architect - SAP Customer Experience",
+            "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Positioning SAP Customer Experience Solutions",
+            "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Business User - SAP Commerce Cloud",
+            "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b",
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Development Professional - SAP Commerce Cloud Developer",
+            "dateCreated": "2023"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3",
+            "dateCreated": "2018"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://heybrahim.com/#website",
+        "url": "https://heybrahim.com/",
+        "name": "Brahim Bousnguar",
+        "inLanguage": [
+          "en",
+          "fr"
+        ],
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "about": {
+          "@id": "https://heybrahim.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/fr/projets/gemmaquiz.html#webpage",
+        "url": "https://heybrahim.com/fr/projets/gemmaquiz.html",
+        "name": "gemmaquiz",
+        "description": "gemmaquiz transforme un sujet approximatif en quiz à choix multiples : un modèle Gemma local via Ollama nettoie le sujet, lit le vrai article Wikipédia et écrit les questions. Pas de LLM cloud, pas de clé d'API.",
+        "inLanguage": "fr",
+        "isPartOf": {
+          "@id": "https://heybrahim.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://heybrahim.com/fr/projets/gemmaquiz.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://heybrahim.com/fr/projets/gemmaquiz.html#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://heybrahim.com/fr/projets/gemmaquiz.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://heybrahim.com/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projets",
+            "item": "https://heybrahim.com/fr/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "gemmaquiz",
+            "item": "https://heybrahim.com/fr/projets/gemmaquiz.html"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://heybrahim.com/fr/projets/gemmaquiz.html#software",
+        "name": "gemmaquiz",
+        "description": "gemmaquiz transforme un sujet approximatif en quiz à choix multiples : un modèle Gemma local via Ollama nettoie le sujet, lit le vrai article Wikipédia et écrit les questions. Pas de LLM cloud, pas de clé d'API.",
+        "codeRepository": "https://github.com/brbousnguar/gemmaquiz",
+        "programmingLanguage": [
+          "JavaScript",
+          "Express",
+          "Ollama",
+          "Gemma"
+        ],
+        "license": "MIT",
+        "author": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "creator": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "dateCreated": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "url": "https://heybrahim.com/fr/projets/gemmaquiz.html",
+        "sameAs": [
+          "https://github.com/brbousnguar/gemmaquiz"
+        ],
+        "inLanguage": "fr",
+        "image": "https://heybrahim.com/assets/img/og/projects-gemmaquiz-fr.png"
+      }
+    ]
+  }
+  </script>
+  <!-- Cloudflare Web Analytics: cookieless, no consent banner needed (#47) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5fa2715383d04f25bb5d45fdb806263f"}'></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/fr/" class="brand">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span>Brahim Bousnguar</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/fr/#work">Missions</a>
+        <a href="/fr/#projects" aria-current="page">Projets</a>
+        <a href="/fr/#experience">Parcours</a>
+        <a href="/fr/#stack" class="nav-optional">Stack</a>
+        <a href="/fr/a-propos.html">À propos</a>
+        <a href="/notes/" hreflang="en">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Language / Langue">
+        <a href="/projects/gemmaquiz.html" hreflang="en" lang="en" aria-label="English">EN</a>
+        <a href="/fr/projets/gemmaquiz.html" hreflang="fr" lang="fr" aria-current="true" aria-label="Français">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article class="project" aria-labelledby="page-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/fr/#projects">Projet perso</a></p>
+          <h1 id="page-title">gemmaquiz</h1>
+          <p class="hero-lede">Transformer n&#x27;importe quel sujet en quiz avec un modèle Gemma local</p>
+        </div>
+      </header>
+
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="En bref">
+          <p class="note-aside-title mono">En bref</p>
+          <dl class="project-facts"><div><dt>Statut</dt><dd>Fonctionnel, à lancer en local</dd></div><div><dt>Stack</dt><dd>JavaScript · Express · Ollama · Gemma</dd></div><div><dt>Licence</dt><dd>MIT</dd></div></dl>
+          <ul class="project-links"><li><a href="https://github.com/brbousnguar/gemmaquiz" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>Tapez un sujet, même mal orthographié, et obtenez un quiz dessus. Le modèle tourne sur votre machine via Ollama ; la seule chose qui sort, c'est une recherche Wikipédia.</p>
+<pre data-lang="text"><code>sujet ──▶ gemma corrige ──▶ vous validez ──▶ extrait wikipédia ──▶ gemma écrit le quiz ──▶ vous jouez</code></pre>
+<h2 id="comment-a-marche">Comment ça marche</h2>
+<ol><li>Un modèle Gemma local transforme votre saisie approximative en sujet Wikipédia propre (<code>revoltion french</code> → <code>French Revolution</code>), et vous validez.</li><li>Il lit le vrai article Wikipédia de ce sujet.</li><li>Il écrit un quiz à choix multiples à partir de l'article : 3, 5, 10, 15 ou 20 questions.</li><li>Vous jouez, avec un retour immédiat et une courte explication par question.</li></ol>
+<p>Ancrer les questions dans l'article, c'est tout l'intérêt : le modèle écrit à partir d'un vrai texte, pas de sa mémoire.</p>
+<h2 id="deux-rglages-connatre">Deux réglages à connaître</h2>
+<ul><li><strong>Modèle par défaut <code>gemma4:e2b</code>.</strong> Mesuré sur un GPU Intel Arc, il tourne à environ 28–32 tokens/s contre environ 16 pour <code>gemma4:latest</code> : à peu près 2× plus rapide, et largement suffisant pour des quiz. <code>OLLAMA_MODEL=gemma4:latest</code> pour la qualité maximale.</li><li><strong>La réflexion est désactivée.</strong> Gemma est un modèle qui « réfléchit », mais pour du JSON structuré comme la correction de sujet et la génération de quiz, ce raisonnement ajoute de la latence sans meilleur résultat. <code>OLLAMA_THINK=1</code> le réactive.</li></ul>
+<h2 id="le-lancer">Le lancer</h2>
+<pre data-lang="bash"><code>ollama pull gemma4:e2b
+git clone https://github.com/brbousnguar/gemmaquiz.git
+cd gemmaquiz &amp;&amp; npm install &amp;&amp; npm start</code></pre>
+<p>Ouvrez <code>http://localhost:3000</code>. Il écoute sur toutes les interfaces, donc les autres appareils du réseau peuvent jouer aussi. Seule dépendance à l'exécution : Express, et le frontend est en JS pur, sans build.</p>
+          <p class="note-source mono">Texte brut: <a href="/fr/projets/gemmaquiz.md">gemmaquiz.md</a> · <a href="/fr/#projects">Tous les projets</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Écrivez-moi.</h2>
+          <a class="contact-mail" href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a>
+          <p class="contact-sub">Intégration SAP Commerce Cloud, MuleSoft et Salesforce · Nantes · FR / EN</p>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </p>
+          <footer class="site-foot">
+            <span>© 2026 Brahim Bousnguar</span>
+            <span>Pour les agents IA : <a href="/llms.txt">llms.txt</a> · <a href="/profile.json">profile.json</a></span>
+          </footer>
+        </div>
+      </section>
+  </main>
+</body>
+</html>

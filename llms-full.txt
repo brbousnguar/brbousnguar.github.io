@@ -38,10 +38,10 @@ Side projects, one page each (English; French versions under https://heybrahim.c
 <!-- projects:start -->
 - [mulewatch](https://heybrahim.com/projects/mulewatch.html) (2026-09-08): mulewatch is an open-source, read-only MCP server that lets Claude, Cursor or any MCP client read live and archived MuleSoft Anypoint logs, list deployed apps, API Manager instances and Exchange assets. Markdown: https://heybrahim.com/projects/mulewatch.md
 - [vibetidy](https://heybrahim.com/projects/vibetidy.html) (2026-09-08): vibetidy is a zero-dependency Node CLI that writes a README from what a repository actually contains, with an LLM that's only allowed to format verified facts, and warns when a feature-sized commit has no issue behind it. Markdown: https://heybrahim.com/projects/vibetidy.md
+- [gemmaquiz](https://heybrahim.com/projects/gemmaquiz.html) (2026-08-12): gemmaquiz turns a rough subject into a multiple-choice quiz: a local Gemma model on Ollama cleans up the topic, reads the real Wikipedia article and writes the questions. No cloud LLM, no API keys. Markdown: https://heybrahim.com/projects/gemmaquiz.md
 - [Meterlex](https://heybrahim.com/projects/meterlex.html) (2026-07-30): Meterlex reads the session logs of Claude Code, Codex, Gemini CLI, Antigravity, Ollama and Copilot CLI, prices every model call at the public API rate and compares it with what your subscriptions cost. Local-first, token counts only. Markdown: https://heybrahim.com/projects/meterlex.md
+- [FocusTracker](https://heybrahim.com/projects/focus-tracker.html) (2026-07-15): FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database. Markdown: https://heybrahim.com/projects/focus-tracker.md
 - [AI Models Costs](https://heybrahim.com/projects/ai-models-costs.html) (2026-06-15): A static React dashboard comparing public API prices across American, Chinese, European and specialist AI providers, for text, reasoning, image, audio, video, embeddings and more, normalized to USD per 1M tokens where possible. Markdown: https://heybrahim.com/projects/ai-models-costs.md
-- [Termo Track](https://heybrahim.com/projects/termo-track.html) (2026-06-13): Termo Track listens to ThermoPro Bluetooth sensors, stores readings in SQLite, shows live temperature and humidity in a React dashboard next to the outside weather, and exposes it all to AI clients through MCP. Local-first, no cloud account. Markdown: https://heybrahim.com/projects/termo-track.md
-- [MacBook MCP Server](https://heybrahim.com/projects/macbook-mcp-server.html) (2026-03-26): A small Python MCP server that exposes a MacBook's CPU, memory, disk, battery, network, GPU and top processes as MCP tools and a resource, over stdio or streamable HTTP for remote access through Tailscale. Markdown: https://heybrahim.com/projects/macbook-mcp-server.md
 <!-- projects:end -->
 
 ## Notes
@@ -373,6 +373,43 @@ The story of what CI caught, and why npm refused the first name: [My README gene
 
 ---
 
+## gemmaquiz
+
+URL: https://heybrahim.com/projects/gemmaquiz.html
+Published: 2026-08-12 · Updated: 2026-08-12
+
+Type a subject, even misspelled, and get a quiz about it. The model runs on your machine through Ollama; the only thing that goes out is a Wikipedia lookup.
+
+```text
+subject ──▶ gemma refines ──▶ you approve ──▶ wikipedia extract ──▶ gemma writes quiz ──▶ you play
+```
+
+## How it works
+
+1. A local Gemma model turns your rough input into a clean Wikipedia topic (`revoltion french` → `French Revolution`), and you approve it.
+2. It reads the real Wikipedia article for that topic.
+3. It writes a multiple-choice quiz from the article: 3, 5, 10, 15 or 20 questions.
+4. You play, with instant feedback and a short explanation per question.
+
+Grounding the questions in the article is the point: the model writes from real text instead of from memory.
+
+## Two settings worth knowing
+
+- **Default model `gemma4:e2b`.** Benchmarked on an Intel Arc GPU it runs at about 28–32 tokens/s, versus about 16 for `gemma4:latest`: roughly 2× faster, and plenty good for quizzes. Set `OLLAMA_MODEL=gemma4:latest` for peak quality.
+- **Thinking is off.** Gemma is a thinking model, but for structured JSON like topic cleanup and quiz generation, the reasoning adds latency without better results. `OLLAMA_THINK=1` turns it back on.
+
+## Run it
+
+```bash
+ollama pull gemma4:e2b
+git clone https://github.com/brbousnguar/gemmaquiz.git
+cd gemmaquiz && npm install && npm start
+```
+
+Open `http://localhost:3000`. It binds to all interfaces, so other devices on your network can play too. The only runtime dependency is Express, and the frontend is vanilla JS with no build step.
+
+---
+
 ## Meterlex
 
 URL: https://heybrahim.com/projects/meterlex.html
@@ -413,6 +450,41 @@ It's a personal tool, so the API has no auth. Keep it on localhost or a private 
 
 ---
 
+## FocusTracker
+
+URL: https://heybrahim.com/projects/focus-tracker.html
+Published: 2026-07-15 · Updated: 2026-07-15
+
+A focus timer that lives in the menu bar, logs every session, and shows you where your time actually went. Native Swift, no account needed.
+
+## What it does
+
+- A Clock-style timer: start, pause, resume, restart, cancel, right from the menu bar.
+- Reusable categories, session names linked to them, and an optional note per session.
+- A monthly dashboard: total hours, session count, active days, and category-colored charts by day or month.
+- A session editor by exact date. Add a past session with just its finish time and duration, and it works out the start.
+
+## Your data, your choice
+
+By default everything stays on your Mac in `~/Library/Application Support/FocusTracker/local-sessions.json`. No account, no token.
+
+If you want your sessions on several machines, point it at your own Supabase project instead: run the included `schema.sql`, then give the app the table's REST URL and your anon key. The key is stored only in the local config file, and the field hides it unless you hold the eye button.
+
+Two small safety nets sit next to the data: an append-only `sessions.jsonl` log, and an `outbox.json` retry queue for when the remote database is unreachable.
+
+## Install
+
+Download the [latest DMG](https://github.com/brbousnguar/focus-tracker/releases/latest/download/FocusTracker.dmg) and drag the app to Applications. It's a universal build for Apple silicon and Intel, not notarized yet, so macOS asks you to approve the first launch once in **Privacy & Security**. Each release ships with a SHA-256 checksum.
+
+Or run it from source on macOS 13+ with Swift 5.9:
+
+```bash
+git clone https://github.com/brbousnguar/focus-tracker.git
+cd focus-tracker/macos && swift run
+```
+
+---
+
 ## AI Models Costs
 
 URL: https://heybrahim.com/projects/ai-models-costs.html
@@ -441,73 +513,6 @@ Token prices are normalized to USD per 1M tokens when the provider publishes tha
 ## No backend
 
 The build is fully static: no database, no API calls at runtime. It deploys to GitHub Pages from Actions, and you can [use it live](https://heybrahim.com/ai-models-costs/).
-
----
-
-## Termo Track
-
-URL: https://heybrahim.com/projects/termo-track.html
-Published: 2026-06-13 · Updated: 2026-06-13
-
-A ThermoPro sensor broadcasts temperature and humidity over Bluetooth. Termo Track picks that up, keeps the history, and lets both a dashboard and Claude read it. No vendor app, no cloud account.
-
-## How the data flows
-
-1. `scanner_daemon.py` receives the sensor's BLE advertisements (with `bleak`).
-2. It writes each reading into SQLite.
-3. FastAPI serves REST and a WebSocket from that same database.
-4. The React dashboard reads the API and gets live pushes over `/ws`, with a stale-data warning when the sensor goes quiet.
-5. `mcp_server.py` exposes the same data to AI clients over stdio or HTTP.
-
-One SQLite file, three readers. That's the whole architecture.
-
-## Inside vs. outside
-
-The dashboard compares indoor readings with the outside weather from Open-Meteo, which needs no API key. Recent windows use the forecast API; month and year views use the historical archive.
-
-## What Claude can ask
-
-MCP tools: `get_current_reading`, `get_sensor_history`, `get_sensor_stats`, `get_comfort_level`, `get_outside_weather` and `get_indoor_outdoor_comparison`.
-
-So "was the bedroom more humid than outside last week?" is one question, not a spreadsheet.
-
----
-
-## MacBook MCP Server
-
-URL: https://heybrahim.com/projects/macbook-mcp-server.html
-Published: 2026-03-26 · Updated: 2026-03-26
-
-A small MCP server that lets Claude check on a Mac: CPU, memory, disk, battery, network, GPU, and the processes eating the most CPU or RAM. Ask "why is my fan so loud?" and it can actually look.
-
-## What it exposes
-
-Tools:
-
-- `get_system_overview`
-- `get_disk_usage`
-- `get_battery`
-- `get_network`
-- `get_gpu`
-- `get_top_resource_processes`
-
-And one resource, `status://system/overview`, for clients that read resources instead of calling tools.
-
-## Local or remote
-
-On the same machine, run it over `stdio` and add it to Claude Desktop. That's the simple path.
-
-For a Mac you want to check from somewhere else, it also speaks streamable HTTP:
-
-```bash
-PYTHONPATH=src MCP_TRANSPORT=streamable-http MCP_HOST=127.0.0.1 MCP_PORT=8765 python3 -m macbook_status_mcp.server
-```
-
-Don't put that on the public internet. The MCP spec itself warns about DNS rebinding for remote HTTP servers. Keep it private on Tailscale, bound to the Tailscale IP, with the optional bearer token (`MCP_SHARED_TOKEN`). A `launchd` template keeps it running after a reboot.
-
-## Why plain Python
-
-Machine monitoring is a code problem, not a workflow problem, so this uses the native Python MCP SDK. Alerting through something like n8n can sit on top later.
 
 
 # Client work (full text)
