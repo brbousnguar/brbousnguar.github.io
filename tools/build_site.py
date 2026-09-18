@@ -17,7 +17,7 @@ Front matter, between `---` lines, one `key: value` per line:
     all        title, description, date (YYYY-MM-DD), updated (optional),
                draft: true (optional; skipped)
     notes      tags (comma-separated), project (URL, optional)
-    projects   tagline, repo, npm / live (optional URLs), stack, license, status
+    projects   tagline, repo, npm / live / download (optional URLs), stack, license, status
     work       tagline, client (anonymised!), period, role, stack
 
 Also writes, all generated — never edit by hand:
@@ -513,10 +513,10 @@ def feed(notes):
 
 PROJECT_TEXT = {
     "en": {"eyebrow": "Side project", "crumb": "Projects", "facts": "At a glance", "status": "Status",
-           "stack": "Stack", "license": "License", "links": "Links", "repo": "GitHub", "npm": "npm", "live": "Live app",
+           "stack": "Stack", "license": "License", "links": "Links", "repo": "GitHub", "npm": "npm", "live": "Live app", "download": "Download",
            "source": "Plain text", "more": "All projects"},
     "fr": {"eyebrow": "Projet perso", "crumb": "Projets", "facts": "En bref", "status": "Statut",
-           "stack": "Stack", "license": "Licence", "links": "Liens", "repo": "GitHub", "npm": "npm", "live": "Application",
+           "stack": "Stack", "license": "Licence", "links": "Liens", "repo": "GitHub", "npm": "npm", "live": "Application", "download": "Télécharger",
            "source": "Texte brut", "more": "Tous les projets"},
 }
 
@@ -565,7 +565,7 @@ def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class
 
 def project_page(p, graph):
     T, url = PROJECT_TEXT[p["lang"]], p["url"]
-    links = [(T[k], p[k]) for k in ("repo", "npm", "live") if p.get(k)]
+    links = [(T[k], p[k]) for k in ("repo", "npm", "live", "download") if p.get(k)]
     code = {
         "@type": "SoftwareSourceCode", "@id": url + "#software", "name": p["title"], "description": p["description"],
         "codeRepository": p["repo"], "programmingLanguage": [s.strip() for s in p.get("stack", "").split("·") if s.strip()],

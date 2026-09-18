@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusTracker — A native macOS focus timer that keeps your data where you want it | Brahim Bousnguar</title>
+  <meta name="description" content="FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Brahim Bousnguar">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:url" content="https://heybrahim.com/projects/focus-tracker.html">
+  <meta property="og:title" content="FocusTracker — A native macOS focus timer that keeps your data where you want it | Brahim Bousnguar">
+  <meta property="og:description" content="FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database.">
+  <meta property="og:image" content="https://heybrahim.com/assets/img/og/projects-focus-tracker.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="FocusTracker — A native macOS focus timer that keeps your data where you want it. Brahim Bousnguar, heybrahim.com">
+  <link rel="alternate" type="text/markdown" href="/projects/focus-tracker.md">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FocusTracker — A native macOS focus timer that keeps your data where you want it | Brahim Bousnguar">
+  <meta name="twitter:description" content="FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database.">
+  <meta name="twitter:image" content="https://heybrahim.com/assets/img/og/projects-focus-tracker.png?v=1">
+  <meta name="twitter:image:alt" content="FocusTracker — A native macOS focus timer that keeps your data where you want it. Brahim Bousnguar, heybrahim.com">
+
+  <meta name="author" content="Brahim Bousnguar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://heybrahim.com/projects/focus-tracker.html">
+  <link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/focus-tracker.html">
+  <link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/focus-tracker.html">
+  <link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/focus-tracker.html">
+  <link rel="alternate" type="application/atom+xml" title="Notes — Brahim Bousnguar" href="/notes/feed.xml">
+
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- JSON-LD: one linked graph; #person comes from index.html via tools/build_site.py -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://heybrahim.com/#person",
+        "name": "Brahim Bousnguar",
+        "givenName": "Brahim",
+        "familyName": "Bousnguar",
+        "jobTitle": "Senior E-Commerce Integration Consultant",
+        "description": "Senior E-Commerce Integration Consultant with 9+ years specializing in SAP Commerce Cloud, MuleSoft Anypoint Platform, and Salesforce. API-led integration architecture for enterprise commerce, delivered with AI-augmented development workflows.",
+        "url": "https://heybrahim.com/",
+        "email": "mailto:b.bousnguar@gmail.com",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://heybrahim.com/#portrait",
+          "url": "https://heybrahim.com/assets/img/profile.jpeg",
+          "width": 336,
+          "height": 336,
+          "caption": "Brahim Bousnguar"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nantes",
+          "addressRegion": "Pays de la Loire",
+          "addressCountry": "FR"
+        },
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          }
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "E-Commerce Integration Consultant",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "France"
+          },
+          "skills": "SAP Commerce Cloud, MuleSoft Anypoint Platform, DataWeave, Salesforce integration, API-led connectivity"
+        },
+        "sameAs": [
+          "https://github.com/brbousnguar",
+          "https://www.linkedin.com/in/brahim-bousnguar/",
+          "https://www.credly.com/users/brahim-bousnguar"
+        ],
+        "knowsAbout": [
+          "SAP Commerce Cloud",
+          "MuleSoft Anypoint Platform",
+          "Salesforce",
+          "DataWeave",
+          "API-led connectivity",
+          "Java",
+          "Spring Boot",
+          "E-commerce",
+          "Microservices",
+          "Cloud migration",
+          "AI-augmented development",
+          "Model Context Protocol (MCP)",
+          "Python",
+          "TypeScript",
+          "FastAPI",
+          "React"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "INSEA Rabat",
+          "alternateName": "Institut National de Statistique et d'Économie Appliquée"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "SQLI",
+          "url": "https://www.sqli.com/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "GitHub Copilot (GH-300)",
+            "url": "https://learn.microsoft.com/api/credentials/share/en-us/BrahimBousnguar-7690/20B68101386B5A?sharingId=9C9C9C1DC7CAD24F",
+            "dateCreated": "2026-09"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Solution Architect - SAP Customer Experience",
+            "url": "https://www.credly.com/badges/0253dc07-cdb1-4b4e-a106-26eca1ef381f",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Positioning SAP Customer Experience Solutions",
+            "url": "https://www.credly.com/badges/c49996f2-b797-4ccd-9a1e-ca7431baa4e2",
+            "dateCreated": "2026-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified - Business User - SAP Commerce Cloud",
+            "url": "https://www.credly.com/badges/8f349925-c07a-4d8c-87b5-91b48f42e29b",
+            "dateCreated": "2025-03"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Development Professional - SAP Commerce Cloud Developer",
+            "dateCreated": "2023"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "SAP Certified Associate - SAP Hybris Commerce Business Analyst 6.3",
+            "dateCreated": "2018"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://heybrahim.com/#website",
+        "url": "https://heybrahim.com/",
+        "name": "Brahim Bousnguar",
+        "inLanguage": [
+          "en",
+          "fr"
+        ],
+        "publisher": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "about": {
+          "@id": "https://heybrahim.com/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://heybrahim.com/projects/focus-tracker.html#webpage",
+        "url": "https://heybrahim.com/projects/focus-tracker.html",
+        "name": "FocusTracker",
+        "description": "FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://heybrahim.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://heybrahim.com/projects/focus-tracker.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://heybrahim.com/projects/focus-tracker.html#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://heybrahim.com/projects/focus-tracker.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heybrahim.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://heybrahim.com/#projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "FocusTracker",
+            "item": "https://heybrahim.com/projects/focus-tracker.html"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://heybrahim.com/projects/focus-tracker.html#software",
+        "name": "FocusTracker",
+        "description": "FocusTracker is a native macOS focus timer with a menu-bar countdown, categories, session notes and a monthly dashboard. Sessions stay in a local file on your Mac or go to your own Supabase database.",
+        "codeRepository": "https://github.com/brbousnguar/focus-tracker",
+        "programmingLanguage": [
+          "Swift",
+          "SwiftUI",
+          "AppKit"
+        ],
+        "license": "MIT",
+        "author": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "creator": {
+          "@id": "https://heybrahim.com/#person"
+        },
+        "dateCreated": "2026-07-15",
+        "dateModified": "2026-07-15",
+        "url": "https://heybrahim.com/projects/focus-tracker.html",
+        "sameAs": [
+          "https://github.com/brbousnguar/focus-tracker",
+          "https://github.com/brbousnguar/focus-tracker/releases/latest/download/FocusTracker.dmg"
+        ],
+        "inLanguage": "en",
+        "image": "https://heybrahim.com/assets/img/og/projects-focus-tracker.png"
+      }
+    ]
+  }
+  </script>
+  <!-- Cloudflare Web Analytics: cookieless, no consent banner needed (#47) -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5fa2715383d04f25bb5d45fdb806263f"}'></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true">BB</span>
+        <span>Brahim Bousnguar</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#work">Work</a>
+        <a href="/#projects" aria-current="page">Projects</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#stack" class="nav-optional">Stack</a>
+        <a href="/pages/about.html">About</a>
+        <a href="/notes/">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <nav class="lang-switch" aria-label="Language / Langue">
+        <a href="/projects/focus-tracker.html" hreflang="en" lang="en" aria-current="true" aria-label="English">EN</a>
+        <a href="/fr/projets/focus-tracker.html" hreflang="fr" lang="fr" aria-label="Français">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <article class="project" aria-labelledby="page-title">
+      <header class="page-intro note-intro">
+        <div class="wrap">
+          <p class="eyebrow"><a href="/#projects">Side project</a></p>
+          <h1 id="page-title">FocusTracker</h1>
+          <p class="hero-lede">A native macOS focus timer that keeps your data where you want it</p>
+        </div>
+      </header>
+
+      <div class="wrap">
+       <div class="note-layout">
+        <aside class="note-aside" aria-label="At a glance">
+          <p class="note-aside-title mono">At a glance</p>
+          <dl class="project-facts"><div><dt>Status</dt><dd>v1.0.0, universal DMG</dd></div><div><dt>Stack</dt><dd>Swift · SwiftUI · AppKit</dd></div><div><dt>License</dt><dd>MIT</dd></div></dl>
+          <ul class="project-links"><li><a href="https://github.com/brbousnguar/focus-tracker" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li><li><a href="https://github.com/brbousnguar/focus-tracker/releases/latest/download/FocusTracker.dmg" target="_blank" rel="noopener noreferrer">Download ↗</a></li></ul>
+        </aside>
+        <div class="note-body prose">
+<p>A focus timer that lives in the menu bar, logs every session, and shows you where your time actually went. Native Swift, no account needed.</p>
+<h2 id="what-it-does">What it does</h2>
+<ul><li>A Clock-style timer: start, pause, resume, restart, cancel, right from the menu bar.</li><li>Reusable categories, session names linked to them, and an optional note per session.</li><li>A monthly dashboard: total hours, session count, active days, and category-colored charts by day or month.</li><li>A session editor by exact date. Add a past session with just its finish time and duration, and it works out the start.</li></ul>
+<h2 id="your-data-your-choice">Your data, your choice</h2>
+<p>By default everything stays on your Mac in <code>~/Library/Application Support/FocusTracker/local-sessions.json</code>. No account, no token.</p>
+<p>If you want your sessions on several machines, point it at your own Supabase project instead: run the included <code>schema.sql</code>, then give the app the table's REST URL and your anon key. The key is stored only in the local config file, and the field hides it unless you hold the eye button.</p>
+<p>Two small safety nets sit next to the data: an append-only <code>sessions.jsonl</code> log, and an <code>outbox.json</code> retry queue for when the remote database is unreachable.</p>
+<h2 id="install">Install</h2>
+<p>Download the <a href="https://github.com/brbousnguar/focus-tracker/releases/latest/download/FocusTracker.dmg" target="_blank" rel="noopener noreferrer">latest DMG</a> and drag the app to Applications. It's a universal build for Apple silicon and Intel, not notarized yet, so macOS asks you to approve the first launch once in <strong>Privacy &amp; Security</strong>. Each release ships with a SHA-256 checksum.</p>
+<p>Or run it from source on macOS 13+ with Swift 5.9:</p>
+<pre data-lang="bash"><code>git clone https://github.com/brbousnguar/focus-tracker.git
+cd focus-tracker/macos &amp;&amp; swift run</code></pre>
+          <p class="note-source mono">Plain text: <a href="/projects/focus-tracker.md">focus-tracker.md</a> · <a href="/#projects">All projects</a></p>
+        </div>
+       </div>
+      </div>
+    </article>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Say hello.</h2>
+          <a class="contact-mail" href="mailto:b.bousnguar@gmail.com">b.bousnguar@gmail.com</a>
+          <p class="contact-sub">SAP Commerce Cloud, MuleSoft and Salesforce integration · Nantes · EN / FR</p>
+          <p class="contact-links">
+            <a href="https://www.linkedin.com/in/brahim-bousnguar/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/brbousnguar" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="/docs/Brahim_Bousnguar_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </p>
+          <footer class="site-foot">
+            <span>© 2026 Brahim Bousnguar</span>
+            <span>For AI agents: <a href="/llms.txt">llms.txt</a> · <a href="/profile.json">profile.json</a></span>
+          </footer>
+        </div>
+      </section>
+  </main>
+</body>
+</html>

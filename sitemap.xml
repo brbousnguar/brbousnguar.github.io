@@ -74,6 +74,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/vibetidy.html"/>
   </url>
   <url>
+    <loc>https://heybrahim.com/projects/gemmaquiz.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/gemmaquiz.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/gemmaquiz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/gemmaquiz.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/gemmaquiz.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/gemmaquiz.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/gemmaquiz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/gemmaquiz.html"/>
+  </url>
+  <url>
     <loc>https://heybrahim.com/projects/meterlex.html</loc>
     <lastmod>2026-07-30</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/meterlex.html"/>
@@ -86,6 +100,34 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/meterlex.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/meterlex.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/meterlex.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/ascii-art-studio.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/ascii-art-studio.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/ascii-art-studio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/ascii-art-studio.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/ascii-art-studio.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/ascii-art-studio.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/ascii-art-studio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/ascii-art-studio.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/projects/focus-tracker.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/focus-tracker.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/focus-tracker.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/focus-tracker.html"/>
+  </url>
+  <url>
+    <loc>https://heybrahim.com/fr/projets/focus-tracker.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://heybrahim.com/projects/focus-tracker.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://heybrahim.com/fr/projets/focus-tracker.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heybrahim.com/projects/focus-tracker.html"/>
   </url>
   <url>
     <loc>https://heybrahim.com/projects/ai-models-costs.html</loc>

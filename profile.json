@@ -330,6 +330,33 @@
       ],
       "url": "https://github.com/brbousnguar/termo-track",
       "type": "open-source"
+    },
+    {
+      "name": "FocusTracker",
+      "url": "https://heybrahim.com/projects/focus-tracker.html",
+      "description": "Native macOS focus timer with a menu-bar countdown and dashboard; data stays local or in your own Supabase.",
+      "keywords": [
+        "Swift",
+        "SwiftUI"
+      ]
+    },
+    {
+      "name": "gemmaquiz",
+      "url": "https://heybrahim.com/projects/gemmaquiz.html",
+      "description": "Turns any subject into a quiz from the real Wikipedia article, with a local Gemma model. No cloud, no keys.",
+      "keywords": [
+        "JavaScript",
+        "Ollama"
+      ]
+    },
+    {
+      "name": "ASCII Art Studio",
+      "url": "https://heybrahim.com/projects/ascii-art-studio.html",
+      "description": "Browser-only ASCII art: figlet text, terminal animations, image to ASCII, export as a runnable .sh.",
+      "keywords": [
+        "TypeScript",
+        "Vite"
+      ]
     }
   ],
   "openSourceContributions": [
