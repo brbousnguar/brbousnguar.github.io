@@ -34,7 +34,7 @@ Hard refresh (Ctrl+F5) after HTML/CSS changes if not using Live Server.
 **Watch out — these are not the files you want to edit:**
 
 - Root `about.html` is a **redirect stub** pointing at `pages/about.html`. Root `learning.html` and `pages/learning.html` are `noindex` redirect stubs to the home page — the LinkedIn Learning browser was removed on 2026-09-11; keep the stubs so old links don't 404.
-- `tools/` holds the two generators, not linked from the site: `cv.html` (below) and `make_favicons.py`, which rebuilds `favicon.ico` and the `assets/img/` icon PNGs from the BB brand mark — bump the `?v=` query on the icon links after regenerating.
+- `tools/` holds the generators, not linked from the site: `cv.html` (below); `make_favicons.py`, which rebuilds `favicon.ico` and the `assets/img/` icon PNGs from the BB brand mark — bump the `?v=` query on the icon links after regenerating; and `make_og_card.py`, which renders the 1200×630 share cards `assets/img/og-card.png` (EN) and `og-card-fr.png` (FR, used once French has its own URL) from the hero copy — rerun it when the name, title or lede changes, bump the `?v=` on `og:image`/`twitter:image`, and re-scrape in the LinkedIn Post Inspector.
 - `docs/Brahim_Bousnguar_CV.pdf` is **generated** from `tools/cv.html` (Blueprint styling, content mirrors `profile.json`) — edit the HTML and re-print it with the headless-Chrome command in its header comment; never edit the PDF by hand. Keep it at two A4 pages.
 
 ## Architecture: Bilingual System
@@ -59,7 +59,7 @@ When adding content you must duplicate it into **both** wrapper divs and give th
 
 ## SEO Conventions
 
-Each page carries a full SEO head block: `<title>`, meta description, Open Graph (with `og:image:alt`, `og:site_name`, `og:locale`), Twitter Card (`name=` attributes, not `property=`), JSON-LD structured data (BreadcrumbList + Person; no FAQPage — there is no visible FAQ), canonical URL, and hreflang alternates (`en` / `fr` / `x-default`). When adding or modifying a page, keep all of these consistent. No `meta keywords` (search engines ignore it) and no `Crawl-delay` in `robots.txt` (Bing throttles on it). Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
+Each page carries a full SEO head block: `<title>`, meta description, Open Graph (with `og:image:alt`, `og:site_name`, `og:locale`), Twitter Card (`name=` attributes, not `property=`), JSON-LD structured data as **one linked `@graph`** — `Person` (`@id` `https://heybrahim.com/#person`, identical on every page: edit both copies together), `WebSite` (`#website`), the page node (`ProfilePage` on home, `AboutPage` on About; later pages use their own type) with `mainEntity` → `#person`, and a `BreadcrumbList`. New pages reuse the `#person` / `#website` `@id`s instead of inventing new Person blocks; no FAQPage — there is no visible FAQ, canonical URL, and hreflang alternates (`en` / `fr` / `x-default`). When adding or modifying a page, keep all of these consistent. No `meta keywords` (search engines ignore it) and no `Crawl-delay` in `robots.txt` (Bing throttles on it). Refer to `docs/SEO-GUIDE.md` for the keyword strategy.
 
 **IndexNow:** after a deploy that adds or changes pages, run `python3 tools/indexnow.py` (whole sitemap) or `python3 tools/indexnow.py <url>…`. It pings Bing, whose index also feeds ChatGPT search, Copilot and DuckDuckGo. The key file `e163ae94f3a76216d86baae9ec74bcd2.txt` at the repo root proves ownership — keep it.
 
