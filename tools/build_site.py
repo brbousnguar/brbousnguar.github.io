@@ -27,6 +27,7 @@ Also writes, all generated — never edit by hand:
     sitemap.xml         static pages + every generated page, with EN/FR alternates
     llms.txt            the lists between <!-- notes:… --> / <!-- projects:… --> markers
     llms-full.txt       llms.txt + the full Markdown of every note and project
+    404.html            the not-found page GitHub Pages serves for missing paths
 
 Shared pieces come from the hand-written pages so nothing drifts: `#person` and
 `#website` from index.html, the contact band from pages/about.html (EN) and
@@ -601,6 +602,47 @@ def work_page(p, graph):
     return detail_page(p, graph, T, "work", "work", facts, [], article, "case-study", p["title"])
 
 
+# ── 404 ─────────────────────────────────────────────────────────────────────
+
+def not_found_page(graph, notes, projects):
+    """GitHub Pages serves /404.html for every missing path (#69). English, with a
+    French line; noindex, so it never competes with real pages."""
+    latest = "".join(f'<li><a href="/notes/{n["slug"]}.html">{html.escape(n["title"])}</a></li>' for n in notes[:3])
+    head_html = head("en", "Page not found | Brahim Bousnguar",
+                     "This page doesn't exist. Try the home page, the notes or the side projects.",
+                     SITE + "/404.html", "website", graph)
+    head_html = head_html.replace('<meta name="robots" content="index, follow, max-image-preview:large">',
+                                  '<meta name="robots" content="noindex, follow">')
+    head_html = re.sub(r'  <link rel="canonical" href="[^"]*">\n', "", head_html)
+    return (head_html + header("en", None, {}) + f"""
+    <section class="page-intro">
+      <div class="wrap">
+        <p class="eyebrow">404</p>
+        <h1>Nothing here.</h1>
+        <p class="hero-lede">That page doesn't exist, or it moved when the site did. Here's where to go instead.</p>
+        <p class="note-feed mono" lang="fr">Page introuvable. <a href="/fr/" hreflang="fr">Retour à l'accueil en français</a>.</p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="prose-grid">
+        <h2>Start here</h2>
+        <ul class="nf-links">
+          <li><a href="/">Home</a>: what I do and the client work</li>
+          <li><a href="/notes/">Notes</a>: things I built and figured out</li>
+          <li><a href="/#projects">Side projects</a>: {len([p for p in projects if p["lang"] == "en"])} tools, each with its own page</li>
+          <li><a href="/pages/about.html">About</a>: the longer story</li>
+        </ul>
+      </div>
+      <div class="prose-grid nf-last">
+        <h2>Latest notes</h2>
+        <ul class="nf-links">{latest}</ul>
+      </div>
+    </div>
+
+""" + contact_block("en") + FOOTER)
+
+
 # ── Site-wide outputs ───────────────────────────────────────────────────────
 
 def last_commit_date(rel):
@@ -663,6 +705,7 @@ def main():
         (ROOT / p["file"]).write_text(project_page(p, graph))
     for p in work:
         (ROOT / p["file"]).write_text(work_page(p, graph))
+    (ROOT / "404.html").write_text(not_found_page(graph, notes, projects))
     (ROOT / "sitemap.xml").write_text(sitemap(notes, notes + projects + work))
     update_llms_index("notes", notes)
     en_projects = [p for p in projects if p["lang"] == "en"]
