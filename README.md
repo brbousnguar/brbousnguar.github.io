@@ -13,6 +13,7 @@ Presents 9+ years of enterprise e-commerce and integration work to recruiters, c
 - **About (`pages/about.html`)** — career story, timeline, current focus and what comes next.
 - **Case studies** — anonymised page per client mission in English (`/work/`) and French (`/fr/missions/`), with an integration diagram, linked from the home-page cards.
 - **Project pages** — one page per side project in English (`/projects/`) and French (`/fr/projets/`), generated from Markdown with `SoftwareSourceCode` JSON-LD.
+- **Demo videos** — project pages can open with a short captioned demo recorded from the real app (`tools/demo-videos/`).
 - **Notes (`/notes/`)** — English-only technical articles built from Markdown by `tools/build_site.py`, with an Atom feed, TechArticle JSON-LD, a `.md` copy of each note and `llms-full.txt` for AI agents.
 - **Bilingual** — English at `/`, French at `/fr/`, one language per URL with reciprocal `hreflang`; the EN/FR switch in the header links to the counterpart page.
 - **Machine-readable** — `llms.txt`, `profile.json` (JSON Resume style) and Person JSON-LD for search engines and AI agents; `robots.txt` explicitly allows the major AI crawlers.
@@ -98,7 +99,8 @@ It checks alpha-composited contrast and true 320px reflow. Then run Lighthouse (
     ├── make_favicons.py        # regenerates the favicon set from the BB mark
     ├── make_og_card.py         # renders the site share cards + one card per generated page
     ├── indexnow.py             # pings Bing/IndexNow with changed URLs after a deploy
-    └── build_site.py           # builds notes, project pages, feed, sitemap, llms-full.txt
+    ├── build_site.py           # builds notes, project pages, feed, sitemap, llms-full.txt
+    └── demo-videos/            # scripted demo videos (Playwright + Remotion), see its README
 ```
 
 ## Notes
