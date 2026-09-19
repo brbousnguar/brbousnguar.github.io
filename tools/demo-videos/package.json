@@ -1,0 +1,17 @@
+{
+  "name": "heybrahim-demo-videos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "record:gemmaquiz": "node recordings/gemmaquiz.mjs",
+    "stage": "node stage.mjs",
+    "render": "remotion render remotion/src/index.js --public-dir=remotion/public --concurrency=2 --codec=h264 --crf=18"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "playwright": "^1.50.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  }
+}

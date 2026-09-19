@@ -17,7 +17,8 @@ Front matter, between `---` lines, one `key: value` per line:
     all        title, description, date (YYYY-MM-DD), updated (optional),
                draft: true (optional; skipped)
     notes      tags (comma-separated), project (URL, optional)
-    projects   tagline, repo, npm / live / download (optional URLs), stack, license, status
+    projects   tagline, repo, npm / live / download (optional URLs), stack, license, status,
+               optional video, poster, video_caption, video_duration (demo at the top)
     work       tagline, client (anonymised!), period, role, stack
 
 Also writes, all generated — never edit by hand:
@@ -514,20 +515,20 @@ def feed(notes):
 PROJECT_TEXT = {
     "en": {"eyebrow": "Side project", "crumb": "Projects", "facts": "At a glance", "status": "Status",
            "stack": "Stack", "license": "License", "links": "Links", "repo": "GitHub", "npm": "npm", "live": "Live app", "download": "Download",
-           "source": "Plain text", "more": "All projects"},
+           "source": "Plain text", "more": "All projects", "demo": "demo"},
     "fr": {"eyebrow": "Projet perso", "crumb": "Projets", "facts": "En bref", "status": "Statut",
            "stack": "Stack", "license": "Licence", "links": "Liens", "repo": "GitHub", "npm": "npm", "live": "Application", "download": "Télécharger",
-           "source": "Texte brut", "more": "Tous les projets"},
+           "source": "Texte brut", "more": "Tous les projets", "demo": "démo"},
 }
 
 
-def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class, page_title):
+def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class, page_title, extra_nodes=(), media=""):
     """Shared layout for project and case-study pages: intro, facts aside, Markdown body."""
     lang, url, L = p["lang"], p["url"], LANG[p["lang"]]
     back = L["home"] + "#" + anchor
     nodes = graph + page_nodes(lang, url, p["title"], p["description"], "WebPage",
                                [(L["home_crumb"], SITE + L["home"]), (T["crumb"], SITE + back), (p["title"], url)],
-                               mainEntity={"@id": main_node["@id"]}) + [main_node]
+                               mainEntity={"@id": main_node["@id"]}) + [main_node, *extra_nodes]
     switch = {l: u.replace(SITE, "") for l, u in p["alternates"].items()}
     fact_items = "".join(f"<div><dt>{label}</dt><dd>{html.escape(value)}</dd></div>" for label, value in facts if value)
     link_items = "".join(f'<li><a href="{html.escape(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a></li>'
@@ -545,7 +546,7 @@ def detail_page(p, graph, T, nav_key, anchor, facts, links, main_node, css_class
           <p class="hero-lede">{html.escape(p["tagline"])}</p>
         </div>
       </header>
-
+{media}
       <div class="wrap">
        <div class="note-layout">
         <aside class="note-aside" aria-label="{T["facts"]}">
@@ -574,8 +575,41 @@ def project_page(p, graph):
         "sameAs": [u for _, u in links], "inLanguage": p["lang"], "image": SITE + card_for(p),
     }
     facts = [(T["status"], p.get("status")), (T["stack"], p.get("stack")), (T["license"], p.get("license"))]
+    extra, media = demo_video(p, T, code)
     return detail_page(p, graph, T, "projects", "projects", facts, links, code, "project",
-                       f'{p["title"]} — {p["tagline"]}')
+                       f'{p["title"]} — {p["tagline"]}', extra, media)
+
+
+def demo_video(p, T, main_node):
+    """Optional demo from front matter: video, video_square (served under 600px), poster,
+    video_caption, video_duration (s).
+    Muted, looping, inline, with controls so it can be paused; a VideoObject for search."""
+    if not p.get("video"):
+        return (), ""
+    url = p["url"]
+    vid = {
+        "@type": "VideoObject", "@id": url + "#demo", "name": f'{p["title"]}: {T["demo"]}',
+        "description": p.get("video_caption") or p["description"], "inLanguage": p["lang"],
+        "thumbnailUrl": SITE + p["poster"], "contentUrl": SITE + p["video"], "uploadDate": p["updated"],
+        "duration": f'PT{round(float(p.get("video_duration", 0)))}S', "creator": {"@id": SITE + "/#person"},
+    }
+    main_node["subjectOf"] = {"@id": vid["@id"]}
+    caption = html.escape(p.get("video_caption", ""))
+    # The square cut on phones: the 16:9 captions are unreadable at 320px.
+    square = (f'\n            <source src="{p["video_square"]}" type="video/mp4" media="(max-width: 600px)">'
+              if p.get("video_square") else "")
+    media = f"""
+      <div class="wrap">
+        <figure class="project-demo">
+          <video poster="{p["poster"]}" width="1920" height="1080" autoplay muted loop playsinline controls
+            preload="metadata" aria-label="{html.escape(vid["name"])}"{' data-square' if p.get("video_square") else ""}>{square}
+            <source src="{p["video"]}" type="video/mp4">
+          </video>
+          <figcaption class="mono">{caption}</figcaption>
+        </figure>
+      </div>
+"""
+    return (vid,), media
 
 
 # ── Case studies ────────────────────────────────────────────────────────────

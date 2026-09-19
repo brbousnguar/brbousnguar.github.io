@@ -1082,3 +1082,19 @@ a:hover { text-decoration-thickness: 2px; }
 .nf-links li:first-child { border-top: 0; padding-top: 4px; }
 .nf-links a { font-weight: 600; }
 .nf-last { margin-bottom: clamp(56px, 9vw, 112px); }
+
+/* ── Project demo video (front matter `video`, #75) ──────────────────── */
+
+.project-demo { margin: 0 0 clamp(28px, 4vw, 44px); }
+.project-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--paper-2);
+  border: 1px solid var(--ink);
+}
+.project-demo figcaption { margin-top: 10px; font-size: 13px; color: var(--ink-2); }
+@media (max-width: 600px) {
+  .project-demo video[data-square] { aspect-ratio: 1 / 1; object-fit: contain; }
+}
