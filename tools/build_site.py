@@ -582,7 +582,8 @@ def project_page(p, graph):
 
 def demo_video(p, T, main_node):
     """Optional demo from front matter: video, video_square (served under 600px), poster,
-    video_caption, video_duration (s).
+    video_caption (not shown on the page, Brahim 2026-09-19; it is the VideoObject
+    description, which carries the AI-voice disclosure), video_duration (s).
     Muted, looping, inline, with controls so it can be paused; a VideoObject for search."""
     if not p.get("video"):
         return (), ""
@@ -594,7 +595,6 @@ def demo_video(p, T, main_node):
         "duration": f'PT{round(float(p.get("video_duration", 0)))}S', "creator": {"@id": SITE + "/#person"},
     }
     main_node["subjectOf"] = {"@id": vid["@id"]}
-    caption = html.escape(p.get("video_caption", ""))
     # The square cut on phones: the 16:9 captions are unreadable at 320px.
     square = (f'\n            <source src="{p["video_square"]}" type="video/mp4" media="(max-width: 600px)">'
               if p.get("video_square") else "")
@@ -605,7 +605,6 @@ def demo_video(p, T, main_node):
             preload="metadata" aria-label="{html.escape(vid["name"])}"{' data-square' if p.get("video_square") else ""}>{square}
             <source src="{p["video"]}" type="video/mp4">
           </video>
-          <figcaption class="mono">{caption}</figcaption>
         </figure>
       </div>
 """

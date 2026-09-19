@@ -11,7 +11,7 @@ video: /assets/video/gemmaquiz-demo.mp4
 video_square: /assets/video/gemmaquiz-demo-square.mp4
 poster: /assets/img/demo/gemmaquiz.jpg
 video_caption: Real run on my Mac mini with a local Gemma model. Voiceover in my own voice, cloned with AI. Waits sped up, and labelled.
-video_duration: 23.8
+video_duration: 23.1
 ---
 
 Type a subject, even misspelled, and get a quiz about it. The model runs on your machine through Ollama; the only thing that goes out is a Wikipedia lookup.

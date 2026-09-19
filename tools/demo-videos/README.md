@@ -30,8 +30,12 @@ from the **real** app and edited by script, so a re-take is one command.
   ducked under the voice by `musicVolume()` in `Demo.jsx`.
 - **Key**: `ELEVENLABS_API_KEY` in `~/.config/heybrahim/elevenlabs.env` (chmod 600, a scoped key
   with a credit cap). Never commit it.
-- **Captions** stay on screen (most people watch muted), and the page caption says the voice is
-  an AI clone of Brahim's.
+- **Delivery**: Eleven v3 (`narrate.py` default) with audio tags in `narrations/<name>.<lang>.v3.txt`
+  ([excited], [curious], [proud]); `v2` is kept as a calmer fallback. Write "Gemma Quiz" in French
+  so "quiz" is said "kwiz".
+- **Captions** stay on screen (most people watch muted). There is no text under the video on the
+  page (Brahim's call); the AI-voice disclosure lives in the `VideoObject` description (`video_caption`).
+  Label the clip as AI voice when posting it on X or LinkedIn.
 - Web encodes are normalised to −16 LUFS (`loudnorm=I=-16:TP=-1.5`).
 
 ## gemmaquiz, end to end
