@@ -1,0 +1,7 @@
+[excited] Voici Gemma Quiz !
+Tapez n'importe quel sujet, même avec des fautes.
+[curious] Un modèle Gemma local le corrige,
+récupère le vrai article Wikipédia, et en fait un quiz.
+Chaque réponse est expliquée.
+[proud] Et tout tourne sur mon Mac. Pas de cloud. Pas de clé d'API.
+[excited] C'est open source. Essayez-le !

@@ -1,7 +1,7 @@
-This is gemmaquiz.
-I type any subject, typos and all.
+This is gemmaquiz!
+Type any subject, typos and all.
 A local Gemma model fixes it,
-pulls the real Wikipedia article, and writes a quiz from it.
+grabs the real Wikipedia article, and turns it into a quiz.
 Every answer comes with the why.
-It all runs on my Mac. No cloud, no API keys.
-It's open source, so try it.
+And it all runs on my Mac. No cloud. No API keys.
+It's open source. Go try it!

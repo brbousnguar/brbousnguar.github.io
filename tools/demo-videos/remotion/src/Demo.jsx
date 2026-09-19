@@ -74,11 +74,22 @@ const Caption = ({ text, badge, W }) => {
   return (
     <AbsoluteFill style={{ justifyContent: 'flex-end', alignItems: 'center', paddingBottom: W < 1400 ? 70 : 64 }}>
       <div style={{ display: 'flex', gap: 14, alignItems: 'center', transform: `translateY(${y}px)`, opacity: o }}>
-        <div style={{ background: INK, color: PAPER, fontFamily: 'Hanken', fontWeight: 600, fontSize: size,
-          padding: '18px 30px', letterSpacing: '-0.01em', maxWidth: W * 0.86, lineHeight: 1.2 }}>{text}</div>
-        {badge && <div style={{ background: MARKER, color: INK, fontFamily: 'Plex', fontWeight: 500,
+        {text && <div style={{ background: INK, color: PAPER, fontFamily: 'Hanken', fontWeight: 600, fontSize: size,
+          padding: '18px 30px', letterSpacing: '-0.01em', maxWidth: W * 0.86, lineHeight: 1.2 }}>{text}</div>}
+        {badge && <div style={{ background: MARKER, color: INK, fontFamily: 'Plex', fontWeight: 500, marginLeft: text ? 0 : 'auto',
           fontSize: size * 0.7, padding: '14px 18px' }}>{badge}</div>}
       </div>
+    </AbsoluteFill>
+  );
+};
+
+// Speed label alone (captions off): bottom-right, same marker style.
+const SpeedBadge = ({ badge, W }) => {
+  const o = interpolate(useCurrentFrame(), [0, 8], [0, 1], { extrapolateRight: 'clamp' });
+  return (
+    <AbsoluteFill style={{ justifyContent: 'flex-end', alignItems: 'flex-end', padding: W < 1400 ? 48 : 56, opacity: o }}>
+      <div style={{ background: MARKER, color: INK, fontFamily: 'Plex', fontWeight: 500, fontSize: W < 1400 ? 30 : 34,
+        padding: '12px 18px' }}>{badge}</div>
     </AbsoluteFill>
   );
 };
@@ -131,11 +142,14 @@ export const Demo = ({ spec }) => {
         width: SRC_W, height: SRC_H }}>
         <Img src={src} style={{ width: SRC_W, height: SRC_H, display: 'block' }} />
       </AbsoluteFill>
-      {clips.map((c, i) => c.caption && (
-        <Sequence key={i} from={c.from + 4} durationInFrames={c.frames - 4}>
-          <Caption text={c.caption} badge={c.badge} W={W} />
-        </Sequence>
-      ))}
+      {clips.map((c, i) => {
+        const text = spec.captions === false ? null : c.caption;
+        return (text || c.badge) && (
+          <Sequence key={i} from={c.from + 4} durationInFrames={c.frames - 4}>
+            {text ? <Caption text={text} badge={c.badge} W={W} /> : <SpeedBadge badge={c.badge} W={W} />}
+          </Sequence>
+        );
+      })}
       {spec.narration && <Audio src={staticFile(spec.narration.src)} />}
       {spec.music && <Audio src={staticFile(spec.music)} volume={(f) => musicVolume(f, spec)} />}
       <Sequence durationInFrames={spec.titleFrames}><Card W={W} H={H} {...spec.title} /></Sequence>
