@@ -23,6 +23,10 @@ PRESETS = {
            "voice_settings": {"stability": 0.5, "similarity_boost": 0.8, "use_speaker_boost": True}},
 }
 
+# Per-language tweaks. French: no audio tags in the script (a tagged opening changed the
+# timbre of the clone) and a higher similarity, picked by Brahim as take "C" (2026-09-19).
+LANG_SETTINGS = {"fr": {"similarity_boost": 0.9}}
+
 name, lang = sys.argv[1], sys.argv[2]
 preset = sys.argv[3] if len(sys.argv) > 3 else "v3"   # v3 chosen by Brahim, 2026-09-19
 suffix = sys.argv[4] if len(sys.argv) > 4 else ""
@@ -32,7 +36,9 @@ lines = [l.strip() for l in script.read_text().splitlines() if l.strip()]
 text = " ".join(lines)
 key = next(l.split("=", 1)[1].strip() for l in open(os.path.expanduser("~/.config/heybrahim/elevenlabs.env"))
            if l.startswith("ELEVENLABS_API_KEY"))
-body = json.dumps({"text": text, "language_code": lang, **PRESETS[preset]})
+cfg = json.loads(json.dumps(PRESETS[preset]))
+cfg["voice_settings"].update(LANG_SETTINGS.get(lang, {}) if preset == "v3" else {})
+body = json.dumps({"text": text, "language_code": lang, **cfg})
 # curl, not urllib: the python.org build on this Mac has no CA bundle.
 out = subprocess.run(["curl", "-s", "-X", "POST",
                       f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/with-timestamps?output_format=mp3_44100_128",
