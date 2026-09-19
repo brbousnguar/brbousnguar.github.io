@@ -2,7 +2,7 @@
 // Blueprint look: paper / ink / cobalt, Archivo + Hanken Grotesk + IBM Plex Mono.
 // The recording is shown frame by frame from staged JPEGs (stage.mjs), so the time
 // remapping (speed-ups, holds) is exact.
-import { AbsoluteFill, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Audio, Easing, Img, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export const FPS = 30;
 const PAPER = '#FBFAF7', INK = '#131211', INK2 = '#3A3833', COBALT = '#1446C8', SKY = '#9DB6FF', MARKER = '#FFD84D';
@@ -22,9 +22,14 @@ const Fonts = () => (
 export function buildTimeline(spec) {
   let at = spec.titleFrames;
   const clips = spec.clips.map((c) => {
-    const playFrames = Math.round(((c.src[1] - c.src[0]) * FPS) / c.rate);
-    const frames = playFrames + (c.hold ? Math.round(c.hold * FPS) : 0);
-    const clip = { ...c, from: at, frames, playFrames };
+    // With `dur` (target seconds, e.g. from the narration) the playback rate is derived so
+    // the shot fits; a clip with `hold` plays at rate 1 and freezes for the rest of `dur`.
+    const srcSec = c.src[1] - c.src[0];
+    const rate = c.dur ? (c.hold ? 1 : srcSec / c.dur) : c.rate;
+    const playFrames = Math.round((srcSec * FPS) / rate);
+    const frames = c.dur ? Math.max(Math.round(c.dur * FPS), playFrames) : playFrames + (c.hold ? Math.round(c.hold * FPS) : 0);
+    const badge = c.badge ?? (rate >= 1.8 ? `${rate.toFixed(1).replace(/\.0$/, '')}×` : null);
+    const clip = { ...c, rate, badge, from: at, frames, playFrames };
     at += frames;
     return clip;
   });
@@ -51,6 +56,14 @@ function camera(frame, clips, W, H) {
   const tx = Math.min(0, Math.max(W - SRC_W * s, W / 2 - fx * s));
   const ty = Math.min(0, Math.max(H - SRC_H * s, H / 2 - fy * s));
   return { s, tx, ty };
+}
+
+// Music bed: fades in, sits low under the voice, a little higher in the gaps, fades out.
+function musicVolume(f, spec) {
+  const t = f / FPS, total = buildTimeline(spec).total / FPS;
+  const speaking = (spec.narration?.lines || []).some((l) => t >= l.start - 0.15 && t <= l.end + 0.25);
+  const base = speaking ? 0.07 : 0.16;
+  return base * Math.min(1, t / 0.6) * Math.min(1, Math.max(0, (total - t) / 1.2));
 }
 
 const Caption = ({ text, badge, W }) => {
@@ -123,6 +136,8 @@ export const Demo = ({ spec }) => {
           <Caption text={c.caption} badge={c.badge} W={W} />
         </Sequence>
       ))}
+      {spec.narration && <Audio src={staticFile(spec.narration.src)} />}
+      {spec.music && <Audio src={staticFile(spec.music)} volume={(f) => musicVolume(f, spec)} />}
       <Sequence durationInFrames={spec.titleFrames}><Card W={W} H={H} {...spec.title} /></Sequence>
       <Sequence from={endFrom}><Card W={W} H={H} {...spec.end} /></Sequence>
     </AbsoluteFill>

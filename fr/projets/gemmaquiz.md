@@ -7,11 +7,11 @@ repo: https://github.com/brbousnguar/gemmaquiz
 stack: JavaScript · Express · Ollama · Gemma
 license: MIT
 status: Fonctionnel, à lancer en local
-video: /assets/video/gemmaquiz-demo.mp4
-video_square: /assets/video/gemmaquiz-demo-square.mp4
-poster: /assets/img/demo/gemmaquiz.jpg
-video_caption: Vraie session sur mon Mac mini avec un modèle Gemma local. Les attentes sont accélérées, et c'est indiqué.
-video_duration: 22.3
+video: /assets/video/gemmaquiz-demo-fr.mp4
+video_square: /assets/video/gemmaquiz-demo-fr-square.mp4
+poster: /assets/img/demo/gemmaquiz-fr.jpg
+video_caption: Vraie session sur mon Mac mini avec un modèle Gemma local. Voix off : ma propre voix, clonée par IA. Les attentes sont accélérées, et c'est indiqué.
+video_duration: 24.1
 ---
 
 Tapez un sujet, même mal orthographié, et obtenez un quiz dessus. Le modèle tourne sur votre machine via Ollama ; la seule chose qui sort, c'est une recherche Wikipédia.

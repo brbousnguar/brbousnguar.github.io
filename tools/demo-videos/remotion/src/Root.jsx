@@ -1,10 +1,8 @@
 import { Composition } from 'remotion';
 import { Demo, FPS, buildTimeline } from './Demo.jsx';
-import { gemmaquiz } from './specs.js';
+import { demos } from './specs.js';
 
-// One 16:9 (X, the site) and one 1:1 (feeds) cut per demo.
-const demos = { gemmaquiz };
-
+// One 16:9 (X, the site) and one 1:1 (feeds, phones) cut per demo.
 export const Root = () => (
   <>
     {Object.entries(demos).map(([id, spec]) => {
