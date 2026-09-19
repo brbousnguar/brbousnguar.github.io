@@ -33,8 +33,8 @@ from the **real** app and edited by script, so a re-take is one command.
 - **Delivery**: Eleven v3 (`narrate.py` default) with audio tags in `narrations/<name>.<lang>.v3.txt`
   ([excited], [curious], [proud]); `v2` is kept as a calmer fallback. Write "Gemma Quiz" in French
   so "quiz" is said "kwiz".
-- **Captions** stay on screen (most people watch muted). There is no text under the video on the
-  page (Brahim's call); the AI-voice disclosure lives in the `VideoObject` description (`video_caption`).
+- **No captions**: neither burned into the video (`captions: false` in the spec) nor under it on
+  the page (Brahim's call, 2026-09-19); only the speed badge shows, bottom-right, on sped-up shots; the AI-voice disclosure lives in the `VideoObject` description (`video_caption`).
   Label the clip as AI voice when posting it on X or LinkedIn.
 - Web encodes are normalised to −16 LUFS (`loudnorm=I=-16:TP=-1.5`).
 

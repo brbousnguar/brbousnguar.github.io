@@ -32,6 +32,7 @@ function gemmaquiz(lang, n) {
     frames: 'frames-gemmaquiz',
     narration: { src: `narration-gemmaquiz-${lang}.mp3`, lines: L },
     music: 'music-bed.mp3',
+    captions: false,   // no on-screen captions: the voice carries it (Brahim, 2026-09-19); speed badges still show
     titleFrames: Math.round(L[1].start * FPS),
     endFrames: Math.round((n.total - L[6].start + 1.0) * FPS),
     title: T.title,
